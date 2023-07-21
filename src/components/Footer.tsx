@@ -33,9 +33,11 @@ const Footer = (): JSX.Element => {
     {
       title: 'Get To Know Us',
       items: [
-        { external: false, title: 'Privacy Policy', url: '#' },
-        { external: false, title: ' Licensing', url: '#' },
-        { external: false, title: 'Terms & Conditions', url: '#' },
+        { external: false, title: 'Company', url: '#' },
+        { external: false, title: 'About Us', url: '#' },
+        { external: false, title: 'Careers', url: '#' },
+        { external: false, title: 'Investors Relation', url: '#' },
+        { external: false, title: 'Sponsorship', url: '#' },
       ],
     },
     {
