@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { ProgressBar } from 'src/components/Progressbar';
+import { Progressbar, Footer } from 'src/components';
 import 'nprogress/nprogress.css';
 import './globals.css'
 import Nav from 'src/components/Nav';
@@ -21,11 +21,12 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <>
-          {Nav()}
+          <Nav />
           {children}
           <Suspense fallback={null}>
-            <ProgressBar />
+            <Progressbar />
           </Suspense>
+          <Footer/>
         </>
       </body>
     </html>

@@ -4,9 +4,9 @@ import { useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import NProgress from 'nprogress';
 
-NProgress.configure({ easing: 'ease', speed: 1000, minimum: 0.1 });
+NProgress.configure({ easing: 'ease', speed: 500, minimum: 0.1 });
 
-export function ProgressBar() {
+const Progressbar =()=> {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -23,3 +23,5 @@ export function ProgressBar() {
 
   return null;
 }
+
+export default Progressbar
