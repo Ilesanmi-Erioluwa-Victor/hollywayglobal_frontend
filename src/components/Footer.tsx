@@ -9,16 +9,20 @@ interface FooterItems {
 const Footer = (): JSX.Element => {
   const footer: FooterItems[] = [
     {
-      title: 'Company',
+      title: 'Your Services',
       items: [
-        { external: false, title: 'About', url: '#' },
-        { external: false, title: 'Careers', url: '#' },
-        { external: false, title: 'Brand Center', url: '#' },
-        { external: false, title: 'Blog', url: '#' },
+        { external: false, title: 'Partner with us', url: '#' },
+        { external: false, title: 'Sell your farm', url: '#' },
+        { external: false, title: 'Rent out your farm', url: '#' },
+        { external: false, title: 'Setup your farm', url: '#' },
+        { external: false, title: 'Weed your farm', url: '#' },
+        { external: false, title: 'Clear your farmland', url: '#' },
+        { external: false, title: 'Buy farmland', url: '#' },
+        { external: false, title: 'Rent Warehouse', url: '#' },
       ],
     },
     {
-      title: 'Help Center',
+      title: 'Make Money with us',
       items: [
         { external: false, title: 'Discord Server', url: '#' },
         { external: false, title: 'Facebook', url: '#' },
