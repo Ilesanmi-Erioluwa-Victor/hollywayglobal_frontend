@@ -81,7 +81,7 @@ const Footer = (): JSX.Element => {
         },
         {
           external: true,
-          title: 'hollyway global programme',
+          title: 'submit a dispute',
           url: 'https://web.facebook.com/AfriSplashRemotely',
         },
         {
