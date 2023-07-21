@@ -65,6 +65,32 @@ const Footer = (): JSX.Element => {
         },
       ],
     },
+
+    {
+      title: 'For Affiliates',
+      items: [
+        {
+          external: true,
+          title: 'registration terms and condition',
+          url: 'https://twitter.com/Afrisplash',
+        },
+        {
+          external: true,
+          title: 'become an affiliate',
+          url: 'https://www.linkedin.com/company/afrisplash/',
+        },
+        {
+          external: true,
+          title: 'hollyway global programme',
+          url: 'https://web.facebook.com/AfriSplashRemotely',
+        },
+        {
+          external: true,
+          title: 'hollyway global affiliate guidelines',
+          url: '#',
+        },
+      ],
+    },
   ];
 
   return (
