@@ -45,7 +45,7 @@ const Footer = (): JSX.Element => {
       items: [
         {
           external: true,
-          title: 'iOS',
+          title: 'registration terms and condition',
           url: 'https://twitter.com/Afrisplash',
         },
         {
