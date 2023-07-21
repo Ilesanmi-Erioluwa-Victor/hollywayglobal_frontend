@@ -41,7 +41,7 @@ const Footer = (): JSX.Element => {
       ],
     },
     {
-      title: 'Download',
+      title: 'For Affiliates',
       items: [
         {
           external: true,
