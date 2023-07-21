@@ -50,7 +50,7 @@ const Footer = (): JSX.Element => {
         },
         {
           external: true,
-          title: ' Android',
+          title: 'become an affiliate',
           url: 'https://www.linkedin.com/company/afrisplash/',
         },
         {
