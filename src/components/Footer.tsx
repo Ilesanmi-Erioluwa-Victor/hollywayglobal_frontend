@@ -24,14 +24,14 @@ const Footer = (): JSX.Element => {
     {
       title: 'Make Money with us',
       items: [
-        { external: false, title: 'Discord Server', url: '#' },
-        { external: false, title: 'Facebook', url: '#' },
-        { external: false, title: 'Twitter', url: '#' },
-        { external: false, title: 'Contact Us', url: '#' },
+        { external: false, title: 'Advertise Your Products', url: '#' },
+        { external: false, title: 'Self Publish With Us', url: '#' },
+        { external: false, title: 'Self Agro E books', url: '#' },
+        { external: false, title: 'Setup Your Farm', url: '#' },
       ],
     },
     {
-      title: 'Legal',
+      title: 'Get To Know Us',
       items: [
         { external: false, title: 'Privacy Policy', url: '#' },
         { external: false, title: ' Licensing', url: '#' },
