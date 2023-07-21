@@ -67,7 +67,7 @@ const Footer = (): JSX.Element => {
     },
 
     {
-      title: 'For Affiliates',
+      title: 'customer service',
       items: [
         {
           external: true,
