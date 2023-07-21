@@ -65,7 +65,6 @@ const Footer = (): JSX.Element => {
         },
       ],
     },
-
     {
       title: 'customer service',
       items: [
@@ -83,11 +82,6 @@ const Footer = (): JSX.Element => {
           external: true,
           title: 'submit a dispute',
           url: 'https://web.facebook.com/AfriSplashRemotely',
-        },
-        {
-          external: true,
-          title: 'hollyway global affiliate guidelines',
-          url: '#',
         },
       ],
     },
