@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import Head from 'next/head';
+import 'nprogress/nprogress.css';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
