@@ -76,7 +76,7 @@ const Footer = (): JSX.Element => {
         },
         {
           external: true,
-          title: 'become an affiliate',
+          title: 'report abuse',
           url: 'https://www.linkedin.com/company/afrisplash/',
         },
         {
