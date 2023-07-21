@@ -55,7 +55,7 @@ const Footer = (): JSX.Element => {
         },
         {
           external: true,
-          title: ' Windows',
+          title: 'hollyway global programme',
           url: 'https://web.facebook.com/AfriSplashRemotely',
         },
         { external: true, title: 'MacOs', url: '#' },
