@@ -83,27 +83,28 @@ const Footer = (): JSX.Element => {
           title: 'submit a dispute',
           url: 'https://web.facebook.com/AfriSplashRemotely',
         },
+        
       ],
     },
   ];
 
   return (
-    <footer className='bg-[#1C1D36] w-full py-5 text-white'>
+    <footer className='bg-[#232F3E] w-full py-5 text-white'>
       <div className='w-11/12 md:w-10/12 mx-auto space-y-12'>
         <div className='flex w-full justify-between flex-wrap pt-14'>
           {footer.map((item: FooterItems, index) => (
             <section
               key={index}
-              className='text-white_2 mx-5 py-3 w-4/12 sm:w-3/12 md:w-max space-y-4'
+              className='flex-[1] text-white_2 mx-5 py-3 w-4/12 sm:w-3/12 md:w-max space-y-4'
             >
-              <div className='capitalize font-bold text-sm md:text-base'>
+              <div className='capitalize font-[700] whitespace-nowrap  md:text-[15px] mt-[6px] mb-[14px]'>
                 {item.title}
               </div>
-              <ul className='space-y-3 text-xs sm:text-sm md:text-base'>
+              <ul className='space-y-3 text-[#DDD]'>
                 {item.items.map((subItems: any, index: number) => (
                   <li
                     key={index}
-                    className='capitalize'
+                    className='capitalize text-xs sm:text-[13px] md:text-[12px]'
                   >
                     <Link
                       href={subItems.url}
