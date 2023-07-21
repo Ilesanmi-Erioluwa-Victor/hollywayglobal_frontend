@@ -58,7 +58,11 @@ const Footer = (): JSX.Element => {
           title: 'hollyway global programme',
           url: 'https://web.facebook.com/AfriSplashRemotely',
         },
-        { external: true, title: 'MacOs', url: '#' },
+        {
+          external: true,
+          title: 'hollyway global affiliate guidelines',
+          url: '#',
+        },
       ],
     },
   ];
