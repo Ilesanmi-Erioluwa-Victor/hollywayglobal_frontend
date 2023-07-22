@@ -118,7 +118,7 @@ const Footer = (): JSX.Element => {
             </section>
           ))}
 
-          <div>
+          <section>
             <div className='capitalize font-[700] whitespace-nowrap  md:text-[15px] mt-[20px] mb-[14px]'>
               Contact us
             </div>
@@ -126,11 +126,12 @@ const Footer = (): JSX.Element => {
             <h3>
               address :{' '}
               <span>
-                amore street 20, olodi - apata.ajegunle 102103, lagos.
+                Amore Street 20, Olodi - Apata.Ajegunle 102103, Lagos.
               </span>
             </h3>
-          </div>
+          </section>
         </div>
+        
         <div className='text-white_2 flex items-center flex-col md:flex-row md:justify-between border-t border-white_2/20 py-10'>
           <section>
             <span>&copy; </span>
