@@ -153,62 +153,6 @@ const Footer = (): JSX.Element => {
         </div>
       </div>
     </footer>
-
-    // <footer className='bg-dark_blue w-full py-5'>
-    //   <div className='w-11/12 md:w-10/12 mx-auto space-y-12'>
-    //     <div className='flex w-full justify-between flex-wrap pt-14'>
-    //       {footer.map((footer: any) => {
-    //         const { title, items } = footer;
-    //         return (
-    //           <div key={title}>
-    //             <h2 className='mb-6 text-sm font-semibold text-gray-500 uppercase dark:text-gray-400'>
-    //               {title}
-    //             </h2>
-    //             <ul className='text-gray-500 dark:text-gray-400'>
-    //               {items.map((subItems: any, index: number) => (
-    //                 <li
-    //                   key={index}
-    //                   className='capitalize mb-3 text-white'
-    //                 >
-    //                   <Link
-    //                     href={subItems.url}
-    //                     target={subItems.external ? '_blank' : '_self'}
-    //                   >
-    //                     {subItems.title}
-    //                   </Link>
-    //                 </li>
-    //               ))}
-    //             </ul>
-    //           </div>
-    //         );
-    //       })}
-
-    //       {/*
-    //     <hr />
-    //     <div className='px-4 py-6 dark:bg-gray-700 md:flex md:items-center md:justify-between'>
-    //       <span className='text-sm text-gray-500 dark:text-gray-300 sm:text-center'>
-    //         © {new Date().getFullYear()} Hollywayglobal.com .All Rights
-    //         Reserved.
-    //       </span>
-    //     */}
-    //       <div className='text-white_2 flex items-center flex-col md:flex-row md:justify-between border-t border-white_2/20 py-10'>
-    //         <section>
-    //           <span>&copy;</span>
-    //           <span className='capitalize xs:text-xs md:text-sm lg:text-base'>
-    //             afrisplash remotely. all rights reserved
-    //           </span>
-    //         </section>
-    //         <section>
-    //           <ul className='flex space-x-3  text-sm lg:text-base'>
-    //             <li>Terms of use</li>
-    //             <li>Privacy policy</li>
-    //             <li>Copyright policy</li>
-    //           </ul>
-    //         </section>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </footer>
   );
 };
 
