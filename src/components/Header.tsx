@@ -3,7 +3,10 @@ import Nav from './Nav'
 
 const Header = () => {
   return (
-    <header>
+      <header>
+          <main>
+              <div></div>
+          </main>
       <Nav />
     </header>
   )
