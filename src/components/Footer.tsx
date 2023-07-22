@@ -138,13 +138,13 @@ const Footer = (): JSX.Element => {
         <div className='text-white_2 flex items-center flex-col md:flex-row md:justify-between border-t border-white_2/20 py-10'>
           <section>
             <span>&copy; </span>
-            <span className='capitalize font-[700] whitespace-nowrap  md:text-[15px] mt-[20px] mb-[14px]'>
+            <span className='capitalize font-[500] whitespace-nowrap  md:text-[14px] mt-[20px] mb-[14px]'>
               {new Date().getFullYear()} Hollywayglobal.com .All Rights //
               Reserved.
             </span>
           </section>
           <section>
-            <ul className='flex space-x-3  capitalize font-[700] whitespace-nowrap  md:text-[15px] mt-[20px] mb-[14px]'>
+            <ul className='flex space-x-3  capitalize whitespace-nowrap  md:text-[13px] mt-[20px] mb-[14px]'>
               <li>Terms of use</li>
               <li>Privacy policy</li>
               <li>Copyright policy</li>
