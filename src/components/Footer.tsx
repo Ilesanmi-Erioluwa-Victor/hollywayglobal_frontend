@@ -83,7 +83,6 @@ const Footer = (): JSX.Element => {
           title: 'submit a dispute',
           url: 'https://web.facebook.com/AfriSplashRemotely',
         },
-        
       ],
     },
   ];
@@ -124,24 +123,28 @@ const Footer = (): JSX.Element => {
             </div>
 
             <h3>
-              address :{' '}
+              Address :{' '}
               <span>
                 Amore Street 20, Olodi - Apata.Ajegunle 102103, Lagos.
               </span>
             </h3>
+
+            <h3>
+              Phone Number : <span>+2347035980756</span>
+            </h3>
           </section>
         </div>
-        
+
         <div className='text-white_2 flex items-center flex-col md:flex-row md:justify-between border-t border-white_2/20 py-10'>
           <section>
             <span>&copy; </span>
-            <span className='capitalize xs:text-xs md:text-sm lg:text-base'>
+            <span className='capitalize font-[700] whitespace-nowrap  md:text-[15px] mt-[20px] mb-[14px]'>
               {new Date().getFullYear()} Hollywayglobal.com .All Rights //
               Reserved.
             </span>
           </section>
           <section>
-            <ul className='flex space-x-3  text-sm lg:text-base'>
+            <ul className='flex space-x-3  capitalize font-[700] whitespace-nowrap  md:text-[15px] mt-[20px] mb-[14px]'>
               <li>Terms of use</li>
               <li>Privacy policy</li>
               <li>Copyright policy</li>
