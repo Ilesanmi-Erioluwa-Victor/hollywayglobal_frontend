@@ -2,10 +2,10 @@ import React from 'react';
 import Nav from './Nav';
 import Link from 'next/link';
 
-const Header = () => {
+const Header = (): JSX.Element => {
   return (
-    <header>
-      <main>
+    <header className='px-[1rem] flex flex-col gap-[5px]'>
+      <main className='text-black text-[13px]'>
         <section>
           <div>
             <h3>Hi</h3>
