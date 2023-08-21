@@ -58,7 +58,7 @@ const Nav = (): JSX.Element => {
                 to={nav.link}
                 className={({ isActive }) =>
                   isActive
-                    ? 'text-green-300 underline underline-offset-1 transition-all'
+                    ? 'custom'
                     : ''
                 }
               >
