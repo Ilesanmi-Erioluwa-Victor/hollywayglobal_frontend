@@ -20,7 +20,12 @@ const RoundedInput: React.FC<InputProps> = ({
         className={`
         text-[#000000] h-10 ${className} px-[1.5rem] bg-inherit  text-[14px] font-[400] focus:outline-none`}
       />
-      <span className='cursor-pointer pr-[4px]'>{icon} </span>
+      <button
+        type='submit'
+        className='cursor-pointer pr-[4px]'
+      >
+        {icon}{' '}
+      </button>
     </form>
   );
 };
