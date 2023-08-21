@@ -23,21 +23,21 @@ const NavLink: Nav[] = [
     name: 'Contact',
     title: 'contact',
     id: uuidv4(),
-    link: '/pages/contact',
+    link: '/contact',
   },
 
   {
     name: 'About',
     title: 'about',
     id: uuidv4(),
-    link: '/pages/about',
+    link: '/about',
   },
 
   {
     name: 'Sign Up',
     title: 'Sign Up',
     id: uuidv4(),
-    link: '/pages/register',
+    link: '/register',
   },
 ];
 
@@ -53,7 +53,7 @@ const Nav = (): JSX.Element => {
               title={nav.title}
               className='nav-item'
               key={nav.id}
-            >
+              >
               <Link to={nav.link}>{nav.name}</Link>
             </li>
           );
