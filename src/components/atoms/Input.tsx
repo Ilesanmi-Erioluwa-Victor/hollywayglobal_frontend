@@ -5,17 +5,19 @@ interface InputProps {
   placeholder: string;
   className?: string | undefined;
   icon?: any;
+  type?: string;
 }
 
 const RoundedInput: React.FC<InputProps> = ({
   placeholder,
   className,
   icon,
+  type
 }) => {
   return (
-    <form className='grow md:grow-0 relative  gap-2 flex items-center justify-between rounded-[4px]  bg-[#F5F5F5]'>
+    <fieldset className='grow md:grow-0 relative  gap-2 flex items-center justify-between rounded-[4px]  bg-[#F5F5F5]'>
       <input
-        type='text'
+        type={type}
         placeholder={placeholder}
         className={`
         text-[#000000] h-10 ${className} px-[1.5rem] bg-inherit  text-[14px] font-[400] 
@@ -23,13 +25,17 @@ const RoundedInput: React.FC<InputProps> = ({
         text-center md:text-left w-[100%]
         `}
       />
-      <button
-        type='submit'
-        className='cursor-pointer pr-[4px]'
-      >
-        {icon}{' '}
-      </button>
-    </form>
+      {icon ? (
+        <button
+          type='submit'
+          className='cursor-pointer pr-[4px]'
+        >
+          {icon}{' '}
+        </button>
+      ) : (
+        ''
+      )}
+    </fieldset>
   );
 };
 export default RoundedInput;
