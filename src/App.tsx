@@ -1,9 +1,13 @@
-import { Home } from './pages';
+import { Routes, Route, Navigate } from 'react-router-dom';
+
+import { Header } from './components';
 
 const App = () => {
   return (
-    <div>
-      <Home />
+    <div className='container-custom'>
+      <div className='overall-layout'>
+        <Header />
+      </div>
     </div>
   );
 };
