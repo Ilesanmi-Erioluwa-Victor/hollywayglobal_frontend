@@ -44,10 +44,10 @@ const NavLink: Nav[] = [
 
 const Nav = (): JSX.Element => {
   return (
-    <nav className='padd flex justify-between items-center'>
+    <nav className='padd flex justify-between items-center text-[0.8rem]'>
       <div>logo</div>
 
-      <ul className='flex items-center justify-between'>
+      <ul className='flex items-center justify-between md:gap-[3rem]'>
         {NavLink.map((nav) => {
           return (
             <li
@@ -68,7 +68,8 @@ const Nav = (): JSX.Element => {
 
       <RoundedInput
         placeholder='What are you looking for?'
-        icon={<BiSearch className='w-4 h-4'/>}
+        icon={<BiSearch className='w-4 h-4' />}
+        className=''
       />
     </nav>
   );
