@@ -1,6 +1,7 @@
 import Button from '@mui/material/Button';
 
 import { FieldSet } from '../components/atoms';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
   return (
@@ -59,12 +60,15 @@ const Register = () => {
           </div>
           <Button
             variant='contained'
-          type='submit'
+            type='submit'
           >
-        Create Account
+            Create Account
           </Button>
         </form>
       </div>
+      <p>
+        Already have account? <Link to={'/login'}>Login</Link>
+      </p>
     </div>
   );
 };
