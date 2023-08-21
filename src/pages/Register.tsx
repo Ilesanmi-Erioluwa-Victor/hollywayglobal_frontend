@@ -10,7 +10,9 @@ const Register = () => {
 
       <div className='padd w-[45%] py-[1rem] paddTop self-center place-self-center content-center'>
         <form className='flex flex-col gap-[1rem]'>
-          <h3 className='font-[500] text-[2rem]'>Create an account</h3>
+          <h3 className='font-[500] text-[36px] tracking-[1.44px]'>
+            Create an account
+          </h3>
           <p className='font-[400] text-[0.8rem]'>Enter your details below</p>
           <div className='flex flex-col gap-[1rem]'>
             <FieldSet
@@ -65,10 +67,10 @@ const Register = () => {
             Create Account
           </Button>
         </form>
+        <p>
+          Already have account? <Link to={'/login'}>Login</Link>
+        </p>
       </div>
-      <p>
-        Already have account? <Link to={'/login'}>Login</Link>
-      </p>
     </div>
   );
 };
