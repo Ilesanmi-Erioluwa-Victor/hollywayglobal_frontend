@@ -6,6 +6,7 @@ interface LoginUser {
 export interface UserStore {
     user: any
     signUp: () => Promise<string>
-    login: () => Promie
+    login: (email: string, password: string) => Promise<LoginUser>
+
         
 }
