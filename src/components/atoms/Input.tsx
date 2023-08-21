@@ -13,12 +13,15 @@ const RoundedInput: React.FC<InputProps> = ({
   icon,
 }) => {
   return (
-    <form className='relative  gap-2 flex items-center justify-between rounded-[4px]  bg-[#F5F5F5]'>
+    <form className='grow md:grow-0 relative  gap-2 flex items-center justify-between rounded-[4px]  bg-[#F5F5F5]'>
       <input
         type='text'
         placeholder={placeholder}
         className={`
-        text-[#000000] h-10 ${className} px-[1.5rem] bg-inherit  text-[14px] font-[400] focus:outline-none`}
+        text-[#000000] h-10 ${className} px-[1.5rem] bg-inherit  text-[14px] font-[400] 
+        focus:outline-none
+        text-center md:text-left w-[100%]
+        `}
       />
       <button
         type='submit'
