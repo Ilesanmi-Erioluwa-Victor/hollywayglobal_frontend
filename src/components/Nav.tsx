@@ -1,11 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { v4 as uuidv4 } from 'uuid';
-import {
-  HomeIcon,
-  LockOpenIcon,
-  UserPlusIcon,
-} from '@heroicons/react/24/solid';
+import { BiSearch } from "react-icons/bi"
 
 import RoundedInput from './atoms/Input';
 
@@ -73,6 +69,7 @@ const Nav = (): JSX.Element => {
       <RoundedInput
         placeholder='What are you looking for ?'
         className={'border-[4px] bg-[#F5F5F5] text-[#000000]'}
+        icon={<BiSearch />}
       />
     </nav>
   );
