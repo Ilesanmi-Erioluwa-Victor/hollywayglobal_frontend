@@ -22,7 +22,7 @@ const Register = () => {
           <h3 className='font-[500] text-[36px] tracking-[1.44px]'>
             Create an account
           </h3>
-          <p className='font-[400] text-[0.8rem]'>Enter your details below</p>
+          <p className='font-[400] text-[1rem]'>Enter your details below</p>
           <div className='flex flex-col gap-[1rem]'>
             <FieldSet
               name='firstName'
@@ -72,11 +72,12 @@ const Register = () => {
           <Button
             variant='contained'
             type='submit'
+            className='p-[1rem] !important'
           >
             Create Account
           </Button>
         </form>
-        <p>
+        <p className='text-[1rem] flex justify-end items-center pt-2 gap-4'>
           Already have account? <Link to={'/login'}>Login</Link>
         </p>
       </div>

@@ -35,6 +35,7 @@ const FieldSet: React.FC<FieldsType> = ({
         value={value}
         onChange={onChange}
         type={type}
+        variant='standard'
       />
     </Box>
   );
