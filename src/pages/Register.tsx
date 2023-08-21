@@ -27,7 +27,7 @@ const Register = () => {
             <FieldSet
               name='firstName'
               label='firstName'
-              value='firstName'
+              value={data.firstName}
               onChange={''}
               id='firstName'
               type='text'
@@ -36,7 +36,7 @@ const Register = () => {
             <FieldSet
               name='lastName'
               label='lastName'
-              value='lastName'
+              value={data.lastName}
               onChange={''}
               id='lastName'
               type='text'
@@ -45,7 +45,7 @@ const Register = () => {
             <FieldSet
               name='password'
               label='password'
-              value='password'
+              value={data.password}
               onChange={''}
               id='password'
               type='password'
@@ -54,7 +54,7 @@ const Register = () => {
             <FieldSet
               name='email'
               label='email'
-              value='email'
+              value={data.email}
               onChange={''}
               id='email'
               type='email'
@@ -63,7 +63,7 @@ const Register = () => {
             <FieldSet
               name='mobile'
               label='mobile'
-              value='mobile'
+              value={data.mobile}
               onChange={''}
               id='mobile'
               type='text'
