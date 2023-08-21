@@ -12,7 +12,6 @@ import RoundedInput from './atoms/Input';
 type Nav = {
   name: string;
   title: string;
-  icon: object;
   id: string;
   link: string;
 };
@@ -21,25 +20,22 @@ const NavLink: Nav[] = [
   {
     name: 'Home',
     title: 'home',
-    icon: <HomeIcon />,
     id: uuidv4(),
     link: '/',
   },
 
   {
-    name: 'Register',
-    title: 'register',
-    icon: <UserPlusIcon />,
+    name: 'Contact',
+    title: 'contact',
     id: uuidv4(),
-    link: '/register',
+    link: '/contact',
   },
 
   {
-    name: 'Login',
-    title: 'login',
-    icon: <LockOpenIcon />,
+    name: 'About',
+    title: 'about',
     id: uuidv4(),
-    link: '/login',
+    link: '/about',
   },
 ];
 
