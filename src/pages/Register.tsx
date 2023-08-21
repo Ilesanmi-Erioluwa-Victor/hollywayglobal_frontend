@@ -29,15 +29,15 @@ const Register = () => {
   };
 
   return (
-    <div className=' paddTop flex'>
+    <div className='py-[2rem] md:paddTop flex'>
       <div className='hidden md:block w-[55%] bg-red-600'>fgfbnbn</div>
 
-      <div className='padd w-[100%] md:w-[45%] py-[1rem] paddTop self-center place-self-center content-center'>
+      <div className='padd w-[100%] md:w-[45%] py-[1rem] md:paddTop self-center place-self-center content-center'>
         <form
           className='flex flex-col gap-[1rem]'
           onSubmit={handleInputSubmit}
         >
-          <h3 className='font-[500] text-[36px] tracking-[1.44px]'>
+          <h3 className='text-[1.5rem] font-[500] md:text-[33px] tracking-[1.44px]'>
             Create an account
           </h3>
           <p className='font-[400] text-[1rem]'>Enter your details below</p>

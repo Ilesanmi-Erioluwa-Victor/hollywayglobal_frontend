@@ -23,10 +23,11 @@ const FieldSet: React.FC<FieldsType> = ({
   return (
     <Box
       sx={{
-        width: 500,
+        width: '100%',
         maxWidth: '100%',
         
       }}
+      
     >
       <TextField
         fullWidth
