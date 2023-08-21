@@ -6,10 +6,12 @@ import { useState } from 'react';
 
 const Register = () => {
   const [data, setData] = useState({
-    firstName: "",
-    lastName: "",
-    password
- : ""})
+    firstName: '',
+    lastName: '',
+    password: '',
+    email: '',
+    mobile: '',
+  });
 
   return (
     <div className=' paddTop flex'>
