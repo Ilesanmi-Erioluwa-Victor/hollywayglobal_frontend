@@ -1,4 +1,4 @@
-
+import { Field } from 'src/components/atoms';
 
 const Register = () => {
   return (
@@ -10,59 +10,13 @@ const Register = () => {
           <h3 className='font-[500] text-[2rem]'>Create an account</h3>
           <p className='font-[400] text-[0.8rem]'>Enter your details below</p>
           <div className='flex flex-col gap-[1rem]'>
-            {' '}
-           
-            <Box
-              sx={{
-                width: 500,
-                maxWidth: '100%',
-              }}
-            >
-              <TextField
-                fullWidth
-                label='lastName'
-                id='lastName'
-                name='lastName'
-                value={''}
-                onChange={() => ''}
-              />
-            </Box>
-            <Box
-              sx={{
-                width: 500,
-                maxWidth: '100%',
-              }}
-            >
-              <TextField
-                fullWidth
-                label='fullWidth'
-                id='fullWidth'
-              />
-            </Box>
-            <Box
-              sx={{
-                width: 500,
-                maxWidth: '100%',
-              }}
-            >
-              <TextField
-                fullWidth
-                label='fullWidth'
-                id='fullWidth'
-              />
-            </Box>
-            <Box
-              sx={{
-                width: 500,
-                maxWidth: '100%',
-              }}
-            >
-              <TextField
-                fullWidth
-                label='fullWidth'
-                id='fullWidth'
-              />
-            </Box>
+            <Field
+              name='firstName'
+              label='firstName'
+              value='firstName'
+              onChange={''}
+              id='firstName'
+            />
           </div>
         </form>
       </div>
