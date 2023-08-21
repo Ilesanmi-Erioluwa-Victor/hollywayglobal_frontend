@@ -77,8 +77,9 @@ const Register = () => {
           </div>
           <Button
             variant='contained'
+            size="large"
             type='submit'
-            className='p-[1rem] !important'
+            className='p-[1rem] !important bg-[#DB4444]'
           >
             Create Account
           </Button>
