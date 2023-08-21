@@ -1,14 +1,16 @@
 const Register = () => {
-  return <div className="bg-red-900 paddTop flex">
+  return (
+    <div className='bg-red-900 paddTop flex'>
+      <div className='h-[10rem] bg-yellow-700 w-[50%]'>fgfbnbn</div>
 
-      <div className="h-[10rem] bg-yellow-700 w-[50%]">fgfbnbn</div>
-
-      <div>
-          <form>
-              <h3>Form</h3>
-          </form>
+      <div className='padd'>
+        <form>
+          <h3 className='font-[500] text-[2rem]'>Create an account</h3>
+          <p className="">Enter your details below</p>
+        </form>
       </div>
-  </div>;
+    </div>
+  );
 };
 
 export default Register;
