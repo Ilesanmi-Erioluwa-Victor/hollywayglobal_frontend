@@ -1,5 +1,8 @@
 const Register = () => {
-  return <div>Register Page</div>;
+  return <div className="bg-red-900 paddTop">
+
+      
+  </div>;
 };
 
 export default Register;
