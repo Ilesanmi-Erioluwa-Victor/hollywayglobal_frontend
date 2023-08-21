@@ -1,9 +1,9 @@
-import Header from '../../components/molecules/Header';
+// import Header from '../../components/molecules/Header';
 
 const Home = () => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
     </>
   );
 };

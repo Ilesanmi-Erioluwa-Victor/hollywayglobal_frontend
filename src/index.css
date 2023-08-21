@@ -35,3 +35,10 @@ img {
 /* .padd {
 
 } */
+
+.padd {
+  padding-left: calc(1rem + 8vw);
+  padding-right: calc(1rem + 8vw);
+}
+
+/* calc(1rem + 8vh)  */

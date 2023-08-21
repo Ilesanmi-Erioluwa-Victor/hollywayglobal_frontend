@@ -53,7 +53,7 @@ const Nav = (): JSX.Element => {
               title={nav.title}
               className='nav-item'
               key={nav.id}
-              >
+            >
               <Link to={nav.link}>{nav.name}</Link>
             </li>
           );
