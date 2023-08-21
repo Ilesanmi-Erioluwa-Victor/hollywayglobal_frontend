@@ -42,28 +42,28 @@ const NavLink: Nav[] = [
 ];
 
 const Nav = (): JSX.Element => {
-    return (
-      <nav>
-        <ul className='bg-red-900'>
-          {NavLink.map((nav) => {
-            return (
-              <li
-                title={nav.title}
-                className='nav-item'
-                key={nav.id}
+  return (
+    <nav className='padd'>
+      <ul className='bg-red-900'>
+        {NavLink.map((nav) => {
+          return (
+            <li
+              title={nav.title}
+              className='nav-item'
+              key={nav.id}
+            >
+              <Link
+                href={nav.link}
+                className='nav-link  text-black'
               >
-                <Link
-                  href={nav.link}
-                  className='nav-link  text-black'
-                >
-                  {nav.name}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-    );
+                {nav.name}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
 };
 
 export default Nav;

@@ -12,6 +12,7 @@
 
 body {
   font-size: 75%;
+  background-color: #FFFFFF;
 }
 
 img {
@@ -31,4 +32,9 @@ img {
 
 .overall-layout {
   grid-column: container-start/container-end;
+}
+
+.padd {
+  padding-left: calc(1rem + 8vw);
+  padding-right: calc(1rem + 8vw);
 }
