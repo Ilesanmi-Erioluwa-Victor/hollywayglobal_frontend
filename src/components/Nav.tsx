@@ -48,7 +48,7 @@ const Nav = (): JSX.Element => {
     <nav className='padd flex justify-between items-center'>
       <div>logo</div>
       
-      <ul className='bg-red-900'>
+      <ul className='flex items-center justify-between'>
         {NavLink.map((nav) => {
           return (
             <li
