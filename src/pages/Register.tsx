@@ -1,8 +1,8 @@
+import { ChangeEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 import { FieldSet } from '../components/atoms';
-import { useState } from 'react';
 
 const Register = () => {
   const [data, setData] = useState({
@@ -12,6 +12,12 @@ const Register = () => {
     email: '',
     mobile: '',
   });
+
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+      const name = e.target.name;
+      const value = e.target.value;
+      setData({ ...data, [name]: value.trim() });
+    };
 
   return (
     <div className=' paddTop flex'>
