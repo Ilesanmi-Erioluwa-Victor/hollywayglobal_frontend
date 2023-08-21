@@ -1,11 +1,13 @@
+import Button from '@mui/material/Button';
+
 import { FieldSet } from '../components/atoms';
 
 const Register = () => {
   return (
     <div className=' paddTop flex'>
-      <div className='h-[10rem] w-[55%] bg-red-600'>fgfbnbn</div>
+      <div className=' w-[55%] bg-red-600'>fgfbnbn</div>
 
-      <div className='padd w-[45%] py-[1rem]'>
+      <div className='padd w-[45%] py-[1rem] paddTop self-center place-self-center content-center'>
         <form className='flex flex-col gap-[1rem]'>
           <h3 className='font-[500] text-[2rem]'>Create an account</h3>
           <p className='font-[400] text-[0.8rem]'>Enter your details below</p>
@@ -25,7 +27,7 @@ const Register = () => {
               value='lastName'
               onChange={''}
               id='lastName'
-              type="text"
+              type='text'
             />
 
             <FieldSet
@@ -55,6 +57,12 @@ const Register = () => {
               type='text'
             />
           </div>
+          <Button
+            variant='contained'
+          type='submit'
+          >
+        Create Account
+          </Button>
         </form>
       </div>
     </div>
