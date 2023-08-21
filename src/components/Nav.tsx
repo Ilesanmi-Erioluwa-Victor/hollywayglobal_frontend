@@ -1,5 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+
 import { v4 as uuidv4 } from 'uuid';
 import { BiSearch } from "react-icons/bi"
 
@@ -24,23 +27,27 @@ const NavLink: Nav[] = [
     name: 'Contact',
     title: 'contact',
     id: uuidv4(),
-    link: '/contact',
+    link: '/pages/contact',
   },
 
   {
     name: 'About',
     title: 'about',
     id: uuidv4(),
-    link: '/about',
+    link: '/pages/about',
   },
 
   {
     name: 'Sign Up',
     title: 'Sign Up',
     id: uuidv4(),
-    link: '/register',
+    link: '/pages/register',
   },
 ];
+
+const CustomLink = ({href, children}) =>{
+
+}
 
 const Nav = (): JSX.Element => {
   return (
