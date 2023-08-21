@@ -6,6 +6,7 @@ interface InputProps {
   className?: string | undefined;
   icon?: any;
   type?: string;
+  name? : string
 }
 
 const RoundedInput: React.FC<InputProps> = ({
@@ -13,6 +14,7 @@ const RoundedInput: React.FC<InputProps> = ({
   className,
   icon,
   type
+  name
 }) => {
   return (
     <fieldset className='grow md:grow-0 relative  gap-2 flex items-center justify-between rounded-[4px]  bg-[#F5F5F5]'>
@@ -24,6 +26,7 @@ const RoundedInput: React.FC<InputProps> = ({
         focus:outline-none
         text-center md:text-left w-[100%]
         `}
+        name={name}
       />
       {icon ? (
         <button
