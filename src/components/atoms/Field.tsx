@@ -11,7 +11,13 @@ interface FieldsType {
   onChange: any;
 }
 
-const Field: React.FC<FieldsType> = ({ label, id, value, onChange, name }) => {
+const FieldSet: React.FC<FieldsType> = ({
+  label,
+  id,
+  value,
+  onChange,
+  name,
+}) => {
   return (
     <Box
       sx={{
@@ -31,4 +37,4 @@ const Field: React.FC<FieldsType> = ({ label, id, value, onChange, name }) => {
   );
 };
 
-export default Field;
+export default FieldSet;

@@ -1,4 +1,4 @@
-import { Field } from 'src/components/atoms';
+import { FieldSet } from '../components/atoms';
 
 const Register = () => {
   return (
@@ -10,7 +10,7 @@ const Register = () => {
           <h3 className='font-[500] text-[2rem]'>Create an account</h3>
           <p className='font-[400] text-[0.8rem]'>Enter your details below</p>
           <div className='flex flex-col gap-[1rem]'>
-            <Field
+            <FieldSet
               name='firstName'
               label='firstName'
               value='firstName'
