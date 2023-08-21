@@ -6,7 +6,7 @@ const Register = () => {
       <div className='padd'>
         <form>
           <h3 className='font-[500] text-[2rem]'>Create an account</h3>
-          <p className="">Enter your details below</p>
+          <p className="font-[400] text-[0.8rem]">Enter your details below</p>
         </form>
       </div>
     </div>
