@@ -1,9 +1,16 @@
+import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 import { FieldSet } from '../components/atoms';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const Register = () => {
+  const [data, setData] = useState({
+    firstName: "",
+    lastName: "",
+    password
+ : ""})
+
   return (
     <div className=' paddTop flex'>
       <div className=' w-[55%] bg-red-600'>fgfbnbn</div>
