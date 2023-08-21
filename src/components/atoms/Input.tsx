@@ -18,7 +18,7 @@ const RoundedInput: React.FC<InputProps> = ({
         type='text'
         placeholder={placeholder}
         className={`
-        text-[#000000] h-10 ${className} px-[1.5rem] bg-inherit  text-[14px] font-[400]`}
+        text-[#000000] h-10 ${className} px-[1.5rem] bg-inherit  text-[14px] font-[400] focus:outline-none`}
       />
       <span className='cursor-pointer pr-[4px]'>{icon} </span>
     </form>
