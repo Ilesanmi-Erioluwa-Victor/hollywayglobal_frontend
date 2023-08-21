@@ -9,6 +9,7 @@ interface FieldsType {
   value: string;
   name: string;
   onChange: any;
+  type: string;
 }
 
 const FieldSet: React.FC<FieldsType> = ({
@@ -17,6 +18,7 @@ const FieldSet: React.FC<FieldsType> = ({
   value,
   onChange,
   name,
+  type
 }) => {
   return (
     <Box
@@ -32,6 +34,7 @@ const FieldSet: React.FC<FieldsType> = ({
         name={name}
         value={value}
         onChange={onChange}
+        type={type}
       />
     </Box>
   );
