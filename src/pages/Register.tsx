@@ -16,6 +16,7 @@ const Register = () => {
               value='firstName'
               onChange={''}
               id='firstName'
+              type='text'
             />
 
             <FieldSet
@@ -24,6 +25,7 @@ const Register = () => {
               value='lastName'
               onChange={''}
               id='lastName'
+              type="text"
             />
 
             <FieldSet
@@ -32,6 +34,7 @@ const Register = () => {
               value='password'
               onChange={''}
               id='password'
+              type='password'
             />
 
             <FieldSet
@@ -40,6 +43,7 @@ const Register = () => {
               value='email'
               onChange={''}
               id='email'
+              type='email'
             />
 
             <FieldSet
@@ -48,6 +52,7 @@ const Register = () => {
               value='mobile'
               onChange={''}
               id='mobile'
+              type='text'
             />
           </div>
         </form>
