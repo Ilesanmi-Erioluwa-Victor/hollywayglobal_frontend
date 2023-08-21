@@ -58,7 +58,7 @@ a {
   background-color: #007bff;
   transform: scaleX(0);
   transform-origin: left center;
-  transition: transform 0.3s, background-color 0.3s;
+  transition: transform 0.4s, background-color 0.4s;
 }
 
 .custom:hover, .custom:active, .custom:focus {

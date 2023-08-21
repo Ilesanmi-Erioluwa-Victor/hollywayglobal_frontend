@@ -25,6 +25,7 @@ const FieldSet: React.FC<FieldsType> = ({
       sx={{
         width: 500,
         maxWidth: '100%',
+        
       }}
     >
       <TextField

@@ -19,12 +19,24 @@ const Register = () => {
     setData({ ...data, [name]: value.trim() });
   };
 
+  const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    try {
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className=' paddTop flex'>
-      <div className=' w-[55%] bg-red-600'>fgfbnbn</div>
+      <div className='hidden md:block w-[55%] bg-red-600'>fgfbnbn</div>
 
-      <div className='padd w-[45%] py-[1rem] paddTop self-center place-self-center content-center'>
-        <form className='flex flex-col gap-[1rem]'>
+      <div className='padd w-[100%] md:w-[45%] py-[1rem] paddTop self-center place-self-center content-center'>
+        <form
+          className='flex flex-col gap-[1rem]'
+          onSubmit={handleInputSubmit}
+        >
           <h3 className='font-[500] text-[36px] tracking-[1.44px]'>
             Create an account
           </h3>
@@ -77,7 +89,7 @@ const Register = () => {
           </div>
           <Button
             variant='contained'
-            size="large"
+            size='large'
             type='submit'
             className='p-[1rem] !important bg-[#DB4444]'
           >
