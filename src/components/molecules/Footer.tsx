@@ -100,7 +100,6 @@ const Footer = (): JSX.Element => {
                 {item.title}
               </div>
               <ul className='space-y-3 text-[#DDD]'>
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 {item.items.map((subItems: any, index: number) => (
                   <li
                     key={index}

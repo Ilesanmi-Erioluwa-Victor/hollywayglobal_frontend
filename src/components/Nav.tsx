@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import { BiSearch } from 'react-icons/bi';
+import { NavLink } from 'react-router-dom';
 
 import RoundedInput from './atoms/Input';
-import { Link } from 'react-router-dom';
 
 type Nav = {
   name: string;
@@ -11,7 +11,7 @@ type Nav = {
   link: string;
 };
 
-const NavLink: Nav[] = [
+const NavLinks: Nav[] = [
   {
     name: 'Home',
     title: 'home',
@@ -47,14 +47,20 @@ const Nav = (): JSX.Element => {
       <div>logo</div>
 
       <ul className='flex items-center justify-between md:gap-[3rem]'>
-        {NavLink.map((nav) => {
+        {NavLinks.map((nav) => {
           return (
             <li
               title={nav.title}
               className='nav-item'
               key={nav.id}
             >
-              <Link to={nav.link}>{nav.name}</Link>
+              <NavLink
+                to={nav.link}
+                className={({ isActive }) => (isActive ? 'text-red-800' : '')}
+              >
+                {nav.name}
+              </NavLink>
+              ;
             </li>
           );
         })}
