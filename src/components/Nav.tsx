@@ -7,6 +7,8 @@ import {
   UserPlusIcon,
 } from '@heroicons/react/24/solid';
 
+import RoundedInput from './atoms/Input';
+
 type Nav = {
   name: string;
   title: string;
@@ -44,6 +46,8 @@ const NavLink: Nav[] = [
 const Nav = (): JSX.Element => {
   return (
     <nav className='padd'>
+      <div>logo</div>
+      
       <ul className='bg-red-900'>
         {NavLink.map((nav) => {
           return (
@@ -62,6 +66,11 @@ const Nav = (): JSX.Element => {
           );
         })}
       </ul>
+
+       <RoundedInput
+          placeholder='What are you looking for ?'
+          className={'border-[4px] bg-[#F5F5F5] text-[#000000]'}
+        />
     </nav>
   );
 };
