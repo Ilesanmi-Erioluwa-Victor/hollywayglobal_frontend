@@ -13,11 +13,11 @@ const Register = () => {
     mobile: '',
   });
 
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-      const name = e.target.name;
-      const value = e.target.value;
-      setData({ ...data, [name]: value.trim() });
-    };
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setData({ ...data, [name]: value.trim() });
+  };
 
   return (
     <div className=' paddTop flex'>
@@ -34,7 +34,7 @@ const Register = () => {
               name='firstName'
               label='firstName'
               value={data.firstName}
-              onChange={''}
+              onChange={handleInputChange}
               id='firstName'
               type='text'
             />
@@ -43,7 +43,7 @@ const Register = () => {
               name='lastName'
               label='lastName'
               value={data.lastName}
-              onChange={''}
+              onChange={handleInputChange}
               id='lastName'
               type='text'
             />
@@ -52,7 +52,7 @@ const Register = () => {
               name='password'
               label='password'
               value={data.password}
-              onChange={''}
+              onChange={handleInputChange}
               id='password'
               type='password'
             />
@@ -61,7 +61,7 @@ const Register = () => {
               name='email'
               label='email'
               value={data.email}
-              onChange={''}
+              onChange={handleInputChange}
               id='email'
               type='email'
             />
@@ -70,7 +70,7 @@ const Register = () => {
               name='mobile'
               label='mobile'
               value={data.mobile}
-              onChange={''}
+              onChange={handleInputChange}
               id='mobile'
               type='text'
             />
