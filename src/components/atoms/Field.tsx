@@ -1,7 +1,17 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-const Field = ({label, id, value,onChage, name}) => {
+interface FieldsType {
+  label: string;
+  id: string;
+  value: string;
+  name: string;
+  onChange: any;
+}
+
+const Field: React.FC<FieldsType> = ({ label, id, value, onChange, name }) => {
   return (
     <Box
       sx={{
@@ -15,7 +25,7 @@ const Field = ({label, id, value,onChage, name}) => {
         id={id}
         name={name}
         value={value}
-        onChange={onChage}
+        onChange={onChange}
       />
     </Box>
   );
