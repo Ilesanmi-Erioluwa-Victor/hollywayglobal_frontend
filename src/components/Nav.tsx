@@ -37,13 +37,20 @@ const NavLink: Nav[] = [
     id: uuidv4(),
     link: '/about',
   },
+
+  {
+    name: 'Sign Up',
+    title: 'Sign Up',
+    id: uuidv4(),
+    link: '/register',
+  },
 ];
 
 const Nav = (): JSX.Element => {
   return (
     <nav className='padd flex justify-between items-center'>
       <div>logo</div>
-      
+
       <ul className='flex items-center justify-between'>
         {NavLink.map((nav) => {
           return (
@@ -63,10 +70,10 @@ const Nav = (): JSX.Element => {
         })}
       </ul>
 
-       <RoundedInput
-          placeholder='What are you looking for ?'
-          className={'border-[4px] bg-[#F5F5F5] text-[#000000]'}
-        />
+      <RoundedInput
+        placeholder='What are you looking for ?'
+        className={'border-[4px] bg-[#F5F5F5] text-[#000000]'}
+      />
     </nav>
   );
 };
