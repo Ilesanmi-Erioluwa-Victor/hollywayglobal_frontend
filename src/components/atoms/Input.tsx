@@ -13,14 +13,15 @@ const RoundedInput: React.FC<InputProps> = ({
   icon,
 }) => {
   return (
-    <fieldset>
+    <form className='relative  gap-2 flex items-center justify-between rounded-[4px]  bg-[#F5F5F5]'>
       <input
         type='text'
         placeholder={placeholder}
-        className={`rounded-3xl placeholder:text-primary_green bg-lighter_green focus:bg-white text-gray-800 h-12 px-4 ${className} focus:outline-[#AAA3A3] text-sm font-normal`}
+        className={`
+        text-[#000000] h-10 ${className} px-[1.5rem] bg-inherit  text-[14px] font-[400]`}
       />
-      <span>{icon} </span>
-    </fieldset>
+      <span className='cursor-pointer pr-[4px]'>{icon} </span>
+    </form>
   );
 };
 export default RoundedInput;

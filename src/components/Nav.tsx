@@ -67,9 +67,8 @@ const Nav = (): JSX.Element => {
       </ul>
 
       <RoundedInput
-        placeholder='What are you looking for ?'
-        className={'border-[4px] bg-[#F5F5F5] text-[#000000]'}
-        icon={<BiSearch />}
+        placeholder='What are you looking for?'
+        icon={<BiSearch className='w-4 h-4'/>}
       />
     </nav>
   );
