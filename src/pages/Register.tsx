@@ -38,12 +38,12 @@ const Register = () => {
         />
       </div>
 
-      <div className='padd w-[100%] md:w-[45%] py-[1rem] md:paddTop self-center place-self-center content-center'>
+      <div className='padd w-[100%] md:w-[45%] py-[1rem] paddTop self-center place-self-center content-center'>
         <form
           className='flex flex-col gap-[1rem]'
           onSubmit={handleInputSubmit}
         >
-          <h3 className='text-[1.5rem] font-[500] md:text-[33px] tracking-[1.44px]'>
+          <h3 className='text-[1.8rem] font-[500]  tracking-[1.44px] md:text-[1.6rem] md:tracking-[0px] lg:text-[2rem]'>
             Create an account
           </h3>
           <p className='font-[400] text-[1rem]'>Enter your details below</p>
@@ -97,7 +97,8 @@ const Register = () => {
             variant='contained'
             size='large'
             type='submit'
-            className='p-[1rem] !important bg-[#DB4444]'
+            className='p-[1rem] text-[2rem]'
+
           >
             Create Account
           </Button>
