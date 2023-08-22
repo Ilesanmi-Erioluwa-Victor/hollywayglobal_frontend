@@ -1,10 +1,36 @@
 import { v4 as uuidv4 } from 'uuid';
+import { FaAppleAlt } from 'react-icons/fa';
+import { GiLipstick } from "react-icons/gi"
+import { BiHomeAlt2 }from "react-icons/bi"
+import { PiCookingPotLight } from "react-icons/pi"
 
 const Category = [
   {
-    name: 'Woman’s Fashion',
+    name: 'Supermarket',
     link: 'category/',
     id: uuidv4(),
+    icon: <FaAppleAlt />,
+  },
+
+  {
+    name: 'Health & Beauty',
+    link: 'category/',
+    id: uuidv4(),
+    icon: <GiLipstick />,
+  },
+
+  {
+    name: 'Home & Office',
+    link: 'category/',
+    id: uuidv4(),
+    icon: <BiHomeAlt2 />,
+  },
+
+  {
+    name: 'Appliances',
+    link: 'category/',
+    id: uuidv4(),
+    icon: <PiCookingPotLight />,
   },
 ];
 
