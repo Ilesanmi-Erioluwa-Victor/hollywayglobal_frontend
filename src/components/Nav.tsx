@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
-import { BiSearch } from 'react-icons/bi';
-import { AiOutlineHeart } from "react-icons/ai"
+import { BiSearch, BiCartAlt } from 'react-icons/bi';
+import { AiOutlineHeart, AiOutlineUser } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
 
 import RoundedInput from './atoms/Input';
@@ -47,13 +47,31 @@ const NavLinks: Nav[] = [
   },
 ];
 
-const sec = [{
-  name: "Favourite",
-  title: "favourite",
-  link: "/fav",
-  icon: <AiOutlineHeart />,
-  id: uuidv4()
-}]
+const sec = [
+  {
+    name: 'Favourite',
+    title: 'favourite',
+    link: '/fav',
+    icon: <AiOutlineHeart />,
+    id: uuidv4(),
+  },
+
+  {
+    name: 'Cart',
+    title: 'Cart',
+    link: '/myCart',
+    icon: <BiCartAlt />,
+    id: uuidv4(),
+  },
+
+  {
+    name: 'My profile',
+    title: 'Profile',
+    link: '/Profile',
+    icon: <AiOutlineUser />,
+    id: uuidv4(),
+  }
+];
 
 const Nav = (): JSX.Element => {
   return (
