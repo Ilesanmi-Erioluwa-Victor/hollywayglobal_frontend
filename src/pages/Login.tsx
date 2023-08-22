@@ -62,20 +62,23 @@ const Login = () => {
               type='password'
             />
 
-            <Button
-              variant='contained'
-              size='large'
-              type='submit'
-              className='p-[1rem] text-[2rem]'
-            >
-              Create Account
-            </Button>
+            <div>
+              <Button
+                variant='contained'
+                size='large'
+                type='submit'
+                className='p-[1rem] text-[2rem]'
+              >
+                Login
+              </Button>
+
+              <p>
+                <Link to={'/forgotten-password'}>Forgotten Password ?</Link>
+              </p>
+            </div>
           </div>
         </form>
       </div>
-      <p className='text-[1rem] flex justify-end items-center pt-2 gap-4'>
-        Already have account? <Link to={'/login'}>Login</Link>
-      </p>
     </div>
   );
 };
