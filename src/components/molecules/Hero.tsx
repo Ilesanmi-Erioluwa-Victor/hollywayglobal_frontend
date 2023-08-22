@@ -16,7 +16,10 @@ import { IoGameControllerOutline } from 'react-icons/io5';
 import { CiDumbbell, CiCircleMore } from 'react-icons/ci';
 import { Carousel } from 'react-responsive-carousel';
 import { Link } from 'react-router-dom';
+
 import Image from '../../assets/dark_800.png';
+import Image1 from '../../assets/signup.png';
+import Image2 from '../../assets/react.svg';
 
 interface category {
   name: string;
@@ -112,15 +115,7 @@ const Category: category[] = [
 ];
 
 const Hero = () => {
-  //  const slides = [
-  //    <div key='slide1'>
-  //      <img
-  //        src={Image}
-  //        alt='Image 1'
-  //      />
-  //    </div>,
-  //    // Add more slides as needed
-  // ];
+  const slides = [Image, Image1, Image2];
 
   return (
     <div className='py-[2rem] padd flex justify-between gap-6'>
