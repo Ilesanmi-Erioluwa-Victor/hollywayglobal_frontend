@@ -92,7 +92,9 @@ const Register = () => {
             variant='contained'
             size='large'
             type='submit'
-            className='p-[1rem] text-[2rem]'
+            sx={{
+              backgroundColor: '#DB4444',
+            }}
           >
             Create Account
           </Button>
