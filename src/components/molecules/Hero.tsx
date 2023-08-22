@@ -138,29 +138,15 @@ const Hero = () => {
           showThumbs={false}
           showStatus={false}
         >
-          <div className='carousel-image-container'>
-            <img
-              className='carousel-image'
-              src={Image}
-              alt='Image 1'
-            />
-          </div>
-
-          <div className='carousel-image-container'>
-            <img
-              className='carousel-image'
-              src={Image}
-              alt='Image 1'
-            />
-          </div>
-
-          <div className='carousel-image-container'>
-            <img
-              className='carousel-image'
-              src={Image}
-              alt='Image 1'
-            />
-          </div>
+          {slides.map((img) => (
+            <div className='carousel-image-container'>
+              <img
+                className='carousel-image'
+                src={img}
+                alt='slider images'
+              />
+            </div>
+          ))}
         </Carousel>
       </div>
     </div>
