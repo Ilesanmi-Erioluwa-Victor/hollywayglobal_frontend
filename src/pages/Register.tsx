@@ -30,7 +30,7 @@ const Register = () => {
 
   return (
     <div className='py-[2rem] md:paddTop flex'>
-      <div className='hidden md:block w-[55%] bg-red-600'>fgfbnbn</div>
+      <div className='hidden md:block w-[55%]  bg-sign-up-bg'>fgfbnbn</div>
 
       <div className='padd w-[100%] md:w-[45%] py-[1rem] md:paddTop self-center place-self-center content-center'>
         <form
