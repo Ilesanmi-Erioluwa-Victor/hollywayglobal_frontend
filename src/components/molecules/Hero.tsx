@@ -136,7 +136,7 @@ const Hero = () => {
           infiniteLoop={true}
           showArrows={true}
           showThumbs={false}
-          showStatus={false}
+          showStatus={true}
         >
           {slides.map((img) => (
             <div className='carousel-image-container'>
