@@ -2,9 +2,14 @@ import { v4 as uuidv4 } from 'uuid';
 import { FaAppleAlt } from 'react-icons/fa';
 import { GiLipstick } from "react-icons/gi"
 import { BiHomeAlt2 }from "react-icons/bi"
-import { PiCookingPotLight } from "react-icons/pi"
+import {
+  PiCookingPotLight,
+  PiTelevisionSimpleLight,
+  PiBabyLight,
+} from 'react-icons/pi';
 import { BsPhone } from "react-icons/bs"
-import { HiOutlineComputerDesktop } from "react-icons/hi"
+import { HiOutlineComputerDesktop } from "react-icons/hi2"
+import { GiClothes } from "react-icons/gi"
 
 const Category = [
   {
@@ -47,6 +52,27 @@ const Category = [
     link: 'category/',
     id: uuidv4(),
     icon: <HiOutlineComputerDesktop />,
+  },
+
+  {
+    name: 'Electronics',
+    link: 'category/',
+    id: uuidv4(),
+    icon: <PiTelevisionSimpleLight />,
+  },
+
+  {
+    name: 'Fashion',
+    link: 'category/',
+    id: uuidv4(),
+    icon: <GiClothes />,
+  },
+
+  {
+    name: 'Baby Products',
+    link: 'category/',
+    id: uuidv4(),
+    icon: <PiBabyLight />,
   },
 ];
 
