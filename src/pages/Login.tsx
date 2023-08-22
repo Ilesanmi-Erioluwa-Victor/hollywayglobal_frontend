@@ -1,5 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 import Button from '@mui/material/Button';
+// import { useTheme } from '@mui/material/styles';
 
 import { Link } from 'react-router-dom';
 
@@ -7,6 +8,8 @@ import { ImagePage } from '../components';
 import { FieldSet } from '../components/atoms';
 
 const Login = () => {
+  // const theme = useTheme();
+  
   const [data, setData] = useState({
     firstName: '',
     lastName: '',
@@ -42,7 +45,7 @@ const Login = () => {
           <h3 className='text-[1.8rem] font-[500]  tracking-[1.44px] md:text-[1.6rem] md:tracking-[0px] lg:text-[2rem]'>
             Log in to Exclusive
           </h3>
-          <p className='font-[400] text-[1rem]'>Enter your details below</p>
+          <p className='font-[400] text-[1.3rem]'>Enter your details below</p>
           <div className='flex flex-col gap-[1rem]'>
             <FieldSet
               name='email'
@@ -62,17 +65,17 @@ const Login = () => {
               type='password'
             />
 
-            <div className='flex justify-between items-center sm:flex-col md:flex-row'>
+            <div className='flex justify-between items-center flex-col gap-4'>
               <Button
                 variant='contained'
                 size='large'
                 type='submit'
                 sx={{
-                  backgroundColor: "#DB4444",
-                  // width: ""
-                  sm: {
-                    width : "100%"
-                  }
+                  backgroundColor: '#DB4444',
+                  width: "100%"
+                  // [theme.breakpoints.down('md')]: {
+                  //   width: '100%',
+                  // },
                 }}
                 className='p-[1rem] text-[2rem]'
               >
