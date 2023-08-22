@@ -73,7 +73,12 @@ const Login = () => {
               </Button>
 
               <p>
-                <Link to={'/forgotten-password'}>Forgotten Password ?</Link>
+                <Link
+                  to={'/forgotten-password'}
+                  className='text-[16px] font-[400] text-[#DB4444]'
+                >
+                  Forget Password? ?
+                </Link>
               </p>
             </div>
           </div>
