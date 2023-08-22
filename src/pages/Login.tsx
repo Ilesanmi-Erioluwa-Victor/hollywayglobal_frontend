@@ -77,7 +77,7 @@ const Login = () => {
                   //   width: '100%',
                   // },
                 }}
-                className='p-[1rem] text-[2rem]'
+          
               >
                 Login
               </Button>

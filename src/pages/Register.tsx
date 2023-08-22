@@ -41,7 +41,7 @@ const Register = () => {
           <h3 className='text-[1.8rem] font-[500]  tracking-[1.44px] md:text-[1.6rem] md:tracking-[0px] lg:text-[2rem]'>
             Create an account
           </h3>
-          <p className='font-[400] text-[1rem]'>Enter your details below</p>
+          <p className='font-[400] text-[1.3rem]'>Enter your details below</p>
           <div className='flex flex-col gap-[1rem]'>
             <FieldSet
               name='firstName'
@@ -98,7 +98,13 @@ const Register = () => {
           </Button>
         </form>
         <p className='text-[1rem] flex justify-end items-center pt-2 gap-4'>
-          Already have account? <Link to={'/login'}>Login</Link>
+          Already have account?{' '}
+          <Link
+            to={'/login'}
+            className='text-[#DB4444]'
+          >
+            Login
+          </Link>
         </p>
       </div>
     </div>
