@@ -10,6 +10,8 @@ import {
 import { BsPhone } from "react-icons/bs"
 import { HiOutlineComputerDesktop } from "react-icons/hi2"
 import { GiClothes } from "react-icons/gi"
+import { IoGameControllerOutline } from "react-icons/io5"
+import { CiDumbbell } from "react-icons/ci"
 
 const Category = [
   {
@@ -80,6 +82,13 @@ const Category = [
     link: 'category/',
     id: uuidv4(),
     icon: <IoGameControllerOutline />,
+  },
+
+  {
+    name: 'Sporting Goods',
+    link: 'category/',
+    id: uuidv4(),
+    icon: <CiDumbbell />,
   },
 ];
 
