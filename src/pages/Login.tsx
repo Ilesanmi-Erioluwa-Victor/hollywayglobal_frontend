@@ -62,7 +62,7 @@ const Login = () => {
               type='password'
             />
 
-            <div>
+            <div className='flex justify-between items-center'>
               <Button
                 variant='contained'
                 size='large'
