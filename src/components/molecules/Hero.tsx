@@ -15,7 +15,7 @@ import { GiClothes } from 'react-icons/gi';
 import { IoGameControllerOutline } from 'react-icons/io5';
 import { CiDumbbell, CiCircleMore } from 'react-icons/ci';
 import { Carousel } from 'react-responsive-carousel';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import Image from '../../assets/dark_800.png';
 import Image1 from '../../assets/signup.png';
