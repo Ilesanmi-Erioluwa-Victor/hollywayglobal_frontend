@@ -143,29 +143,27 @@ const Hero = () => {
           showThumbs={false}
           showStatus={false}
         >
-         
-
-          <div>
+          <div className='carousel-image-container'>
             <img
+              className='carousel-image'
               src={Image}
               alt='Image 1'
-              className='image'
             />
           </div>
 
-          <div>
+          <div className='carousel-image-container'>
             <img
+              className='carousel-image'
               src={Image}
               alt='Image 1'
-              className='image'
             />
           </div>
 
-          <div>
+          <div className='carousel-image-container'>
             <img
+              className='carousel-image'
               src={Image}
               alt='Image 1'
-              className='image'
             />
           </div>
         </Carousel>
