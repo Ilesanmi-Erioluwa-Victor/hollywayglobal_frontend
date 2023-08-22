@@ -62,12 +62,16 @@ const SubHero = () => {
   ];
 
   return (
-    <div className='bg-white flex flex-wrap'>
+    <div className='bg-white flex flex-wrap gap-3 items-center justify-center p-4 shadow-md rounded-md'>
       {products.map((product) => (
-        <div key={product.id}>
+        <div
+          key={product.id}
+          className='w-[15.6%] bg-yellow-400 p-4'
+        >
           <img
             src={product.image}
             alt={product.name}
+            className='h-[7rem] w-[100%]'
           />
           <h3>{product.name}</h3>
         </div>
