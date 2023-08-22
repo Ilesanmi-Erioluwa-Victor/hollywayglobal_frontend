@@ -142,7 +142,7 @@ const Hero = () => {
           showStatus={true}
         >
           {slides.map((img) => (
-            <div className='carousel-image-container'>
+            <div className='carousel-image-container' key={img}>
               <img
                 className='carousel-image'
                 src={img}
