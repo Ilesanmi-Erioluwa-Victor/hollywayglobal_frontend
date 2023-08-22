@@ -110,20 +110,19 @@ const Category: category[] = [
 
 const Hero = () => {
   return (
-    <div className='padd flex justify-between gap-6 bg-red-600'>
-      <div className='paddTop  flex bg-yellow-900 px-[3rem]'>
-        <ul>
+    <div className='py-[2rem] padd flex justify-between gap-6 divide-x'>
+      <div className='w-[30%]'>
+        <ul className='w-[100%]  pl-[0.4rem] hover:cursor-pointer'>
           {Category.map((cat) => (
-            <li>
-              <span>{cat.icon}</span>
-              <span>{cat.name}</span>
-              <Link to={cat.link}></Link>
+            <li className='flex items-center gap-3 py-2 '>
+              <span className='block text-[1.1rem]'>{cat.icon}</span>
+              <span className='block text-[0.8rem]'>{cat.name}</span>
             </li>
           ))}
         </ul>
       </div>
 
-      <div className='paddTop bg-yellow-200'>
+      <div className='paddTop bg-yellow-200 padd'>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
           facere porro totam ducimus nam nisi reiciendis eligendi quos impedit
