@@ -1,5 +1,4 @@
-import SubHero from '../components';
-import { Hero } from '../components';
+import { Hero, SubHero } from '../components';
 
 const Home = () => {
   return (
