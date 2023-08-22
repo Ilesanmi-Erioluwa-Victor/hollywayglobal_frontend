@@ -110,9 +110,9 @@ const Category: category[] = [
 
 const Hero = () => {
   return (
-    <div className='py-[2rem] padd flex justify-between gap-6 divide-x'>
-      <div className='w-[30%]'>
-        <ul className='w-[100%]  pl-[0.4rem] hover:cursor-pointer'>
+    <div className='py-[2rem] padd flex justify-between gap-6'>
+      <div className='w-[30%] '>
+        <ul className='bg-orange-400 pl-[0.4rem] hover:cursor-pointer rounded-sm'>
           {Category.map((cat) => (
             <li className='flex items-center gap-3 py-2 '>
               <span className='block text-[1.1rem]'>{cat.icon}</span>
@@ -122,7 +122,7 @@ const Hero = () => {
         </ul>
       </div>
 
-      <div className='paddTop bg-yellow-200 padd'>
+      <div className=' bg-yellow-200 rounded-sm'>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
           facere porro totam ducimus nam nisi reiciendis eligendi quos impedit
