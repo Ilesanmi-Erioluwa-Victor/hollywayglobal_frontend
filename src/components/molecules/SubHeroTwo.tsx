@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
-import Slider from "react-slick";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import Image from '../../assets/dark_800.png';
 import Image1 from '../../assets/signup.png';
@@ -80,22 +82,32 @@ const SubHeroTwo = () => {
     },
   ];
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+  };
+
   return (
-    <div className='bg-white flex flex-wrap gap-3 items-center justify-center p-4 shadow-md rounded-md'>
+    <div className='bg-white flex gap-3 items-center justify-center p-4 shadow-md rounded-md'>
       {products.map((product) => (
-        <div
-          key={product.id}
-          className='w-[15.6%] bg-slate-100  rounded-sm'
-        >
-          <img
-            src={product.image}
-            alt={product.name}
-            className='h-[9rem] w-[100%] p-4'
-          />
-          <h3 className='text-center text-[1rem] bg-white py-2'>
-            {product.name}
-          </h3>
-        </div>
+        <Slider {...settings}>
+          <div
+            key={product.id}
+            className=' bg-slate-100  rounded-sm'
+          >
+            <img
+              src={product.image}
+              alt={product.name}
+            //   className='h-[9rem] w-[100%] p-4'
+            />
+            <h3 className='text-center text-[1rem] bg-white py-2'>
+              {product.name}
+            </h3>
+          </div>
+        </Slider>
       ))}
     </div>
   );
