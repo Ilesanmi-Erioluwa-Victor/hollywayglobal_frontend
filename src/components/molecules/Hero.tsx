@@ -11,7 +11,7 @@ import { BsPhone } from "react-icons/bs"
 import { HiOutlineComputerDesktop } from "react-icons/hi2"
 import { GiClothes } from "react-icons/gi"
 import { IoGameControllerOutline } from "react-icons/io5"
-import { CiDumbbell } from "react-icons/ci"
+import { CiDumbbell, CiCircleMore } from 'react-icons/ci';
 
 const Category = [
   {
@@ -89,6 +89,13 @@ const Category = [
     link: 'category/',
     id: uuidv4(),
     icon: <CiDumbbell />,
+  },
+
+  {
+    name: 'Other Categories',
+    link: 'category/',
+    id: uuidv4(),
+    icon: <CiCircleMore />,
   },
 ];
 
