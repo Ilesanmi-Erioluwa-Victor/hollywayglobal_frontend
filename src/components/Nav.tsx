@@ -18,6 +18,7 @@ const NavLinks: Nav[] = [
     title: 'home',
     id: uuidv4(),
     link: '/',
+    isOnboard: true,
   },
 
   {
@@ -25,6 +26,7 @@ const NavLinks: Nav[] = [
     title: 'contact',
     id: uuidv4(),
     link: '/contact',
+    isOnboard: true
   },
 
   {
@@ -32,6 +34,7 @@ const NavLinks: Nav[] = [
     title: 'about',
     id: uuidv4(),
     link: '/about',
+    isOnboard: true
   },
 
   {
