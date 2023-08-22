@@ -59,6 +59,24 @@ const SubHero = () => {
       id: uuidv4(),
       image: Image2,
     },
+
+    {
+      name: 'Product Name',
+      id: uuidv4(),
+      image: Image2,
+    },
+
+    {
+      name: 'Product Name',
+      id: uuidv4(),
+      image: Image2,
+    },
+
+    {
+      name: 'Product Name',
+      id: uuidv4(),
+      image: Image2,
+    },
   ];
 
   return (
@@ -66,14 +84,16 @@ const SubHero = () => {
       {products.map((product) => (
         <div
           key={product.id}
-          className='w-[15.6%] bg-yellow-400 p-4'
+          className='w-[15.6%] bg-slate-100  rounded-sm'
         >
           <img
             src={product.image}
             alt={product.name}
-            className='h-[7rem] w-[100%]'
+            className='h-[9rem] w-[100%] p-4'
           />
-          <h3>{product.name}</h3>
+          <h3 className='text-center text-[1rem] bg-white py-2'>
+            {product.name}
+          </h3>
         </div>
       ))}
     </div>
