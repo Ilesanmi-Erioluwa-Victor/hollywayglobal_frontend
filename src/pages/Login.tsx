@@ -62,11 +62,18 @@ const Login = () => {
               type='password'
             />
 
-            <div className='flex justify-between items-center'>
+            <div className='flex justify-between items-center sm:flex-col md:flex-row'>
               <Button
                 variant='contained'
                 size='large'
                 type='submit'
+                sx={{
+                  backgroundColor: "#DB4444",
+                  // width: ""
+                  sm: {
+                    width : "100%"
+                  }
+                }}
                 className='p-[1rem] text-[2rem]'
               >
                 Login
@@ -77,7 +84,7 @@ const Login = () => {
                   to={'/forgotten-password'}
                   className='text-[16px] font-[400] text-[#DB4444]'
                 >
-                  Forget Password? ?
+                  Forget Password?
                 </Link>
               </p>
             </div>
