@@ -111,8 +111,8 @@ const Category: category[] = [
 const Hero = () => {
   return (
     <div className='py-[2rem] padd flex justify-between gap-6'>
-      <div className='w-[30%] '>
-        <ul className='bg-orange-400 pl-[0.4rem] hover:cursor-pointer rounded-sm'>
+      <div className='w-[30%] shadow-md rounded-md'>
+        <ul className=' pl-[0.4rem] flex flex-col hover:cursor-pointer '>
           {Category.map((cat) => (
             <li className='flex items-center gap-3 py-2 '>
               <span className='block text-[1.1rem]'>{cat.icon}</span>
