@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { FaAppleAlt } from 'react-icons/fa';
 import { GiLipstick } from 'react-icons/gi';
 import { BiHomeAlt2 } from 'react-icons/bi';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import {
   PiCookingPotLight,
   PiTelevisionSimpleLight,
@@ -13,7 +14,9 @@ import { HiOutlineComputerDesktop } from 'react-icons/hi2';
 import { GiClothes } from 'react-icons/gi';
 import { IoGameControllerOutline } from 'react-icons/io5';
 import { CiDumbbell, CiCircleMore } from 'react-icons/ci';
+import { Carousel } from 'react-responsive-carousel';
 import { Link } from 'react-router-dom';
+import Image from '../../assets/dark_800.png';
 
 interface category {
   name: string;
@@ -109,6 +112,16 @@ const Category: category[] = [
 ];
 
 const Hero = () => {
+  //  const slides = [
+  //    <div key='slide1'>
+  //      <img
+  //        src={Image}
+  //        alt='Image 1'
+  //      />
+  //    </div>,
+  //    // Add more slides as needed
+  // ];
+
   return (
     <div className='py-[2rem] padd flex justify-between gap-6'>
       <div className='w-[30%] shadow-md rounded-md'>
@@ -123,12 +136,39 @@ const Hero = () => {
       </div>
 
       <div className=' bg-yellow-200 rounded-sm w-[100%]'>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-          facere porro totam ducimus nam nisi reiciendis eligendi quos impedit
-          fugit eaque molestiae labore repellendus quod maxime officia illum,
-          ipsam possimus.
-        </p>
+        <Carousel
+          autoPlay={true}
+          infiniteLoop={true}
+          showArrows={true}
+          showThumbs={false}
+          showStatus={false}
+        >
+         
+
+          <div>
+            <img
+              src={Image}
+              alt='Image 1'
+              className='image'
+            />
+          </div>
+
+          <div>
+            <img
+              src={Image}
+              alt='Image 1'
+              className='image'
+            />
+          </div>
+
+          <div>
+            <img
+              src={Image}
+              alt='Image 1'
+              className='image'
+            />
+          </div>
+        </Carousel>
       </div>
     </div>
   );
