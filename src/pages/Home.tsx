@@ -1,9 +1,9 @@
-// import Header from '../../components/molecules/Header';
+import { Hero } from 'src/components';
 
 const Home = () => {
   return (
     <>
-      {/* <Header /> */}
+      <Hero />
     </>
   );
 };
