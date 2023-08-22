@@ -42,6 +42,7 @@ const NavLinks: Nav[] = [
     title: 'Sign Up',
     id: uuidv4(),
     link: '/register',
+    isOnboard: false,
   },
 ];
 
