@@ -3,6 +3,8 @@ import { FaAppleAlt } from 'react-icons/fa';
 import { GiLipstick } from "react-icons/gi"
 import { BiHomeAlt2 }from "react-icons/bi"
 import { PiCookingPotLight } from "react-icons/pi"
+import { BsPhone } from "react-icons/bs"
+import { HiOutlineComputerDesktop } from "react-icons/hi"
 
 const Category = [
   {
@@ -31,6 +33,20 @@ const Category = [
     link: 'category/',
     id: uuidv4(),
     icon: <PiCookingPotLight />,
+  },
+
+  {
+    name: 'Phones & Tablets',
+    link: 'category/',
+    id: uuidv4(),
+    icon: <BsPhone />,
+  },
+
+  {
+    name: 'Computing',
+    link: 'category/',
+    id: uuidv4(),
+    icon: <HiOutlineComputerDesktop />,
   },
 ];
 
