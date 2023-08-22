@@ -1,19 +1,28 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { v4 as uuidv4 } from 'uuid';
 import { FaAppleAlt } from 'react-icons/fa';
-import { GiLipstick } from "react-icons/gi"
-import { BiHomeAlt2 }from "react-icons/bi"
+import { GiLipstick } from 'react-icons/gi';
+import { BiHomeAlt2 } from 'react-icons/bi';
 import {
   PiCookingPotLight,
   PiTelevisionSimpleLight,
   PiBabyLight,
 } from 'react-icons/pi';
-import { BsPhone } from "react-icons/bs"
-import { HiOutlineComputerDesktop } from "react-icons/hi2"
-import { GiClothes } from "react-icons/gi"
-import { IoGameControllerOutline } from "react-icons/io5"
+import { BsPhone } from 'react-icons/bs';
+import { HiOutlineComputerDesktop } from 'react-icons/hi2';
+import { GiClothes } from 'react-icons/gi';
+import { IoGameControllerOutline } from 'react-icons/io5';
 import { CiDumbbell, CiCircleMore } from 'react-icons/ci';
+import { Link } from 'react-router-dom';
 
-const Category = [
+interface category {
+  name: string;
+  link: string;
+  id: string;
+  icon: any;
+}
+
+const Category: category[] = [
   {
     name: 'Supermarket',
     link: 'category/',
@@ -101,13 +110,20 @@ const Category = [
 
 const Hero = () => {
   return (
-    <div className=' flex justify-between divide-x'>
-      <div className='paddTop ml-auto pr-[3rem] flex gap-4 pl-8vw '>
-        Category
-        <p>{'>'}</p>
+    <div className='padd flex justify-between gap-6 bg-red-600'>
+      <div className='paddTop  flex bg-yellow-900 px-[3rem]'>
+        <ul>
+          {Category.map((cat) => (
+            <li>
+              <span>{cat.icon}</span>
+              <span>{cat.name}</span>
+              <Link to={cat.link}></Link>
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <div className='paddTop'>
+      <div className='paddTop bg-yellow-200'>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
           facere porro totam ducimus nam nisi reiciendis eligendi quos impedit
