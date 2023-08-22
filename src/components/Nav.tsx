@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { BiSearch } from 'react-icons/bi';
+import { AiOutlineHeart } from "react-icons/ai"
 import { NavLink } from 'react-router-dom';
 
 import RoundedInput from './atoms/Input';
@@ -45,6 +46,14 @@ const NavLinks: Nav[] = [
     isOnboard: false,
   },
 ];
+
+const sec = [{
+  name: "Favourite",
+  title: "favourite",
+  link: "/fav",
+  icon: <AiOutlineHeart />,
+  id: uuidv4()
+}]
 
 const Nav = (): JSX.Element => {
   return (
