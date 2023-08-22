@@ -50,6 +50,7 @@ const Register = () => {
               onChange={handleInputChange}
               id='firstName'
               type='text'
+              
             />
 
             <FieldSet
