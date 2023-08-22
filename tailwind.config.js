@@ -7,9 +7,6 @@ export default {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'sign-up-bg': "url('/assets/signup.png')",
-      },
 
       colors: {
         transparent: 'transparent',

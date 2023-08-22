@@ -24,7 +24,10 @@ img {
 
 .container-custom {
   display: grid;
-  grid-template-columns: [container-start] repeat(12, minmax(min-content, 12.5rem));
+  grid-template-columns: [container-start] repeat(
+      12,
+      minmax(min-content, 12.5rem)
+    );
   justify-content: center;
 }
 
@@ -33,8 +36,8 @@ img {
 }
 
 .paddTop {
- padding-top: calc(1rem + 8vh) ;
- padding-bottom: calc(1rem + 8vh) ;
+  padding-top: calc(1rem + 8vh);
+  padding-bottom: calc(1rem + 8vh);
 }
 
 .padd {
@@ -49,7 +52,7 @@ a {
 }
 
 .custom::before {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -5px;
   left: 0;
@@ -61,7 +64,9 @@ a {
   transition: transform 0.4s, background-color 0.4s;
 }
 
-.custom:hover, .custom:active, .custom:focus {
+.custom:hover,
+.custom:active,
+.custom:focus {
   color: #007bff;
 }
 
@@ -69,5 +74,3 @@ a {
   transform: scaleX(1);
   background-color: #007bff;
 }
-
-

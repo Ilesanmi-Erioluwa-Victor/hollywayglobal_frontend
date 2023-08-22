@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 import { FieldSet } from '../components/atoms';
+import Image from '../assets/signup.png';
 
 const Register = () => {
   const [data, setData] = useState({
@@ -30,7 +31,12 @@ const Register = () => {
 
   return (
     <div className='py-[2rem] md:paddTop flex'>
-      <div className="hidden md:block w-[55%]  bg-[url('/assets/react.svg')]">fgfbnbn</div>
+      <div className='hidden md:block w-[55%] '>
+        <img
+          src={Image}
+          alt=''
+        />
+      </div>
 
       <div className='padd w-[100%] md:w-[45%] py-[1rem] md:paddTop self-center place-self-center content-center'>
         <form
