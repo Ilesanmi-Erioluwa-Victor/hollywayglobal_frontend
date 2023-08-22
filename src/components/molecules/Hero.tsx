@@ -74,6 +74,13 @@ const Category = [
     id: uuidv4(),
     icon: <PiBabyLight />,
   },
+
+  {
+    name: 'Gaming',
+    link: 'category/',
+    id: uuidv4(),
+    icon: <IoGameControllerOutline />,
+  },
 ];
 
 const Hero = () => {
