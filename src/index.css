@@ -16,7 +16,7 @@ body {
   font-size: 75%;
 }
 
-.img {
+img {
   height: auto;
   object-fit: cover;
   object-position: center;
@@ -24,7 +24,7 @@ body {
 }
 
 .carousel-image-container {
-  max-height: 430px; 
+  max-height: 450px; 
   overflow: hidden; 
   display: flex; 
   align-items: center; 
@@ -32,8 +32,7 @@ body {
 
 .carousel-image {
   max-width: 100%;
-  max-height: 100%;
-  /* object-fit: cover; */
+  height: auto;
   object-position: center;
   margin: 0 auto; 
 }

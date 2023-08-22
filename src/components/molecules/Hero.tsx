@@ -118,7 +118,7 @@ const Hero = () => {
   const slides = [Image, Image1, Image2];
 
   return (
-    <div className='py-[2rem] padd flex justify-between gap-6'>
+    <div className='py-[2rem] flex justify-between gap-6'>
       <div className='w-[30%] shadow-md rounded-md'>
         <ul className=' pl-[0.4rem] flex flex-col hover:cursor-pointer '>
           {Category.map((cat) => (
@@ -130,7 +130,7 @@ const Hero = () => {
         </ul>
       </div>
 
-      <div className=' bg-yellow-200 rounded-sm w-[100%]'>
+      <div className='shadow-md rounded-md w-[100%]'>
         <Carousel
           autoPlay={true}
           infiniteLoop={true}
