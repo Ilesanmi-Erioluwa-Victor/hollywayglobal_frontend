@@ -9,6 +9,7 @@ type Nav = {
   title: string;
   id: string;
   link: string;
+  isOnboard?: boolean;
 };
 
 const NavLinks: Nav[] = [
