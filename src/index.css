@@ -35,15 +35,16 @@ img {
   grid-column: container-start/container-end;
 }
 
-.paddTop {
-  padding-top: calc(1rem + 8vh);
-  padding-bottom: calc(1rem + 8vh);
+  .paddTop {
+  padding-top: calc(1rem + 4vh);
+  padding-bottom: calc(1rem + 4vh);
 }
 
 .padd {
-  padding-left: calc(1rem + 8vw);
-  padding-right: calc(1rem + 8vw);
+  padding-left: calc(1rem + 4vw);
+  padding-right: calc(1rem + 4vw);
 }
+
 
 a {
   text-decoration: none;
@@ -76,6 +77,7 @@ a {
 }
 
 @media (min-width: 768px) {
+
   .paddTop {
   padding-top: calc(1rem + 8vh);
   padding-bottom: calc(1rem + 8vh);
@@ -85,4 +87,5 @@ a {
   padding-left: calc(1rem + 8vw);
   padding-right: calc(1rem + 8vw);
 }
+
 }
