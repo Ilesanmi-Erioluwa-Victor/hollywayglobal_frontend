@@ -7,7 +7,6 @@ export default {
   ],
   theme: {
     extend: {
-
       colors: {
         transparent: 'transparent',
         primary_green: '#0D5520',
@@ -26,6 +25,11 @@ export default {
         secondary_yellow_2: '#FFC42D',
         lighter_green: 'rgba(214, 236, 220, 0.4)',
         contact_grey: '#F8F8F8',
+      },
+
+      spacing: {
+        '8vh': '8vh',
+        '8vw': '8vw',
       },
     },
   },

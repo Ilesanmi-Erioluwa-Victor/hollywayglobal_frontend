@@ -30,7 +30,7 @@ const Register = () => {
   };
 
   return (
-    <div className='py-[2rem] md:paddTop flex'>
+    <div className='paddTop flex'>
       <div className='hidden md:block w-[55%] '>
         <img
           src={Image}

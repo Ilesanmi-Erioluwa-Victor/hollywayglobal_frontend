@@ -74,3 +74,15 @@ a {
   transform: scaleX(1);
   background-color: #007bff;
 }
+
+@media (min-width: 768px) {
+  .paddTop {
+  padding-top: calc(1rem + 8vh);
+  padding-bottom: calc(1rem + 8vh);
+}
+
+.padd {
+  padding-left: calc(1rem + 8vw);
+  padding-right: calc(1rem + 8vw);
+}
+}
