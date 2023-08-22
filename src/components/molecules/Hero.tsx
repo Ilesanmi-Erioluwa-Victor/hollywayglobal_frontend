@@ -122,7 +122,7 @@ const Hero = () => {
         </ul>
       </div>
 
-      <div className=' bg-yellow-200 rounded-sm'>
+      <div className=' bg-yellow-200 rounded-sm w-[100%]'>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
           facere porro totam ducimus nam nisi reiciendis eligendi quos impedit
