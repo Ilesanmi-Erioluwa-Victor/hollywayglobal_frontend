@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 import { FieldSet } from '../components/atoms';
-
+import { ImagePage } from '../components';
 
 const Register = () => {
   const [data, setData] = useState({
@@ -31,7 +31,7 @@ const Register = () => {
 
   return (
     <div className='paddTop flex'>
-   
+      <ImagePage />
 
       <div className='padd w-[100%] md:w-[45%] py-[1rem] paddTop self-center place-self-center content-center'>
         <form
@@ -93,7 +93,6 @@ const Register = () => {
             size='large'
             type='submit'
             className='p-[1rem] text-[2rem]'
-
           >
             Create Account
           </Button>
