@@ -34,6 +34,18 @@ const CategorySection = () => {
       name: 'Camera',
       icon: <FaAppleAlt />,
     },
+
+    {
+      id: uuidv4(),
+      name: 'HeadPhones',
+      icon: <GiLipstick />,
+    },
+
+    {
+      id: uuidv4(),
+      name: 'Gaming',
+      icon: <BiHomeAlt2 />,
+    },
   ];
   return (
     <div className='bg-white  p-4 shadow-md rounded-md'>
@@ -44,7 +56,9 @@ const CategorySection = () => {
 
       <h2 className='mt-8 font-[400] text-lg mb-10'>Browse By Category</h2>
 
-      <div></div>
+      <div className='border-[1px solid rgba(0, 0, 0, 0.30)] rounded-sm'>
+        
+      </div>
     </div>
   );
 };
