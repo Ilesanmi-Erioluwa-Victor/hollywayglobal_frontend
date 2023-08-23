@@ -56,7 +56,7 @@ const CategorySection = () => {
 
       <h2 className='mt-8 font-[400] text-lg mb-10'>Browse By Category</h2>
 
-      <div className='border-1 border-spacing-1 flex rounded-sm'>
+      <div className='border-4 border-gray-800 border-spacing-1 flex rounded-sm'>
         {subCategory.map((cat) => (
           <div key={cat?.id}>
             <div>{cat.icon}</div>
