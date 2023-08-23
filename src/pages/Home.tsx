@@ -1,4 +1,4 @@
-import { Hero, SubHero, CategorySection } from '../components';
+import { Hero, SubHero, CategorySection, NewArrival } from '../components';
 
 const Home = () => {
   return (
@@ -6,8 +6,7 @@ const Home = () => {
       <Hero />
       <SubHero />
       <CategorySection />
-
-      <SubHero />
+      <NewArrival />
       <SubHero />
     </div>
   );
