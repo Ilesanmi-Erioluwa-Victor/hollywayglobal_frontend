@@ -8,6 +8,8 @@ const CategorySection = () => {
       </div>
 
       <h2 className="mt-8 font-[400] text-lg mb-10">Browse By Category</h2>
+
+      <div></div>
     </div>
   );
 };
