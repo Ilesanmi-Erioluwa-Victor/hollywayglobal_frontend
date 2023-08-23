@@ -1,20 +1,30 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { v4 as uuidv4 } from 'uuid';
+
 import { FaAppleAlt } from 'react-icons/fa';
+
 import { GiLipstick } from 'react-icons/gi';
+
 import { BiHomeAlt2 } from 'react-icons/bi';
+
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
+
 import {
   PiCookingPotLight,
   PiTelevisionSimpleLight,
   PiBabyLight,
 } from 'react-icons/pi';
+
 import { BsPhone } from 'react-icons/bs';
+
 import { HiOutlineComputerDesktop } from 'react-icons/hi2';
+
 import { GiClothes } from 'react-icons/gi';
+
 import { IoGameControllerOutline } from 'react-icons/io5';
+
 import { CiDumbbell, CiCircleMore } from 'react-icons/ci';
-import { Carousel } from 'react-responsive-carousel';
 // import { Link } from 'react-router-dom';
 
 import Image from '../../assets/dark_800.png';
