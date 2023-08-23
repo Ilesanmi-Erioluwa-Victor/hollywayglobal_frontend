@@ -22,6 +22,12 @@ const CategorySection = () => {
       name: 'Computers',
       icon: <HiOutlineComputerDesktop />,
     },
+
+    {
+      id: uuidv4(),
+      name: 'Computers',
+      icon: <IoGameControllerOutline />,
+    },
   ];
   return (
     <div className='bg-white  p-4 shadow-md rounded-md'>
