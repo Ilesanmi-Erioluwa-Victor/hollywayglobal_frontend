@@ -9,41 +9,6 @@ import Image2 from '../../assets/react.svg';
 
 const SubHeroTwo = () => {
   const products = [
-    {
-      name: 'Product Name',
-      id: uuidv4(),
-      image: Image,
-    },
-
-    {
-      name: 'Product Name',
-      id: uuidv4(),
-      image: Image2,
-    },
-
-    {
-      name: 'Product Name',
-      id: uuidv4(),
-      image: Image1,
-    },
-
-    {
-      name: 'Product Name',
-      id: uuidv4(),
-      image: Image,
-    },
-
-    {
-      name: 'Product Name',
-      id: uuidv4(),
-      image: Image1,
-    },
-
-    {
-      name: 'Product Name',
-      id: uuidv4(),
-      image: Image2,
-    },
 
     {
       name: 'Product Name',
@@ -86,8 +51,8 @@ const SubHeroTwo = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 1,
+    slidesToScroll: 1,
   };
 
   return (
@@ -101,7 +66,7 @@ const SubHeroTwo = () => {
             <img
               src={product.image}
               alt={product.name}
-            //   className='h-[9rem] w-[100%] p-4'
+              //   className='h-[9rem] w-[100%] p-4'
             />
             <h3 className='text-center text-[1rem] bg-white py-2'>
               {product.name}
