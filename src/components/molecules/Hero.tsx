@@ -118,8 +118,8 @@ const Hero = () => {
   const slides = [Image, Image1, Image2];
 
   return (
-    <div className='pt-[2rem] flex justify-between gap-6 bg-white'>
-      <div className='w-[30%] shadow-md rounded-md'>
+    <div className=' flex justify-between gap-6 '>
+      <div className='w-[30%] shadow-md rounded-md py-[0.5rem] bg-white'>
         <ul className=' pl-[0.4rem] flex flex-col hover:cursor-pointer '>
           {Category.map((cat) => (
             <li
@@ -133,7 +133,7 @@ const Hero = () => {
         </ul>
       </div>
 
-      <div className='shadow-md rounded-md w-[100%]'>
+      <div className='shadow-md rounded-md w-[100%] bg-white'>
         <Carousel
           autoPlay={true}
           infiniteLoop={true}
@@ -142,7 +142,10 @@ const Hero = () => {
           showStatus={true}
         >
           {slides.map((img) => (
-            <div className='carousel-image-container' key={img}>
+            <div
+              className='carousel-image-container'
+              key={img}
+            >
               <img
                 className='carousel-image'
                 src={img}
