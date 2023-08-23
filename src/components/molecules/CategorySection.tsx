@@ -28,6 +28,12 @@ const CategorySection = () => {
       name: 'Computers',
       icon: <IoGameControllerOutline />,
     },
+
+    {
+      id: uuidv4(),
+      name: 'Camera',
+      icon: <FaAppleAlt />,
+    },
   ];
   return (
     <div className='bg-white  p-4 shadow-md rounded-md'>
