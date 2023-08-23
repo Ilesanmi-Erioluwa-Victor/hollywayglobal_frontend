@@ -60,7 +60,7 @@ const CategorySection = () => {
         {subCategory.map((cat) => (
           <div
             key={cat?.id}
-            className='cursor-pointer hover:text-white gap-6 hover:bg-[#DB4444] transition-all hover:border-transparent border-gray-800 border-[1px] w-[20%] p-7 items-center justify-between flex flex-col rounded-sm'
+            className='cursor-pointer b hover:text-white gap-6 hover:bg-[#DB4444] transition-all hover:border-transparent border-[1px] w-[20%] p-7 items-center justify-between flex flex-col rounded-sm'
           >
             <div className=' text-[2rem]'>{cat.icon}</div>
             <h2 className=' text-[0.9rem]'>{cat.name}</h2>
