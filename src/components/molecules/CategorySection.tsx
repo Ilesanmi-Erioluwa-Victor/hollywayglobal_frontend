@@ -14,7 +14,13 @@ const CategorySection = () => {
     {
       id: uuidv4(),
       name: 'Phones',
-      icon : <BsPhone />
+      icon: <BsPhone />,
+    },
+
+    {
+      id: uuidv4(),
+      name: 'Computers',
+      icon: <HiOutlineComputerDesktop />,
     },
   ];
   return (
