@@ -56,7 +56,7 @@ const NewArrival = () => {
 
       <h2 className='mt-8 font-[400] text-lg mb-10'>Best Selling Products</h2>
 
-      <div className='container-custom2 p-[10px] gap-[10px]'>
+      <div className='grid grid-cols-product-grid p-[10px] gap-[10px]'>
         {subCategory.map((cat) => (
           <div
             key={cat?.id}
