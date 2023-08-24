@@ -128,7 +128,7 @@ const Hero = () => {
   const slides = [Image, Image1, Image2];
 
   return (
-    <div className=' flex justify-between gap-6 '>
+    <div className='container-custom2'>
       <div className='w-[30%] shadow-md rounded-md py-[0.5rem] bg-white'>
         <ul className=' pl-[0.4rem] flex flex-col hover:cursor-pointer '>
           {Category.map((cat) => (

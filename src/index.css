@@ -56,8 +56,6 @@ img {
 .container-custom2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-  padding: 10px;
 }
 
 .grid-item2 {
@@ -68,8 +66,7 @@ img {
 }
 
 .grid-item2:hover {
- cursor: pointer;
- 
+  cursor: pointer;
 }
 
 .paddTop {

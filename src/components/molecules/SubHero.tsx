@@ -70,7 +70,7 @@ const SubHero = () => {
 
   return (
     <div className='bg-white  gap-3 items-center justify-center p-4 shadow-md rounded-md'>
-      <div className='container-custom2'>
+      <div className='container-custom2 p-[10px] gap-[10px]'>
         {products.map((product) => (
           <div
             key={product.id}
