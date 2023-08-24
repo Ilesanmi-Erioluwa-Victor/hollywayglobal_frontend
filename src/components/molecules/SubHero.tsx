@@ -6,17 +6,6 @@ import Image2 from '../../assets/react.svg';
 
 const SubHero = () => {
   const products = [
-    {
-      name: 'Product Name',
-      id: uuidv4(),
-      image: Image,
-    },
-
-    {
-      name: 'Product Name',
-      id: uuidv4(),
-      image: Image2,
-    },
 
     {
       name: 'Product Name',
