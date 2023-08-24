@@ -81,7 +81,7 @@ const SubHero = () => {
 
   return (
     <div className='bg-white  gap-3 items-center justify-center p-4 shadow-md rounded-md'>
-      <div className=' container-custom2'>
+      <div className='container-custom2'>
         {products.map((product) => (
           <div
             key={product.id}
