@@ -35,13 +35,21 @@ const Home = () => {
       <CategorySection />
       <NewArrival />
       <Boom />
-      <div>
-        <div>
+      <div className='p-8vw'>
+        <div className='flex items-center justify-between md:px-[5rem] flex-wrap'>
           {remarks.map((writeUps) => (
-            <>
-              <h2 key={writeUps.name}>{writeUps.icon}</h2>
-              <h4>{writeUps.name}</h4>
-            </>
+            <div
+              key={writeUps.name}
+              className='flex flex-col items-center gap-3 mb-2'
+            >
+              <h2 className='bg-[#2F2E30] p-2 rounded-[50%] '>
+                <span className='bg-black text-white block p-3 rounded-[50%] text-lg'>
+                  {writeUps.icon}
+                </span>
+              </h2>
+              <h4 className='text-base font-[600]'>{writeUps.name}</h4>
+              <p className=''>{writeUps.sum}</p>
+            </div>
           ))}
         </div>
       </div>
