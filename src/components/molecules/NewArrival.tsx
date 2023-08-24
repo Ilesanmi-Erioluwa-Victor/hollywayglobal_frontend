@@ -3,13 +3,14 @@ import { v4 as uuidv4 } from 'uuid';
 import Image from '../../assets/dark_800.png';
 import Image1 from '../../assets/signup.png';
 import Image2 from '../../assets/react.svg';
+import Image3 from '../../assets/boom.png';
 
 const NewArrival = () => {
   const products = [
     {
       name: 'Product Name',
       id: uuidv4(),
-      image: Image1,
+      image: Image3,
     },
 
     {
@@ -45,7 +46,7 @@ const NewArrival = () => {
     {
       name: 'Product Name',
       id: uuidv4(),
-      image: Image,
+      image: Image3,
     },
 
     {
@@ -69,7 +70,7 @@ const NewArrival = () => {
     {
       name: 'Product Name',
       id: uuidv4(),
-      image: Image2,
+      image: Image3,
     },
 
     {
@@ -103,15 +104,6 @@ const NewArrival = () => {
             </h3>
           </div>
         ))}
-        {/* {subCategory.map((cat) => (
-          <div
-            key={cat?.id}
-            className='cursor-pointer b hover:text-white gap-6 hover:bg-[#DB4444] transition-all hover:border-transparent border-[1px]  p-7 items-center justify-between flex flex-col rounded-sm'
-          >
-            <div className=' text-[2rem]'>{cat.icon}</div>
-            <h2 className=' text-[0.9rem]'>{cat.name}</h2>
-          </div>
-        ))} */}
       </div>
     </div>
   );
