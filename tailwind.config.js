@@ -31,6 +31,15 @@ export default {
         '8vh': '8vh',
         '8vw': '8vw',
       },
+
+      gridTemplateColumns: {
+        'custom-grid': 'repeat(12, 1fr)',
+      },
+
+      gridColumn: {
+        'span-custom': 'span 1 / span 3',
+        'span-custom2': 'span 4 / span -1',
+      },
     },
   },
   plugins: [],
