@@ -34,7 +34,7 @@ export default {
 
       gridTemplateColumns: {
         'custom-grid': 'repeat(12, 1fr)',
-        "product-grid" : "grid-template-columns: repeat(auto-fit, minmax(350px, 1fr))"
+        "product-grid" : "repeat(auto-fit, minmax(200px, 1fr))"
       },
     },
   },
