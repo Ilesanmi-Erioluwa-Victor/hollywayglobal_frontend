@@ -56,11 +56,11 @@ const CategorySection = () => {
 
       <h2 className='mt-8 font-[400] text-lg mb-10'>Browse By Category</h2>
 
-      <div className=' flex flex-wrap  md:flex-nowrap gap-4'>
+      <div className='container-custom2 p-[10px] gap-[10px]'>
         {subCategory.map((cat) => (
           <div
             key={cat?.id}
-            className='w-[20%] cursor-pointer b hover:text-white gap-6 hover:bg-[#DB4444] transition-all hover:border-transparent border-[1px] md:w-[15%] lg:w-[20%] p-7 items-center justify-between flex flex-col rounded-sm'
+            className='cursor-pointer b hover:text-white gap-6 hover:bg-[#DB4444] transition-all hover:border-transparent border-[1px]  p-7 items-center justify-between flex flex-col rounded-sm'
           >
             <div className=' text-[2rem]'>{cat.icon}</div>
             <h2 className=' text-[0.9rem]'>{cat.name}</h2>

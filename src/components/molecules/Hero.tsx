@@ -129,7 +129,7 @@ const Hero = () => {
 
   return (
     <div className='grid grid-cols-custom-grid gap-[20px]'>
-      <div className='col-[1_/_3] shadow-md rounded-md py-[0.5rem] bg-white'>
+      <div className='hidden md:block md:col-[1_/_4] shadow-md rounded-md py-[0.5rem] bg-white'>
         <ul className=' pl-[0.4rem] flex flex-col hover:cursor-pointer '>
           {Category.map((cat) => (
             <li
@@ -143,7 +143,7 @@ const Hero = () => {
         </ul>
       </div>
 
-      <div className='col-[3_/_-1] shadow-md rounded-md w-[100%] bg-white'>
+      <div className='col-[1_/_-1] md:col-[4_/_-1] shadow-md rounded-md w-[100%] bg-white'>
         <Carousel
           autoPlay={true}
           infiniteLoop={true}
