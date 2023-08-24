@@ -9,8 +9,8 @@ const NewArrival = () => {
   const slides = [Image, Image1, Image2];
 
   return (
-    <div className='shadow-md rounded-md w-[100%] bg-white'>
-      <Carousel
+    <div className='shadow-md rounded-md w-[100%] bg-white carousel-image-container'>
+      {/* <Carousel
         autoPlay={true}
         infiniteLoop={true}
         showArrows={true}
@@ -21,15 +21,15 @@ const NewArrival = () => {
           <div
             className='carousel-image-container'
             key={img}
-          >
-            <img
-              className='carousel-image'
-              src={img}
-              alt='slider images'
-            />
-          </div>
+          > */}
+      <img
+        className='carousel-image'
+        src={Image}
+        alt='slider images'
+      />
+      {/* </div>
         ))}
-      </Carousel>
+      </Carousel> */}
     </div>
   );
 };
