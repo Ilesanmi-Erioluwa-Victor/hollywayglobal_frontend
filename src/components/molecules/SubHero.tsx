@@ -1,102 +1,133 @@
 import { v4 as uuidv4 } from 'uuid';
 
-import Image from '../../assets/dark_800.png';
-import Image1 from '../../assets/signup.png';
 import Image2 from '../../assets/react.svg';
 
 const SubHero = () => {
   const products = [
     {
-      name: 'Product Name',
-      id: uuidv4(),
-      image: Image1,
-    },
-
-    {
-      name: 'Product Name',
-      id: uuidv4(),
-      image: Image,
-    },
-
-    {
-      name: 'Product Name',
-      id: uuidv4(),
-      image: Image1,
-    },
-
-    {
-      name: 'Product Name',
-      id: uuidv4(),
-      image: Image,
-    },
-
-    {
-      name: 'Product Name',
-      id: uuidv4(),
-      image: Image1,
-    },
-
-    {
-      name: 'Product Name',
+      name: 'The north coat',
       id: uuidv4(),
       image: Image2,
+      price: '$260',
+      slashedPrice: '$360',
     },
 
     {
-      name: 'Product Name',
-      id: uuidv4(),
-      image: Image,
-    },
-
-    {
-      name: 'Product Name',
-      id: uuidv4(),
-      image: Image1,
-    },
-
-    {
-      name: 'Product Name',
+      name: 'Gucci duffle bag',
       id: uuidv4(),
       image: Image2,
+      price: '$260',
+      slashedPrice: '$360',
     },
 
     {
-      name: 'Product Name',
+      name: 'RGB liquid CPU Cooler',
       id: uuidv4(),
       image: Image2,
+      price: '$260',
+      slashedPrice: '$360',
     },
 
     {
-      name: 'Product Name',
+      name: 'RGB liquid CPU Cooler',
       id: uuidv4(),
       image: Image2,
+      price: '$260',
+      slashedPrice: '$360',
     },
 
     {
-      name: 'Product Name',
+      name: 'RGB liquid CPU Cooler',
       id: uuidv4(),
       image: Image2,
+      price: '$260',
+      slashedPrice: '$360',
+    },
+
+    {
+      name: 'RGB liquid CPU Cooler',
+      id: uuidv4(),
+      image: Image2,
+      price: '$260',
+      slashedPrice: '$360',
+    },
+
+    {
+      name: 'RGB liquid CPU Cooler',
+      id: uuidv4(),
+      image: Image2,
+      price: '$260',
+      slashedPrice: '$360',
+    },
+
+    {
+      name: 'RGB liquid CPU Cooler',
+      id: uuidv4(),
+      image: Image2,
+      price: '$260',
+      slashedPrice: '$360',
+    },
+
+    {
+      name: 'RGB liquid CPU Cooler',
+      id: uuidv4(),
+      image: Image2,
+      price: '$260',
+      slashedPrice: '$360',
+    },
+
+    {
+      name: 'RGB liquid CPU Cooler',
+      id: uuidv4(),
+      image: Image2,
+      price: '$260',
+      slashedPrice: '$360',
+    },
+
+    {
+      name: 'RGB liquid CPU Cooler',
+      id: uuidv4(),
+      image: Image2,
+      price: '$260',
+      slashedPrice: '$360',
+    },
+
+    {
+      name: 'RGB liquid CPU Cooler',
+      id: uuidv4(),
+      image: Image2,
+      price: '$260',
+      slashedPrice: '$360',
     },
   ];
 
   return (
     <div className='bg-white  gap-3 items-center justify-center p-4 shadow-md rounded-md md:px-[1rem]'>
-      <div className='container-custom2 p-[10px] gap-[10px]'>
-        {products.map((product) => (
-          <div
-            key={product.id}
-            className='grid-item2 bg-slate-100  rounded-sm'
-          >
-            <img
-              src={product.image}
-              alt={product.name}
-              className=' w-[100%] p-4'
-            />
-            <h3 className='text-center text-[1rem] bg-white py-2'>
-              {product.name}
-            </h3>
-          </div>
-        ))}
+        <div className='grid grid-cols-product-grid p-[10px] gap-[10px]'>
+          {products.map((product) => (
+            <div className='flex flex-col gap-[0.4rem] mb-3'>
+              <div
+                key={product.id}
+                className='grid-item2 bg-slate-100  rounded-sm mb-3'
+              >
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className=' w-[100%] p-4'
+                />
+              </div>
+              <p className='text-center text-[14px] bg-white self-start'>
+                {product.name}
+              </p>
+
+              <p className='text-center text-[14px] bg-white self-start text-[#DB4444]'>
+                {product.price}{' '}
+                <span className='text-slate-500 opacity-40 pl-4'>
+                  {product.slashedPrice}
+                </span>
+              </p>
+            </div>
+          ))}
       </div>
     </div>
   );

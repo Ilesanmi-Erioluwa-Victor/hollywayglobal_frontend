@@ -50,7 +50,7 @@ const NavLinks: Nav[] = [
 
 const Nav = (): JSX.Element => {
   return (
-    <nav className='padd gap-[1rem] md:gap-0 flex justify-between items-center text-[0.8rem]'>
+    <nav className='padd2 gap-[1rem] md:gap-0 flex justify-between items-center text-[0.8rem]'>
       <div>logo</div>
 
       <ul className='hidden md:flex items-center justify-between md:gap-[3rem]'>
