@@ -40,7 +40,7 @@ const Home = () => {
           {remarks.map((writeUps) => (
             <div
               key={writeUps.name}
-              className='flex flex-col items-center gap-3 mb-2'
+              className='flex flex-col items-center gap-3 mb-2 cursor-pointer p-5'
             >
               <h2 className='bg-[#2F2E30] p-2 rounded-[50%] '>
                 <span className='bg-black text-white block p-3 rounded-[50%] text-lg'>
