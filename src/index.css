@@ -115,7 +115,30 @@ a {
 }
 
 .cum-bg {
-  background: url("./assets/boom.png"), lightgray -99.767px -240.854px / 135.847% 234.327% no-repeat;
+  background: linear-gradient(
+    90deg,
+    transparent 40%,
+    rgba(211, 211, 211, 0.03) 100%
+  );
+  background-position-x: -99.767px;
+  background-position-y: -240.854px;
+  background-size: 135.847% 234.327%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    76deg,
+    transparent 40%,
+    rgba(28, 28, 30, 0.15) 100%
+  );
+  transform: skewY(101deg);
+  transform-origin: top left;
+  z-index: 1;
 }
 
 @media (min-width: 768px) {
