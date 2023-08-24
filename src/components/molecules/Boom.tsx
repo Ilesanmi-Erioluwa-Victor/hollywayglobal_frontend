@@ -8,10 +8,11 @@ const Boom = () => {
         <h1 className='text-[3rem]'>Enhance Your Music Experience</h1>
       </div>
 
-      <div className=''>
+      <div className='cum-bg p-6'>
         <img
           src={ImageBoom}
           alt=''
+          className='carousel-image'
         />
       </div>
     </div>

@@ -114,6 +114,10 @@ a {
   background-color: #007bff;
 }
 
+.cum-bg {
+  background: url("./assets/boom.png"), lightgray -99.767px -240.854px / 135.847% 234.327% no-repeat;
+}
+
 @media (min-width: 768px) {
   .paddTop {
     padding-top: calc(1rem + 8vh);
