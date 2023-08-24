@@ -5,3 +5,4 @@ export { default as Hero } from './molecules/Hero';
 export { default as SubHero } from './molecules/SubHero';
 export { default as CategorySection } from './molecules/CategorySection';
 export { default as NewArrival } from './molecules/NewArrival';
+export { default as Boom } from './molecules/Boom';
