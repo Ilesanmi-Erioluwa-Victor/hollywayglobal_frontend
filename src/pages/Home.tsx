@@ -6,8 +6,8 @@ const Home = () => {
       <Hero />
       <SubHero />
       <CategorySection />
-      {/* <NewArrival />
-      <SubHero /> */}
+       <NewArrival />
+      <SubHero /> 
     </div>
   );
 };
