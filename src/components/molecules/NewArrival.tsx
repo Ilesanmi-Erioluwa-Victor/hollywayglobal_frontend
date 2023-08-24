@@ -8,75 +8,99 @@ import Image3 from '../../assets/boom.png';
 const NewArrival = () => {
   const products = [
     {
-      name: 'Product Name',
+      name: 'The north coat',
       id: uuidv4(),
       image: Image3,
+      price: '$260',
+      slashedPrice: '$360',
     },
 
     {
-      name: 'Product Name',
+      name: 'Gucci duffle bag',
       id: uuidv4(),
       image: Image,
+      price: '$260',
+      slashedPrice: '$360',
     },
 
     {
-      name: 'Product Name',
+      name: 'RGB liquid CPU Cooler',
       id: uuidv4(),
       image: Image1,
+      price: '$260',
+      slashedPrice: '$360',
     },
 
     {
-      name: 'Product Name',
+      name: 'RGB liquid CPU Cooler',
       id: uuidv4(),
       image: Image,
+      price: '$260',
+      slashedPrice: '$360',
     },
 
     {
-      name: 'Product Name',
+      name: 'RGB liquid CPU Cooler',
       id: uuidv4(),
       image: Image1,
+      price: '$260',
+      slashedPrice: '$360',
     },
 
     {
-      name: 'Product Name',
+      name: 'RGB liquid CPU Cooler',
       id: uuidv4(),
       image: Image2,
+      price: '$260',
+      slashedPrice: '$360',
     },
 
     {
-      name: 'Product Name',
+      name: 'RGB liquid CPU Cooler',
       id: uuidv4(),
       image: Image3,
+      price: '$260',
+      slashedPrice: '$360',
     },
 
     {
-      name: 'Product Name',
+      name: 'RGB liquid CPU Cooler',
       id: uuidv4(),
       image: Image1,
+      price: '$260',
+      slashedPrice: '$360',
     },
 
     {
-      name: 'Product Name',
+      name: 'RGB liquid CPU Cooler',
       id: uuidv4(),
       image: Image2,
+      price: '$260',
+      slashedPrice: '$360',
     },
 
     {
-      name: 'Product Name',
+      name: 'RGB liquid CPU Cooler',
       id: uuidv4(),
       image: Image2,
+      price: '$260',
+      slashedPrice: '$360',
     },
 
     {
-      name: 'Product Name',
+      name: 'RGB liquid CPU Cooler',
       id: uuidv4(),
       image: Image3,
+      price: '$260',
+      slashedPrice: '$360',
     },
 
     {
-      name: 'Product Name',
+      name: 'RGB liquid CPU Cooler',
       id: uuidv4(),
       image: Image2,
+      price: '$260',
+      slashedPrice: '$360',
     },
   ];
   return (
@@ -99,7 +123,7 @@ const NewArrival = () => {
               alt={product.name}
               className=' w-[100%] p-4'
             />
-            <h3 className='text-center text-[1rem] bg-white py-2'>
+            <h3 className='text-center text-[1rem] bg-white py-2 '>
               {product.name}
             </h3>
           </div>
