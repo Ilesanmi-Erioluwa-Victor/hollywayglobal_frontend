@@ -114,10 +114,10 @@ const NewArrival = () => {
 
       <div className='grid grid-cols-product-grid p-[10px] gap-[10px]'>
         {products.map((product) => (
-          <div className='flex flex-col'>
+          <div className='flex flex-col gap-[0.4rem]'>
             <div
               key={product.id}
-              className='grid-item2 bg-slate-100  rounded-sm '
+              className='grid-item2 bg-slate-100  rounded-sm mb-3'
             >
               <img
                 src={product.image}
@@ -125,12 +125,15 @@ const NewArrival = () => {
                 className=' w-[100%] p-4'
               />
             </div>
-            <p className='text-center text-[14px] bg-white py-4 self-start'>
+            <p className='text-center text-[14px] bg-white self-start'>
               {product.name}
             </p>
 
-            <p className='text-center text-[14px] bg-white py-4 self-start'>
-              {product.price} <span>{product.slashedPrice}</span>
+            <p className='text-center text-[14px] bg-white self-start text-[#DB4444]'>
+              {product.price}{' '}
+              <span className='text-slate-500 opacity-40 pl-4'>
+                {product.slashedPrice}
+              </span>
             </p>
           </div>
         ))}
