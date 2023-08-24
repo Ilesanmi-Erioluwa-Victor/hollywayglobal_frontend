@@ -8,6 +8,9 @@ const Home = () => {
       <CategorySection />
        <NewArrival />
       <Boom /> 
+      <div>
+        <div></div>
+      </div>
     </div>
   );
 };
