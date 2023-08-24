@@ -27,7 +27,7 @@ const NavLinks: Nav[] = [
     title: 'contact',
     id: uuidv4(),
     link: '/contact',
-    isOnboard: true
+    isOnboard: true,
   },
 
   {
@@ -35,7 +35,7 @@ const NavLinks: Nav[] = [
     title: 'about',
     id: uuidv4(),
     link: '/about',
-    isOnboard: true
+    isOnboard: true,
   },
 
   {
@@ -46,7 +46,6 @@ const NavLinks: Nav[] = [
     isOnboard: false,
   },
 ];
-
 
 const Nav = (): JSX.Element => {
   return (
@@ -63,11 +62,7 @@ const Nav = (): JSX.Element => {
             >
               <NavLink
                 to={nav.link}
-                className={({ isActive }) =>
-                  isActive
-                    ? 'custom'
-                    : ''
-                }
+                className={({ isActive }) => (isActive ? 'custom' : '')}
               >
                 {nav.name}
               </NavLink>
@@ -79,7 +74,7 @@ const Nav = (): JSX.Element => {
       <RoundedInput
         placeholder='What are you looking for?'
         icon={<BiSearch className='w-4 h-4' />}
-        className=""
+        className=''
       />
     </nav>
   );
