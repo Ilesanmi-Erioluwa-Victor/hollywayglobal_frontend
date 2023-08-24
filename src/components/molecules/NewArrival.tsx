@@ -114,18 +114,24 @@ const NewArrival = () => {
 
       <div className='grid grid-cols-product-grid p-[10px] gap-[10px]'>
         {products.map((product) => (
-          <div
-            key={product.id}
-            className='grid-item2 bg-slate-100  rounded-sm '
-          >
-            <img
-              src={product.image}
-              alt={product.name}
-              className=' w-[100%] p-4'
-            />
-            <h3 className='text-center text-[1rem] bg-white py-2 '>
+          <div className='flex flex-col'>
+            <div
+              key={product.id}
+              className='grid-item2 bg-slate-100  rounded-sm '
+            >
+              <img
+                src={product.image}
+                alt={product.name}
+                className=' w-[100%] p-4'
+              />
+            </div>
+            <p className='text-center text-[14px] bg-white py-4 self-start'>
               {product.name}
-            </h3>
+            </p>
+
+            <p className='text-center text-[14px] bg-white py-4 self-start'>
+              {product.price} <span>{product.slashedPrice}</span>
+            </p>
           </div>
         ))}
       </div>
