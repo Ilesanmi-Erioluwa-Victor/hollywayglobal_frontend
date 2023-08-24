@@ -53,6 +53,22 @@ img {
   grid-column: container-start/container-end;
 }
 
+.container-custom2 {
+ display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+}
+
+.grid-item2 {
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+
+
 .paddTop {
   padding-top: calc(1rem + 4vh);
   padding-bottom: calc(1rem + 4vh);

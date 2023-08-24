@@ -80,22 +80,24 @@ const SubHero = () => {
   ];
 
   return (
-    <div className='bg-white flex flex-wrap gap-3 items-center justify-center p-4 shadow-md rounded-md'>
-      {products.map((product) => (
-        <div
-          key={product.id}
-          className='w-[100%%] sm:w-[50%] md:w-[15.6%] bg-slate-100  rounded-sm'
-        >
-          <img
-            src={product.image}
-            alt={product.name}
-            className=' w-[100%] p-4'
-          />
-          <h3 className='text-center text-[1rem] bg-white py-2'>
-            {product.name}
-          </h3>
-        </div>
-      ))}
+    <div className='bg-white  gap-3 items-center justify-center p-4 shadow-md rounded-md'>
+      <div className=' container-custom2'>
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className='grid-item2 bg-slate-100  rounded-sm'
+          >
+            <img
+              src={product.image}
+              alt={product.name}
+              className=' w-[100%] p-4'
+            />
+            <h3 className='text-center text-[1rem] bg-white py-2'>
+              {product.name}
+            </h3>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
