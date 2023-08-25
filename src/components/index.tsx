@@ -6,3 +6,4 @@ export { default as SubHero } from './molecules/SubHero';
 export { default as CategorySection } from './molecules/CategorySection';
 export { default as NewArrival } from './molecules/NewArrival';
 export { default as Boom } from './molecules/Boom';
+export { default as BottomArrival } from './molecules/BottomArrival';
