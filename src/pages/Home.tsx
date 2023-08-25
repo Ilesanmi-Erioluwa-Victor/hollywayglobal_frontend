@@ -6,6 +6,7 @@ import {
   CategorySection,
   NewArrival,
   Boom,
+  BottomArrival,
 } from '../components';
 
 const Home = () => {
@@ -53,6 +54,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <BottomArrival />
     </div>
   );
 };
