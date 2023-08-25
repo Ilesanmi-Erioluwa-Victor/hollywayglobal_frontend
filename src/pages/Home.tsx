@@ -36,6 +36,7 @@ const Home = () => {
       <CategorySection />
       <NewArrival />
       <Boom />
+      <BottomArrival />
       <div className='p-8vw'>
         <div className='flex items-center justify-between md:px-[5rem] flex-col md:flex-row gap-4 flex-wrap'>
           {remarks.map((writeUps) => (
@@ -54,7 +55,6 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <BottomArrival />
     </div>
   );
 };
