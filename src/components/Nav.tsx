@@ -10,7 +10,6 @@ type Nav = {
   title: string;
   id: string;
   link: string;
-  isOnboard?: boolean;
 };
 
 const NavLinks: Nav[] = [
@@ -19,7 +18,6 @@ const NavLinks: Nav[] = [
     title: 'home',
     id: uuidv4(),
     link: '/',
-    isOnboard: true,
   },
 
   {
@@ -27,7 +25,6 @@ const NavLinks: Nav[] = [
     title: 'contact',
     id: uuidv4(),
     link: '/contact',
-    isOnboard: true,
   },
 
   {
@@ -35,7 +32,6 @@ const NavLinks: Nav[] = [
     title: 'about',
     id: uuidv4(),
     link: '/about',
-    isOnboard: true,
   },
 
   {
@@ -43,7 +39,6 @@ const NavLinks: Nav[] = [
     title: 'Sign Up',
     id: uuidv4(),
     link: '/register',
-    isOnboard: false,
   },
 ];
 
