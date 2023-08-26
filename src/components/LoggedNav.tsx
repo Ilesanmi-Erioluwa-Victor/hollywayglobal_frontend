@@ -42,7 +42,7 @@ const NavLinks: Nav[] = [
   },
 ];
 
-const Nav = (): JSX.Element => {
+const LoggedNav = (): JSX.Element => {
   return (
     <nav className='padd2 gap-[1rem] md:gap-0 flex justify-between items-center text-[0.8rem]'>
       <div>logo</div>
@@ -70,12 +70,14 @@ const Nav = (): JSX.Element => {
         placeholder='What are you looking for?'
         icon={<BiSearch className='w-4 h-4' />}
         className=''
-          />
-          <ul>
-              <li><Link to={"/liked"}>{BiHeartCircle}</Link></li>
-          </ul>
+      />
+      <ul>
+        <li>
+          <Link to={'/liked'}>{BiHeartCircle}</Link>
+        </li>
+      </ul>
     </nav>
   );
 };
 
-export default Nav;
+export default LoggedNav;
