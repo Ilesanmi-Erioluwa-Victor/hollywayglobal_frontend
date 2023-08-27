@@ -1,6 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { BiSearch, BiHeartCircle } from 'react-icons/bi';
 import { AiOutlineShoppingCart } from "react-icons/ai"
+import {  CgProfile } from "react-icons/cg"
 
 import { Link, NavLink } from 'react-router-dom';
 
@@ -72,12 +73,15 @@ const LoggedNav = (): JSX.Element => {
         icon={<BiSearch className='w-4 h-4' />}
         className=''
       />
-      <ul className='bg-red-900'>
+      <ul className='bg-red-900 flex'>
         <li>
           <Link to={'/liked'}>{<BiHeartCircle />}</Link>
         </li>
         <li>
           <Link to={'/cart'}>{<AiOutlineShoppingCart />}</Link>
+        </li>
+        <li>
+          <Link to={'/profile'}>{<CgProfile />}</Link>
         </li>
       </ul>
     </nav>
