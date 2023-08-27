@@ -73,9 +73,9 @@ const LoggedNav = (): JSX.Element => {
         icon={<BiSearch className='w-4 h-4' />}
         className=''
       />
-      <ul className='bg-red-900 flex'>
+      <ul className='flex items-center justify-between'>
         <li>
-          <Link to={'/liked'}>{<BiHeartCircle />}</Link>
+          <Link to={'/liked'} className='text-[2rem]'>{<BiHeartCircle />}</Link>
         </li>
         <li>
           <Link to={'/cart'}>{<AiOutlineShoppingCart />}</Link>
