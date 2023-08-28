@@ -53,6 +53,32 @@ const Cart = () => {
               </TableCell>
               <TableCell align='center'>$650</TableCell>
             </TableRow>
+
+            <TableRow>
+              <TableCell align='center'>$650</TableCell>
+              <TableCell align='center'>$650</TableCell>
+              <TableCell align='center'>
+                <input
+                  type='number'
+                  className='w-[60px] text-center border h-[40px] active:border focus:border rounded-sm'
+                  min='1'
+                />
+              </TableCell>
+              <TableCell align='center'>$650</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell align='center'>$650</TableCell>
+              <TableCell align='center'>$650</TableCell>
+              <TableCell align='center'>
+                <input
+                  type='number'
+                  className='w-[60px] text-center border h-[40px] active:border focus:border rounded-sm'
+                  min='1'
+                />
+              </TableCell>
+              <TableCell align='center'>$650</TableCell>
+            </TableRow>
             {/* {rows.map((row) => (
               <TableRow
                 key={row.name}
@@ -72,6 +98,8 @@ const Cart = () => {
           </TableBody>
         </Table>
       </TableContainer>
+
+      <div className='border mt-10 flex justify-end w-[40%] ml-[auto] p-5 rounded-sm'>hello</div>
     </div>
   );
 };
