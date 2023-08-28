@@ -131,7 +131,7 @@ const LoggedNav = (): JSX.Element => {
             to={'/cart'}
             className='text-[1.5rem] relative'
           >
-            <span className='absolute top-[-0.5rem] flex items-center justify-evenly text-[16px] right-[-5px] bg-orange-600 rounded-[50%] w-4 h-4 text-white'>{0}</span>
+            <span className='absolute top-[-1rem] flex items-center justify-center text-[16px] right-[-8px] bg-orange-600 rounded-[50%] w-6 h-6 text-white p-2'>{0}</span>
             {<AiOutlineShoppingCart />}
           </Link>
         </li>
