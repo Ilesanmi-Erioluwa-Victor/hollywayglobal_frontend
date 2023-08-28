@@ -55,7 +55,6 @@ const Cart = () => {
                 <TableCell>{row.calories}</TableCell>
                 <TableCell>{row.fat}</TableCell>
                 <TableCell>{row.carbs}</TableCell>
-                <TableCell>{row.protein}</TableCell>
               </TableRow>
             ))}
           </TableBody>
