@@ -34,14 +34,17 @@ const Cart = () => {
         >
           <TableHead>
             <TableRow>
-              <TableCell>Product</TableCell>
-              <TableCell>Price</TableCell>
-              <TableCell>Quantity</TableCell>
-              <TableCell>Subtotal</TableCell>
+              <TableCell align='center'>Product</TableCell>
+              <TableCell align='center'>Price</TableCell>
+              <TableCell align='center'>Quantity</TableCell>
+              <TableCell align='center'>Subtotal</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            <TableRow>
+              <TableCell>$650</TableCell>
+            </TableRow>
+            {/* {rows.map((row) => (
               <TableRow
                 key={row.name}
                 // sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -49,14 +52,14 @@ const Cart = () => {
                 <TableCell
                   component='th'
                   scope='row'
-                >
-                  {row.name}
+                > */}
+            {/* {row.name}
                 </TableCell>
-                <TableCell>{row.calories}</TableCell>
-                <TableCell>{row.fat}</TableCell>
-                <TableCell>{row.carbs}</TableCell>
-              </TableRow>
-            ))}
+                <TableCell>{$650}</TableCell>
+                <TableCell>{$650}</TableCell>
+                <TableCell>{$650}</TableCell> */}
+            {/* </TableRow> */}
+            {/* ))} */}
           </TableBody>
         </Table>
       </TableContainer>
