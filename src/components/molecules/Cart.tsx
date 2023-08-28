@@ -103,10 +103,21 @@ const Cart = () => {
         <h2>Cart Total</h2>
 
         <div className='flex items-center justify-between'>
-          <h3>Sub total</h3>
+          <h3 className='font-[400]'>Sub total</h3>
           <p>$13079</p>
         </div>
         <hr />
+
+        <div className='flex items-center justify-between'>
+          <h3 className='font-[400]'>Total</h3>
+          <p>Free</p>
+        </div>
+        <hr />
+
+        <div className='flex items-center justify-between'>
+          <h3 className='font-[400]'>Total</h3>
+          <p>Free</p>
+        </div>
       </div>
     </div>
   );
