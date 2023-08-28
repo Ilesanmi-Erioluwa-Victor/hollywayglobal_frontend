@@ -104,8 +104,9 @@ const Cart = () => {
 
         <div className='flex items-center justify-between'>
           <h3>Sub total</h3>
-          <p>$130</p>
+          <p>$13079</p>
         </div>
+        <hr />
       </div>
     </div>
   );
