@@ -129,8 +129,9 @@ const LoggedNav = (): JSX.Element => {
         <li>
           <Link
             to={'/cart'}
-            className='text-[1.5rem]'
+            className='text-[1.5rem] relative'
           >
+            <span className='absolute top-[-0.5rem] text-center text-[16px] right-[-5px] bg-orange-600 rounded-[50%] w-4 h-4 text-white'>{0}</span>
             {<AiOutlineShoppingCart />}
           </Link>
         </li>
