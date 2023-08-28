@@ -116,8 +116,11 @@ const Cart = () => {
 
         <div className='flex items-center justify-between'>
           <h3 className='font-[400]'>Total</h3>
-          <p>Free</p>
+          <p>$88998</p>
         </div>
+        <button className='bg-[#DB4444] w-[100%] flex items-center justify-center mx-auto p-4 rounded-sm text-white text-[0.8rem]'>
+          Proceed to checkout
+        </button>
       </div>
     </div>
   );
