@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
-import { Footer, Header } from './components';
+import { Footer, Header, Cart } from './components';
 import { Home, Register, Login, Products } from './pages';
 
 const App = () => {
@@ -28,6 +28,11 @@ const App = () => {
           <Route
             element={<Products />}
             path={'/products'}
+          />
+
+          <Route
+            element={<Cart />}
+            path={'/cart'}
           />
 
           <Route

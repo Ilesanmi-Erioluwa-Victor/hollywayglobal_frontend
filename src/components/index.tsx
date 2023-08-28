@@ -7,4 +7,5 @@ export { default as CategorySection } from './molecules/CategorySection';
 export { default as NewArrival } from './molecules/NewArrival';
 export { default as Boom } from './molecules/Boom';
 export { default as BottomArrival } from './molecules/BottomArrival';
-export { default as LoggedNav } from "./LoggedNav"
+export { default as LoggedNav } from './LoggedNav';
+export { default as Cart } from './molecules/Cart';
