@@ -45,25 +45,11 @@ const Cart = () => {
               <TableCell align='center'>$650</TableCell>
               <TableCell align='center'>$650</TableCell>
               <TableCell align='center'>
-                <div className='flex items-center'>
-                  <button
-                    className='  w-[30px]
-  h-[30px]
-  bg-[#ccc]
-  
-border-0
-  cursor-pointer'
-                  >
-                    -
-                  </button>
-                  <input
-                    type='number'
-                    className='quantity-input'
-                    value='1'
-                    min='1'
-                  />
-                  <button className='quantity-btn increase'>+</button>
-                </div>
+                <input
+                  type='number'
+                  className='w-[60px] text-center border h-[40px] active:border focus:border rounded-sm'
+                  min='1'
+                />
               </TableCell>
               <TableCell align='center'>$650</TableCell>
             </TableRow>
