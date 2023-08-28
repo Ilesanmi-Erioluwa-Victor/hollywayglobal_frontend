@@ -99,7 +99,14 @@ const Cart = () => {
         </Table>
       </TableContainer>
 
-      <div className='border mt-10 flex justify-end w-[40%] ml-[auto] p-5 rounded-sm'>hello</div>
+      <div className='border mt-10 flex text-[0.8rem] gap-4 w-[40%] ml-[auto] p-5 rounded-sm flex-col'>
+        <h2>Cart Total</h2>
+
+        <div className='flex items-center justify-between'>
+          <h3>Sub total</h3>
+          <p>$130</p>
+        </div>
+      </div>
     </div>
   );
 };
