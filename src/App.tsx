@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 
 import { Footer, Header } from './components';
-import { Home, Register, Login } from './pages';
+import { Home, Register, Login, Products } from './pages';
 
 const App = () => {
   return (
@@ -23,6 +23,11 @@ const App = () => {
           <Route
             element={<Login />}
             path={'/login'}
+          />
+
+          <Route
+            element={<Products />}
+            path={'/products'}
           />
 
           <Route
