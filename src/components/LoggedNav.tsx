@@ -66,12 +66,12 @@ const LoggedNav = (): JSX.Element => {
 
       {
         id: uuidv4(),
-        name: 'Dashboard',
-        url: '/profile',
+        name: 'My reviews',
+        url: '/reviews',
       },
       {
         id: uuidv4(),
-        name: 'Settings',
+        name: 'Logout',
         url: 'profile/setting',
       },
     ];
