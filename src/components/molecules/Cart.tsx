@@ -42,7 +42,21 @@ const Cart = () => {
           </TableHead>
           <TableBody>
             <TableRow>
-              <TableCell>$650</TableCell>
+              <TableCell align='center'>$650</TableCell>
+              <TableCell align='center'>$650</TableCell>
+              <TableCell align='center'>
+                <div className='cart-item'>
+                  <button className='quantity-btn decrease'>-</button>
+                  <input
+                    type='number'
+                    className='quantity-input'
+                    value='1'
+                    min='1'
+                  />
+                  <button className='quantity-btn increase'>+</button>
+                </div>
+              </TableCell>
+              <TableCell align='center'>$650</TableCell>
             </TableRow>
             {/* {rows.map((row) => (
               <TableRow
