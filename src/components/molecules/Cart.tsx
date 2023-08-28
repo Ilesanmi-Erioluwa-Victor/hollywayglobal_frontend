@@ -45,8 +45,17 @@ const Cart = () => {
               <TableCell align='center'>$650</TableCell>
               <TableCell align='center'>$650</TableCell>
               <TableCell align='center'>
-                <div className='cart-item'>
-                  <button className='quantity-btn decrease'>-</button>
+                <div className='flex items-center'>
+                  <button
+                    className='  w-[30px]
+  h-[30px]
+  bg-[#ccc]
+  
+border-0
+  cursor-pointer'
+                  >
+                    -
+                  </button>
                   <input
                     type='number'
                     className='quantity-input'
