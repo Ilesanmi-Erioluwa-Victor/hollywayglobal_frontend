@@ -1,22 +1,16 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-
 import { v4 as uuidv4 } from 'uuid';
+
 import { BiSearch, BiHeartCircle } from 'react-icons/bi';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
 
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
-
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-
 import RoundedInput from './atoms/Input';
 
 type Nav = {
@@ -57,20 +51,37 @@ const NavLinks: Nav[] = [
 ];
 
 const LoggedNav = (): JSX.Element => {
-  const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+  class Data {
+    static User = [
+      {
+        id: uuidv4(),
+        name: 'Manage my Account',
+        url: '/myAccount',
+      },
+      {
+        id: uuidv4(),
+        name: 'Orders',
+        url: '/orders',
+      },
 
-  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+      {
+        id: uuidv4(),
+        name: 'Dashboard',
+        url: '/profile',
+      },
+      {
+        id: uuidv4(),
+        name: 'Settings',
+        url: 'profile/setting',
+      },
+    ];
+  }
+
+  // const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
   };
 
   const handleCloseUserMenu = () => {
@@ -81,7 +92,7 @@ const LoggedNav = (): JSX.Element => {
     <nav className='padd2 gap-[1rem] md:gap-0 flex justify-between items-center text-[0.8rem]'>
       <div>logo</div>
 
-      <ul className='hidden md:flex items-center justify-between md:gap-[3rem]'>
+      <ul className='hidden lg:flex items-center justify-between md:gap-[3rem]'>
         {NavLinks.map((nav) => {
           return (
             <li
@@ -103,7 +114,7 @@ const LoggedNav = (): JSX.Element => {
       <RoundedInput
         placeholder='What are you looking for?'
         icon={<BiSearch className='w-4 h-4' />}
-        className=''
+        fieldsetClass='w-[100%] mx-4 lg:w-[auto]'
       />
       <ul className='flex items-center justify-between gap-4'>
         <li>
@@ -114,6 +125,7 @@ const LoggedNav = (): JSX.Element => {
             {<BiHeartCircle />}
           </Link>
         </li>
+
         <li>
           <Link
             to={'/cart'}
@@ -122,54 +134,45 @@ const LoggedNav = (): JSX.Element => {
             {<AiOutlineShoppingCart />}
           </Link>
         </li>
+
         <li>
-          <Link
-            to={'/profile'}
-            className='text-[1.5rem]'
-          >
-            {<CgProfile />}
-          </Link>
+          <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title={` Settings`}>
+              <IconButton
+                onClick={handleOpenUserMenu}
+                sx={{ p: 0 }}
+              >
+                <CgProfile />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id='menu-appbar'
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {Data.User.map((profile) => (
+                <MenuItem
+                  key={profile.id}
+                  onClick={handleCloseUserMenu}
+                >
+                  <Link to={profile.url}>{profile.name}</Link>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
         </li>
       </ul>
-
-      <Box sx={{ flexGrow: 0 }}>
-        <Tooltip title='Open settings'>
-          <IconButton
-            onClick={handleOpenUserMenu}
-            sx={{ p: 0 }}
-          >
-            <Avatar
-              alt='Remy Sharp'
-              src='/static/images/avatar/2.jpg'
-            />
-          </IconButton>
-        </Tooltip>
-        <Menu
-          sx={{ mt: '45px' }}
-          id='menu-appbar'
-          anchorEl={anchorElUser}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-          keepMounted
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-          open={Boolean(anchorElUser)}
-          onClose={handleCloseUserMenu}
-        >
-          {settings.map((setting) => (
-            <MenuItem
-              key={setting}
-              onClick={handleCloseUserMenu}
-            >
-              <Typography textAlign='center'>{setting}</Typography>
-            </MenuItem>
-          ))}
-        </Menu>
-      </Box>
     </nav>
   );
 };

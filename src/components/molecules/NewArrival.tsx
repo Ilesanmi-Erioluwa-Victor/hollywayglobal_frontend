@@ -114,7 +114,7 @@ const NewArrival = () => {
 
       <div className='grid grid-cols-product-grid p-[10px] gap-[10px]'>
         {products.map((product) => (
-          <div className='flex flex-col gap-[0.4rem]'>
+          <div className='flex flex-col gap-[0.4rem]' key={product.id}>
             <div
               key={product.id}
               className='grid-item2 bg-slate-100  rounded-sm mb-3'

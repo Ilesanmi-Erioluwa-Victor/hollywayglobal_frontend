@@ -103,31 +103,31 @@ const SubHero = () => {
 
   return (
     <div className='bg-white  gap-3 items-center justify-center p-4 shadow-md rounded-md md:px-[1rem]'>
-        <div className='grid grid-cols-product-grid p-[10px] gap-[10px]'>
-          {products.map((product) => (
-            <div className='flex flex-col gap-[0.4rem] mb-3'>
-              <div
-                key={product.id}
-                className='grid-item2 bg-slate-100  rounded-sm mb-3'
-              >
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className=' w-[100%] p-4'
-                />
-              </div>
-              <p className='text-center text-[14px] bg-white self-start'>
-                {product.name}
-              </p>
-
-              <p className='text-center text-[14px] bg-white self-start text-[#DB4444]'>
-                {product.price}{' '}
-                <span className='text-slate-500 opacity-40 pl-4'>
-                  {product.slashedPrice}
-                </span>
-              </p>
+      <div className='grid grid-cols-product-grid p-[10px] gap-[10px]'>
+        {products.map((product) => (
+          <div
+            className='flex flex-col gap-[0.4rem] mb-3'
+            key={product.id}
+          >
+            <div className='grid-item2 bg-slate-100  rounded-sm mb-3'>
+              <img
+                src={product.image}
+                alt={product.name}
+                className=' w-[100%] p-4'
+              />
             </div>
-          ))}
+            <p className='text-center text-[14px] bg-white self-start'>
+              {product.name}
+            </p>
+
+            <p className='text-center text-[14px] bg-white self-start text-[#DB4444]'>
+              {product.price}{' '}
+              <span className='text-slate-500 opacity-40 pl-4'>
+                {product.slashedPrice}
+              </span>
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );
