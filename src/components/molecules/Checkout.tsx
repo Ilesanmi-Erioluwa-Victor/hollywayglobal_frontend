@@ -31,7 +31,7 @@ const Checkout = () => {
     <div className='p-8vw paddTop'>
       <div className='flex justify-between items-center px-10'>
         <form
-          className='flex flex-col gap-[1rem] w-[50%]'
+          className='flex flex-col gap-[1rem] w-[100%]'
           onSubmit={handleInputSubmit}
         >
           <h2 className='text-[2rem]'>Billing Details</h2>
@@ -93,7 +93,7 @@ const Checkout = () => {
           </Button>
         </form>
 
-        <div className='w-[50%]'>
+        <div className='w-[100%] p-8vw'>
           <form
             className='flex flex-col gap-[1rem] '
             onSubmit={handleInputSubmit}
