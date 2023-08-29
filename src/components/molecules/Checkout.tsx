@@ -1,11 +1,105 @@
+import { ChangeEvent, useState } from 'react';
+import Button from '@mui/material/Button';
+
+import { FieldSet } from '../../components/atoms';
+
 const Checkout = () => {
-    return (
-      <div className='p-8vw paddTop'>
-        <div>
-          <h2 className="text-[2rem]">Billing Details</h2>
-        </div>
+  const [data, setData] = useState({
+    firstName: '',
+    lastName: '',
+    password: '',
+    email: '',
+    mobile: '',
+  });
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setData({ ...data, [name]: value.trim() });
+  };
+
+  const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    try {
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <div className='p-8vw paddTop'>
+      <div>
+        <h2 className='text-[2rem]'>Billing Details</h2>
+
+        <form
+          className='flex flex-col gap-[1rem]'
+          onSubmit={handleInputSubmit}
+        >
+          <h3 className='text-[1.8rem] font-[500]  tracking-[1.44px] md:text-[1.6rem] md:tracking-[0px] lg:text-[2rem]'>
+            Create an account
+          </h3>
+          <p className='font-[400] text-[1.3rem]'>Enter your details below</p>
+          <div className='flex flex-col gap-[1rem]'>
+            <FieldSet
+              name='firstName'
+              label='firstName'
+              value={data.firstName}
+              onChange={handleInputChange}
+              id='firstName'
+              type='text'
+            />
+
+            <FieldSet
+              name='lastName'
+              label='lastName'
+              value={data.lastName}
+              onChange={handleInputChange}
+              id='lastName'
+              type='text'
+            />
+
+            <FieldSet
+              name='password'
+              label='password'
+              value={data.password}
+              onChange={handleInputChange}
+              id='password'
+              type='password'
+            />
+
+            <FieldSet
+              name='email'
+              label='email'
+              value={data.email}
+              onChange={handleInputChange}
+              id='email'
+              type='email'
+            />
+
+            <FieldSet
+              name='mobile'
+              label='mobile'
+              value={data.mobile}
+              onChange={handleInputChange}
+              id='mobile'
+              type='text'
+            />
+          </div>
+          <Button
+            variant='contained'
+            size='large'
+            type='submit'
+            sx={{
+              backgroundColor: '#DB4444',
+            }}
+          >
+            Create Account
+          </Button>
+        </form>
       </div>
-    );
+    </div>
+  );
 };
 
 export default Checkout;
