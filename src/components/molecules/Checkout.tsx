@@ -6,8 +6,8 @@ import { FieldSet } from '../../components/atoms';
 const Checkout = () => {
   const [data, setData] = useState({
     firstName: '',
-    lastName: '',
-    password: '',
+    address: '',
+    town: '',
     email: '',
     mobile: '',
   });
@@ -36,10 +36,6 @@ const Checkout = () => {
           className='flex flex-col gap-[1rem]'
           onSubmit={handleInputSubmit}
         >
-          <h3 className='text-[1.8rem] font-[500]  tracking-[1.44px] md:text-[1.6rem] md:tracking-[0px] lg:text-[2rem]'>
-            Create an account
-          </h3>
-          <p className='font-[400] text-[1.3rem]'>Enter your details below</p>
           <div className='flex flex-col gap-[1rem]'>
             <FieldSet
               name='firstName'
@@ -51,21 +47,21 @@ const Checkout = () => {
             />
 
             <FieldSet
-              name='lastName'
-              label='lastName'
-              value={data.lastName}
+              name='address'
+              label='address'
+              value={data.address}
               onChange={handleInputChange}
-              id='lastName'
+              id='address'
               type='text'
             />
 
             <FieldSet
-              name='password'
-              label='password'
-              value={data.password}
+              name='town'
+              label='town'
+              value={data.town}
               onChange={handleInputChange}
-              id='password'
-              type='password'
+              id='town'
+              type='text'
             />
 
             <FieldSet
