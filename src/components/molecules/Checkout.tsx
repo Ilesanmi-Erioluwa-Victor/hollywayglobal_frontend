@@ -30,12 +30,11 @@ const Checkout = () => {
   return (
     <div className='p-8vw paddTop'>
       <div>
-        <h2 className='text-[2rem]'>Billing Details</h2>
-
         <form
           className='flex flex-col gap-[1rem]'
           onSubmit={handleInputSubmit}
         >
+          <h2 className='text-[2rem] mb-[2rem]'>Billing Details</h2>
           <div className='flex flex-col gap-[1rem]'>
             <FieldSet
               name='firstName'
@@ -93,6 +92,70 @@ const Checkout = () => {
             Create Account
           </Button>
         </form>
+
+        <div>
+          <form
+            className='flex flex-col gap-[1rem]'
+            onSubmit={handleInputSubmit}
+          >
+            <div className='flex flex-col gap-[1rem]'>
+              <FieldSet
+                name='firstName'
+                label='firstName'
+                value={data.firstName}
+                onChange={handleInputChange}
+                id='firstName'
+                type='text'
+              />
+
+              <FieldSet
+                name='address'
+                label='address'
+                value={data.address}
+                onChange={handleInputChange}
+                id='address'
+                type='text'
+              />
+
+              <FieldSet
+                name='town'
+                label='town'
+                value={data.town}
+                onChange={handleInputChange}
+                id='town'
+                type='text'
+              />
+
+              <FieldSet
+                name='email'
+                label='email'
+                value={data.email}
+                onChange={handleInputChange}
+                id='email'
+                type='email'
+              />
+
+              <FieldSet
+                name='mobile'
+                label='mobile'
+                value={data.mobile}
+                onChange={handleInputChange}
+                id='mobile'
+                type='text'
+              />
+            </div>
+            <Button
+              variant='contained'
+              size='large'
+              type='submit'
+              sx={{
+                backgroundColor: '#DB4444',
+              }}
+            >
+              Create Account
+            </Button>
+          </form>
+        </div>
       </div>
     </div>
   );
