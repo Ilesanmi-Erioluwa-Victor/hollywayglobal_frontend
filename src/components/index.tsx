@@ -9,3 +9,4 @@ export { default as Boom } from './molecules/Boom';
 export { default as BottomArrival } from './molecules/BottomArrival';
 export { default as LoggedNav } from './LoggedNav';
 export { default as Cart } from './molecules/Cart';
+export { default as Checkout } from './molecules/Checkout';
