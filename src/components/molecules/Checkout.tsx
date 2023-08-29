@@ -29,12 +29,12 @@ const Checkout = () => {
 
   return (
     <div className='p-8vw paddTop'>
-      <div>
+      <div className='flex justify-between items-center px-10'>
         <form
-          className='flex flex-col gap-[1rem]'
+          className='flex flex-col gap-[1rem] w-[50%]'
           onSubmit={handleInputSubmit}
         >
-          <h2 className='text-[2rem] mb-[2rem]'>Billing Details</h2>
+          <h2 className='text-[2rem]'>Billing Details</h2>
           <div className='flex flex-col gap-[1rem]'>
             <FieldSet
               name='firstName'
@@ -93,9 +93,9 @@ const Checkout = () => {
           </Button>
         </form>
 
-        <div>
+        <div className='w-[50%]'>
           <form
-            className='flex flex-col gap-[1rem]'
+            className='flex flex-col gap-[1rem] '
             onSubmit={handleInputSubmit}
           >
             <div className='flex flex-col gap-[1rem]'>
