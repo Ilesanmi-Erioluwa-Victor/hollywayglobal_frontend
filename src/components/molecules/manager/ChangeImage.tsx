@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
+import { FiUpload } from "react-icons/fi"
 
 const ChangeImage = () => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
@@ -19,15 +20,16 @@ const ChangeImage = () => {
     <div className='p-6'>
       <div className='flex flex-col items-center'>
         {selectedImage ? (
-          <div className='relative'>
+          <div className='relative w-full'>
             <img
               src={URL.createObjectURL(selectedImage)}
               alt='Preview'
+              className='w-full h-[400px]'
             />
 
             <button
-              className='absolute top-[5px] right-[5px] bg-transparent border-none cursor-pointer p-0 flex items-center justify-center text-[#fff]'
-              onClick={handleRemoveImage}
+              className='absolute w-[20px] h-[20px] rounded-[50%] top-[5px] right-[5px] bg-transparent border-none cursor-pointer p-0 flex items-center justify-center text-[#fff]'
+              onClick={handleRemoveImage} 
             >
               <FaTimes />
             </button>
@@ -37,7 +39,7 @@ const ChangeImage = () => {
             className='border-[#ccc] border-[2px] border-dotted flex items-center justify-center cursor-pointer w-[100%] h-[300px] rounded-md'
             onClick={() => document.getElementById('imageInput')?.click()}
           >
-            <p className='m-0'>Click to select an image</p>
+            <span>{<FiUpload />}</span>
           </div>
         )}
         <input
