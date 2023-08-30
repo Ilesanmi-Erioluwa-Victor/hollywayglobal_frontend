@@ -66,7 +66,7 @@ const AccountLayout = () => {
               className='flex items-center gap-4 py-5 justify-start pl-4 hover:bg-slate-400 hover:transition-all'
               to={accNav.link}
             >
-              <span className='text-[1.4rem] '>{accNav.icon}</span>
+              <span className='text-[1.6rem] '>{accNav.icon}</span>
 
               <span>{accNav.name}</span>
             </Link>
