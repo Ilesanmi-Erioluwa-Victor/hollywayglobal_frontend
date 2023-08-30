@@ -103,7 +103,8 @@ const Checkout = () => {
             <hr />
 
             <div className='flex items-center justify-between'>
-              <h3 className='font-[400]'>Total</h3>
+              <h3 className='font-[400]'>Shipping</h3>
+              <p>Free</p>
             </div>
             <hr />
 
