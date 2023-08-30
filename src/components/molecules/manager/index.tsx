@@ -47,7 +47,14 @@ const AccountLayout = () => {
         id: uuidv4(),
         name: 'My Password',
         link: '/user/account/password',
-        icon: <PiTelevisionSimpleLight />,
+        icon: <PiBabyLight />,
+      },
+
+      {
+        id: uuidv4(),
+        name: 'Change Profile Image',
+        link: '/user/account/updateImage',
+        icon: <PiCookingPotLight />,
       },
     ];
 
