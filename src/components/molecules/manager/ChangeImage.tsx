@@ -11,7 +11,7 @@ const ChangeImage = () => {
   };
   return (
     <div className='p-6'>
-      <div className='image-uploader'>
+      <div className='flex flex-col items-center'>
         {selectedImage ? (
           <img
             src={URL.createObjectURL(selectedImage)}
