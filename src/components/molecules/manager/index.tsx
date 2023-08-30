@@ -15,12 +15,21 @@ import { GiLipstick } from 'react-icons/gi';
 import { BiHomeAlt2 } from 'react-icons/bi';
 
 const AccountLayout = () => {
-    const Account = [{
+    const Account = [
+      {
         id: uuidv4(),
-        name: "My Account",
-        link: "/user/account/views",
-        icon : <FaAppleAlt />
-}]
+        name: 'My Account',
+        link: '/user/account/views',
+        icon: <FaAppleAlt />,
+      },
+      {
+        id: uuidv4(),
+        name: 'My Orders',
+        link: '/user/account/orders',
+        icon: <GiLipstick />,
+        },
+      
+    ];
 
   return (
     <div className='grid grid-cols-[_repeat(12,1fr)] px-[_calc(1rem_+_8vw)] gap-4 py-4'>
