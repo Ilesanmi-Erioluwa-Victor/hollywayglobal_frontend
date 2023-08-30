@@ -10,6 +10,11 @@ const ChangeImage = () => {
       setSelectedImage(selectedFile);
     }
   };
+
+   const handleRemoveImage = () => {
+    setSelectedImage(null);
+  };
+  
   return (
     <div className='p-6'>
       <div className='flex flex-col items-center'>
