@@ -27,9 +27,8 @@ const Checkout = () => {
   };
 
   return (
-    <div className='px-7 py-8 md:p-8vw'>
-      <div className='flex justify-between items-center px-10 flex-col md:flex-row'>
-        
+    <div className='p-6 md:p-8vw'>
+      <div className='flex justify-between items-center flex-col md:flex-row'>
         <form
           className='flex flex-col gap-[1rem] w-[100%]'
           onSubmit={handleInputSubmit}
@@ -117,7 +116,6 @@ const Checkout = () => {
             </button>
           </div>
         </div>
-
       </div>
     </div>
   );
