@@ -33,7 +33,7 @@ const AccountLayout = () => {
         id: uuidv4(),
         name: 'My Reviews',
         link: '/user/account/reviews',
-        icon: <GiLipstick />,
+        icon: <BiHomeAlt2 />,
       },
     ];
 
