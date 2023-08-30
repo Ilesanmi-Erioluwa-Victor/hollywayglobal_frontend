@@ -59,11 +59,11 @@ const AccountLayout = () => {
 
   return (
     <div className='grid grid-cols-[_repeat(12,1fr)] px-[_calc(1rem_+_8vw)] gap-4 py-[2rem]'>
-      <div className='col-[_1/_4] shadow-md rounded-md  bg-white flex flex-col gap-8 py-5'>
+      <div className='col-[_1/_4] shadow-md rounded-md bg-white flex flex-col '>
         {AccountNav.map((accNav) => (
           <div key={accNav.id}>
             <Link
-              className='flex items-center gap-4 justify-start pl-4'
+              className='flex items-center gap-4 py-5 justify-start pl-4 hover:bg-slate-400 hover:transition-all'
               to={accNav.link}
             >
               <span className='text-[1.4rem] '>{accNav.icon}</span>

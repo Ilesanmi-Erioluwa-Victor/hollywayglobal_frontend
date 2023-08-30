@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import {
   Footer,
@@ -16,6 +16,7 @@ import {
 import { Home, Register, Login, Products } from './pages';
 
 const App = () => {
+  const navigate = useNavigate()
   return (
     <div className='container-custom bg-slate-100'>
       <div className='overall-layout'>
@@ -53,13 +54,15 @@ const App = () => {
           />
 
           <Route
-            element={<AccountLayout />}
+            element={<AccountLayout /> }
             path={'/user/account'}
+            
           >
             <Route
               element={<ManageAccount />}
               path='views'
               index
+              
             />
             <Route
               element={<Order />}
