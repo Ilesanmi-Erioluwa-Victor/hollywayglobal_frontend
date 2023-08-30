@@ -87,7 +87,7 @@ const Checkout = () => {
           <div className='mt-10 flex text-[0.8rem] gap-4 ml-[auto] p-5 rounded-sm flex-col'>
             <div className='flex items-center justify-between mb-3'>
               <div className='flex justify-between items-center w-[100%]'>
-                <div className='flex gap-6 items-center'>
+                <div className='flex gap-6 items-center py-3'>
                   <img
                     src={Image}
                     alt={'Image product'}
