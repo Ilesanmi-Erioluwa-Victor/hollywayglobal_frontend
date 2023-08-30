@@ -14,3 +14,4 @@ export { default as ManageAccount } from './molecules/manager/ManageAccount';
 export { default as Order } from './molecules/manager/Order';
 export { default as Reviews } from './molecules/manager/Reviews';
 export { default as AddressBook } from './molecules/manager/AddressBook';
+export { default as ChangePassword } from './molecules/manager/ChangePassword';
