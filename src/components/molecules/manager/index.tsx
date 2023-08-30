@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
 import {
@@ -64,12 +64,18 @@ const AccountLayout = () => {
           <div
             key={accNav.id}
             className='flex flex-col justify-center'
-          ></div>
+            >
+                <div>
+                    <span>{accNav.icon}</span>
+                    <Link to={}></Link>
+                </div>
+          </div>
         ))}
       </div>
 
       <div className='col-[_5/_-1] shadow-md rounded-md  bg-white'>
-        <Outlet />
+              <Outlet />
+              hellp
       </div>
     </div>
   );
