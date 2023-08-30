@@ -1,5 +1,5 @@
 const AddressBook = () => {
-  return <div>AddressBook</div>;
+  return <div className='p-6'>AddressBook</div>;
 };
 
 export default AddressBook;

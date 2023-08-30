@@ -1,11 +1,7 @@
 
 
 const Order = () => {
-  return (
-    <div>
-      Order
-    </div>
-  )
+  return <div className='p-6'>Order</div>;
 }
 
 export default Order
