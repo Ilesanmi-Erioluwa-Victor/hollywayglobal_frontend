@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
-import { Footer, Header, Cart, Checkout } from './components';
+import { Footer, Header, Cart, Checkout, ManageAccount } from './components';
 import { Home, Register, Login, Products } from './pages';
 
 const App = () => {
@@ -41,10 +41,11 @@ const App = () => {
           />
 
           <Route
-            element={<Checkout />}
+            element={<ManageAccount />}
             path={'/manageAccount'}
-          />
+          >
 
+            </Route>
           <Route
             element={<h1> Error page</h1>}
             path={'*'}

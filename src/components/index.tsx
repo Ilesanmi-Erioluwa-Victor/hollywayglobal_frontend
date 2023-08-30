@@ -11,3 +11,4 @@ export { default as LoggedNav } from './LoggedNav';
 export { default as Cart } from './molecules/Cart';
 export { default as Checkout } from './molecules/Checkout';
 export { default as ManageAccount } from './molecules/manager/ManageAccount';
+export { default as Order } from './molecules/manager/Order';
