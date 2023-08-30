@@ -17,6 +17,9 @@ import { BiHomeAlt2 } from 'react-icons/bi';
 const AccountLayout = () => {
     const Account = [{
         id: uuidv4(),
+        name: "My Account",
+        link: "/user/account/views",
+        icon : <FaAppleAlt />
 }]
 
   return (
