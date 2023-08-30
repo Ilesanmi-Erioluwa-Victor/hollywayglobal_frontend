@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaTimes } from 'react-icons/fa';
 
 const ChangeImage = () => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
@@ -19,7 +20,7 @@ const ChangeImage = () => {
           />
         ) : (
           <div
-            className='border-[2px_dashed_#ccc] flex items-center justify-center cursor-pointer w-[200px] h-[200px]'
+            className='border-[#ccc] border-[2px] border-dotted flex items-center justify-center cursor-pointer w-[100%] h-[300px] rounded-md'
             onClick={() => document.getElementById('imageInput')?.click()}
           >
             <p className='m-0'>Click to select an image</p>
