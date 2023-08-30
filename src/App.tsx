@@ -11,7 +11,7 @@ import {
   AddressBook,
   ChangePassword,
   ChangeImage,
-  
+  AccountLayout,
 } from './components';
 import { Home, Register, Login, Products } from './pages';
 
@@ -53,7 +53,7 @@ const App = () => {
           />
 
           <Route
-            element={<ManageAccount />}
+            element={<AccountLayout />}
             path={'/'}
           >
             <Route
@@ -80,7 +80,6 @@ const App = () => {
               element={<ChangeImage />}
               path='updateImage'
             />
-
           </Route>
 
           <Route
