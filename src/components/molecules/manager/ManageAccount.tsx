@@ -7,7 +7,7 @@ const ManageAccount = () => {
       <hr />
       <div className='grid grid-cols-[_repeat(auto-fit,_minmax(200px,1fr))] gap-4 py-[2rem]'>
         <div className='border p-4 rounded-md'>
-          <h3 className='text-[1rem] py-2 font-[550] font-[Arial] mb-2'>
+          <h3 className='text-[1rem] py-2 font-[400] font-[Arial] mb-2'>
             ACCOUNT DETAILS
           </h3>
           <hr />
@@ -21,7 +21,7 @@ const ManageAccount = () => {
 
         <div className='border p-4 rounded-md'>
           <div className='flex justify-between items-center'>
-            <h3 className='text-[1rem] py-2 font-[550] font-[Arial] mb-2'>
+            <h3 className='text-[1rem] py-2 font-[400] font-[Arial] mb-2'>
               ADDRESS BOOK
             </h3>
             <span className='text-[1.4rem] text-orange-500 cursor-pointer hover:bg-orange-200 p-2 rounded-[50%] transition-all'>
