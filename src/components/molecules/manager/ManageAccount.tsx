@@ -1,3 +1,5 @@
+import { BiPencil } from 'react-icons/bi';
+
 const ManageAccount = () => {
   return (
     <div className='p-6'>
@@ -18,11 +20,13 @@ const ManageAccount = () => {
         </div>
 
         <div className='border p-4 rounded-md'>
-          <div className="flex justify-between items-center">
-
-          <h3 className='text-[1rem] py-2 font-[550] font-[Arial]'>
-            ADDRESS BOOK
-          </h3>
+          <div className='flex justify-between items-center'>
+            <h3 className='text-[1rem] py-2 font-[550] font-[Arial]'>
+              ADDRESS BOOK
+            </h3>
+            <span className='text-[1.3rem] text-orange-500 cursor-pointer hover:bg-orange-200 p-2 rounded-[50%]'>
+              <BiPencil />
+            </span>
           </div>
           <hr />
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae
