@@ -19,7 +19,7 @@ const ChangeImage = () => {
           />
         ) : (
           <div
-            className='border-[2px_dashed_#ccc flex items-center justify-center cursor-pointer]'
+            className='border-[2px_dashed_#ccc] flex items-center justify-center cursor-pointer w-[200px] h-[200px]'
             onClick={() => document.getElementById('imageInput')?.click()}
           >
             <p className='m-0'>Click to select an image</p>
