@@ -1,6 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 
 import { FieldSet } from '../../components/atoms';
+import Image from '../../assets/react.svg';
 
 const Checkout = () => {
   const [data, setData] = useState({
@@ -87,8 +88,8 @@ const Checkout = () => {
             <div className='flex justify-between mb-3'>
               <div>
                 <img
-                  src=''
-                  alt=''
+                  src={Image}
+                  alt={'Image product'}
                 />
                 <h2>LCD Monitor</h2>
               </div>
