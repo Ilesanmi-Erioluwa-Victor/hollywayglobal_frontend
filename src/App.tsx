@@ -41,6 +41,11 @@ const App = () => {
           />
 
           <Route
+            element={<Checkout />}
+            path={'/manageAccount'}
+          />
+
+          <Route
             element={<h1> Error page</h1>}
             path={'*'}
           />
