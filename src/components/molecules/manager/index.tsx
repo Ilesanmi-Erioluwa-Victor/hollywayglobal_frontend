@@ -15,7 +15,7 @@ import { GiLipstick } from 'react-icons/gi';
 import { BiHomeAlt2 } from 'react-icons/bi';
 
 const AccountLayout = () => {
-    const Account = [
+    const AccountNav = [
       {
         id: uuidv4(),
         name: 'My Account',
@@ -27,8 +27,14 @@ const AccountLayout = () => {
         name: 'My Orders',
         link: '/user/account/orders',
         icon: <GiLipstick />,
-        },
-      
+      },
+
+      {
+        id: uuidv4(),
+        name: 'My Reviews',
+        link: '/user/account/reviews',
+        icon: <GiLipstick />,
+      },
     ];
 
   return (
