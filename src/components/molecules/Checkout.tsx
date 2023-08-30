@@ -96,7 +96,7 @@ const Checkout = () => {
                 </div>
                 <p>$650</p>
               </div>
-              <hr />
+              <hr className='w-full' />
 
               <div className='flex justify-between items-center w-[100%]'>
                 <div className='flex gap-6 items-center py-3'>
@@ -108,7 +108,7 @@ const Checkout = () => {
                 </div>
                 <p>$650</p>
               </div>
-              <hr />
+              <hr className='w-full' />
 
               <div className='flex justify-between items-center w-[100%]'>
                 <div className='flex gap-6 items-center py-3'>
@@ -120,6 +120,7 @@ const Checkout = () => {
                 </div>
                 <p>$650</p>
               </div>
+              <hr className='w-full' />
             </div>
 
             <div className='flex items-center justify-between'>
