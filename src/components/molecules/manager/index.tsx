@@ -65,8 +65,8 @@ const AccountLayout = () => {
             key={accNav.id}
             className='flex flex-col justify-center'
           >
-            <div>
-              <span>{accNav.icon}</span>
+            <div className='flex items-center gap-4 justify-start pl-4'>
+              <span className='text-1rem'>{accNav.icon}</span>
               <Link to={accNav.link}>{accNav.name}</Link>
             </div>
           </div>
