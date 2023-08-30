@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
-import { FiUpload } from "react-icons/fi"
+import { FiUpload } from 'react-icons/fi';
 
 const ChangeImage = () => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
@@ -28,18 +28,19 @@ const ChangeImage = () => {
             />
 
             <button
-              className='absolute w-[20px] h-[20px] rounded-[50%] top-[5px] right-[5px] bg-transparent border-none cursor-pointer p-0 flex items-center justify-center text-[#fff]'
-              onClick={handleRemoveImage} 
+              className='absolute w-[20px] h-[20px] hover:bg-[#00000080] rounded-[50%] top-[5px] right-[5px] bg-transparent border-none cursor-pointer p-0 flex items-center justify-center text-[#fff]'
+              onClick={handleRemoveImage}
             >
               <FaTimes />
             </button>
           </div>
         ) : (
           <div
-            className='border-[#ccc] border-[2px] border-dotted flex items-center justify-center cursor-pointer w-[100%] h-[300px] rounded-md'
+            className='border-[#ccc] border-[2px] gap-5 border-dotted flex items-center justify-center cursor-pointer w-[100%] h-[300px] rounded-md'
             onClick={() => document.getElementById('imageInput')?.click()}
           >
-            <span>{<FiUpload />}</span>
+            <span className='text-[2rem] '>{<FiUpload />}</span>
+            <p>Select image to upload</p>
           </div>
         )}
         <input
