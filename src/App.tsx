@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route,} from 'react-router-dom';
 
 import {
   Footer,
@@ -62,7 +62,7 @@ const App = () => {
               element={<ManageAccount />}
               path='views'
               index
-              
+            
             />
             <Route
               element={<Order />}
