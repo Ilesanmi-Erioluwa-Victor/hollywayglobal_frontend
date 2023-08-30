@@ -18,7 +18,7 @@ const AccountLayout = () => {
     {
       id: uuidv4(),
       name: 'My Account',
-      link: '/user/account/views',
+      link: '/user/account',
       icon: <FaAppleAlt />,
     },
     {

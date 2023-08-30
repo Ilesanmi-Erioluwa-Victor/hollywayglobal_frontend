@@ -1,4 +1,4 @@
-import { Routes, Route,} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import {
   Footer,
@@ -54,15 +54,12 @@ const App = () => {
           />
 
           <Route
-            element={<AccountLayout /> }
+            element={<AccountLayout />}
             path={'/user/account'}
-            
           >
             <Route
               element={<ManageAccount />}
-              path='views'
               index
-            
             />
             <Route
               element={<Order />}
