@@ -19,13 +19,13 @@ const ChangeImage = () => {
     <div className='p-6'>
       <div className='flex flex-col items-center'>
         {selectedImage ? (
-          <div>
+          <div className="relative">
           <img
             src={URL.createObjectURL(selectedImage)}
             alt='Preview'
           />
 
-           <button className="remove-image-button" onClick={handleRemoveImage}>
+           <button className="absolute top-[5px] right-[5px]" onClick={handleRemoveImage}>
             <FaTimes />
           </button>
           </div>
