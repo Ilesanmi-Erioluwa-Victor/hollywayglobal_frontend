@@ -10,6 +10,7 @@ import {
   Reviews,
   AddressBook,
   ChangePassword,
+  ChangeImage,
 } from './components';
 import { Home, Register, Login, Products } from './pages';
 
@@ -73,7 +74,14 @@ const App = () => {
               element={<ChangePassword />}
               path='password'
             />
+
+            <Route
+              element={<ChangeImage />}
+              path='updateImage'
+            />
+
           </Route>
+
           <Route
             element={<h1> Error page</h1>}
             path={'*'}
