@@ -68,7 +68,7 @@ const AccountLayout = () => {
             >
               <span className='text-[1.4rem] '>{accNav.icon}</span>
 
-              {accNav.name}
+              <span>{accNav.name}</span>
             </Link>
           </div>
         ))}
