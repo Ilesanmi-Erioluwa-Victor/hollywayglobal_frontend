@@ -20,15 +20,15 @@ const ChangeImage = () => {
     <div className='p-6'>
       <div className='flex flex-col items-center'>
         {selectedImage ? (
-          <div className='relative w-full'>
+          <div className='relative w-full  bg-red-900'>
             <img
               src={URL.createObjectURL(selectedImage)}
               alt='Preview'
-              className='w-full h-[400px]'
+              className='w-full max-w-[100%] h-[400px] rounded-md object-cover object-center'
             />
 
             <button
-              className='absolute w-[20px] h-[20px] hover:bg-[#00000080] rounded-[50%] top-[5px] right-[5px] bg-transparent border-none cursor-pointer p-0 flex items-center justify-center text-[#fff]'
+              className='absolute w-[20px] h-[20px] bg-[#00000080] rounded-[50%] top-[5px] right-[5px] border-none cursor-pointer p-0 flex items-center justify-center text-[#fff]'
               onClick={handleRemoveImage}
             >
               <FaTimes />
