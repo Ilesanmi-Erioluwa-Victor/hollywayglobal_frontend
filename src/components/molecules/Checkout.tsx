@@ -95,7 +95,6 @@ const Checkout = () => {
 
         <div className='w-[100%] p-8vw'>
           <div className='border mt-10 flex text-[0.8rem] gap-4 ml-[auto] p-5 rounded-sm flex-col'>
-            <h2>Cart Total</h2>
 
             <div className='flex items-center justify-between'>
               <h3 className='font-[400]'>Sub total</h3>
@@ -105,7 +104,6 @@ const Checkout = () => {
 
             <div className='flex items-center justify-between'>
               <h3 className='font-[400]'>Total</h3>
-              <p>Free</p>
             </div>
             <hr />
 
