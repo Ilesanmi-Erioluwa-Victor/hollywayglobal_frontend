@@ -7,7 +7,8 @@ import {
   Checkout,
   ManageAccount,
   Order,
-  Reviews
+  Reviews,
+  AddressBook
 } from './components';
 import { Home, Register, Login, Products } from './pages';
 
@@ -61,6 +62,12 @@ const App = () => {
               element={<Reviews />}
               path='reviews'
             />
+
+            <Route
+              element={<AddressBook />}
+              path='address'
+            />
+            
           </Route>
           <Route
             element={<h1> Error page</h1>}
