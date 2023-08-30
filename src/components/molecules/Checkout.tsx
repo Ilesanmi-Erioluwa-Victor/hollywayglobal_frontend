@@ -29,7 +29,7 @@ const Checkout = () => {
 
   return (
     <div className='p-8vw paddTop'>
-      <div className='flex justify-between items-center px-10'>
+      <div className='flex justify-between items-center px-10 flex-col'>
         <form
           className='flex flex-col gap-[1rem] w-[100%]'
           onSubmit={handleInputSubmit}
@@ -95,9 +95,15 @@ const Checkout = () => {
 
         <div className='w-[100%] p-8vw'>
           <div className='mt-10 flex text-[0.8rem] gap-4 ml-[auto] p-5 rounded-sm flex-col'>
-
-            <div>
-              
+            <div className='flex justify-between mb-3'>
+              <div>
+                <img
+                  src=''
+                  alt=''
+                />
+                <h2>LCD Monitor</h2>
+              </div>
+              <p>$650</p>
             </div>
 
             <div className='flex items-center justify-between'>
@@ -116,7 +122,7 @@ const Checkout = () => {
               <h3 className='font-[400]'>Total</h3>
               <p>$88998</p>
             </div>
-            <button className='bg-[#DB4444] flex items-center justify-center p-4 rounded-sm text-white text-[0.8rem]'>
+            <button className='bg-[#DB4444] w-100 md:w-[50%] flex items-center justify-start p-3 rounded-sm text-white text-[0.8rem]'>
               Place Order
             </button>
           </div>
