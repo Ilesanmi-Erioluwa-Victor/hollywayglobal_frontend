@@ -54,8 +54,13 @@ const App = () => {
 
           <Route
             element={<AccountLayout />}
-            path={'/'}
+            path={'/user/account'}
           >
+            <Route
+              element={<ManageAccount />}
+              path='views'
+              index
+            />
             <Route
               element={<Order />}
               path='orders'
