@@ -14,15 +14,21 @@ const ChangeImage = () => {
    const handleRemoveImage = () => {
     setSelectedImage(null);
   };
-  
+
   return (
     <div className='p-6'>
       <div className='flex flex-col items-center'>
         {selectedImage ? (
+          <div>
           <img
             src={URL.createObjectURL(selectedImage)}
             alt='Preview'
           />
+
+           <button className="remove-image-button" onClick={handleRemoveImage}>
+            <FaTimes />
+          </button>
+          </div>
         ) : (
           <div
             className='border-[#ccc] border-[2px] border-dotted flex items-center justify-center cursor-pointer w-[100%] h-[300px] rounded-md'
