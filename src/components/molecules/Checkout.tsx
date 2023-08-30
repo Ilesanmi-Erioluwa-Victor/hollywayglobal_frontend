@@ -85,7 +85,31 @@ const Checkout = () => {
 
         <div className='w-[100%] md:p-8vw'>
           <div className='mt-10 flex text-[0.8rem] gap-4 ml-[auto] p-5 rounded-sm flex-col'>
-            <div className='flex items-center justify-between mb-3'>
+            <div className='flex flex-col items-center justify-between mb-3'>
+              <div className='flex justify-between items-center w-[100%]'>
+                <div className='flex gap-6 items-center py-3'>
+                  <img
+                    src={Image}
+                    alt={'Image product'}
+                  />
+                  <h2>LCD Monitor</h2>
+                </div>
+                <p>$650</p>
+              </div>
+              <hr />
+
+              <div className='flex justify-between items-center w-[100%]'>
+                <div className='flex gap-6 items-center py-3'>
+                  <img
+                    src={Image}
+                    alt={'Image product'}
+                  />
+                  <h2>LCD Monitor</h2>
+                </div>
+                <p>$650</p>
+              </div>
+              <hr />
+
               <div className='flex justify-between items-center w-[100%]'>
                 <div className='flex gap-6 items-center py-3'>
                   <img
