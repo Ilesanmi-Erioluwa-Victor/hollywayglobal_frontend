@@ -8,7 +8,8 @@ import {
   ManageAccount,
   Order,
   Reviews,
-  AddressBook
+  AddressBook,
+  ChangePassword,
 } from './components';
 import { Home, Register, Login, Products } from './pages';
 
@@ -67,7 +68,11 @@ const App = () => {
               element={<AddressBook />}
               path='address'
             />
-            
+
+            <Route
+              element={<ChangePassword />}
+              path='password'
+            />
           </Route>
           <Route
             element={<h1> Error page</h1>}
