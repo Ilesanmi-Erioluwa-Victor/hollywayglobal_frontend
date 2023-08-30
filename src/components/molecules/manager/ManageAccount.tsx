@@ -3,8 +3,8 @@ const ManageAccount = () => {
     <div className='p-6'>
       <h2 className='text-[1.6rem]'>Account Overview</h2>
       <hr />
-      <div className='grid grid-cols-[_repeat(12,1fr)] px-[_calc(1rem_+_8vw)] gap-4 py-[2rem]'>
-        <div>
+      <div className='grid grid-cols-[_repeat(auto-fit,_minmax(200px,1fr))] gap-4 py-[2rem]'>
+        <div className='border'>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae
           nulla soluta impedit asperiores quod enim omnis illo voluptas
           exercitationem, corporis doloremque quia neque veniam, eaque quaerat
@@ -13,7 +13,7 @@ const ManageAccount = () => {
           maxime voluptates fugiat blanditiis, laborum qui quidem!
         </div>
 
-        <div>
+        <div className='border'>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae
           nulla soluta impedit asperiores quod enim omnis illo voluptas
           exercitationem, corporis doloremque quia neque veniam, eaque quaerat
