@@ -51,6 +51,13 @@ const ChangeImage = () => {
           onChange={handleImageChange}
         />
       </div>
+
+      <button
+        type='submit'
+        className='flex items-center justify-end bg-[#DB4444] ml-auto mt-4 p-3 rounded-md text-white'
+      >
+        Save Changes
+      </button>
     </div>
   );
 };
