@@ -94,67 +94,29 @@ const Checkout = () => {
         </form>
 
         <div className='w-[100%] p-8vw'>
-          <form
-            className='flex flex-col gap-[1rem] '
-            onSubmit={handleInputSubmit}
-          >
-            <div className='flex flex-col gap-[1rem]'>
-              <FieldSet
-                name='firstName'
-                label='firstName'
-                value={data.firstName}
-                onChange={handleInputChange}
-                id='firstName'
-                type='text'
-              />
+          <div className='border mt-10 flex text-[0.8rem] gap-4 ml-[auto] p-5 rounded-sm flex-col'>
+            <h2>Cart Total</h2>
 
-              <FieldSet
-                name='address'
-                label='address'
-                value={data.address}
-                onChange={handleInputChange}
-                id='address'
-                type='text'
-              />
-
-              <FieldSet
-                name='town'
-                label='town'
-                value={data.town}
-                onChange={handleInputChange}
-                id='town'
-                type='text'
-              />
-
-              <FieldSet
-                name='email'
-                label='email'
-                value={data.email}
-                onChange={handleInputChange}
-                id='email'
-                type='email'
-              />
-
-              <FieldSet
-                name='mobile'
-                label='mobile'
-                value={data.mobile}
-                onChange={handleInputChange}
-                id='mobile'
-                type='text'
-              />
+            <div className='flex items-center justify-between'>
+              <h3 className='font-[400]'>Sub total</h3>
+              <p>$13079</p>
             </div>
-            <Button
-              variant='contained'
-              size='large'
-              type='submit'
-              sx={{
-                backgroundColor: '#DB4444',
-              }}
-            >
-              Create Account
-            </Button>
-          </form>
+            <hr />
+
+            <div className='flex items-center justify-between'>
+              <h3 className='font-[400]'>Total</h3>
+              <p>Free</p>
+            </div>
+            <hr />
+
+            <div className='flex items-center justify-between'>
+              <h3 className='font-[400]'>Total</h3>
+              <p>$88998</p>
+            </div>
+            <button className='bg-[#DB4444] w-[100%] flex items-center justify-center mx-auto p-4 rounded-sm text-white text-[0.8rem]'>
+              Proceed to checkout
+            </button>
+          </div>
         </div>
       </div>
     </div>
