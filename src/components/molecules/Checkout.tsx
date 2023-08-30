@@ -29,12 +29,13 @@ const Checkout = () => {
   return (
     <div className='px-7 py-8 md:p-8vw'>
       <div className='flex justify-between items-center px-10 flex-col md:flex-row'>
+        
         <form
           className='flex flex-col gap-[1rem] w-[100%]'
           onSubmit={handleInputSubmit}
         >
           <h2 className='text-[2rem]'>Billing Details</h2>
-          <div className='flex flex-col gap-[1rem]'>
+          <div className='flex flex-col gap-[2rem]'>
             <FieldSet
               name='firstName'
               label='firstName'
@@ -82,7 +83,7 @@ const Checkout = () => {
           </div>
         </form>
 
-        <div className='w-[100%] p-8vw'>
+        <div className='w-[100%] md:p-8vw'>
           <div className='mt-10 flex text-[0.8rem] gap-4 ml-[auto] p-5 rounded-sm flex-col'>
             <div className='flex justify-between mb-3'>
               <div>
@@ -111,11 +112,12 @@ const Checkout = () => {
               <h3 className='font-[400]'>Total</h3>
               <p>$88998</p>
             </div>
-            <button className='bg-[#DB4444] w-100 md:w-[50%] flex items-center justify-start p-3 rounded-sm text-white text-[0.8rem]'>
+            <button className='bg-[#DB4444] w-100 md:w-[50%] flex items-center justify-center p-3 rounded-sm text-white text-[0.8rem]'>
               Place Order
             </button>
           </div>
         </div>
+
       </div>
     </div>
   );
