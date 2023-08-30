@@ -1,5 +1,4 @@
 import { ChangeEvent, useState } from 'react';
-import Button from '@mui/material/Button';
 
 import { FieldSet } from '../../components/atoms';
 
@@ -28,8 +27,8 @@ const Checkout = () => {
   };
 
   return (
-    <div className='p-8vw paddTop'>
-      <div className='flex justify-between items-center px-10 flex-col'>
+    <div className='px-7 py-8 md:p-8vw'>
+      <div className='flex justify-between items-center px-10 flex-col md:flex-row'>
         <form
           className='flex flex-col gap-[1rem] w-[100%]'
           onSubmit={handleInputSubmit}
@@ -81,16 +80,6 @@ const Checkout = () => {
               type='text'
             />
           </div>
-          <Button
-            variant='contained'
-            size='large'
-            type='submit'
-            sx={{
-              backgroundColor: '#DB4444',
-            }}
-          >
-            Create Account
-          </Button>
         </form>
 
         <div className='w-[100%] p-8vw'>
