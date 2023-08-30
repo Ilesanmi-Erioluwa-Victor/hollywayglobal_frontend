@@ -17,7 +17,7 @@ import { Home, Register, Login, Products } from './pages';
 
 const App = () => {
   return (
-    <div className='container-custom'>
+    <div className='container-custom bg-slate-100'>
       <div className='overall-layout'>
         <Header />
 

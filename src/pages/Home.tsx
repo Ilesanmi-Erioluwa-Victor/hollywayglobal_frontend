@@ -30,7 +30,7 @@ const Home = () => {
     },
   ];
   return (
-    <div className='padd bg-slate-100 flex flex-col gap-y-4 py-4'>
+    <div className='padd flex flex-col gap-y-4 py-4'>
       <Hero />
       <SubHero />
       <CategorySection />

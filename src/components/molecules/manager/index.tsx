@@ -58,7 +58,7 @@ const AccountLayout = () => {
   ];
 
   return (
-    <div className='grid grid-cols-[_repeat(12,1fr)] px-[_calc(1rem_+_8vw)] gap-4 py-[1rem]'>
+    <div className='grid grid-cols-[_repeat(12,1fr)] px-[_calc(1rem_+_8vw)] gap-4 py-[2rem]'>
       <div className='col-[_1/_5] shadow-md rounded-md  bg-white'>
         {AccountNav.map((accNav) => (
           <div
