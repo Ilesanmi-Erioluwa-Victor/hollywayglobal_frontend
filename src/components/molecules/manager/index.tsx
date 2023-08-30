@@ -62,15 +62,14 @@ const AccountLayout = () => {
       <div className='col-[_1/_4] shadow-md rounded-md  bg-white flex flex-col gap-8 py-5'>
         {AccountNav.map((accNav) => (
           <div key={accNav.id}>
-            <div className='flex items-center gap-4 justify-start pl-4'>
+            <Link
+              className='flex items-center gap-4 justify-start pl-4'
+              to={accNav.link}
+            >
               <span className='text-[1.4rem] '>{accNav.icon}</span>
-              <Link
-                to={accNav.link}
-                className='text-[2rem]'
-              >
-                {accNav.name}
-              </Link>
-            </div>
+
+              {accNav.name}
+            </Link>
           </div>
         ))}
       </div>
