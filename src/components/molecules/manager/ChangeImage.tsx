@@ -20,7 +20,7 @@ const ChangeImage = () => {
     <div className='p-6'>
       <div className='flex flex-col items-center'>
         {selectedImage ? (
-          <div className='relative w-full  bg-red-900'>
+          <div className='relative w-full'>
             <img
               src={URL.createObjectURL(selectedImage)}
               alt='Preview'
@@ -28,7 +28,7 @@ const ChangeImage = () => {
             />
 
             <button
-              className='absolute w-[20px] h-[20px] bg-[#00000080] rounded-[50%] top-[5px] right-[5px] border-none cursor-pointer p-0 flex items-center justify-center text-[#fff]'
+              className='absolute w-[20px] h-[20px] bg-[#DB4444] rounded-[50%] top-[5px] right-[5px] border-none cursor-pointer p-0 flex items-center justify-center text-[#fff]'
               onClick={handleRemoveImage}
             >
               <FaTimes />
@@ -36,7 +36,7 @@ const ChangeImage = () => {
           </div>
         ) : (
           <div
-            className='border-[#ccc] border-[2px] gap-5 border-dotted flex items-center justify-center cursor-pointer w-[100%] h-[300px] rounded-md'
+            className='border-[#DB4444] border-[2px] gap-5 border-dotted flex items-center justify-center cursor-pointer w-[100%] h-[300px] rounded-md'
             onClick={() => document.getElementById('imageInput')?.click()}
           >
             <span className='text-[2rem] '>{<FiUpload />}</span>
