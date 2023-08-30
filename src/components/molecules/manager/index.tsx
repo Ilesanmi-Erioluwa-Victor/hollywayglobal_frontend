@@ -35,6 +35,20 @@ const AccountLayout = () => {
         link: '/user/account/reviews',
         icon: <BiHomeAlt2 />,
       },
+
+      {
+        id: uuidv4(),
+        name: 'My Address Book',
+        link: '/user/account/address',
+        icon: <PiTelevisionSimpleLight />,
+      },
+
+      {
+        id: uuidv4(),
+        name: 'My Password',
+        link: '/user/account/password',
+        icon: <PiTelevisionSimpleLight />,
+      },
     ];
 
   return (
