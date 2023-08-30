@@ -7,6 +7,7 @@ import {
   Checkout,
   ManageAccount,
   Order,
+  Reviews
 } from './components';
 import { Home, Register, Login, Products } from './pages';
 
@@ -54,6 +55,11 @@ const App = () => {
             <Route
               element={<Order />}
               path='orders'
+            />
+
+            <Route
+              element={<Reviews />}
+              path='reviews'
             />
           </Route>
           <Route
