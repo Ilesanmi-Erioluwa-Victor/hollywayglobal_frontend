@@ -11,7 +11,7 @@ const ChangeImage = () => {
     }
   };
 
-   const handleRemoveImage = () => {
+  const handleRemoveImage = () => {
     setSelectedImage(null);
   };
 
@@ -19,15 +19,18 @@ const ChangeImage = () => {
     <div className='p-6'>
       <div className='flex flex-col items-center'>
         {selectedImage ? (
-          <div className="relative">
-          <img
-            src={URL.createObjectURL(selectedImage)}
-            alt='Preview'
-          />
+          <div className='relative'>
+            <img
+              src={URL.createObjectURL(selectedImage)}
+              alt='Preview'
+            />
 
-           <button className="absolute top-[5px] right-[5px]" onClick={handleRemoveImage}>
-            <FaTimes />
-          </button>
+            <button
+              className='absolute top-[5px] right-[5px] bg-transparent border-none cursor-pointer p-0 flex items-center justify-center text-[#fff]'
+              onClick={handleRemoveImage}
+            >
+              <FaTimes />
+            </button>
           </div>
         ) : (
           <div
