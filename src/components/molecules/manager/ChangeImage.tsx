@@ -1,5 +1,5 @@
 const ChangeImage = () => {
-  return <div>ChangeImage</div>;
+  return <div className='p-6'>ChangeImage</div>;
 };
 
 export default ChangeImage;

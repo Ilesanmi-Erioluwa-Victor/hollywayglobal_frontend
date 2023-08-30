@@ -1,6 +1,6 @@
 
 const ChangePassword = () => {
-  return <div>ChangePassword</div>;
+  return <div className='p-6'>ChangePassword</div>;
 }
 
 export default ChangePassword
