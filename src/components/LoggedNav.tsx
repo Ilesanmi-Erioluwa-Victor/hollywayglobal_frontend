@@ -56,18 +56,18 @@ const LoggedNav = (): JSX.Element => {
       {
         id: uuidv4(),
         name: 'Manage my Account',
-        url: '/myAccount',
+        url: '/user/account',
       },
       {
         id: uuidv4(),
         name: 'Orders',
-        url: '/orders',
+        url: '/user/account/orders',
       },
 
       {
         id: uuidv4(),
         name: 'My reviews',
-        url: '/reviews',
+        url: '/user/account/reviews',
       },
       {
         id: uuidv4(),
@@ -131,7 +131,9 @@ const LoggedNav = (): JSX.Element => {
             to={'/cart'}
             className='text-[1.5rem] relative'
           >
-            <span className='absolute top-[-1rem] flex items-center justify-center text-[16px] right-[-8px] bg-orange-600 rounded-[50%] w-6 h-6 text-white p-2'>{0}</span>
+            <span className='absolute top-[-1rem] flex items-center justify-center text-[16px] right-[-8px] bg-orange-600 rounded-[50%] w-6 h-6 text-white p-2'>
+              {0}
+            </span>
             {<AiOutlineShoppingCart />}
           </Link>
         </li>

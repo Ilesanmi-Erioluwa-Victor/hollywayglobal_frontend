@@ -16,7 +16,7 @@ import {
 import { Home, Register, Login, Products } from './pages';
 
 const App = () => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   return (
     <div className='container-custom bg-slate-100'>
       <div className='overall-layout'>
