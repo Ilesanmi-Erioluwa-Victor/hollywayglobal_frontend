@@ -19,10 +19,10 @@ const ChangeImage = () => {
           />
         ) : (
           <div
-            className='dotted-border'
+            className='border-[2px_dashed_#ccc flex items-center justify-center cursor-pointer]'
             onClick={() => document.getElementById('imageInput')?.click()}
           >
-            <p>Click to select an image</p>
+            <p className='m-0'>Click to select an image</p>
           </div>
         )}
         <input
