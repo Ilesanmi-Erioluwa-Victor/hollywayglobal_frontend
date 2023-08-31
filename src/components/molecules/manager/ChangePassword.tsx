@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { FieldSet } from '../../../components/atoms';
 
 const ChangePassword = () => {
   const [data, setData] = useState({
-    password: '',
-    email: '',
+    newPassword: '',
+    currentPassword: '',
   });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -23,7 +23,10 @@ const ChangePassword = () => {
   };
 
   return (
-    <div className='p-6 flex flex-col gap-4'>
+    <form
+      className='p-6 flex flex-col gap-4'
+      onSubmit={handleInputSubmit}
+    >
       <h2 className='text-[1.4rem] font-[400] mb-3'>Password Settings</h2>
       <hr className='mb-4' />
 
@@ -31,8 +34,8 @@ const ChangePassword = () => {
         label={'Current Password'}
         id={'currentPassword'}
         name='currentPassword'
-        onChange={() => console.log()}
-        value=''
+        onChange={handleInputChange}
+        value={data.currentPassword}
         type='password'
       />
 
@@ -40,8 +43,8 @@ const ChangePassword = () => {
         label={'New Password'}
         id={'newPassword'}
         name='newPassword'
-        onChange={() => console.log()}
-        value=''
+        onChange={handleInputChange}
+        value={data.newPassword}
         type='password'
       />
       <button
@@ -50,7 +53,7 @@ const ChangePassword = () => {
       >
         Save Changes
       </button>
-    </div>
+    </form>
   );
 };
 
