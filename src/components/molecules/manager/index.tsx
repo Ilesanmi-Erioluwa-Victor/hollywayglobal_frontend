@@ -65,6 +65,13 @@ const AccountLayout = () => {
 
     {
       id: uuidv4(),
+      name: 'Edit Profile',
+      link: '/user/account/profile',
+      icon: <PiCookingPotLight />,
+    },
+
+    {
+      id: uuidv4(),
       name: 'Logout',
       link: '/user/account/updateImage',
       icon: <PiCookingPotLight />,
