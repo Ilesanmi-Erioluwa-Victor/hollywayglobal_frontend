@@ -40,6 +40,7 @@ const NewAddress = () => {
             name='firstName'
             value={'Erioluwa'}
             disabled
+            className='w-full'
           />
 
           <input
@@ -47,17 +48,8 @@ const NewAddress = () => {
             name='lastName'
             value={'Ilesanmi'}
             disabled
+            className='w-full h-6'
           />
-
-          {/* <FieldSet
-            label='Additional Phone Number'
-            variant='outlined'
-            id='additionalPhone'
-            type='text'
-            value=''
-            onChange={() => console.log()}
-            name='deliveryAddress'
-          /> */}
         </fieldset>
 
         <fieldset className='flex items-center gap-4'>
