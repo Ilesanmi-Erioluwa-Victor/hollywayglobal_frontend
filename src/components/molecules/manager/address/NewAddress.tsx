@@ -115,7 +115,7 @@ const NewAddress = () => {
 
       <button
         type='submit'
-        className='text-white text-[1rem] py-4 rounded-sm bg-[#DB4444] w-[50%] ml-auto'
+        className='text-white text-[1rem] py-4 rounded-sm bg-[#DB4444] w-[50%] ml-auto mt-[1rem]'
       >
         Save
       </button>
