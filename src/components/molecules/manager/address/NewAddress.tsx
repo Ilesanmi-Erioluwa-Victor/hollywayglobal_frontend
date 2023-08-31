@@ -9,16 +9,17 @@ const NewAddress = () => {
 
   return (
     <div className='p-6'>
-      <div className='flex items-center gap-4'>
+      <div className='flex items-center gap-4 mb-2'>
         <button
           onClick={() => history(-1)}
-          className='p-2'
+          className=' text-white p-2 rounded-sm bg-[#DB4444] text-[1rem]'
+          title='Go Back'
         >
           <TbArrowBack />
         </button>
-        <h2>ADD NEW ADDRESS</h2>
-          </div>
-          <hr />
+        <h2 className='text-[1.3rem]'>ADD NEW ADDRESS</h2>
+      </div>
+      <hr />
     </div>
   );
 };
