@@ -3,6 +3,8 @@ import { TbArrowBack } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
 import countryStateCity from 'country-state-city';
 
+import { ICountry, IState, ICity } from 'country-state-city';
+
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -17,25 +19,21 @@ const NewAddress = () => {
   const [selectedRegion, setSelectedRegion] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
 
-   useEffect(() => {
-     // Load regions from the package when the component mounts
-     const loadedRegions = countryStateCity.getStatesOfCountry('NG'); // 'NG' is the country code for Nigeria
-     setRegions(loadedRegions);
+  useEffect(() => {
+    const loadedRegions = countryStateCity.getStatesOfCountry('NG'); // 'NG' is the country code for Nigeria
+    setRegions(loadedRegions);
+    setSelectedCity('');
+  }, [selectedRegion]);
 
-     // Clear city when selected region changes
-     setSelectedCity('');
-   }, [selectedRegion]);
-
-   useEffect(() => {
-     // Load cities from the package when the selected region changes
-     if (selectedRegion) {
-       const loadedCities = countryStateCity.getCities(selectedRegion);
-       setCities(loadedCities);
-     }
-   }, [selectedRegion]);
+  useEffect(() => {
+    if (selectedRegion) {
+      const loadedCities= countryStateCity.getCities(selectedRegion);
+      setCities(loadedCities);
+    }
+  }, [selectedRegion]);
 
   const handleChange = (event: SelectChangeEvent) => {
-    setRegion(event.target.value);
+    setRegions(event.target.value);
   };
 
   return (
