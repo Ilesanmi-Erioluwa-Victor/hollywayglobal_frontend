@@ -34,6 +34,27 @@ const NewAddress = () => {
       <hr />
 
       <div className='mt-4 flex flex-col gap-5'>
+        <fieldset>
+          <FieldSet
+            label='Delivery Address'
+            variant='outlined'
+            id='deliveryAddress'
+            type='text'
+            value=''
+            onChange={() => console.log()}
+            name='deliveryAddress'
+          />
+
+          <FieldSet
+            label='Delivery Address'
+            variant='outlined'
+            id='deliveryAddress'
+            type='text'
+            value=''
+            onChange={() => console.log()}
+            name='deliveryAddress'
+          />
+        </fieldset>
         <FieldSet
           label='Delivery Address'
           variant='outlined'
