@@ -8,7 +8,7 @@ import { AiFillCaretDown, AiFillFilter } from 'react-icons/ai';
 
 import { useNavigate } from 'react-router-dom';
 
-// import { Country, State, City } from 'country-state-city';
+import { Country, State, City } from 'country-state-city';
 // import { ICountry, IState, ICity } from 'country-state-city';
 
 import { FieldSet } from '../../../../components/atoms';
@@ -76,42 +76,26 @@ const NewAddress = () => {
     setData({ ...data, [name]: value.trim() });
   };
 
-const handleInputSubmit = async (event: any) => {
-  event.preventDefault();
+  const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-  try {
-    // Set the selected city and region
-    const updatedData = {
-      ...data,
-      city: selectedCity,
-      region: selectedRegion,
-    };
+    try {
+      // Set the selected city and region
+      const updatedData = {
+        ...data,
+        city: selectedCity,
+        region: selectedRegion,
+      };
 
-    // Update the state with the selected city and region
-    setData(updatedData);
+      // Update the state with the selected city and region
+      setData(updatedData);
 
-    // Log the updated data
-    console.log(updatedData);
-  } catch (error) {
-    console.log(error);
-  }
-};
-  // const handleChange = (event: SelectChangeEvent) => {
-  //   setSelectedRegion(event.target.value as string);
-  //   console.log();
-  // };
-
-  // console.log(selectedRegion);
-
-  // const options = [
-  //   { value: 'option1', label: 'Option 1' },
-  //   { value: 'option2', label: 'Option 2' },
-  //   { value: 'option3', label: 'Option 3' },
-  // ];
-
-  // const handleSelect = (option) => {
-  //   console.log('Selected:', option);
-  // };
+      // Log the updated data
+      console.log(updatedData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const options = [
     'America',
@@ -125,7 +109,10 @@ const handleInputSubmit = async (event: any) => {
   ];
 
   return (
-    <div className='p-6 flex flex-col'>
+    <form
+      className='p-6 flex flex-col'
+      onSubmit={handleInputSubmit}
+    >
       <div className='flex items-center gap-4 mb-3'>
         <button
           onClick={() => history(-1)}
@@ -232,12 +219,11 @@ const handleInputSubmit = async (event: any) => {
 
       <button
         type='submit'
-        onClick={handleInputSubmit}
         className='text-white text-[1rem] py-4 rounded-sm bg-[#DB4444] w-[50%] ml-auto mt-[1rem]'
       >
         Save
       </button>
-    </div>
+    </form>
   );
 };
 
