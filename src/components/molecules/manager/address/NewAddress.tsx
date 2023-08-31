@@ -191,7 +191,7 @@ const NewAddress = () => {
             onSelect={(option) => setSelectedOption(option)}
             optionsMaxHeight={500}
             renderOptions={(option) => (
-              <div style={{ padding: '10px' }}>This is {option}</div>
+              <div className='p-[5px]'>This is {option}</div>
             )}
           />
 
@@ -204,6 +204,11 @@ const NewAddress = () => {
             selectedOptionColor='#e4e012'
             onChange={(event) => console.log(event.target.value)}
             onSelect={(option) => setSelectedOption(option)}
+            renderRightElement={() => <AiFillCaretDown />}
+            optionsMaxHeight={500}
+            renderOptions={(option) => (
+              <div className='p-[5px]'>This is {option}</div>
+            )}
           />
         </fieldset>
       </div>
