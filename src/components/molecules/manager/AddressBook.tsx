@@ -1,9 +1,9 @@
 const AddressBook = () => {
   return (
     <div className='p-6'>
-      <div>
+      <div className="flex items-center justify-between">
         <h2>AddressBook</h2>
-        <span>ADD  NEW ADDRESS</span>
+        <span className='text-[#DB4444]'>ADD NEW ADDRESS</span>
       </div>
     </div>
   );
