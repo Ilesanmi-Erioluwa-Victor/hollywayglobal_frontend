@@ -10,6 +10,7 @@ interface FieldsType {
   name: string;
   onChange: any;
   type: string;
+  variant?: string;
 }
 
 const FieldSet: React.FC<FieldsType> = ({
@@ -18,16 +19,15 @@ const FieldSet: React.FC<FieldsType> = ({
   value,
   onChange,
   name,
-  type
+  type,
+  variant
 }) => {
   return (
     <Box
       sx={{
         width: '100%',
         maxWidth: '100%',
-        
       }}
-      
     >
       <TextField
         fullWidth
@@ -37,7 +37,7 @@ const FieldSet: React.FC<FieldsType> = ({
         value={value}
         onChange={onChange}
         type={type}
-        variant='standard'
+        variant={variant}
       />
     </Box>
   );
