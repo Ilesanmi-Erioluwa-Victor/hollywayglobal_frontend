@@ -16,17 +16,16 @@ import { FieldSet } from '../../../../components/atoms';
 const NewAddress = () => {
   const history = useNavigate();
   const [data, setData] = useState({
-    region: '',
     city: '',
+    region: '',
     deliveryAddress: '',
     additionalInfo: '',
     phone: '',
     additionalPhone: '',
   });
 
-  const [selectedOption, setSelectedOption] = useState('');
-
-  console.log(selectedOption);
+  const [selectedRegion, setSelectedRegion] = useState('');
+  const [selectedCity, setSelectedCity] = useState('');
 
   // const [regions, setRegions] = useState<Region[]>([]);
   // const [cities, setCities] = useState<CityP[]>([]);
@@ -77,6 +76,26 @@ const NewAddress = () => {
     setData({ ...data, [name]: value.trim() });
   };
 
+const handleInputSubmit = async (event: any) => {
+  event.preventDefault();
+
+  try {
+    // Set the selected city and region
+    const updatedData = {
+      ...data,
+      city: selectedCity,
+      region: selectedRegion,
+    };
+
+    // Update the state with the selected city and region
+    setData(updatedData);
+
+    // Log the updated data
+    console.log(updatedData);
+  } catch (error) {
+    console.log(error);
+  }
+};
   // const handleChange = (event: SelectChangeEvent) => {
   //   setSelectedRegion(event.target.value as string);
   //   console.log();
@@ -146,7 +165,7 @@ const NewAddress = () => {
             type='text'
             value={data.phone}
             onChange={handleInputChange}
-            name='Phone'
+            name='phone'
           />
 
           <FieldSet
@@ -170,7 +189,7 @@ const NewAddress = () => {
         />
 
         <FieldSet
-          label='Additional Delivery Address'
+          label='additionalInfo'
           variant='outlined'
           id='additionalInfo'
           type='text'
@@ -182,13 +201,12 @@ const NewAddress = () => {
           <ComboBox
             name='region'
             options={options}
-            enableAutocomplete
             placeholder='Select State'
             className='w-full h-[60px]'
             renderRightElement={() => <AiFillCaretDown />}
             selectedOptionColor='#e4e012'
-            onChange={(event) => console.log(event.target.value)}
-            onSelect={(option) => setSelectedOption(option)}
+            onChange={handleInputChange}
+            onSelect={(option) => setSelectedRegion(option)}
             optionsMaxHeight={500}
             renderOptions={(option) => (
               <div className='p-[5px]'>This is {option}</div>
@@ -196,14 +214,13 @@ const NewAddress = () => {
           />
 
           <ComboBox
-            name='region'
+            name='city'
             options={options}
-            enableAutocomplete
             placeholder='Select City'
             className='w-full h-[60px]'
             selectedOptionColor='#e4e012'
-            onChange={(event) => console.log(event.target.value)}
-            onSelect={(option) => setSelectedOption(option)}
+            onChange={handleInputChange}
+            onSelect={(option) => setSelectedCity(option)}
             renderRightElement={() => <AiFillCaretDown />}
             optionsMaxHeight={500}
             renderOptions={(option) => (
@@ -215,6 +232,7 @@ const NewAddress = () => {
 
       <button
         type='submit'
+        onClick={handleInputSubmit}
         className='text-white text-[1rem] py-4 rounded-sm bg-[#DB4444] w-[50%] ml-auto mt-[1rem]'
       >
         Save
