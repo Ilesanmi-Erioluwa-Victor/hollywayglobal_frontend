@@ -34,7 +34,7 @@ const NewAddress = () => {
       <hr />
 
       <div className='mt-4 flex flex-col gap-5'>
-        <fieldset>
+        <fieldset className='flex items-center gap-4'>
           <FieldSet
             label='Phone Number'
             variant='outlined'
@@ -112,6 +112,13 @@ const NewAddress = () => {
           </FormControl>
         </fieldset>
       </div>
+
+      <button
+        type='submit'
+        className='text-white p-2 rounded-sm bg-[#DB4444]'
+      >
+        Save
+      </button>
     </div>
   );
 };
