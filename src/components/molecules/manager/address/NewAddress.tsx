@@ -9,7 +9,7 @@ const NewAddress = () => {
 
   return (
     <div className='p-6'>
-      <div>
+      <div className='flex items-center gap-4'>
         <button
           onClick={() => history(-1)}
           className='p-2'
