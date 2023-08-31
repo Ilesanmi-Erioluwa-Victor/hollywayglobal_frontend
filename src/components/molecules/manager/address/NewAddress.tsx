@@ -9,12 +9,16 @@ const NewAddress = () => {
 
   return (
     <div className='p-6'>
-      <button
-        onClick={() => history(-1)}
-        className='p-2'
-      >
-        <TbArrowBack />
-      </button>
+      <div>
+        <button
+          onClick={() => history(-1)}
+          className='p-2'
+        >
+          <TbArrowBack />
+        </button>
+        <h2>ADD NEW ADDRESS</h2>
+          </div>
+          <hr />
     </div>
   );
 };
