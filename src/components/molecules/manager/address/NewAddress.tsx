@@ -1,5 +1,11 @@
 import { TbArrowBack } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
+
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+
 import { FieldSet } from '../../../../components/atoms';
 
 const NewAddress = () => {
@@ -23,20 +29,47 @@ const NewAddress = () => {
       <hr />
 
       <div className='mt-4'>
+        <FieldSet
+          label='Delivery Address'
+          variant='outlined'
+          id='deliveryAddress'
+          type='text'
+          value=''
+          onChange={() => console.log()}
+          name='deliveryAddress'
+        />
+
+        <FieldSet
+          label='Delivery Address'
+          variant='outlined'
+          id='deliveryAddress'
+          type='text'
+          value=''
+          onChange={() => console.log()}
+          name='deliveryAddress'
+        />
         <fieldset className='flex justify-between items-center gap-4'>
           <FieldSet
             label='Delivery Address'
-            variant='standard'
+            variant='outlined'
             id='deliveryAddress'
             type='text'
             value=''
             onChange={() => console.log()}
             name='deliveryAddress'
           />
-          <FieldSet variant={'standard'} />
+
+          <FieldSet
+            label='Delivery Address'
+            variant='outlined'
+            id='deliveryAddress'
+            type='text'
+            value=''
+            onChange={() => console.log()}
+            name='deliveryAddress'
+          />
         </fieldset>
       </div>
-      <hr />
     </div>
   );
 };
