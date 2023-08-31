@@ -39,7 +39,13 @@ const NewAddress = () => {
             type='text'
             name='firstName'
             value={'Erioluwa'}
-            
+            disabled
+          />
+
+          <input
+            type='text'
+            name='lastName'
+            value={'Ilesanmi'}
             disabled
           />
 
