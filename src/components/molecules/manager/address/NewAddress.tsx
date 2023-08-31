@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { TbArrowBack } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,9 +11,11 @@ import { FieldSet } from '../../../../components/atoms';
 
 const NewAddress = () => {
   const history = useNavigate();
-  //   useEffect(() => {
-  //     console.log(history(-1));
-  //   }, [history]);
+  const [age, setAge] = useState('');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setAge(event.target.value);
+  };
 
   return (
     <div className='p-6'>
