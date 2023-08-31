@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { TbArrowBack } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
 import countryStateCity from 'country-state-city';
@@ -12,9 +12,27 @@ import { FieldSet } from '../../../../components/atoms';
 
 const NewAddress = () => {
   const history = useNavigate();
-  const [Region, setRegion] = useState('');
+  const [regions, setRegions] = useState([]);
+  const [cities, setCities] = useState([]);
+  const [selectedRegion, setSelectedRegion] = useState('');
+  const [selectedCity, setSelectedCity] = useState('');
 
-  const [City, setCity] = useState('');
+   useEffect(() => {
+     // Load regions from the package when the component mounts
+     const loadedRegions = countryStateCity.getStatesOfCountry('NG'); // 'NG' is the country code for Nigeria
+     setRegions(loadedRegions);
+
+     // Clear city when selected region changes
+     setSelectedCity('');
+   }, [selectedRegion]);
+
+   useEffect(() => {
+     // Load cities from the package when the selected region changes
+     if (selectedRegion) {
+       const loadedCities = countryStateCity.getCities(selectedRegion);
+       setCities(loadedCities);
+     }
+   }, [selectedRegion]);
 
   const handleChange = (event: SelectChangeEvent) => {
     setRegion(event.target.value);
