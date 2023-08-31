@@ -11,10 +11,12 @@ import { FieldSet } from '../../../../components/atoms';
 
 const NewAddress = () => {
   const history = useNavigate();
-  const [age, setAge] = useState('');
+  const [Region, setRegion] = useState('');
+
+  const [City, setCity] = useState('');
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value);
+    setRegion(event.target.value);
   };
 
   return (
@@ -31,7 +33,7 @@ const NewAddress = () => {
       </div>
       <hr />
 
-      <div className='mt-4'>
+      <div className='mt-4 flex flex-col gap-5'>
         <FieldSet
           label='Delivery Address'
           variant='outlined'
@@ -52,25 +54,41 @@ const NewAddress = () => {
           name='deliveryAddress'
         />
         <fieldset className='flex justify-between items-center gap-4'>
-          <FieldSet
-            label='Delivery Address'
-            variant='outlined'
-            id='deliveryAddress'
-            type='text'
-            value=''
-            onChange={() => console.log()}
-            name='deliveryAddress'
-          />
+          <FormControl sx={{ width: '100%' }}>
+            <InputLabel id='demo-select-small-label'>Region</InputLabel>
+            <Select
+              labelId='demo-select-small-label'
+              id='demo-select-small'
+              value={Region}
+              label='Region'
+              onChange={handleChange}
+            >
+              <MenuItem value=''>
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
+          </FormControl>
 
-          <FieldSet
-            label='Delivery Address'
-            variant='outlined'
-            id='deliveryAddress'
-            type='text'
-            value=''
-            onChange={() => console.log()}
-            name='deliveryAddress'
-          />
+          <FormControl sx={{ width: '100%' }}>
+            <InputLabel id='demo-select-small-label'>City</InputLabel>
+            <Select
+              labelId='demo-select-small-label'
+              id='demo-select-small'
+              value={City}
+              label='City'
+              onChange={handleChange}
+            >
+              <MenuItem value=''>
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
+          </FormControl>
         </fieldset>
       </div>
     </div>
