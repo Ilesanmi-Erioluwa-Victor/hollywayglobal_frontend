@@ -74,13 +74,7 @@ const App = () => {
             <Route
               element={<AddressBook />}
               path='address'
-            >
-
-              <Route
-              element={<h2>Hewlloo </h2>}
-              path='create'
-              />
-              </Route>
+            />
 
             <Route
               element={<ChangePassword />}
@@ -90,6 +84,11 @@ const App = () => {
             <Route
               element={<ChangeImage />}
               path='updateImage'
+            />
+
+            <Route
+              element={<h2>Hello from Address/Create</h2>}
+              path='address/create'
             />
           </Route>
 

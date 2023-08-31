@@ -1,17 +1,28 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useMatch} from 'react-router-dom';
 
 const AddressBook = () => {
+  const isCreateRoute = useMatch('/user/account/address/create');
+  console.log(isCreateRoute);
   return (
     <div className='p-6'>
-      <div className='flex items-center justify-between'>
-        <h2>AddressBook</h2>
-        <Link
-          className='text-white p-2 rounded-sm bg-[#DB4444]'
-          to={'create'}
-        >
-          ADD NEW ADDRESS
-        </Link>
-        <Outlet />
+      {!isCreateRoute && (
+        <div className='flex items-center justify-between'>
+          <h2>ADDRESS BOOK</h2>
+          <Link
+            className='text-white p-2 rounded-sm bg-[#DB4444]'
+            to='create'
+          >
+            ADD NEW ADDRESS
+          </Link>
+        </div>
+      )}
+
+      <div>
+        {isCreateRoute ? null : (
+          <div className='nested-outlet'>
+            <Outlet />
+          </div>
+        )}
       </div>
     </div>
   );
