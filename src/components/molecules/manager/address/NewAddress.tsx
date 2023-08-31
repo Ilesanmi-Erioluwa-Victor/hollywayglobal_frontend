@@ -35,6 +35,26 @@ const NewAddress = () => {
 
       <div className='mt-4 flex flex-col gap-5'>
         <fieldset className='flex items-center gap-4'>
+          <input
+            type='text'
+            name='firstName'
+            value={'Erioluwa'}
+            
+            disabled
+          />
+
+          {/* <FieldSet
+            label='Additional Phone Number'
+            variant='outlined'
+            id='additionalPhone'
+            type='text'
+            value=''
+            onChange={() => console.log()}
+            name='deliveryAddress'
+          /> */}
+        </fieldset>
+
+        <fieldset className='flex items-center gap-4'>
           <FieldSet
             label='Phone Number'
             variant='outlined'
