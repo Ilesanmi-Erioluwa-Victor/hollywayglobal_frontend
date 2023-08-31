@@ -1,17 +1,19 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
+
+import ComboBox from 'react-responsive-combo-box';
+import 'react-responsive-combo-box/dist/index.css';
+
 import { TbArrowBack } from 'react-icons/tb';
+import { AiFillCaretDown, AiFillFilter } from 'react-icons/ai';
+
 import { useNavigate } from 'react-router-dom';
-import Select from 'react-select';
 
-import { Country, State, City } from 'country-state-city';
-import { ICountry, IState, ICity } from 'country-state-city';
+// import { Country, State, City } from 'country-state-city';
+// import { ICountry, IState, ICity } from 'country-state-city';
 
-import { FieldSet, ComboBox } from '../../../../components/atoms';
+import { FieldSet } from '../../../../components/atoms';
 
 const NewAddress = () => {
-  type Region = IState;
-  type CityP = ICity;
-
   const history = useNavigate();
   const [data, setData] = useState({
     region: '',
@@ -21,6 +23,11 @@ const NewAddress = () => {
     phone: '',
     additionalPhone: '',
   });
+
+  const [selectedOption, setSelectedOption] = useState('');
+
+  console.log(selectedOption);
+
   // const [regions, setRegions] = useState<Region[]>([]);
   // const [cities, setCities] = useState<CityP[]>([]);
   // const [selectedRegion, setSelectedRegion] = useState('');
@@ -77,15 +84,26 @@ const NewAddress = () => {
 
   // console.log(selectedRegion);
 
-  const options = [
-    { value: 'option1', label: 'Option 1' },
-    { value: 'option2', label: 'Option 2' },
-    { value: 'option3', label: 'Option 3' },
-  ];
+  // const options = [
+  //   { value: 'option1', label: 'Option 1' },
+  //   { value: 'option2', label: 'Option 2' },
+  //   { value: 'option3', label: 'Option 3' },
+  // ];
 
-  const handleSelect = (option) => {
-    console.log('Selected:', option);
-  };
+  // const handleSelect = (option) => {
+  //   console.log('Selected:', option);
+  // };
+
+  const options = [
+    'America',
+    'India',
+    'Australia',
+    'Argentina',
+    'Ireland',
+    'Indonesia',
+    'Iceland',
+    'Japan',
+  ];
 
   return (
     <div className='p-6 flex flex-col'>
@@ -164,7 +182,28 @@ const NewAddress = () => {
           <ComboBox
             name='region'
             options={options}
-            onSelect={handleSelect}
+            enableAutocomplete
+            placeholder='Select State'
+            className='w-full h-[60px]'
+            renderRightElement={() => <AiFillCaretDown />}
+            selectedOptionColor='#e4e012'
+            onChange={(event) => console.log(event.target.value)}
+            onSelect={(option) => setSelectedOption(option)}
+            optionsMaxHeight={500}
+            renderOptions={(option) => (
+              <div style={{ padding: '10px' }}>This is {option}</div>
+            )}
+          />
+
+          <ComboBox
+            name='region'
+            options={options}
+            enableAutocomplete
+            placeholder='Select City'
+            className='w-full h-[60px]'
+            selectedOptionColor='#e4e012'
+            onChange={(event) => console.log(event.target.value)}
+            onSelect={(option) => setSelectedOption(option)}
           />
         </fieldset>
       </div>

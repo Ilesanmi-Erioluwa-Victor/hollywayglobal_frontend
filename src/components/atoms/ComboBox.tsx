@@ -34,7 +34,8 @@ const ComboBox: React.FC<ComboBoxProps> = ({ options, onSelect, name }) => {
         value={inputValue}
         onChange={handleInputChange}
         placeholder='Type to search...'
-        name={name}
+              name={name}
+              onFocus={isDropdownOpen}
         className='w-full
   p-[8px]
   text-[14px]
