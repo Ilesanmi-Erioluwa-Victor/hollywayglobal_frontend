@@ -40,7 +40,7 @@ const NewAddress = () => {
             name='firstName'
             value={'Erioluwa'}
             disabled
-            className='w-full py-4 text-center text-[0.9rem] border rounded-sm'
+            className='w-full py-4 text-center text-[0.9rem] border rounded-sm cursor-pointer'
           />
 
           <input
@@ -48,7 +48,7 @@ const NewAddress = () => {
             name='lastName'
             value={'Ilesanmi'}
             disabled
-            className='w-full py-4 text-center text-[0.9rem] border rounded-sm'
+            className='w-full py-4 text-center text-[0.9rem] border rounded-sm cursor-pointer'
           />
         </fieldset>
 
