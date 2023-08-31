@@ -12,6 +12,7 @@ import {
   ChangePassword,
   ChangeImage,
   AccountLayout,
+  NewAddressBook,
 } from './components';
 import { Home, Register, Login, Products } from './pages';
 
@@ -87,7 +88,7 @@ const App = () => {
             />
 
             <Route
-              element={<h2>Hello from Address/Create</h2>}
+              element={<NewAddressBook />}
               path='address/create'
             />
           </Route>
