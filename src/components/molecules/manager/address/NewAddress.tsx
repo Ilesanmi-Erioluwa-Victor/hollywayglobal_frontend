@@ -20,7 +20,7 @@ const NewAddress = () => {
   };
 
   return (
-    <div className='p-6'>
+    <div className='p-6 flex flex-col'>
       <div className='flex items-center gap-4 mb-3'>
         <button
           onClick={() => history(-1)}
@@ -115,7 +115,7 @@ const NewAddress = () => {
 
       <button
         type='submit'
-        className='text-white p-2 rounded-sm bg-[#DB4444]'
+        className='text-white text-[1rem] py-4 rounded-sm bg-[#DB4444] w-[50%] ml-auto'
       >
         Save
       </button>
