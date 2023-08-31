@@ -55,6 +55,20 @@ const AccountLayout = () => {
       link: '/user/account/updateImage',
       icon: <PiCookingPotLight />,
     },
+
+    {
+      id: uuidv4(),
+      name: 'Delete Account',
+      link: '/user/account/deactivate',
+      icon: <PiCookingPotLight />,
+    },
+
+    {
+      id: uuidv4(),
+      name: 'Logout',
+      link: '/user/account/updateImage',
+      icon: <PiCookingPotLight />,
+    },
   ];
 
   return (
