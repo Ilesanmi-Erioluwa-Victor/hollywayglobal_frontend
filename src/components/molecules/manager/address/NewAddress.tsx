@@ -19,13 +19,21 @@ const NewAddress = () => {
           <TbArrowBack />
         </button>
         <h2 className='text-[1.3rem]'>ADD NEW ADDRESS</h2>
-          </div>
-          <hr />
+      </div>
+      <hr />
 
-      <div>
-        <fieldset>
-          <FieldSet label='Delivery Address'/>
-          <FieldSet />
+      <div className='mt-4'>
+        <fieldset className='flex justify-between items-center gap-4'>
+          <FieldSet
+            label='Delivery Address'
+            variant='standard'
+            id='deliveryAddress'
+            type='text'
+            value=''
+            onChange={() => console.log()}
+            name='deliveryAddress'
+          />
+          <FieldSet variant={'standard'} />
         </fieldset>
       </div>
       <hr />
