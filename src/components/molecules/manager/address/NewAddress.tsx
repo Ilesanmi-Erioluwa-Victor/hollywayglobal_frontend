@@ -6,11 +6,7 @@ import Select from 'react-select';
 import { Country, State, City } from 'country-state-city';
 import { ICountry, IState, ICity } from 'country-state-city';
 
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-
-import { FieldSet } from '../../../../components/atoms';
+import { FieldSet, ComboBox } from '../../../../components/atoms';
 
 const NewAddress = () => {
   type Region = IState;
@@ -29,12 +25,6 @@ const NewAddress = () => {
   // const [cities, setCities] = useState<CityP[]>([]);
   // const [selectedRegion, setSelectedRegion] = useState('');
   // const [selectedCity, setSelectedCity] = useState('');
-
-  const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
-  ];
 
   // useEffect(() => {
   //   const loadedRegions = State.getStatesOfCountry('NG'); // 'NG' is the country code for Nigeria
@@ -87,20 +77,15 @@ const NewAddress = () => {
 
   // console.log(selectedRegion);
 
-    const options: Option[] = [
-      { value: 'option1', label: 'Option 1' },
-      { value: 'option2', label: 'Option 2' },
-      { value: 'option3', label: 'Option 3' },
-    ];
+  const options = [
+    { value: 'option1', label: 'Option 1' },
+    { value: 'option2', label: 'Option 2' },
+    { value: 'option3', label: 'Option 3' },
+  ];
 
-    const handleSelect = (option: Option) => {
-      console.log('Selected:', option);
+  const handleSelect = (option) => {
+    console.log('Selected:', option);
   };
-  
-   <ComboBox
-     options={options}
-     onSelect={handleSelect}
-   />;
 
   return (
     <div className='p-6 flex flex-col'>
@@ -176,37 +161,11 @@ const NewAddress = () => {
           name='additionalInfo'
         />
         <fieldset className='flex justify-between items-center gap-4'>
-          <Select
-            value={data.region}
-            onChange={handleInputChange}
-            options={options}
+          <ComboBox
             name='region'
-            id='region'
+            options={options}
+            onSelect={handleSelect}
           />
-          {/* <FormControl sx={{ width: '100%' }}>
-            <InputLabel id='city'>City</InputLabel>
-            <Select
-              labelId='city'
-              id='city'
-              value={data.city}
-              label='City'
-              onChange={handleInputChange}
-              disabled={!selectedRegion}
-              name='city'
-            >
-              <MenuItem value=''>
-                <em>None</em>
-              </MenuItem>
-              {cities.map((city) => (
-                <MenuItem
-                  key={city.name}
-                  value={city.name}
-                >
-                  {city.name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl> */}
         </fieldset>
       </div>
 

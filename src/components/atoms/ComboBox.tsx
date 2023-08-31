@@ -8,9 +8,10 @@ interface Option {
 interface ComboBoxProps {
   options: Option[];
   onSelect: (option: Option) => void;
+  name: string;
 }
 
-const ComboBox: React.FC<ComboBoxProps> = ({ options, onSelect }) => {
+const ComboBox: React.FC<ComboBoxProps> = ({ options, onSelect, name }) => {
   const [inputValue, setInputValue] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -27,12 +28,17 @@ const ComboBox: React.FC<ComboBoxProps> = ({ options, onSelect }) => {
   };
 
   return (
-    <div className='combo-box'>
+    <div className='relative w-[200px] my-0 mx-auto'>
       <input
         type='text'
         value={inputValue}
         onChange={handleInputChange}
         placeholder='Type to search...'
+        name={name}
+        className='w-full
+  p-[8px]
+  text-[14px]
+  border-[1px]  border-solid border-[#ccc] outline-none'
       />
       {isDropdownOpen && (
         <ul className='dropdown'>
