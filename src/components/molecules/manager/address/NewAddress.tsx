@@ -1,40 +1,106 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import { TbArrowBack } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
-import countryStateCity from 'country-state-city';
+import Select from 'react-select';
 
+import { Country, State, City } from 'country-state-city';
 import { ICountry, IState, ICity } from 'country-state-city';
 
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import { FieldSet } from '../../../../components/atoms';
 
 const NewAddress = () => {
+  type Region = IState;
+  type CityP = ICity;
+
   const history = useNavigate();
-  const [regions, setRegions] = useState([]);
-  const [cities, setCities] = useState([]);
-  const [selectedRegion, setSelectedRegion] = useState('');
-  const [selectedCity, setSelectedCity] = useState('');
+  const [data, setData] = useState({
+    region: '',
+    city: '',
+    deliveryAddress: '',
+    additionalInfo: '',
+    phone: '',
+    additionalPhone: '',
+  });
+  // const [regions, setRegions] = useState<Region[]>([]);
+  // const [cities, setCities] = useState<CityP[]>([]);
+  // const [selectedRegion, setSelectedRegion] = useState('');
+  // const [selectedCity, setSelectedCity] = useState('');
 
-  useEffect(() => {
-    const loadedRegions = countryStateCity.getStatesOfCountry('NG'); // 'NG' is the country code for Nigeria
-    setRegions(loadedRegions);
-    setSelectedCity('');
-  }, [selectedRegion]);
+  const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' },
+  ];
 
-  useEffect(() => {
-    if (selectedRegion) {
-      const loadedCities= countryStateCity.getCities(selectedRegion);
-      setCities(loadedCities);
-    }
-  }, [selectedRegion]);
+  // useEffect(() => {
+  //   const loadedRegions = State.getStatesOfCountry('NG'); // 'NG' is the country code for Nigeria
+  //   setRegions(loadedRegions);
+  //   setSelectedCity('');
+  // }, []);
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setRegions(event.target.value);
+  // useEffect(() => {
+  //   if (selectedRegion) {
+  //     const stateInfo = regions.find(
+  //       (region) => region.name === selectedRegion
+  //     );
+  //     if (stateInfo) {
+  //       const loadedCities = City.getCitiesOfState(
+  //         stateInfo.countryCode,
+  //         stateInfo.isoCode
+  //       );
+  //       setCities(loadedCities);
+  //       setSelectedCity(''); // Reset selected city when region changes
+  //     }
+  //   }
+  // }, [selectedRegion, regions]);
+
+  // const handleChange = (event: any, index: number) => {
+  //   const updatedRegions = [...regions];
+
+  //   updatedRegions[index.props.value] = event.target.value;
+  //   console.log(
+  //     updatedRegions[index],
+  //     '>>>>',
+  //     index.props.value,
+  //     'Target :',
+  //     event.target.value
+  //   );
+  //   setRegions(updatedRegions);
+
+  //   console.log(regions);
+  // };
+
+  const handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const name = e.currentTarget.name;
+    const value = e.currentTarget.value;
+    setData({ ...data, [name]: value.trim() });
   };
+
+  // const handleChange = (event: SelectChangeEvent) => {
+  //   setSelectedRegion(event.target.value as string);
+  //   console.log();
+  // };
+
+  // console.log(selectedRegion);
+
+    const options: Option[] = [
+      { value: 'option1', label: 'Option 1' },
+      { value: 'option2', label: 'Option 2' },
+      { value: 'option3', label: 'Option 3' },
+    ];
+
+    const handleSelect = (option: Option) => {
+      console.log('Selected:', option);
+  };
+  
+   <ComboBox
+     options={options}
+     onSelect={handleSelect}
+   />;
 
   return (
     <div className='p-6 flex flex-col'>
@@ -71,13 +137,13 @@ const NewAddress = () => {
 
         <fieldset className='flex items-center gap-4'>
           <FieldSet
-            label='Phone Number'
+            label='phone'
             variant='outlined'
             id='phone'
             type='text'
-            value=''
-            onChange={() => console.log()}
-            name='deliveryAddress'
+            value={data.phone}
+            onChange={handleInputChange}
+            name='Phone'
           />
 
           <FieldSet
@@ -85,9 +151,9 @@ const NewAddress = () => {
             variant='outlined'
             id='additionalPhone'
             type='text'
-            value=''
-            onChange={() => console.log()}
-            name='deliveryAddress'
+            value={data.additionalPhone}
+            onChange={handleInputChange}
+            name='additionalPhone'
           />
         </fieldset>
         <FieldSet
@@ -95,56 +161,52 @@ const NewAddress = () => {
           variant='outlined'
           id='deliveryAddress'
           type='text'
-          value=''
-          onChange={() => console.log()}
+          value={data.deliveryAddress}
+          onChange={handleInputChange}
           name='deliveryAddress'
         />
 
         <FieldSet
-          label='Delivery Address'
+          label='Additional Delivery Address'
           variant='outlined'
-          id='deliveryAddress'
+          id='additionalInfo'
           type='text'
-          value=''
-          onChange={() => console.log()}
-          name='deliveryAddress'
+          value={data.additionalInfo}
+          onChange={handleInputChange}
+          name='additionalInfo'
         />
         <fieldset className='flex justify-between items-center gap-4'>
-          <FormControl sx={{ width: '100%' }}>
-            <InputLabel id='demo-select-small-label'>Region</InputLabel>
+          <Select
+            value={data.region}
+            onChange={handleInputChange}
+            options={options}
+            name='region'
+            id='region'
+          />
+          {/* <FormControl sx={{ width: '100%' }}>
+            <InputLabel id='city'>City</InputLabel>
             <Select
-              labelId='demo-select-small-label'
-              id='demo-select-small'
-              value={Region}
-              label='Region'
-              onChange={handleChange}
-            >
-              <MenuItem value=''>
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
-
-          <FormControl sx={{ width: '100%' }}>
-            <InputLabel id='demo-select-small-label'>City</InputLabel>
-            <Select
-              labelId='demo-select-small-label'
-              id='demo-select-small'
-              value={City}
+              labelId='city'
+              id='city'
+              value={data.city}
               label='City'
-              onChange={handleChange}
+              onChange={handleInputChange}
+              disabled={!selectedRegion}
+              name='city'
             >
               <MenuItem value=''>
                 <em>None</em>
               </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
+              {cities.map((city) => (
+                <MenuItem
+                  key={city.name}
+                  value={city.name}
+                >
+                  {city.name}
+                </MenuItem>
+              ))}
             </Select>
-          </FormControl>
+          </FormControl> */}
         </fieldset>
       </div>
 
