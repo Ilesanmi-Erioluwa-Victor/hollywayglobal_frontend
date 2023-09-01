@@ -141,7 +141,7 @@ const NewAddress = () => {
   //   'Japan',
   // ];
 
-  const options = countries.map((country) => country.label);
+  const optionsCountries = countries.map((country) => country.label);
 
   // console.log(opt2);
 
@@ -224,7 +224,7 @@ const NewAddress = () => {
 
         <ComboBox
           name='country'
-          options={options}
+          options={optionsCountries}
           placeholder='Select Country'
           className='w-full h-[60px]'
           renderRightElement={() => <AiFillCaretDown />}
