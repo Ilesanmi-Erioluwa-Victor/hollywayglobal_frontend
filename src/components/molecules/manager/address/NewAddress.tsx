@@ -242,9 +242,8 @@ const NewAddress = () => {
             selectedOptionColor='#e4e012'
             onChange={handleInputChange}
             onSelect={(option) => setSelectedRegion(option)}
-            renderOptions={(option) => (
-              <div className='p-[5px]'>{option}</div>
-            )}
+            renderOptions={(option) => <div className='p-[5px]'>{option}</div>}
+            Editable={false}
           />
 
           <ComboBox
