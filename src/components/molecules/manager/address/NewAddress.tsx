@@ -109,10 +109,7 @@ const NewAddress = () => {
   };
 
   return (
-    <form
-      className='p-6 flex flex-col'
-      onSubmit={handleInputSubmit}
-    >
+    <div className='p-6 flex flex-col'>
       <div className='flex items-center gap-4 mb-3'>
         <button
           onClick={() => history(-1)}
@@ -125,7 +122,10 @@ const NewAddress = () => {
       </div>
       <hr />
 
-      <div className='mt-4 flex flex-col gap-5'>
+      <form
+        onSubmit={handleInputSubmit}
+        className='mt-4 flex flex-col gap-5'
+      >
         <fieldset className='flex items-center gap-4'>
           <input
             type='text'
@@ -203,15 +203,15 @@ const NewAddress = () => {
             disabled={!selectedState}
           />
         </fieldset>
-      </div>
 
-      <button
-        type='submit'
-        className='text-white text-[1rem] py-4 rounded-sm bg-[#DB4444] w-[50%] ml-auto mt-[1rem]'
-      >
-        Save
-      </button>
-    </form>
+        <button
+          type='submit'
+          className='text-white text-[1rem] py-4 rounded-sm bg-[#DB4444] w-[50%] ml-auto mt-[1rem]'
+        >
+          Save
+        </button>
+      </form>
+    </div>
   );
 };
 

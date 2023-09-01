@@ -9,7 +9,8 @@ const CustomSelect: React.FC<{
   options: Option[];
   onChange: (value: string) => void;
   disabled?: boolean;
-}> = ({ options, onChange, disabled }) => {
+  tag?: string
+}> = ({ options, onChange, disabled, tag }) => {
   const [selectedValue, setSelectedValue] = useState<string | undefined>(
     undefined
   );
@@ -27,7 +28,7 @@ const CustomSelect: React.FC<{
         className='rounded-md border px-2 outline-none cursor-pointer text-[16px] w-full h-12'
         disabled={disabled}
       >
-        <option value=''>Select an option</option>
+        <option value=''>Select {tag}</option>
         {options.map((option, index) => (
           <option
             key={index}
