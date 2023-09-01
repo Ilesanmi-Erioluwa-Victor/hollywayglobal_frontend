@@ -128,16 +128,20 @@ const NewAddress = () => {
     }
   };
 
-  const options = [
-    'America',
-    'India',
-    'Australia',
-    'Argentina',
-    'Ireland',
-    'Indonesia',
-    'Iceland',
-    'Japan',
-  ];
+  // const options = [
+  //   'America',
+  //   'India',
+  //   'Australia',
+  //   'Argentina',
+  //   'Ireland',
+  //   'Indonesia',
+  //   'Iceland',
+  //   'Japan',
+  // ];
+
+  const options = countries.map((country) => country.label);
+
+  // console.log(opt2);
 
   return (
     <form
@@ -217,7 +221,7 @@ const NewAddress = () => {
         />
 
         <ComboBox
-          name='region'
+          name='country'
           options={options}
           placeholder='Select Country'
           className='w-full h-[60px]'
