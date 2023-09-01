@@ -18,3 +18,4 @@ export { default as NewAddressBook } from './molecules/manager/address/NewAddres
 export { default as ChangePassword } from './molecules/manager/ChangePassword';
 export { default as ChangeImage } from './molecules/manager/ChangeImage';
 export { default as AccountLayout } from './molecules/manager';
+export { default as EditProfile } from './molecules/manager/EditProfile';
