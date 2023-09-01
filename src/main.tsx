@@ -7,7 +7,7 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <SnackbarProvider>
+    <SnackbarProvider autoHideDuration={1000}>
       <BrowserRouter>
         <App />
       </BrowserRouter>

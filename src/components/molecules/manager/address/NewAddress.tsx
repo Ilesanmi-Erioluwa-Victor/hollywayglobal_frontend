@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
+import { useSnackbar } from 'notistack';
 
 import ComboBox from '../../../atoms/ComboBox';
 
@@ -18,7 +20,10 @@ interface Option {
 }
 
 const NewAddress = () => {
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+
   const history = useNavigate();
+
   const [data, setData] = useState({
     country: '',
     city: '',
@@ -86,16 +91,29 @@ const NewAddress = () => {
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const {
+      city,
+      region,
+      additionalInfo,
+      additionalPhone,
+      country,
+      phone,
+      deliveryAddress,
+    } = data;
 
+    if (!city || !country || !region || !deliveryAddress) {
+      return enqueueSnackbar('Please provide those Information', {
+        variant: 'error',
+      });
+    }
     try {
-      // Set the selected city and region
-      const updatedData = {
-        ...data,
-        city: selectedCity,
-        region: selectedState,
-        country: selectedCountry,
-      };
-      console.log(updatedData);
+      // const updatedData = {
+      //   ...data,
+      //   city: selectedCity,
+      //   region: selectedState,
+      //   country: selectedCountry,
+      // };
+      // console.log(updatedData);
     } catch (error) {
       console.log(error);
     }
