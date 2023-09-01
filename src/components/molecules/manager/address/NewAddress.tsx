@@ -47,7 +47,6 @@ const NewAddress = () => {
   const [selectedState, setSelectedState] = useState<string>('');
   const [cities, setCities] = useState<CityOption[]>([]);
 
-
   // Fetch list of all countries
   useEffect(() => {
     const countryList = Country.getAllCountries().map((country) => ({
@@ -86,7 +85,6 @@ const NewAddress = () => {
     }
   }, [selectedState, selectedCountry]);
 
-
   //   // const handleChange = (event: any, index: number) => {
   //   //   const updatedRegions = [...regions];
 
@@ -103,171 +101,182 @@ const NewAddress = () => {
   //   //   console.log(regions);
   //   // };
 
-  //   const handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
-  //     const name = e.currentTarget.name;
-  //     const value = e.currentTarget.value;
-  //     setData({ ...data, [name]: value.trim() });
-  //   };
+  const handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const name = e.currentTarget.name;
+    const value = e.currentTarget.value;
+    setData({ ...data, [name]: value.trim() });
+  };
 
-  //   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-  //     event.preventDefault();
+  const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
-  //     try {
-  //       // Set the selected city and region
-  //       const updatedData = {
-  //         ...data,
-  //         city: selectedCity,
-  //         region: selectedRegion,
-  //       };
+    try {
+      // Set the selected city and region
+      const updatedData = {
+        ...data,
+        city: selectedCity,
+        region: selectedRegion,
+      };
 
-  //       // Update the state with the selected city and region
-  //       setData(updatedData);
+      // Update the state with the selected city and region
+      setData(updatedData);
 
-  //       // Log the updated data
-  //       console.log(updatedData);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
+      // Log the updated data
+      console.log(updatedData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  //   const options = [
-  //     'America',
-  //     'India',
-  //     'Australia',
-  //     'Argentina',
-  //     'Ireland',
-  //     'Indonesia',
-  //     'Iceland',
-  //     'Japan',
-  //   ];
+  const options = [
+    'America',
+    'India',
+    'Australia',
+    'Argentina',
+    'Ireland',
+    'Indonesia',
+    'Iceland',
+    'Japan',
+  ];
 
-  //   return (
-  //     <form
-  //       className='p-6 flex flex-col'
-  //       onSubmit={handleInputSubmit}
-  //     >
-  //       <div className='flex items-center gap-4 mb-3'>
-  //         <button
-  //           onClick={() => history(-1)}
-  //           className=' text-white p-2 rounded-sm bg-[#DB4444] text-[1rem]'
-  //           title='Go Back'
-  //         >
-  //           <TbArrowBack />
-  //         </button>
-  //         <h2 className='text-[1.3rem]'>ADD NEW ADDRESS</h2>
-  //       </div>
-  //       <hr />
+  return (
+    <form
+      className='p-6 flex flex-col'
+      onSubmit={handleInputSubmit}
+    >
+      <div className='flex items-center gap-4 mb-3'>
+        <button
+          onClick={() => history(-1)}
+          className=' text-white p-2 rounded-sm bg-[#DB4444] text-[1rem]'
+          title='Go Back'
+        >
+          <TbArrowBack />
+        </button>
+        <h2 className='text-[1.3rem]'>ADD NEW ADDRESS</h2>
+      </div>
+      <hr />
 
-  //       <div className='mt-4 flex flex-col gap-5'>
-  //         <fieldset className='flex items-center gap-4'>
-  //           <input
-  //             type='text'
-  //             name='firstName'
-  //             value={'Erioluwa'}
-  //             disabled
-  //             className='w-full py-4 text-center text-[0.9rem] border rounded-sm cursor-pointer'
-  //           />
+      <div className='mt-4 flex flex-col gap-5'>
+        <fieldset className='flex items-center gap-4'>
+          <input
+            type='text'
+            name='firstName'
+            value={'Erioluwa'}
+            disabled
+            className='w-full py-4 text-center text-[0.9rem] border rounded-sm cursor-pointer'
+          />
 
-  //           <input
-  //             type='text'
-  //             name='lastName'
-  //             value={'Ilesanmi'}
-  //             disabled
-  //             className='w-full py-4 text-center text-[0.9rem] border rounded-sm cursor-pointer'
-  //           />
-  //         </fieldset>
+          <input
+            type='text'
+            name='lastName'
+            value={'Ilesanmi'}
+            disabled
+            className='w-full py-4 text-center text-[0.9rem] border rounded-sm cursor-pointer'
+          />
+        </fieldset>
 
-  //         <fieldset className='flex items-center gap-4'>
-  //           <FieldSet
-  //             label='phone'
-  //             variant='outlined'
-  //             id='phone'
-  //             type='text'
-  //             value={data.phone}
-  //             onChange={handleInputChange}
-  //             name='phone'
-  //           />
+        <fieldset className='flex items-center gap-4'>
+          <FieldSet
+            label='phone'
+            variant='outlined'
+            id='phone'
+            type='text'
+            value={data.phone}
+            onChange={handleInputChange}
+            name='phone'
+          />
 
-  //           <FieldSet
-  //             label='Additional Phone Number'
-  //             variant='outlined'
-  //             id='additionalPhone'
-  //             type='text'
-  //             value={data.additionalPhone}
-  //             onChange={handleInputChange}
-  //             name='additionalPhone'
-  //           />
-  //         </fieldset>
-  //         <FieldSet
-  //           label='Delivery Address'
-  //           variant='outlined'
-  //           id='deliveryAddress'
-  //           type='text'
-  //           value={data.deliveryAddress}
-  //           onChange={handleInputChange}
-  //           name='deliveryAddress'
-  //         />
+          <FieldSet
+            label='Additional Phone Number'
+            variant='outlined'
+            id='additionalPhone'
+            type='text'
+            value={data.additionalPhone}
+            onChange={handleInputChange}
+            name='additionalPhone'
+          />
+        </fieldset>
+        <FieldSet
+          label='Delivery Address'
+          variant='outlined'
+          id='deliveryAddress'
+          type='text'
+          value={data.deliveryAddress}
+          onChange={handleInputChange}
+          name='deliveryAddress'
+        />
 
-  //         <FieldSet
-  //           label='additionalInfo'
-  //           variant='outlined'
-  //           id='additionalInfo'
-  //           type='text'
-  //           value={data.additionalInfo}
-  //           onChange={handleInputChange}
-  //           name='additionalInfo'
-  //         />
-  //         <fieldset className='flex justify-between items-center gap-4'>
-  //           <ComboBox
-  //             name='region'
-  //             options={options}
-  //             placeholder='Select State'
-  //             className='w-full h-[60px]'
-  //             renderRightElement={() => <AiFillCaretDown />}
-  //             selectedOptionColor='#e4e012'
-  //             onChange={handleInputChange}
-  //             onSelect={(option) => setSelectedRegion(option)}
-  //             optionsMaxHeight={500}
-  //             renderOptions={(option) => (
-  //               <div className='p-[5px]'>This is {option}</div>
-  //             )}
-  //           />
+        <FieldSet
+          label='additionalInfo'
+          variant='outlined'
+          id='additionalInfo'
+          type='text'
+          value={data.additionalInfo}
+          onChange={handleInputChange}
+          name='additionalInfo'
+        />
 
-  //           <ComboBox
-  //             name='city'
-  //             options={options}
-  //             placeholder='Select City'
-  //             className='w-full h-[60px]'
-  //             selectedOptionColor='#e4e012'
-  //             onChange={handleInputChange}
-  //             onSelect={(option) => setSelectedCity(option)}
-  //             renderRightElement={() => <AiFillCaretDown />}
-  //             optionsMaxHeight={500}
-  //             renderOptions={(option) => (
-  //               <div className='p-[5px]'>This is {option}</div>
-  //             )}
-  //           />
-  //         </fieldset>
-  //       </div>
+        <ComboBox
+          name='region'
+          options={options}
+          placeholder='Select Country'
+          className='w-full h-[60px]'
+          renderRightElement={() => <AiFillCaretDown />}
+          selectedOptionColor='#e4e012'
+          onChange={handleInputChange}
+          onSelect={(option) => setSelectedRegion(option)}
+          optionsMaxHeight={500}
+          renderOptions={(option) => (
+            <div className='p-[5px]'>This is {option}</div>
+          )}
+        />
 
-  //       <button
-  //         type='submit'
-  //         className='text-white text-[1rem] py-4 rounded-sm bg-[#DB4444] w-[50%] ml-auto mt-[1rem]'
-  //       >
-  //         Save
-  //       </button>
-  //     </form>
-  //   );
-  // };
-}
+        <fieldset className='flex justify-between items-center gap-4'>
+          <ComboBox
+            name='region'
+            options={options}
+            placeholder='Select State'
+            className='w-full h-[60px]'
+            renderRightElement={() => <AiFillCaretDown />}
+            selectedOptionColor='#e4e012'
+            onChange={handleInputChange}
+            onSelect={(option) => setSelectedRegion(option)}
+            optionsMaxHeight={500}
+            renderOptions={(option) => (
+              <div className='p-[5px]'>This is {option}</div>
+            )}
+          />
+
+          <ComboBox
+            name='city'
+            options={options}
+            placeholder='Select City'
+            className='w-full h-[60px]'
+            selectedOptionColor='#e4e012'
+            onChange={handleInputChange}
+            onSelect={(option) => setSelectedCity(option)}
+            renderRightElement={() => <AiFillCaretDown />}
+            optionsMaxHeight={500}
+            renderOptions={(option) => (
+              <div className='p-[5px]'>This is {option}</div>
+            )}
+          />
+        </fieldset>
+      </div>
+
+      <button
+        type='submit'
+        className='text-white text-[1rem] py-4 rounded-sm bg-[#DB4444] w-[50%] ml-auto mt-[1rem]'
+      >
+        Save
+      </button>
+    </form>
+  );
+};
 
 export default NewAddress;
 
-
-
-
 // const NewAddress: React.FC = () => {
-
 
 //   return (
 //     <div>
