@@ -102,9 +102,12 @@ const NewAddress = () => {
     } = data;
 
     if (!city || !country || !region || !deliveryAddress) {
-      return enqueueSnackbar('Please provide this Information', {
-        variant: 'error',
-      });
+      return enqueueSnackbar(
+        'Please provide the necessary Information, City, Region, Country, deliveryAddress',
+        {
+          variant: 'error',
+        }
+      );
     }
     try {
       // const updatedData = {
