@@ -1,46 +1,40 @@
 import React, { useState, useCallback } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { FiUpload } from 'react-icons/fi';
-import { useDropzone, FileRejection, DropEvent } from 'react-dropzone';
+import { useDropzone } from 'react-dropzone';
 import { useSnackbar } from 'notistack';
 
 import styled from 'styled-components';
+
+const DottedBorder = styled.div`
+  border: 2px dotted #db4444;
+  padding: 20px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+`;
 
 const ChangeImage = () => {
   const [selectedImage, setSelectedImage] = useState<null | string>(null);
   const { enqueueSnackbar } = useSnackbar();
 
-  const DottedBorder = styled.div`
-    border: 2px dotted #db4444;
-    padding: 20px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    cursor: pointer;
-  `;
+  const onDrop = useCallback((acceptedFiles: File[]) => {
+    const file = acceptedFiles[0];
+    console.log(acceptedFiles);
+    const reader = new FileReader();
 
-  const onDrop = useCallback(
-    (
-      acceptedFiles: File[],
-      fileRejections: FileRejection[],
-      event: DropEvent
-    ) => {
-      const file = acceptedFiles[0];
-      const reader = new FileReader();
+    reader.onload = () => {
+      setSelectedImage(reader.result as string);
+    };
 
-      reader.onload = () => {
-        setSelectedImage(reader.result as string);
-      };
-
-      if (file) {
-        reader.readAsDataURL(file);
-      }
-    },
-    []
-  );
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }, []);
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
