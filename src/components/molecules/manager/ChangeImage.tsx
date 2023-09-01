@@ -1,9 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { FiUpload } from 'react-icons/fi';
+import { useDropzone } from 'react-dropzone';
 
 const ChangeImage = () => {
-  const [selectedImage, setSelectedImage] = useState<File | null>(null);
+  const [selectedImage, setSelectedImage] = useState<File | null | string>(null);
+
+
+    const onDrop = useCallback((acceptedFiles) => {
+      const file = acceptedFiles[0];
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        setSelectedImage(reader.result as string);
+      };
+
+      if (file) {
+        reader.readAsDataURL(file);
+      }
+    }, []);
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
@@ -15,6 +30,12 @@ const ChangeImage = () => {
   const handleRemoveImage = () => {
     setSelectedImage(null);
   };
+    <button
+      className='absolute w-[20px] h-[20px] bg-[#DB4444] rounded-[50%] top-[5px] right-[5px] border-none cursor-pointer p-0 flex items-center justify-center text-[#fff]'
+      onClick={handleRemoveImage}
+    >
+      <FaTimes />
+    </button>;
 
   return (
     <div className='p-6'>
@@ -27,12 +48,7 @@ const ChangeImage = () => {
               className='w-full max-w-[100%] h-[400px] rounded-md object-cover object-center'
             />
 
-            <button
-              className='absolute w-[20px] h-[20px] bg-[#DB4444] rounded-[50%] top-[5px] right-[5px] border-none cursor-pointer p-0 flex items-center justify-center text-[#fff]'
-              onClick={handleRemoveImage}
-            >
-              <FaTimes />
-            </button>
+          
           </div>
         ) : (
           <div

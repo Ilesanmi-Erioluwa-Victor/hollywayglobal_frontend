@@ -73,6 +73,7 @@ const App = () => {
         { path: 'password', element: <ChangePassword /> },
         { path: 'updateImage', element: <ChangeImage /> },
         { path: 'profile', element: <EditProfile /> },
+        { path: 'deactivate', element: <h2>Soon to be Implemented </h2> },
       ],
     },
     {
