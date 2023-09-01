@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { v4 as uuidv4 } from 'uuid';
 
 import {
@@ -14,7 +15,7 @@ import { BiHomeAlt2 } from 'react-icons/bi';
 
 type Nav = {
   name: string;
-  icon?: object;
+  icon?: any;
   id: string;
   link: string;
 };

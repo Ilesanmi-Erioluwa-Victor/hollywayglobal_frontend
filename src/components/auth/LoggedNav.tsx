@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
-
 import { BiSearch, BiHeartCircle } from 'react-icons/bi';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
@@ -13,11 +11,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import RoundedInput from '../atoms/Input';
 
-import { AccountNav } from '../../../components/auth/userData';
-
-
-
-
+import { AccountNav } from '../../components/auth/userData';
 
 const LoggedNav = (): JSX.Element => {
   // const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -107,12 +101,12 @@ const LoggedNav = (): JSX.Element => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {Data.User.map((profile) => (
+              {AccountNav.map((profile) => (
                 <MenuItem
                   key={profile.id}
                   onClick={handleCloseUserMenu}
                 >
-                  <Link to={profile.url}>{profile.name}</Link>
+                  <Link to={profile.link}>{profile.name}</Link>
                 </MenuItem>
               ))}
             </Menu>
