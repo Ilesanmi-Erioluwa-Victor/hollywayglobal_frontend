@@ -1,4 +1,4 @@
-import { Routes, Route, useRoutes } from 'react-router-dom';
+import {  useRoutes } from 'react-router-dom';
 
 import {
   Footer,
@@ -69,7 +69,13 @@ const App = () => {
             },
           ],
         },
+        { path: 'password', element: <ChangePassword /> },
+        { path: 'updateImage', element: <ChangeImage /> },
       ],
+    },
+    {
+      path: '/*',
+      element: <h2>Page Not Found</h2>,
     },
   ]);
 
