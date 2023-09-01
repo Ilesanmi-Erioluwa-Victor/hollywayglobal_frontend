@@ -20,7 +20,7 @@ interface Option {
 }
 
 const NewAddress = () => {
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useSnackbar();
 
   const history = useNavigate();
 
@@ -102,7 +102,7 @@ const NewAddress = () => {
       );
     }
     try {
-   console.log(data)
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
