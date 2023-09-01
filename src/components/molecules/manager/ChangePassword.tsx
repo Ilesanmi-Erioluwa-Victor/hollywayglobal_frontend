@@ -23,14 +23,20 @@ const ChangePassword = () => {
     event.preventDefault();
     const { confirmNewPassword, newPassword, currentPassword } = data;
 
-        if (!currentPassword) {
-          return enqueueSnackbar(
-            'Please provide your current password',
-            {
-              variant: 'error',
-            }
-          );
+    if (!currentPassword) {
+      return enqueueSnackbar('Please provide your current password', {
+        variant: 'error',
+      });
+    }
+
+    if (newPassword.trim() !== confirmNewPassword.trim()) {
+      return enqueueSnackbar(
+        'Your new password does not match confirm new password',
+        {
+          variant: 'error',
         }
+      );
+    }
     try {
       console.log(data);
     } catch (error) {
