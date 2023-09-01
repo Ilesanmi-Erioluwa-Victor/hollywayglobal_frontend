@@ -145,7 +145,13 @@ const LoggedNav = (): JSX.Element => {
                   key={profile.id}
                   onClick={handleCloseUserMenu}
                 >
-                  <Link to={profile.link}>{profile.name}</Link>
+                  <Link
+                    to={profile.link}
+                    className='flex gap-2'
+                  >
+                    <span>{profile.icon}</span>
+                    <span>{profile.name}</span>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
