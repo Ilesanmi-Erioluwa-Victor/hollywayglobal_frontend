@@ -20,9 +20,7 @@ const AddressBook = () => {
       )}
 
       <div>
-        <div className='nested-outlet'>
           <Outlet />
-        </div>
       </div>
     </div>
   );
