@@ -30,6 +30,7 @@ interface CityOption {
 const NewAddress = () => {
   const history = useNavigate();
   const [data, setData] = useState({
+    country: '',
     city: '',
     region: '',
     deliveryAddress: '',
@@ -116,6 +117,7 @@ const NewAddress = () => {
         ...data,
         city: selectedCity,
         region: selectedRegion,
+        country: selectedCountry,
       };
 
       // Update the state with the selected city and region
@@ -228,37 +230,49 @@ const NewAddress = () => {
           renderRightElement={() => <AiFillCaretDown />}
           selectedOptionColor='#e4e012'
           onChange={handleInputChange}
-          onSelect={(option) => setSelectedRegion(option)}
+          onSelect={(option) => setSelectedCountry(option)}
           renderOptions={(option) => <div className='p-[5px]'>{option}</div>}
         />
 
-        <fieldset className='flex justify-between items-center gap-4'>
-          <ComboBox
-            name='region'
-            options={options}
-            placeholder='Select State'
-            className='w-full h-[60px]'
-            renderRightElement={() => <AiFillCaretDown />}
-            selectedOptionColor='#e4e012'
-            onChange={handleInputChange}
-            onSelect={(option) => setSelectedRegion(option)}
-            renderOptions={(option) => <div className='p-[5px]'>{option}</div>}
-            Editable={false}
-          />
-
-          <ComboBox
-            name='city'
-            options={options}
-            placeholder='Select City'
-            className='w-full h-[60px]'
-            selectedOptionColor='#e4e012'
-            onChange={handleInputChange}
-            onSelect={(option) => setSelectedCity(option)}
-            renderRightElement={() => <AiFillCaretDown />}
-            renderOptions={(option) => (
-              <div className='p-[5px]'>This is {option}</div>
-            )}
-          />
+        <fieldset
+          className={`flex justify-between items-center gap-4 ${
+            !selectedCountry || !selectedRegion ? 'flex-col' : ''
+          }`}
+        >
+          {!selectedCountry ? (
+            <h2 className='text-[1rem] text-red-600'>Select country first</h2>
+          ) : (
+            <ComboBox
+              name='region'
+              options={options}
+              placeholder='Select State'
+              className='w-full h-[60px]'
+              renderRightElement={() => <AiFillCaretDown />}
+              selectedOptionColor='#e4e012'
+              onChange={handleInputChange}
+              onSelect={(option) => setSelectedRegion(option)}
+              renderOptions={(option) => (
+                <div className='p-[5px]'>{option}</div>
+              )}
+            />
+          )}
+          {!selectedRegion ? (
+            <h2 className='text-[1rem] text-red-600'>Select State first</h2>
+          ) : (
+            <ComboBox
+              name='city'
+              options={options}
+              placeholder='Select City'
+              className='w-full h-[60px]'
+              selectedOptionColor='#e4e012'
+              onChange={handleInputChange}
+              onSelect={(option) => setSelectedCity(option)}
+              renderRightElement={() => <AiFillCaretDown />}
+              renderOptions={(option) => (
+                <div className='p-[5px]'>{option}</div>
+              )}
+            />
+          )}
         </fieldset>
       </div>
 
