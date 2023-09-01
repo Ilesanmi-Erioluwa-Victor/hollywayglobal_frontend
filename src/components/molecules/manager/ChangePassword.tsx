@@ -2,7 +2,11 @@ import { ChangeEvent, useState } from 'react';
 import { FieldSet } from '../../../components/atoms';
 import { MdPassword } from 'react-icons/md';
 
+import { useSnackbar } from 'notistack';
+
 const ChangePassword = () => {
+  const { enqueueSnackbar } = useSnackbar();
+
   const [data, setData] = useState({
     newPassword: '',
     currentPassword: '',
@@ -16,8 +20,17 @@ const ChangePassword = () => {
   };
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    const { confirmNewPassword, newPassword, currentPassword } = data;
     event.preventDefault();
+    const { confirmNewPassword, newPassword, currentPassword } = data;
+
+        if (!currentPassword) {
+          return enqueueSnackbar(
+            'Please provide your current password',
+            {
+              variant: 'error',
+            }
+          );
+        }
     try {
       console.log(data);
     } catch (error) {
