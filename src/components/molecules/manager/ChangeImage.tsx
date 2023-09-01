@@ -2,23 +2,25 @@ import React, { useState, useCallback } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { FiUpload } from 'react-icons/fi';
 import { useDropzone, FileRejection, DropEvent } from 'react-dropzone';
+import { useSnackbar } from 'notistack';
 
 import styled from 'styled-components';
 
-const DottedBorder = styled.div`
-  border: 2px dotted #db4444;
-  padding: 20px;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  cursor: pointer;
-`;
-
 const ChangeImage = () => {
   const [selectedImage, setSelectedImage] = useState<null | string>(null);
+  const { enqueueSnackbar } = useSnackbar();
+
+  const DottedBorder = styled.div`
+    border: 2px dotted #db4444;
+    padding: 20px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+  `;
 
   const onDrop = useCallback(
     (
@@ -49,8 +51,12 @@ const ChangeImage = () => {
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(event);
     try {
+      if (!selectedImage) {
+        return enqueueSnackbar('Please, select image to upload', {
+          variant: 'error',
+        });
+      }
       console.log(selectedImage);
     } catch (error) {
       console.log(error);
