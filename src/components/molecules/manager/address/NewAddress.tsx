@@ -64,22 +64,24 @@ const NewAddress = () => {
     setSelectedCountry(country);
     setSelectedState(undefined);
     setSelectedCity(undefined);
+    setData({ ...data, country });
   };
 
   const handleStateChange = (state: string) => {
     setSelectedState(state);
     setSelectedCity(undefined);
+    setData({ ...data, region: state });
   };
 
   const handleCityChange = (city: string) => {
     setSelectedCity(city);
+    setData({ ...data, city });
   };
 
   const handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
     const name = e.currentTarget.name;
     const value = e.currentTarget.value;
     setData({ ...data, [name]: value.trim() });
-    console.log(e.currentTarget.name);
   };
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -181,27 +183,18 @@ const NewAddress = () => {
           onChange={handleCountryChange}
         />
 
-        <fieldset
-          className={`flex justify-between items-center gap-4 ${
-            !selectedCountry || !selectedState ? 'flex-col' : ''
-          }`}
-        >
-          {!selectedCountry ? (
-            <h2 className='text-[1rem] text-red-600'>Select country first</h2>
-          ) : (
-            <ComboBox
-              options={states}
-              onChange={handleStateChange}
-            />
-          )}
-          {!selectedState ? (
-            <h2 className='text-[1rem] text-red-600'>Select State first</h2>
-          ) : (
-            <ComboBox
-              options={cities}
-              onChange={handleCityChange}
-            />
-          )}
+        <fieldset className={`flex justify-between items-center gap-4 `}>
+          <ComboBox
+            options={states}
+            onChange={handleStateChange}
+            disabled={!selectedCountry}
+          />
+
+          <ComboBox
+            options={cities}
+            onChange={handleCityChange}
+            disabled={!selectedState}
+          />
         </fieldset>
       </div>
 
