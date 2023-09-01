@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
+
 import { BiSearch, BiHeartCircle } from 'react-icons/bi';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { CgProfile } from 'react-icons/cg';
@@ -12,6 +14,43 @@ import MenuItem from '@mui/material/MenuItem';
 import RoundedInput from '../atoms/Input';
 
 import { AccountNav } from '../../components/auth/userData';
+
+type Nav = {
+  name: string;
+  title: string;
+  id: string;
+  link: string;
+};
+
+const NavLinks: Nav[] = [
+  {
+    name: 'Home',
+    title: 'home',
+    id: uuidv4(),
+    link: '/',
+  },
+
+  {
+    name: 'Contact',
+    title: 'contact',
+    id: uuidv4(),
+    link: '/contact',
+  },
+
+  {
+    name: 'About',
+    title: 'about',
+    id: uuidv4(),
+    link: '/about',
+  },
+
+  {
+    name: 'Sign Up',
+    title: 'Sign Up',
+    id: uuidv4(),
+    link: '/register',
+  },
+];
 
 const LoggedNav = (): JSX.Element => {
   // const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
