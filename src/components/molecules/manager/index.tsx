@@ -84,7 +84,7 @@ const AccountLayout = () => {
         {AccountNav.map((accNav) => (
           <div key={accNav.id}>
             <Link
-              className='flex items-center gap-4 py-5 justify-start pl-4 hover:bg-slate-400 hover:transition-all'
+              className='flex items-center gap-4 py-4 justify-start pl-4 hover:bg-slate-400 hover:transition-all'
               to={accNav.link}
             >
               <span className='text-[1.6rem] '>{accNav.icon}</span>
