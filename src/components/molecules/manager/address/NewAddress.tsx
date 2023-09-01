@@ -188,6 +188,7 @@ const NewAddress = () => {
         <CustomSelect
           options={countries}
           onChange={handleCountryChange}
+          tag='Country'
         />
 
         <fieldset className={`flex justify-between items-center gap-4 `}>
@@ -195,12 +196,14 @@ const NewAddress = () => {
             options={states}
             onChange={handleStateChange}
             disabled={!selectedCountry}
+            tag='State'
           />
 
           <CustomSelect
             options={cities}
             onChange={handleCityChange}
             disabled={!selectedState}
+            tag='City'
           />
         </fieldset>
 
