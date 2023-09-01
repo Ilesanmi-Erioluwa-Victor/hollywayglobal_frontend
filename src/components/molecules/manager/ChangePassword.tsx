@@ -6,6 +6,7 @@ const ChangePassword = () => {
   const [data, setData] = useState({
     newPassword: '',
     currentPassword: '',
+    confirmNewPassword:"",
   });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -50,6 +51,15 @@ const ChangePassword = () => {
         name='newPassword'
         onChange={handleInputChange}
         value={data.newPassword}
+        type='password'
+      />
+
+      <FieldSet
+        label={'confirm New Password'}
+        id={'confirmNewPassword'}
+        name='confirmNewPassword'
+        onChange={handleInputChange}
+        value={data.confirmNewPassword}
         type='password'
       />
       <button
