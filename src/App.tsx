@@ -38,17 +38,22 @@ const App = () => {
       element: <Products />,
       path: '/products',
     },
+
+    {
+      element: <Cart />,
+      path: '/cart',
+    },
+
+    {
+      element: <Checkout />,
+      path: '/checkout',
+    },
+
+    
+
   ]);
 
-  //       <Route
-  //         element={<Cart />}
-  //         path={'/cart'}
-  //       />
 
-  //       <Route
-  //         element={<Checkout />}
-  //         path={'/checkout'}
-  //       />
 
   //       <Route
   //         element={<AccountLayout />}
