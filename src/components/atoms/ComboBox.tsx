@@ -5,54 +5,41 @@ interface Option {
   label: string;
 }
 
-interface ComboBoxProps {
+const ComboBox: React.FC<{
   options: Option[];
-  onSelect: (option: Option) => void;
-  name: string;
-}
+  onChange: (value: string) => void;
+}> = ({ options, onChange }) => {
+  const [selectedValue, setSelectedValue] = useState<string | undefined>(
+    undefined
+  );
 
-const ComboBox: React.FC<ComboBoxProps> = ({ options, onSelect, name }) => {
-  const [inputValue, setInputValue] = useState('');
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setInputValue(value);
-    setIsDropdownOpen(value.length > 0);
-  };
-
-  const handleOptionSelect = (option: Option) => {
-    setInputValue(option.label);
-    setIsDropdownOpen(false);
-    onSelect(option);
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedValue(event.target.value);
+    onChange(event.target.value);
   };
 
   return (
-    <div className='relative w-[200px] my-0 mx-auto'>
-      <input
-        type='text'
-        value={inputValue}
-        onChange={handleInputChange}
-        placeholder='Type to search...'
-              name={name}
-              onFocus={isDropdownOpen}
-        className='w-full
-  p-[8px]
-  text-[14px]
-  border-[1px]  border-solid border-[#ccc] outline-none'
-      />
-      {isDropdownOpen && (
-        <ul className='dropdown'>
-          {options.map((option) => (
-            <li
-              key={option.value}
-              onClick={() => handleOptionSelect(option)}
-            >
-              {option.label}
-            </li>
-          ))}
-        </ul>
-      )}
+    <div className='relative w-full p-[10px]'>
+      <select
+        value={selectedValue}
+        onChange={handleSelectChange}
+        className='rounded-md border px-2 outline-none cursor-pointer text-[16px] w-full h-12'
+      >
+        <option
+          value=''
+          disabled
+        >
+          Select an option
+        </option>
+        {options.map((option, index) => (
+          <option
+            key={index}
+            value={option.value}
+          >
+            {option.label}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };

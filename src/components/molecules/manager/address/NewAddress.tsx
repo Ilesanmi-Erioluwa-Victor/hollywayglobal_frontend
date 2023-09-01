@@ -1,10 +1,10 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState } from 'react';
 
-import ComboBox from 'react-responsive-combo-box';
+import ComboBox from '../../../atoms/ComboBox';
+
 import 'react-responsive-combo-box/dist/index.css';
 
 import { TbArrowBack } from 'react-icons/tb';
-import { AiFillCaretDown } from 'react-icons/ai';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -12,17 +12,7 @@ import { Country, State, City } from 'country-state-city';
 
 import { FieldSet } from '../../../../components/atoms';
 
-interface CountryOption {
-  value: string;
-  label: string;
-}
-
-interface StateOption {
-  value: string;
-  label: string;
-}
-
-interface CityOption {
+interface Option {
   value: string;
   label: string;
 }
@@ -39,73 +29,57 @@ const NewAddress = () => {
     additionalPhone: '',
   });
 
-  const [selectedRegion, setSelectedRegion] = useState('');
-  const [selectedCity, setSelectedCity] = useState('');
+  const [selectedCountry, setSelectedCountry] = useState<string | undefined>(
+    undefined
+  );
+  const [selectedState, setSelectedState] = useState<string | undefined>(
+    undefined
+  );
+  const [selectedCity, setSelectedCity] = useState<string | undefined>(
+    undefined
+  );
 
-  const [countries, setCountries] = useState<CountryOption[]>([]);
-  const [selectedCountry, setSelectedCountry] = useState<string>('');
-  const [states, setStates] = useState<StateOption[]>([]);
-  const [selectedState, setSelectedState] = useState<string>('');
-  const [cities, setCities] = useState<CityOption[]>([]);
+  const countries: Option[] = Country.getAllCountries().map((country) => ({
+    value: country.isoCode,
+    label: country.name,
+  }));
 
-  // Fetch list of all countries
-  useEffect(() => {
-    const countryList = Country.getAllCountries().map((country) => ({
-      value: country.isoCode,
-      label: country.name,
-    }));
-    setCountries(countryList);
-  }, []);
+  const states: Option[] = selectedCountry
+    ? State.getStatesOfCountry(selectedCountry).map((state) => ({
+        value: state.isoCode,
+        label: state.name,
+      }))
+    : [];
 
-  // Fetch list of states for the selected country
-  useEffect(() => {
-    if (selectedCountry) {
-      const stateList = State.getStatesOfCountry(selectedCountry).map(
-        (state) => ({
-          value: state.isoCode,
-          label: state.name,
+  const cities: Option[] = selectedState
+    ? City.getCitiesOfState(selectedCountry || '', selectedState || '').map(
+        (city) => ({
+          value: city.name,
+          label: city.name,
         })
-      );
-      setStates(stateList);
-    }
-  }, [selectedCountry]);
+      )
+    : [];
 
-  // Fetch list of cities for the selected state
-  useEffect(() => {
-    if (selectedState) {
-      const cityList = City.getCitiesOfState(
-        selectedCountry,
-        selectedState
-      ).map((city) => ({
-        value: city.stateCode,
-        label: city.name,
-      }));
-      setCities(cityList);
+  const handleCountryChange = (country: string) => {
+    setSelectedCountry(country);
+    setSelectedState(undefined);
+    setSelectedCity(undefined);
+  };
 
-      console.log(cityList);
-    }
-  }, [selectedState, selectedCountry]);
+  const handleStateChange = (state: string) => {
+    setSelectedState(state);
+    setSelectedCity(undefined);
+  };
 
-  //   // const handleChange = (event: any, index: number) => {
-  //   //   const updatedRegions = [...regions];
-
-  //   //   updatedRegions[index.props.value] = event.target.value;
-  //   //   console.log(
-  //   //     updatedRegions[index],
-  //   //     '>>>>',
-  //   //     index.props.value,
-  //   //     'Target :',
-  //   //     event.target.value
-  //   //   );
-  //   //   setRegions(updatedRegions);
-
-  //   //   console.log(regions);
-  //   // };
+  const handleCityChange = (city: string) => {
+    setSelectedCity(city);
+  };
 
   const handleInputChange = (e: React.FormEvent<HTMLInputElement>) => {
     const name = e.currentTarget.name;
     const value = e.currentTarget.value;
     setData({ ...data, [name]: value.trim() });
+    console.log(e.currentTarget.name);
   };
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -116,34 +90,14 @@ const NewAddress = () => {
       const updatedData = {
         ...data,
         city: selectedCity,
-        region: selectedRegion,
+        region: selectedState,
         country: selectedCountry,
       };
-
-      // Update the state with the selected city and region
-      setData(updatedData);
-
-      // Log the updated data
       console.log(updatedData);
     } catch (error) {
       console.log(error);
     }
   };
-
-  // const options = [
-  //   'America',
-  //   'India',
-  //   'Australia',
-  //   'Argentina',
-  //   'Ireland',
-  //   'Indonesia',
-  //   'Iceland',
-  //   'Japan',
-  // ];
-
-  const optionsCountries = countries.map((country) => country.label);
-
-  // console.log(opt2);
 
   return (
     <form
@@ -223,54 +177,29 @@ const NewAddress = () => {
         />
 
         <ComboBox
-          name='country'
-          options={optionsCountries}
-          placeholder='Select Country'
-          className='w-full h-[60px]'
-          renderRightElement={() => <AiFillCaretDown />}
-          selectedOptionColor='#e4e012'
-          onChange={handleInputChange}
-          onSelect={(option) => setSelectedCountry(option)}
-          renderOptions={(option) => <div className='p-[5px]'>{option}</div>}
+          options={countries}
+          onChange={handleCountryChange}
         />
 
         <fieldset
           className={`flex justify-between items-center gap-4 ${
-            !selectedCountry || !selectedRegion ? 'flex-col' : ''
+            !selectedCountry || !selectedState ? 'flex-col' : ''
           }`}
         >
           {!selectedCountry ? (
             <h2 className='text-[1rem] text-red-600'>Select country first</h2>
           ) : (
             <ComboBox
-              name='region'
-              options={options}
-              placeholder='Select State'
-              className='w-full h-[60px]'
-              renderRightElement={() => <AiFillCaretDown />}
-              selectedOptionColor='#e4e012'
-              onChange={handleInputChange}
-              onSelect={(option) => setSelectedRegion(option)}
-              renderOptions={(option) => (
-                <div className='p-[5px]'>{option}</div>
-              )}
+              options={states}
+              onChange={handleStateChange}
             />
           )}
-          {!selectedRegion ? (
+          {!selectedState ? (
             <h2 className='text-[1rem] text-red-600'>Select State first</h2>
           ) : (
             <ComboBox
-              name='city'
-              options={options}
-              placeholder='Select City'
-              className='w-full h-[60px]'
-              selectedOptionColor='#e4e012'
-              onChange={handleInputChange}
-              onSelect={(option) => setSelectedCity(option)}
-              renderRightElement={() => <AiFillCaretDown />}
-              renderOptions={(option) => (
-                <div className='p-[5px]'>{option}</div>
-              )}
+              options={cities}
+              onChange={handleCityChange}
             />
           )}
         </fieldset>
