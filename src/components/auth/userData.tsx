@@ -12,8 +12,14 @@ import { GiLipstick } from 'react-icons/gi';
 
 import { BiHomeAlt2 } from 'react-icons/bi';
 
+type Nav = {
+  name: string;
+  icon?: object;
+  id: string;
+  link: string;
+};
 
-export const AccountNav = [
+export const AccountNav: Nav[] = [
   {
     id: uuidv4(),
     name: 'My Account',

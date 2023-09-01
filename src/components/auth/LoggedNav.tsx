@@ -13,70 +13,13 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import RoundedInput from '../atoms/Input';
 
-type Nav = {
-  name: string;
-  title: string;
-  id: string;
-  link: string;
-};
+import { AccountNav } from '../../../components/auth/userData';
 
-const NavLinks: Nav[] = [
-  {
-    name: 'Home',
-    title: 'home',
-    id: uuidv4(),
-    link: '/',
-  },
 
-  {
-    name: 'Contact',
-    title: 'contact',
-    id: uuidv4(),
-    link: '/contact',
-  },
 
-  {
-    name: 'About',
-    title: 'about',
-    id: uuidv4(),
-    link: '/about',
-  },
 
-  {
-    name: 'Sign Up',
-    title: 'Sign Up',
-    id: uuidv4(),
-    link: '/register',
-  },
-];
 
 const LoggedNav = (): JSX.Element => {
-  class Data {
-    static User = [
-      {
-        id: uuidv4(),
-        name: 'Manage my Account',
-        url: '/user/account',
-      },
-      {
-        id: uuidv4(),
-        name: 'Orders',
-        url: '/user/account/orders',
-      },
-
-      {
-        id: uuidv4(),
-        name: 'My reviews',
-        url: '/user/account/reviews',
-      },
-      {
-        id: uuidv4(),
-        name: 'Logout',
-        url: 'profile/setting',
-      },
-    ];
-  }
-
   // const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
