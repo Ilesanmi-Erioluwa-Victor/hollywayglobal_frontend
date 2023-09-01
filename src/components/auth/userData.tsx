@@ -57,7 +57,7 @@ export const AccountNav: Nav[] = [
 
   {
     id: uuidv4(),
-    name: 'Change Profile Image',
+    name: 'Edit image',
     link: '/user/account/updateImage',
     icon: <PiCookingPotLight />,
   },
