@@ -49,29 +49,35 @@ const App = () => {
       path: '/checkout',
     },
 
-    
-
+    {
+      element: <AccountLayout />,
+      path: '/user/account',
+      children: [
+        {
+          element: <ManageAccount />,
+          index: true,
+        },
+        { path: 'orders', element: <Order /> },
+        { path: 'reviews', element: <Reviews /> },
+        {
+          path: 'address',
+          element: <AddressBook />,
+          children: [
+            {
+              path: '/user/account/address/create',
+              element: <NewAddressBook />,
+            },
+          ],
+        },
+      ],
+    },
   ]);
-
-
 
   //       <Route
   //         element={<AccountLayout />}
   //         path={'/user/account'}
   //       >
-  //         <Route
-  //           element={<ManageAccount />}
-  //           index
-  //         />
-  //         <Route
-  //           element={<Order />}
-  //           path='orders'
-  //         />
-
-  //         <Route
-  //           element={<Reviews />}
-  //           path='reviews'
-  //         />
+  //
 
   //         <Route
   //           element={<AddressBook />}
