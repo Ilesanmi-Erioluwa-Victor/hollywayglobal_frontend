@@ -2,7 +2,7 @@ import { Link, Outlet, useMatch} from 'react-router-dom';
 
 const AddressBook = () => {
   const isCreateRoute = useMatch('/user/account/address/create');
-  console.log(isCreateRoute);
+  const address = [];
   return (
     <div className='p-6'>
       {!isCreateRoute && (
@@ -19,7 +19,7 @@ const AddressBook = () => {
 
       <div>
         {isCreateRoute ? null : (
-          <div className='nested-outlet'>
+          <div className='nested-outlet' >
             <Outlet />
           </div>
         )}
