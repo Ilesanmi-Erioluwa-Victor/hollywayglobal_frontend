@@ -27,12 +27,7 @@ const ComboBox: React.FC<{
         className='rounded-md border px-2 outline-none cursor-pointer text-[16px] w-full h-12'
         disabled={disabled}
       >
-        <option
-          value=''
-          disabled
-        >
-          Select an option
-        </option>
+        <option value=''>Select an option</option>
         {options.map((option, index) => (
           <option
             key={index}
