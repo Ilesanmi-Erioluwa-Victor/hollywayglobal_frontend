@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useSnackbar } from 'notistack';
 
-import ComboBox from '../../../atoms/ComboBox';
+import { CustomSelect } from '../../../atoms';
 
 import 'react-responsive-combo-box/dist/index.css';
 
@@ -91,15 +91,7 @@ const NewAddress = () => {
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const {
-      city,
-      region,
-      additionalInfo,
-      additionalPhone,
-      country,
-      phone,
-      deliveryAddress,
-    } = data;
+    const { city, region, country, deliveryAddress } = data;
 
     if (!city || !country || !region || !deliveryAddress) {
       return enqueueSnackbar(
@@ -110,13 +102,7 @@ const NewAddress = () => {
       );
     }
     try {
-      // const updatedData = {
-      //   ...data,
-      //   city: selectedCity,
-      //   region: selectedState,
-      //   country: selectedCountry,
-      // };
-      // console.log(updatedData);
+   console.log(data)
     } catch (error) {
       console.log(error);
     }
@@ -199,19 +185,19 @@ const NewAddress = () => {
           name='additionalInfo'
         />
 
-        <ComboBox
+        <CustomSelect
           options={countries}
           onChange={handleCountryChange}
         />
 
         <fieldset className={`flex justify-between items-center gap-4 `}>
-          <ComboBox
+          <CustomSelect
             options={states}
             onChange={handleStateChange}
             disabled={!selectedCountry}
           />
 
-          <ComboBox
+          <CustomSelect
             options={cities}
             onChange={handleCityChange}
             disabled={!selectedState}

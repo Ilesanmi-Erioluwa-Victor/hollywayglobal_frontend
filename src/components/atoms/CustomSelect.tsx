@@ -5,7 +5,7 @@ interface Option {
   label: string;
 }
 
-const ComboBox: React.FC<{
+const CustomSelect: React.FC<{
   options: Option[];
   onChange: (value: string) => void;
   disabled?: boolean;
@@ -41,4 +41,4 @@ const ComboBox: React.FC<{
   );
 };
 
-export default ComboBox;
+export default CustomSelect;

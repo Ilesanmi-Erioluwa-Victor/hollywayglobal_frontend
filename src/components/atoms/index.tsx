@@ -1,2 +1,2 @@
 export { default as FieldSet } from './Field';
-export { default as ComboBox } from './ComboBox';
+export { default as CustomSelect } from './CustomSelect';
