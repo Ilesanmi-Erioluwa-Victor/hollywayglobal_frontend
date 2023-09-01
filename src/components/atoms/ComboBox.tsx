@@ -8,7 +8,8 @@ interface Option {
 const ComboBox: React.FC<{
   options: Option[];
   onChange: (value: string) => void;
-}> = ({ options, onChange }) => {
+  disabled?: boolean;
+}> = ({ options, onChange, disabled }) => {
   const [selectedValue, setSelectedValue] = useState<string | undefined>(
     undefined
   );
@@ -24,6 +25,7 @@ const ComboBox: React.FC<{
         value={selectedValue}
         onChange={handleSelectChange}
         className='rounded-md border px-2 outline-none cursor-pointer text-[16px] w-full h-12'
+        disabled={disabled}
       >
         <option
           value=''
