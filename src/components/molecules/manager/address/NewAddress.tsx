@@ -229,10 +229,7 @@ const NewAddress = () => {
           selectedOptionColor='#e4e012'
           onChange={handleInputChange}
           onSelect={(option) => setSelectedRegion(option)}
-          optionsMaxHeight={500}
-          renderOptions={(option) => (
-            <div className='p-[5px]'>This is {option}</div>
-          )}
+          renderOptions={(option) => <div className='p-[5px]'>{option}</div>}
         />
 
         <fieldset className='flex justify-between items-center gap-4'>
@@ -245,9 +242,8 @@ const NewAddress = () => {
             selectedOptionColor='#e4e012'
             onChange={handleInputChange}
             onSelect={(option) => setSelectedRegion(option)}
-            optionsMaxHeight={500}
             renderOptions={(option) => (
-              <div className='p-[5px]'>This is {option}</div>
+              <div className='p-[5px]'>{option}</div>
             )}
           />
 
@@ -260,7 +256,6 @@ const NewAddress = () => {
             onChange={handleInputChange}
             onSelect={(option) => setSelectedCity(option)}
             renderRightElement={() => <AiFillCaretDown />}
-            optionsMaxHeight={500}
             renderOptions={(option) => (
               <div className='p-[5px]'>This is {option}</div>
             )}
