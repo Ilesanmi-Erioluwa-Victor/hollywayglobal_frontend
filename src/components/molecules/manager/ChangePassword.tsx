@@ -6,7 +6,7 @@ const ChangePassword = () => {
   const [data, setData] = useState({
     newPassword: '',
     currentPassword: '',
-    confirmNewPassword:"",
+    confirmNewPassword: '',
   });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -16,6 +16,7 @@ const ChangePassword = () => {
   };
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    const { confirmNewPassword, newPassword, currentPassword } = data;
     event.preventDefault();
     try {
       console.log(data);
