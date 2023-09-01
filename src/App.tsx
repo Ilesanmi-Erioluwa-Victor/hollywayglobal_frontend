@@ -1,4 +1,4 @@
-import {  useRoutes } from 'react-router-dom';
+import { useRoutes } from 'react-router-dom';
 
 import {
   Footer,
@@ -13,6 +13,7 @@ import {
   ChangeImage,
   AccountLayout,
   NewAddressBook,
+  EditProfile,
 } from './components';
 import { Home, Register, Login, Products } from './pages';
 
@@ -71,6 +72,7 @@ const App = () => {
         },
         { path: 'password', element: <ChangePassword /> },
         { path: 'updateImage', element: <ChangeImage /> },
+        { path: 'profile', element: <EditProfile /> },
       ],
     },
     {

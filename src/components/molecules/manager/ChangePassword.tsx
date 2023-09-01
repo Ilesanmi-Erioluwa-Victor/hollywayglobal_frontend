@@ -36,6 +36,10 @@ const ChangePassword = () => {
           variant: 'error',
         }
       );
+    } else if (!newPassword || !confirmNewPassword) {
+      return enqueueSnackbar('Please, provide password', {
+        variant: 'error',
+      });
     }
     try {
       console.log(data);
