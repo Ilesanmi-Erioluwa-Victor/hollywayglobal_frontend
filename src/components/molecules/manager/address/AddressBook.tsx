@@ -5,14 +5,18 @@ const AddressBook = () => {
   return (
     <div className='p-6'>
       {!isCreateRoute && (
-        <div className='flex items-center justify-between'>
-          <h2>ADDRESS BOOK</h2>
-          <Link
-            className='text-white p-2 rounded-sm bg-[#DB4444]'
-            to='create'
-          >
-            ADD NEW ADDRESS
-          </Link>
+        <div>
+          <div className='flex items-center justify-between'>
+            <h2 className='text-[1rem] font-[400]'>ADDRESS BOOK</h2>
+            <Link
+              className='text-white p-2 rounded-sm bg-[#DB4444]'
+              to='create'
+            >
+              ADD NEW ADDRESS
+            </Link>
+        
+          </div>
+              <hr className='my-4' />
         </div>
       )}
 
