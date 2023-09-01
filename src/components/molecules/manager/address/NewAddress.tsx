@@ -102,8 +102,7 @@ const NewAddress = () => {
       );
     }
     try {
-      
-      state.push(data);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
