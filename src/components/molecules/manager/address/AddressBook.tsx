@@ -14,18 +14,15 @@ const AddressBook = () => {
             >
               ADD NEW ADDRESS
             </Link>
-        
           </div>
-              <hr className='my-4' />
+          <hr className='my-4' />
         </div>
       )}
 
       <div>
-        {isCreateRoute ? null : (
-          <div className='nested-outlet'>
-            <Outlet />
-          </div>
-        )}
+        <div className='nested-outlet'>
+          <Outlet />
+        </div>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import 'react-responsive-combo-box/dist/index.css';
 
 import { TbArrowBack } from 'react-icons/tb';
 
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { Country, State, City } from 'country-state-city';
 
