@@ -8,9 +8,9 @@ const EditProfile = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const [data, setData] = useState({
-    newPassword: '',
-    currentPassword: '',
-    confirmNewPassword: '',
+    firstName: '',
+    lastName: '',
+    email: '',
   });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
