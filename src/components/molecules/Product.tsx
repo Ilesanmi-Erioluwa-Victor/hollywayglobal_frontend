@@ -7,6 +7,13 @@ import { BsTruck } from 'react-icons/bs';
 import { GrPowerCycle } from 'react-icons/gr';
 
 const Product = () => {
+
+     const [activeImage, setActiveImage] = useState<string | null>(null);
+
+    const handleImageClick = (src: string) => {
+        setActiveImage(src);
+  };
+  
   const products = [
     {
       name: 'Havic HV G-92 Gamepad',
@@ -34,16 +41,15 @@ const Product = () => {
       {products.map((prod) => (
         <div key={prod.name}>
           <div className=' flex flex-col gap-3 bg-orange-500 w-full'>
-            {prod.images.map((image) => (
+            {prod.images.map((image, index) => (
               <img
                 src={image}
-                    alt=''
-                    className='w-max-full h-[5rem] bg-slate-300 p-2 rounded-sm'
+                alt=''
+                className='w-max-full h-[5rem] bg-slate-300 p-2 rounded-sm'
               />
             ))}
-              </div>
-              <div>{
-              }</div>
+          </div>
+          <div>{}</div>
         </div>
       ))}
     </div>
