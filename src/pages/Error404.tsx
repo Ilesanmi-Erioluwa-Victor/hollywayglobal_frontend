@@ -29,12 +29,12 @@ const ErrorPage = (props: { statusCode: number }): JSX.Element => {
   const errorMessageToShow = errorMessages[statusCode];
 
   return (
-    <div className=' mx-10'>
+    <div className=' mx-10 font-poppins_Display'>
       <div className='flex flex-col items-center py-20'>
         <div className='items-center'>
           <img
             src={errorPage}
-            alt='google photo'
+            alt='error page'
             className='items-center'
           />
         </div>
