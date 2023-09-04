@@ -33,7 +33,15 @@ const Product = () => {
     <div className='px-[_calc(_1rem+_8vw)] flex justify-between items-center gap-y-4 py-[_calc(_1rem+_8vh)] gap-3 '>
       {products.map((prod) => (
         <div key={prod.name}>
-          <div></div>
+          <div className='h-[5rem] flex flex-col gap-3 bg-red-800'>
+            {prod.images.map((image) => (
+              <img
+                src={image}
+                    alt=''
+                    className='w-max-full h-9 bg-orange-500 '
+              />
+            ))}
+          </div>
         </div>
       ))}
     </div>
