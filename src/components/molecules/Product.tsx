@@ -33,15 +33,17 @@ const Product = () => {
     <div className='px-[_calc(_1rem+_8vw)] flex justify-between items-center gap-y-4 py-[_calc(_1rem+_8vh)] gap-3 '>
       {products.map((prod) => (
         <div key={prod.name}>
-          <div className='h-[5rem] flex flex-col gap-3 bg-red-800'>
+          <div className=' flex flex-col gap-3 bg-orange-500 w-full'>
             {prod.images.map((image) => (
               <img
                 src={image}
                     alt=''
-                    className='w-max-full h-9 bg-orange-500 '
+                    className='w-max-full h-[5rem] bg-slate-300 p-2 rounded-sm'
               />
             ))}
-          </div>
+              </div>
+              <div>{
+              }</div>
         </div>
       ))}
     </div>
