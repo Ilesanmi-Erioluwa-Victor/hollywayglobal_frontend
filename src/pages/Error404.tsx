@@ -29,28 +29,26 @@ const ErrorPage = (props: { statusCode: number }): JSX.Element => {
   const errorMessageToShow = errorMessages[statusCode];
 
   return (
-      <div className=' mx-10'>
-        <div className='flex flex-col items-center py-20'>
-          <div className='items-center'>
-            <img
-              src={errorPage}
-              alt='google photo'
-              className='items-center'
-            />
-          </div>
-          <div className='flex flex-col text-center w-10/12 lg:w-6/12'>
-            <p className='text-2xl my-5'>{errorMessageToShow.errorTitle}</p>
-            <p className=''>{errorMessageToShow.errorMessage}</p>
-          </div>
-          <Link
-            to='/'
-          >
-            <button className='border-primary_green border rounded-md text-primary_green w-10/12 md:w-7/12 lg:w-4/12 p-4 mt-5'>
-              Take me home
-            </button>
-          </Link>
+    <div className=' mx-10'>
+      <div className='flex flex-col items-center py-20'>
+        <div className='items-center'>
+          <img
+            src={errorPage}
+            alt='google photo'
+            className='items-center'
+          />
         </div>
+        <div className='flex flex-col text-center w-10/12 lg:w-6/12'>
+          <p className='text-2xl my-5'>{errorMessageToShow.errorTitle}</p>
+          <p className=''>{errorMessageToShow.errorMessage}</p>
+        </div>
+        <Link to='/'>
+          <button className='border-[#DB4444] border-2 rounded-md px-6 py-4 mt-5 font-medium font-poppins_Display'>
+            Take me home
+          </button>
+        </Link>
       </div>
+    </div>
   );
 };
 
