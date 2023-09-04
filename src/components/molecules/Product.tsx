@@ -9,7 +9,8 @@ import { GrPowerCycle } from "react-icons/gr"
 const Product = () => {
   const products = [
     {
-      name: 'Havic HV G-92 Gamepad',
+          name: 'Havic HV G-92 Gamepad',
+          images : [],
       summary:
         'PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.',
       price: '$192.00',
@@ -22,7 +23,7 @@ const Product = () => {
         },
         {
           title: 'Return Delivery',
-          icon: <BsTruck />,
+          icon: <GrPowerCycle />,
           sum: 'Free 30 Days Delivery Returns. Details',
         },
       ],
