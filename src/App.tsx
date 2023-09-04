@@ -80,6 +80,7 @@ const App = () => {
       path: '/*',
       element: <Error404 statusCode={404} />,
     },
+    {path:"/product"}
   ]);
 
   return (
