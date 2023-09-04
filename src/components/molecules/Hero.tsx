@@ -133,7 +133,7 @@ const Hero = () => {
         <ul className=' pl-[0.4rem] flex flex-col hover:cursor-pointer '>
           {Category.map((cat) => (
             <li
-              className='flex items-center gap-3 py-2 '
+              className='flex items-center gap-3 py-2 hover:text-[#DB4444] transition-all'
               key={cat.id}
             >
               <span className='block text-[1.1rem]'>{cat.icon}</span>
