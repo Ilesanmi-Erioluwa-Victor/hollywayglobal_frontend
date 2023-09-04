@@ -18,7 +18,6 @@ import {
 import { Home, Register, Login, Products, Error404 } from './pages';
 
 const App = () => {
-  // const navigate = useNavigate()
   const customRoutes = useRoutes([
     {
       path: '/',
