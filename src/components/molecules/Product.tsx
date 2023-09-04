@@ -29,7 +29,11 @@ const Product = () => {
       ],
     },
   ];
-  return <div className='p-[_calc(_1rem+_8vw)] flex flex-col gap-y-4 py-4'>Product</div>;
+  return (
+    <div className='px-[_calc(_1rem+_8vw)] flex flex-col gap-y-4 py-[_calc(_1rem+_8vh)]'>
+      Product
+    </div>
+  );
 };
 
 export default Product;
