@@ -4,7 +4,14 @@ import Image3 from "../../assets/error-page.svg"
 import Image4 from "../../assets/boom.png"
 import Image5 from "../../assets/react.svg"
 
+
 const Product = () => {
+    const products = [
+      {
+        name: 'Havic HV G-92 Gamepad',
+        summary: 'PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.',
+      },
+    ];
   return <div>Product</div>;
 };
 
