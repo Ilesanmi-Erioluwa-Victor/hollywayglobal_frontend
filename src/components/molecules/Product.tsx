@@ -30,10 +30,12 @@ const Product = () => {
     },
   ];
   return (
-      <div className='px-[_calc(_1rem+_8vw)] flex justify-between items-center gap-y-4 py-[_calc(_1rem+_8vh)] gap-3 '>
-          {
-              products.map(())
-          }
+    <div className='px-[_calc(_1rem+_8vw)] flex justify-between items-center gap-y-4 py-[_calc(_1rem+_8vh)] gap-3 '>
+      {products.map((prod) => (
+        <div key={prod.name}>
+          <div></div>
+        </div>
+      ))}
       <h2 className='bg-orange-800 w-full rounded-sm'>
         Hell from First one...
       </h2>
