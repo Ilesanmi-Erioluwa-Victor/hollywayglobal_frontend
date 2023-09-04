@@ -36,17 +36,6 @@ const Product = () => {
           <div></div>
         </div>
       ))}
-      <h2 className='bg-orange-800 w-full rounded-sm'>
-        Hell from First one...
-      </h2>
-
-      <h2 className='bg-orange-300 w-full rounded-sm'>
-        Hell from Second one...
-      </h2>
-
-      <h2 className='bg-orange-800 w-full rounded-sm'>
-        Hell from Third one...
-      </h2>
     </div>
   );
 };
