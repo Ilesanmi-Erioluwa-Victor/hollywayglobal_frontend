@@ -30,7 +30,7 @@ const Home = () => {
     },
   ];
   return (
-    <div className='padd flex flex-col gap-y-4 py-4'>
+    <div className='padd flex flex-col gap-y-4 py-4 font-poppins_Display'>
       <Hero />
       <SubHero />
       <CategorySection />

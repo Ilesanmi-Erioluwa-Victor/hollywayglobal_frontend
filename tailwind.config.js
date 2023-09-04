@@ -34,8 +34,12 @@ export default {
 
       gridTemplateColumns: {
         'custom-grid': 'repeat(12, 1fr)',
-        "product-grid" : "repeat(auto-fit, minmax(200px, 1fr))"
+        'product-grid': 'repeat(auto-fit, minmax(200px, 1fr))',
       },
+    },
+
+    fontFamily: {
+      poppins_Display: ['Poppins', 'sans-serif'],
     },
   },
   plugins: [],
