@@ -14,6 +14,7 @@ import {
   AccountLayout,
   NewAddressBook,
   EditProfile,
+  Product
 } from './components';
 import { Home, Register, Login, Products, Error404 } from './pages';
 
