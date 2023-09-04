@@ -83,7 +83,7 @@ const App = () => {
   ]);
 
   return (
-    <div className='container-custom bg-slate-100'>
+    <div className='container-custom bg-slate-100 font-poppins_Display'>
       <div className='overall-layout'>
         <Header />
         {customRoutes}
