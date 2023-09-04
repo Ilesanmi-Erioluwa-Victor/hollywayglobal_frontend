@@ -1,15 +1,27 @@
-import { useState } from "react"
+import React, { useState } from 'react';
+import { BsTruck } from 'react-icons/bs';
+import { GrPowerCycle } from 'react-icons/gr';
 import Image from '../../assets/boom.png';
 import Image2 from '../../assets/dark_800.png';
 import Image3 from '../../assets/error-page.svg';
 import Image4 from '../../assets/boom.png';
 import Image5 from '../../assets/react.svg';
-import { BsTruck } from 'react-icons/bs';
-import { GrPowerCycle } from 'react-icons/gr';
 
 const Product = () => {
-  
-  const products = [
+  interface Product2 {
+    name: string;
+    images: string[];
+    summary: string;
+    price: string;
+    size: string[];
+    details: {
+      title: string;
+      icon: JSX.Element;
+      sum: string;
+    }[];
+  }
+
+  const products: Product2[] = [
     {
       name: 'Havic HV G-92 Gamepad',
       images: [Image, Image2, Image3, Image4, Image5],
@@ -32,12 +44,12 @@ const Product = () => {
     },
   ];
 
-  const [activeImage, setActiveImage] = useState(product.images[0]);
+  const [activeImage, setActiveImage] = useState(products[0].images[0]);
 
-   const handleImageClick = (imageSrc) => {
-     setActiveImage(imageSrc);
+  const handleImageClick = (imageSrc) => {
+    setActiveImage(imageSrc);
   };
-  
+
   return (
     <div className='px-[_calc(_1rem+_8vw)] flex justify-between items-center gap-y-4 py-[_calc(_1rem+_8vh)] gap-3 '>
       {products.map((prod) => (
@@ -47,11 +59,17 @@ const Product = () => {
               <img
                 src={image}
                 alt=''
-                className='w-max-full h-[5rem] bg-slate-300 p-2 rounded-sm'
-                onClick={() => handleImageClick(image.src)}
+                className='w-max-full h-[5rem] bg-slate-300 p-2 rounded-sm cursor-pointer'
+                onClick={() => handleImageClick(image)}
                 key={index}
               />
             ))}
+            <div className='active-image'>
+              <img
+                src={activeImage}
+                alt='Active Product Image'
+              />
+            </div>
           </div>
           <div>{}</div>
         </div>
