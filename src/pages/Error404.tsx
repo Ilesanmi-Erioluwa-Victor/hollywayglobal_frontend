@@ -39,11 +39,11 @@ const ErrorPage = (props: { statusCode: number }): JSX.Element => {
           />
         </div>
         <div className='flex flex-col text-center w-10/12 lg:w-6/12'>
-          <p className='text-[1.6rem] my-5'>{errorMessageToShow.errorTitle}</p>
-          <p className='text-[1.6rem]'>{errorMessageToShow.errorMessage}</p>
+          <p className='text-[1rem] my-5'>{errorMessageToShow.errorTitle}</p>
+          <p className='text-[1rem]'>{errorMessageToShow.errorMessage}</p>
         </div>
         <Link to='/'>
-          <button className='border-[#DB4444] border-2 rounded-md px-6 py-4 mt-5 font-medium font-poppins_Display'>
+          <button className='border-[#DB4444] transition-all hover:bg-[#DB4444] hover:text-white border-2 rounded-md px-6 py-4 mt-5 font-medium font-poppins_Display'>
             Take me home
           </button>
         </Link>
