@@ -30,12 +30,18 @@ const Product = () => {
     },
   ];
   return (
-    <div className='px-[_calc(_1rem+_8vw)] flex justify-between items-center gap-y-4 py-[_calc(_1rem+_8vh)] gap-5'>
-      <h2 className='bg-orange-800 w-full'>Hell from First one...</h2>
+    <div className='px-[_calc(_1rem+_8vw)] flex justify-between items-center gap-y-4 py-[_calc(_1rem+_8vh)] gap-3 '>
+      <h2 className='bg-orange-800 w-full rounded-sm'>
+        Hell from First one...
+      </h2>
 
-      <h2 className='bg-orange-300 w-full'>Hell from Second one...</h2>
+      <h2 className='bg-orange-300 w-full rounded-sm'>
+        Hell from Second one...
+      </h2>
 
-      <h2 className='bg-orange-800 w-full'>Hell from Third one...</h2>
+      <h2 className='bg-orange-800 w-full rounded-sm'>
+        Hell from Third one...
+      </h2>
     </div>
   );
 };
