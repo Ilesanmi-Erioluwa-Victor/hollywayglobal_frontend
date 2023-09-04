@@ -1,17 +1,20 @@
-import Image from "../../assets/boom.png"
-import Image2 from "../../assets/dark_800.png"
-import Image3 from "../../assets/error-page.svg"
-import Image4 from "../../assets/boom.png"
-import Image5 from "../../assets/react.svg"
-
+import Image from '../../assets/boom.png';
+import Image2 from '../../assets/dark_800.png';
+import Image3 from '../../assets/error-page.svg';
+import Image4 from '../../assets/boom.png';
+import Image5 from '../../assets/react.svg';
 
 const Product = () => {
-    const products = [
-      {
-        name: 'Havic HV G-92 Gamepad',
-        summary: 'PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.',
-      },
-    ];
+  const products = [
+    {
+      name: 'Havic HV G-92 Gamepad',
+      summary:
+        'PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.',
+          price: '$192.00',
+          size: ["XS", "S", "M", "L", "XL"],
+      details: [{}]
+    },
+  ];
   return <div>Product</div>;
 };
 
