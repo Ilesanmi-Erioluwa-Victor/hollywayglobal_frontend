@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom"
-import errorPage from "../assets/error-page.svg"
+import { Link } from 'react-router-dom';
+import errorPage from '../assets/error-page.svg';
 
 type ErrorMessage = Record<
   number,
@@ -52,4 +52,4 @@ const ErrorPage = (props: { statusCode: number }): JSX.Element => {
   );
 };
 
-export default ErrorPage
+export default ErrorPage;
