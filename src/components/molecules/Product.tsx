@@ -3,6 +3,8 @@ import Image2 from '../../assets/dark_800.png';
 import Image3 from '../../assets/error-page.svg';
 import Image4 from '../../assets/boom.png';
 import Image5 from '../../assets/react.svg';
+import { BsTruck } from "react-icons/bs"
+import { GrPowerCycle } from "react-icons/gr"
 
 const Product = () => {
   const products = [
@@ -12,7 +14,9 @@ const Product = () => {
         'PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.',
           price: '$192.00',
           size: ["XS", "S", "M", "L", "XL"],
-      details: [{}]
+          details: [
+              { title: "Free Delivery", icon: <BsTruck />, sum: "Enter your postal code for Delivery Availability" }
+          ]
     },
   ];
   return <div>Product</div>;
