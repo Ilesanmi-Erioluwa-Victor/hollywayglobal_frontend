@@ -53,27 +53,32 @@ const Product = () => {
   return (
     <div className='px-[_calc(_1rem+_8vw)] flex justify-between items-center gap-y-4 py-[_calc(_1rem+_8vh)] gap-3 '>
       {products.map((prod) => (
-        <div key={prod.name}>
-          <div className=' flex flex-col gap-3 bg-orange-500 w-full'>
+        <div
+          key={prod.name}
+          className='bg-green-300'
+        >
+          <div className=' flex flex-col gap-3 w-full'>
             {prod.images.map((image, index) => (
               <img
                 src={image}
                 alt=''
-                className='w-max-full h-[5rem] bg-slate-300 p-2 rounded-sm cursor-pointer'
+                className='w-max-full h-[5rem] p-2 rounded-sm cursor-pointer'
                 onClick={() => handleImageClick(image)}
                 key={index}
               />
             ))}
-            <div className='active-image'>
-              <img
-                src={activeImage}
-                alt='Active Product Image'
-              />
-            </div>
+            <div className='active-image'></div>
           </div>
-          <div>{}</div>
         </div>
       ))}
+      <div>
+        <img
+          src={activeImage}
+          alt='Active Product Image'
+        />
+      </div>
+
+      <h1>Hello world</h1>
     </div>
   );
 };
