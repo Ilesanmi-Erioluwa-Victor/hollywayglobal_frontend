@@ -10,7 +10,7 @@ const Product = () => {
   const products = [
     {
       name: 'Havic HV G-92 Gamepad',
-      images: [],
+      images: [Image, Image2, Image3, Image4, Image5],
       summary:
         'PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.',
       price: '$192.00',
@@ -30,7 +30,10 @@ const Product = () => {
     },
   ];
   return (
-    <div className='px-[_calc(_1rem+_8vw)] flex justify-between items-center gap-y-4 py-[_calc(_1rem+_8vh)] gap-3 '>
+      <div className='px-[_calc(_1rem+_8vw)] flex justify-between items-center gap-y-4 py-[_calc(_1rem+_8vh)] gap-3 '>
+          {
+              products.map(())
+          }
       <h2 className='bg-orange-800 w-full rounded-sm'>
         Hell from First one...
       </h2>
