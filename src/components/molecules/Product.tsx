@@ -12,11 +12,20 @@ const Product = () => {
       name: 'Havic HV G-92 Gamepad',
       summary:
         'PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.',
-          price: '$192.00',
-          size: ["XS", "S", "M", "L", "XL"],
-          details: [
-              { title: "Free Delivery", icon: <BsTruck />, sum: "Enter your postal code for Delivery Availability" }
-          ]
+      price: '$192.00',
+      size: ['XS', 'S', 'M', 'L', 'XL'],
+      details: [
+        {
+          title: 'Free Delivery',
+          icon: <BsTruck />,
+          sum: 'Enter your postal code for Delivery Availability',
+        },
+        {
+          title: 'Return Delivery',
+          icon: <BsTruck />,
+          sum: 'Free 30 Days Delivery Returns. Details',
+        },
+      ],
     },
   ];
   return <div>Product</div>;
