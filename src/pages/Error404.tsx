@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import errorPage from "../assets/dark_800.png"
+import errorPage from "../assets/error-page.svg"
 
 type ErrorMessage = Record<
   number,
