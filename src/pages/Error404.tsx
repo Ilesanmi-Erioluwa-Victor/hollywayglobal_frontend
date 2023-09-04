@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import errorPage from "../assets/dark_800.png"
 
 type ErrorMessage = Record<
   number,
@@ -31,7 +32,7 @@ const ErrorPage = (props: { statusCode: number }): JSX.Element => {
       <div className=' mx-10'>
         <div className='flex flex-col items-center py-20'>
           <div className='items-center'>
-            <Image
+            <img
               src={errorPage}
               alt='google photo'
               className='items-center'
