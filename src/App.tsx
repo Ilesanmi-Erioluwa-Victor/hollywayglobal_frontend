@@ -15,7 +15,7 @@ import {
   NewAddressBook,
   EditProfile,
 } from './components';
-import { Home, Register, Login, Products } from './pages';
+import { Home, Register, Login, Products, Error404 } from './pages';
 
 const App = () => {
   // const navigate = useNavigate()
@@ -78,42 +78,9 @@ const App = () => {
     },
     {
       path: '/*',
-      element: <h2>Page Not Found</h2>,
+      element: <Error404 statusCode={404} />,
     },
   ]);
-
-  //       <Route
-  //         element={<AccountLayout />}
-  //         path={'/user/account'}
-  //       >
-  //
-
-  //         <Route
-  //           element={<AddressBook />}
-  //           path='address'
-  //         />
-
-  //         <Route
-  //           element={<ChangePassword />}
-  //           path='password'
-  //         />
-
-  //         <Route
-  //           element={<ChangeImage />}
-  //           path='updateImage'
-  //         />
-
-  //         <Route
-  //           element={<NewAddressBook />}
-  //           path='address/create'
-  //         />
-  //       </Route>
-
-  //       <Route
-  //         element={<h1> Error page</h1>}
-  //         path={'*'}
-  //       />
-  // </Routes>;
 
   return (
     <div className='container-custom bg-slate-100'>
