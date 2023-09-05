@@ -54,9 +54,9 @@ const Product = () => {
   return (
     <section className='px-[_calc(_1rem+_8vw)] flex justify-between items-center gap-y-4 py-[_calc(_1rem+_8vh)] gap-3 '>
       {products.map((prod) => (
-        <div
+        <article
           key={prod.name}
-          className='bg-green-300'
+          className='w-full relative'
         >
           <div className=' flex flex-col gap-3 w-full'>
             {prod.images.map((image, index) => (
@@ -70,16 +70,16 @@ const Product = () => {
             ))}
             <div className='active-image'></div>
           </div>
-        </div>
+        </article>
       ))}
-      <div>
+      <div className='w-full bg-slate-400 p-2 h-auto'>
         <img
           src={activeImage}
           alt='Active Product Image'
         />
       </div>
 
-      <h1>Hello world</h1>
+      <h1 className='w-full'>Hello world</h1>
     </section>
   );
 };
