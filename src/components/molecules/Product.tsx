@@ -46,7 +46,7 @@ const Product = () => {
 
   const [activeImage, setActiveImage] = useState(products[0].images[0]);
 
-  const handleImageClick = (imageSrc) => {
+  const handleImageClick = (imageSrc:any) => {
     setActiveImage(imageSrc);
   };
 
