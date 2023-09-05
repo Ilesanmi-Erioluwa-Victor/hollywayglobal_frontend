@@ -95,7 +95,7 @@ const Product = () => {
                 </p>
               ))}
             </p>
-            <section>
+            <section className='mb-3'>
               <div>
                 <button>-</button>
                 <p>{2}</p>
@@ -103,6 +103,11 @@ const Product = () => {
               </div>
               <button>Buy Now</button>
             </section>
+
+            <div className="border">
+              <p>{prod.details[0].icon}</p>
+            </div>
+
           </div>
         </article>
       ))}
