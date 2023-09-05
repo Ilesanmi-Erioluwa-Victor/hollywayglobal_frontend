@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import { useSnackbar } from 'notistack';
 
@@ -38,9 +37,7 @@ const NewAddress = () => {
   const [selectedState, setSelectedState] = useState<string | undefined>(
     undefined
   );
-  const [, setSelectedCity] = useState<string | undefined>(
-    undefined
-  );
+  const [, setSelectedCity] = useState<string | undefined>(undefined);
 
   const countries: Option[] = Country.getAllCountries().map((country) => ({
     value: country.isoCode,
