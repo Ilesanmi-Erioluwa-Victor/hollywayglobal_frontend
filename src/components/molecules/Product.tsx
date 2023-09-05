@@ -83,6 +83,7 @@ const Product = () => {
         {products.map((prop) => (
           <div key={prop.name} className='relative'>
             <h2 className='text-2xl '>{prop.name}</h2>
+            <p>{prop.price}</p>
           </div>
         ))}
       </div>
