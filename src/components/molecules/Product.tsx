@@ -79,11 +79,12 @@ const Product = () => {
           </div>
 
           <div
-            className='relative w-full'
+            className='relative bg-red-800 flex flex-col p-2 w-[70%]'
           >
             <h2 className='text-2xl '>{prod.name}</h2>
             <p className='text-[1rem] my-2'>{prod.price}</p>
             <p className='text-[1rem]'>{prod.summary}</p>
+            <hr className='my-2'/>
           </div>
         </article>
       ))}
