@@ -40,7 +40,7 @@ const NewAddress = () => {
   const [selectedState, setSelectedState] = useState<string | undefined>(
     undefined
   );
-  const [selectedCity, setSelectedCity] = useState<string | undefined>(
+  const [, setSelectedCity] = useState<string | undefined>(
     undefined
   );
 
