@@ -52,13 +52,13 @@ const Product = () => {
   };
 
   return (
-    <section className='px-[_calc(_1rem+_3vw)] flex justify-between items-center py-[_calc(_1rem+_8vh)] bg-orange-700'>
+    <section className='px-[_calc(_1rem+_8vw)] flex justify-between items-center py-[_calc(_1rem+_8vh)] bg-orange-700'>
       {products.map((prod) => (
         <article
           key={prod.name}
-          className='relative flex items-center justify-between'
+          className='relative flex items-center justify-between gap-3'
         >
-          <div className=' flex flex-col gap-3'>
+          <div className=' flex flex-col gap-3 w-[20%]'>
             {prod.images.map((image, index) => (
               <img
                 src={image}
@@ -71,7 +71,7 @@ const Product = () => {
             <div className='active-image'></div>
           </div>
 
-          <div className=' bg-slate-400 p-2 h-auto'>
+          <div className=' bg-slate-400 p-2 h-auto w-full'>
             <img
               src={activeImage}
               alt='Active Product Image'
@@ -79,7 +79,7 @@ const Product = () => {
           </div>
 
           <div
-            className='relative'
+            className='relative w-full'
           >
             <h2 className='text-2xl '>{prod.name}</h2>
             <p className='text-[1rem] my-2'>{prod.price}</p>
