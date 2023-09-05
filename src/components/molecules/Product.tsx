@@ -101,6 +101,7 @@ const Product = () => {
                 <p>{2}</p>
                 <button>+</button>
               </div>
+              <button>Buy Now</button>
             </section>
           </div>
         </article>
