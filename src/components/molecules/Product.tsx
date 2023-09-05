@@ -81,9 +81,13 @@ const Product = () => {
 
       <div className='w-[30%] bg-red-800 p-3'>
         {products.map((prop) => (
-          <div key={prop.name} className='relative'>
+          <div
+            key={prop.name}
+            className='relative'
+          >
             <h2 className='text-2xl '>{prop.name}</h2>
-            <p>{prop.price}</p>
+            <p className='text-[1rem] my-2'>{prop.price}</p>
+            <p>{prop.summary}</p>
           </div>
         ))}
       </div>
