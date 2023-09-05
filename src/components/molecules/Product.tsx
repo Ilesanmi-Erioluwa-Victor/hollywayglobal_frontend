@@ -112,7 +112,7 @@ const Product = () => {
               </button>
             </section>
 
-            <div className='border border-slate-800 p-3'>
+            <div className='border border-slate-800 p-3 rounded-sm'>
               <div className='flex items-center gap-4'>
                 <p className='text-[2rem]'>{prod.details[0].icon}</p>
                 <article className='flex flex-col gap-1'>
@@ -120,12 +120,12 @@ const Product = () => {
                   <p className='text-[.8rem]'>{prod.details[0].sum}</p>
                 </article>
               </div>
-              <hr />
+              <hr className='my-4' />
               <div className='flex items-center gap-4'>
                 <p className='text-[2rem]'>{prod.details[1].icon}</p>
                 <article>
-                  <h2>{prod.details[1].title}</h2>
-                  <p>{prod.details[1].sum}</p>
+                  <h2 className='text-[1rem]'>{prod.details[1].title}</h2>
+                  <p className='text-[.8rem]'>{prod.details[1].sum}</p>
                 </article>
               </div>
             </div>
