@@ -56,7 +56,7 @@ const Product = () => {
       {products.map((prod) => (
         <article
           key={prod.name}
-          className='relative flex items-center justify-between gap-3'
+          className='relative flex items-center justify-between gap-6'
         >
           <div className=' flex flex-col gap-3 w-[20%]'>
             {prod.images.map((image, index) => (
