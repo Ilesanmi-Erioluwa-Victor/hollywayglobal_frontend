@@ -95,13 +95,13 @@ const Product = () => {
                 </p>
               ))}
             </p>
-            <section className='mb-3 flex w-full items-center justify-between'>
-              <div className='flex w-[50%]'>
-                <button className='bg-slate-200 py-2 px-4'>-</button>
-                <p className='bg-slate-200 py-2 px-4'>{2}</p>
-                <button className='bg-slate-200 py-2 px-4'>+</button>
+            <section className='mb-3 flex w-full items-center my-2 gap-2'>
+              <div className=' flex w-full'>
+                <button className='bg-slate-200 py-2 px-4 w-full'>-</button>
+                <p className='bg-slate-200 py-2 px-4 w-full'>{2}</p>
+                <button className='bg-slate-200 py-2 px-4 w-full'>+</button>
               </div>
-              <button className='w-[50%] bg-orange-600'>Buy Now</button>
+              <button className=' bg-orange-600 w-full'>Buy Now</button>
             </section>
 
             <div className='border border-[black] '>
