@@ -86,7 +86,7 @@ const Product = () => {
             <p className='text-[1rem]'>{prod.summary}</p>
             <hr className='my-2' />
             <p className='flex gap-4 text-[1rem]'> Size : {prod.size.map((color) => (
-              <p key={color} className=''>{color}</p>
+              <p key={color} className={`px-3 border rounded-sm text-white text-center `}>{color}</p>
             ))}</p>
           </div>
         </article>
