@@ -113,7 +113,7 @@ const Product = () => {
             </section>
 
             <div className='border border-slate-800 p-3'>
-              <div>
+              <div className='flex items-center'>
                 <p>{prod.details[0].icon}</p>
                 <article>
                   <h2>{prod.details[0].title}</h2>
