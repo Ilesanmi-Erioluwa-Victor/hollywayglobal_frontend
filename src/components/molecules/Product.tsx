@@ -95,7 +95,7 @@ const Product = () => {
                 </p>
               ))}
             </p>
-            <section className='mb-3 flex w-full items-center my-2 gap-2'>
+            <section className=' flex w-full items-center mt-2 gap-2 mb-7'>
               <div className=' flex w-full'>
                 <button className='bg-slate-200 py-2 px-4 w-[40%] rounded-sm border-slate-800 border'>
                   -
@@ -112,7 +112,7 @@ const Product = () => {
               </button>
             </section>
 
-            <div className='border border-[black] '>
+            <div className='border border-slate-800 p-3'>
               <div>
                 <p>{prod.details[0].icon}</p>
                 <article>
