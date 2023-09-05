@@ -56,9 +56,9 @@ const Product = () => {
       {products.map((prod) => (
         <article
           key={prod.name}
-          className='w-full relative'
+          className='relative'
         >
-          <div className=' flex flex-col gap-3 w-full'>
+          <div className=' flex flex-col gap-3 w-[40%]'>
             {prod.images.map((image, index) => (
               <img
                 src={image}
@@ -72,14 +72,14 @@ const Product = () => {
           </div>
         </article>
       ))}
-      <div className='w-full bg-slate-400 p-2 h-auto'>
+      <div className=' bg-slate-400 p-2 h-auto'>
         <img
           src={activeImage}
           alt='Active Product Image'
         />
       </div>
 
-      <h1 className='w-full'>Hello world</h1>
+      <h1 className=''>Hello world</h1>
     </section>
   );
 };
