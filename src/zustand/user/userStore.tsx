@@ -19,7 +19,7 @@ const useUserStore = create<UserState>((set) => ({
   signUp: async (userData: UserData) => {
     try {
       const response = await axios.post(
-        'https://hollywayglobadb.onrender.com/api/v1/user/signup',
+        '/user/signup',
         userData,
         {
           headers: {
@@ -28,7 +28,7 @@ const useUserStore = create<UserState>((set) => ({
         }
       );
       const user = response.data;
-      set({ user, message: "You have successfully created your account"});
+      set({ user: user, message: "You have successfully created your account"});
     } catch (error) {
       //   set({
       //     signUpError: error.message || 'Signup failed',
