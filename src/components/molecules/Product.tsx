@@ -121,8 +121,8 @@ const Product = () => {
                 </article>
               </div>
               <hr />
-              <div>
-                <p>{prod.details[1].icon}</p>
+              <div className='flex items-center gap-4'>
+                <p className='text-[2rem]'>{prod.details[1].icon}</p>
                 <article>
                   <h2>{prod.details[1].title}</h2>
                   <p>{prod.details[1].sum}</p>
