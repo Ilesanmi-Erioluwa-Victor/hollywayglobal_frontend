@@ -104,10 +104,13 @@ const Product = () => {
               <button>Buy Now</button>
             </section>
 
-            <div className="border">
+            <div className='border'>
               <p>{prod.details[0].icon}</p>
+              <article>
+                <h2>{prod.details[0].title}</h2>
+                <p>{prod.details[0].sum}</p>
+              </article>
             </div>
-
           </div>
         </article>
       ))}
