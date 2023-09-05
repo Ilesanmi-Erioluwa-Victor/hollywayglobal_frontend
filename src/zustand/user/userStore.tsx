@@ -6,6 +6,7 @@ interface UserState {
   user: null | any;
   signUpError: null | string;
   signUpLoading: boolean;
+  message: string;
   signUp: (userData: UserData) => Promise<void>;
   clearSignUpError: () => void;
 }
@@ -14,9 +15,9 @@ const useUserStore = create<UserState>((set) => ({
   user: null,
   signUpError: null,
   signUpLoading: false,
+  message:"",
   signUp: async (userData: UserData) => {
     try {
-      //   set({ signUpLoading: true, signUpError: null });
       const response = await axios.post(
         'https://hollywayglobadb.onrender.com/api/v1/user/signup',
         userData,
@@ -26,10 +27,8 @@ const useUserStore = create<UserState>((set) => ({
           },
         }
       );
-
-      // Assuming your server returns user data upon successful signup
       const user = response.data;
-      set({ user, signUpLoading: false });
+      set({ user, message: "You have successfully created your account"});
     } catch (error) {
       //   set({
       //     signUpError: error.message || 'Signup failed',
