@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { BsTruck } from 'react-icons/bs';
 import { GrPowerCycle } from 'react-icons/gr';
 import Image from '../../assets/boom.png';

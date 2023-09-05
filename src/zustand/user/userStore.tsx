@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import axios from 'axios';
 import { UserData } from './types';
 interface UserState {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   user: null | any;
   signUpError: null | string;
   signUpLoading: boolean;
