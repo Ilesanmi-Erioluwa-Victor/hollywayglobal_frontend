@@ -79,12 +79,15 @@ const Product = () => {
           </div>
 
           <div
-            className='relative bg-red-800 flex flex-col p-2 w-[70%]'
+            className='relative flex flex-col p-2 w-[70%]'
           >
             <h2 className='text-2xl '>{prod.name}</h2>
             <p className='text-[1rem] my-2'>{prod.price}</p>
             <p className='text-[1rem]'>{prod.summary}</p>
-            <hr className='my-2'/>
+            <hr className='my-2' />
+            <p className='flex gap-4 text-[1rem]'> Size : {prod.size.map((color) => (
+              <p key={color} className=''>{color}</p>
+            ))}</p>
           </div>
         </article>
       ))}
