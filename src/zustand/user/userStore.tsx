@@ -19,7 +19,12 @@ const useUserStore = create<UserState>((set) => ({
       //   set({ signUpLoading: true, signUpError: null });
       const response = await axios.post(
         'https://hollywayglobadb.onrender.com/signup',
-        userData
+        userData,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
       );
 
       // Assuming your server returns user data upon successful signup
