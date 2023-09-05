@@ -18,7 +18,7 @@ const useUserStore = create<UserState>((set) => ({
     try {
       //   set({ signUpLoading: true, signUpError: null });
       const response = await axios.post(
-        '/https://hollywayglobadb.onrender.com/signup',
+        '/https://hollywayglobadb.onrender.com/api/v1/user/signup',
         userData
       );
 
