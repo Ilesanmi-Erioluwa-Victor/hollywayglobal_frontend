@@ -4,8 +4,6 @@ import { useSnackbar } from 'notistack';
 
 import { CustomSelect } from '../../../atoms';
 
-import 'react-responsive-combo-box/dist/index.css';
-
 import { TbArrowBack } from 'react-icons/tb';
 
 import { useNavigate } from 'react-router-dom';
