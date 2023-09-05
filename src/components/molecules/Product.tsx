@@ -97,9 +97,15 @@ const Product = () => {
             </p>
             <section className='mb-3 flex w-full items-center my-2 gap-2'>
               <div className=' flex w-full'>
-                <button className='bg-slate-200 py-2 px-4 w-full'>-</button>
-                <p className='bg-slate-200 py-2 px-4 w-full'>{2}</p>
-                <button className='bg-slate-200 py-2 px-4 w-full'>+</button>
+                <button className='bg-slate-200 py-2 px-4 w-[40%] rounded-sm border-slate-800 border'>
+                  -
+                </button>
+                <p className='bg-slate-200 py-2 px-4 w-full border-slate-800 border'>
+                  {2}
+                </p>
+                <button className='py-2 px-4 w-[40%] border-slate-800 border-[0.5px] rounded-sm bg-[#DB4444]'>
+                  +
+                </button>
               </div>
               <button className=' bg-orange-600 w-full'>Buy Now</button>
             </section>
