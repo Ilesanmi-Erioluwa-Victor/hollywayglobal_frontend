@@ -47,7 +47,7 @@ const Product = () => {
   const [activeImage, setActiveImage] = useState(products[0].images[0]);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleImageClick = (imageSrc:any) => {
+  const handleImageClick = (imageSrc: any) => {
     setActiveImage(imageSrc);
   };
 
@@ -79,7 +79,7 @@ const Product = () => {
         />
       </div>
 
-      <h1 className='w-[20%]'>Hello world</h1>
+      <div className='w-[20%]'></div>
     </section>
   );
 };
