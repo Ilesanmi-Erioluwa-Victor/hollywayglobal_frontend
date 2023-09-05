@@ -46,12 +46,13 @@ const Product = () => {
 
   const [activeImage, setActiveImage] = useState(products[0].images[0]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleImageClick = (imageSrc:any) => {
     setActiveImage(imageSrc);
   };
 
   return (
-    <div className='px-[_calc(_1rem+_8vw)] flex justify-between items-center gap-y-4 py-[_calc(_1rem+_8vh)] gap-3 '>
+    <section className='px-[_calc(_1rem+_8vw)] flex justify-between items-center gap-y-4 py-[_calc(_1rem+_8vh)] gap-3 '>
       {products.map((prod) => (
         <div
           key={prod.name}
@@ -79,7 +80,7 @@ const Product = () => {
       </div>
 
       <h1>Hello world</h1>
-    </div>
+    </section>
   );
 };
 
