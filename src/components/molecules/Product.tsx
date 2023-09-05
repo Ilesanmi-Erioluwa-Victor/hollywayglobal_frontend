@@ -96,10 +96,10 @@ const Product = () => {
               ))}
             </p>
             <section className='mb-3 flex w-full items-center justify-between'>
-              <div className='flex bg-red-800 w-[50%]'>
-                <button>-</button>
-                <p>{2}</p>
-                <button>+</button>
+              <div className='flex w-[50%]'>
+                <button className='bg-slate-200 py-2 px-4'>-</button>
+                <p className='bg-slate-200 py-2 px-4'>{2}</p>
+                <button className='bg-slate-200 py-2 px-4'>+</button>
               </div>
               <button className='w-[50%] bg-orange-600'>Buy Now</button>
             </section>
