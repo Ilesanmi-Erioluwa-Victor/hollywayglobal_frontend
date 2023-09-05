@@ -116,8 +116,8 @@ const Product = () => {
               <div className='flex items-center gap-4'>
                 <p className='text-[2rem]'>{prod.details[0].icon}</p>
                 <article className='flex flex-col gap-1'>
-                  <h2>{prod.details[0].title}</h2>
-                  <p>{prod.details[0].sum}</p>
+                  <h2 className='text-[1rem]'>{prod.details[0].title}</h2>
+                  <p className='text-[.8rem]'>{prod.details[0].sum}</p>
                 </article>
               </div>
               <hr />
