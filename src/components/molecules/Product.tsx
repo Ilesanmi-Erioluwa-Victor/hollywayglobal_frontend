@@ -79,7 +79,13 @@ const Product = () => {
         />
       </div>
 
-      <div className='w-[20%]'></div>
+      <div className='w-[20%]'>
+        {products.map((prop) => (
+          <div key={prop.name}>
+            <h2>{prop.name}</h2>
+          </div>
+        ))}
+      </div>
     </section>
   );
 };
