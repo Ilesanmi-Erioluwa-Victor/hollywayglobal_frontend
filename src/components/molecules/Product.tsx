@@ -103,11 +103,11 @@ const Product = () => {
                 <p className='bg-slate-200 py-2 px-4 w-full border-slate-800 border'>
                   {2}
                 </p>
-                <button className='py-2 px-4 w-[40%] border-slate-800 border-[0.5px] rounded-sm bg-[#DB4444]'>
+                <button className='py-2 px-4 w-[40%] border-slate-800 border-[0.5px] rounded-sm bg-[#DB4444] text-white'>
                   +
                 </button>
               </div>
-              <button className='  w-full py-2 px-4 rounded-sm bg-[#DB4444]'>
+              <button className='  w-full py-2 px-4 rounded-sm bg-[#DB4444] text-white'>
                 Buy Now
               </button>
             </section>
