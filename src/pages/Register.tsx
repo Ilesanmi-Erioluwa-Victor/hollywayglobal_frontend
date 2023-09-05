@@ -2,10 +2,16 @@ import { ChangeEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
+import useUserStore from '../zustand/user/userStore';
+
 import { FieldSet } from '../components/atoms';
 import { ImagePage } from '../components';
 
 const Register = () => {
+
+   const { signUp, signUpLoading, signUpError, clearSignUpError } =
+    useUserStore();
+  
   const [data, setData] = useState({
     firstName: '',
     lastName: '',
