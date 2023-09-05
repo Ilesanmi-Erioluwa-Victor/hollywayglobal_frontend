@@ -52,18 +52,18 @@ const Product = () => {
   };
 
   return (
-    <section className='px-[_calc(_1rem+_8vw)] flex justify-between items-center gap-y-4 py-[_calc(_1rem+_8vh)] gap-3 '>
+    <section className='px-[_calc(_1rem+_8vw)] flex justify-between items-center gap-y-4 py-[_calc(_1rem+_8vh)] '>
       {products.map((prod) => (
         <article
           key={prod.name}
           className='relative'
         >
-          <div className=' flex flex-col gap-3 w-[40%]'>
+          <div className=' flex flex-col gap-3'>
             {prod.images.map((image, index) => (
               <img
                 src={image}
                 alt=''
-                className='w-max-full h-[5rem] p-2 rounded-sm cursor-pointer'
+                className='w-max-full h-[5rem] p-2 rounded-sm cursor-pointer bg-slate-400'
                 onClick={() => handleImageClick(image)}
                 key={index}
               />
@@ -72,14 +72,14 @@ const Product = () => {
           </div>
         </article>
       ))}
-      <div className=' bg-slate-400 p-2 h-auto'>
+      <div className=' bg-slate-400 p-2 h-auto w-[60%]'>
         <img
           src={activeImage}
           alt='Active Product Image'
         />
       </div>
 
-      <h1 className=''>Hello world</h1>
+      <h1 className='w-[20%]'>Hello world</h1>
     </section>
   );
 };
