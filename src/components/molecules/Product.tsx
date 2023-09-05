@@ -107,7 +107,9 @@ const Product = () => {
                   +
                 </button>
               </div>
-              <button className=' bg-orange-600 w-full'>Buy Now</button>
+              <button className='  w-full py-2 px-4 rounded-sm bg-[#DB4444]'>
+                Buy Now
+              </button>
             </section>
 
             <div className='border border-[black] '>
