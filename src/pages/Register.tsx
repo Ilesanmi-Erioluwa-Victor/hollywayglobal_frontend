@@ -8,7 +8,7 @@ import { FieldSet } from '../components/atoms';
 import { ImagePage } from '../components';
 
 const Register = () => {
-  const { signUp, signUpLoading, signUpError, clearSignUpError } =
+  const { signUp } =
     useUserStore();
 
   const [data, setData] = useState({
