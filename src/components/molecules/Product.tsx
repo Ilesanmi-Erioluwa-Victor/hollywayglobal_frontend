@@ -104,12 +104,22 @@ const Product = () => {
               <button>Buy Now</button>
             </section>
 
-            <div className='border'>
-              <p>{prod.details[0].icon}</p>
-              <article>
-                <h2>{prod.details[0].title}</h2>
-                <p>{prod.details[0].sum}</p>
-              </article>
+            <div className='border border-[black]'>
+              <div>
+                <p>{prod.details[0].icon}</p>
+                <article>
+                  <h2>{prod.details[0].title}</h2>
+                  <p>{prod.details[0].sum}</p>
+                </article>
+              </div>
+              <hr />
+              <div>
+                <p>{prod.details[1].icon}</p>
+                <article>
+                  <h2>{prod.details[1].title}</h2>
+                  <p>{prod.details[1].sum}</p>
+                </article>
+              </div>
             </div>
           </div>
         </article>
