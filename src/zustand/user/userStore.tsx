@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import axios from 'axios';
-
+import { UserData } from './types';
 interface UserState {
   user: null | User; // You can define a User type for your user data
   signUpError: null | string;
