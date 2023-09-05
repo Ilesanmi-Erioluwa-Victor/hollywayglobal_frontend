@@ -52,7 +52,7 @@ const Product = () => {
   };
 
   return (
-    <section className='px-[_calc(_1rem+_8vw)] flex justify-between items-center py-[_calc(_1rem+_8vh)] bg-orange-700'>
+    <section className='px-[_calc(_1rem+_8vw)] flex justify-between items-center py-[_calc(_1rem+_8vh)]'>
       {products.map((prod) => (
         <article
           key={prod.name}
@@ -95,16 +95,16 @@ const Product = () => {
                 </p>
               ))}
             </p>
-            <section className='mb-3'>
-              <div>
+            <section className='mb-3 flex w-full items-center justify-between'>
+              <div className='flex bg-red-800 w-[50%]'>
                 <button>-</button>
                 <p>{2}</p>
                 <button>+</button>
               </div>
-              <button>Buy Now</button>
+              <button className='w-[50%] bg-orange-600'>Buy Now</button>
             </section>
 
-            <div className='border border-[black]'>
+            <div className='border border-[black] '>
               <div>
                 <p>{prod.details[0].icon}</p>
                 <article>
