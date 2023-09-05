@@ -114,7 +114,7 @@ const Product = () => {
 
             <div className='border border-slate-800 p-3'>
               <div className='flex items-center'>
-                <p>{prod.details[0].icon}</p>
+                <p className='text-[2rem]'>{prod.details[0].icon}</p>
                 <article>
                   <h2>{prod.details[0].title}</h2>
                   <p>{prod.details[0].sum}</p>
