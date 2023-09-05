@@ -8,10 +8,9 @@ import { FieldSet } from '../components/atoms';
 import { ImagePage } from '../components';
 
 const Register = () => {
-
-   const { signUp, signUpLoading, signUpError, clearSignUpError } =
+  const { signUp, signUpLoading, signUpError, clearSignUpError } =
     useUserStore();
-  
+
   const [data, setData] = useState({
     firstName: '',
     lastName: '',
@@ -29,7 +28,7 @@ const Register = () => {
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      console.log(data);
+      await signUp(data);
     } catch (error) {
       console.log(error);
     }
