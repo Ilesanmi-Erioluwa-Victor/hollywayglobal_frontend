@@ -1,5 +1,5 @@
 export class Util {
-  static baseUrlDev: 'https://hollywayglobadb.onrender.com/api/v1';
+  static baseUrlDev: 'http://localhost:8080/api/v1/';
 
   static baseUrlProd: 'https://hollywayglobadb.onrender.com/api/v1';
 
