@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import axios from 'axios';
 import { UserData } from './types';
+import { Helper } from 'src/helper';
 interface UserState {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   user: null | any;
@@ -15,11 +16,11 @@ const useUserStore = create<UserState>((set) => ({
   user: null,
   signUpError: null,
   signUpLoading: false,
-  message:"",
+  message: '',
   signUp: async (userData: UserData) => {
     try {
       const response = await axios.post(
-        '/user/signup',
+        `${Helper.baseUrl}/user/signup`,
         userData,
         {
           headers: {
@@ -27,8 +28,7 @@ const useUserStore = create<UserState>((set) => ({
           },
         }
       );
-      const user = response.data;
-      set({ user: user, message: "You have successfully created your account"});
+      return response.data;
     } catch (error) {
       //   set({
       //     signUpError: error.message || 'Signup failed',
