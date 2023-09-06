@@ -7,9 +7,9 @@ export interface UserState {
   signUp: (userData: registerI) => Promise<void>;
 }
 
-export interface UserState {
+export interface LoginState {
   message: string;
   isLoading: boolean;
   status: string;
-  signUp: (userData: registerI) => Promise<void>;
+  Login: (userData: registerI) => Promise<void>;
 }

@@ -14,7 +14,7 @@ const register = async (userData: registerI) => {
 
 const login = async (userData: loginI) => {
   try {
-    const response = await apiClient.post('user/signup', userData);
+    const response = await apiClient.post('user/login', userData);
     return response.data;
   } catch (error) {
     throw error;
