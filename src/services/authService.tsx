@@ -1,17 +1,11 @@
 /* eslint-disable no-useless-catch */
-import axios from 'axios';
-import { Util } from 'src/utils';
 
-const apiClient = axios.create({
-  baseURL: Util.baseUrlDev,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
+import { registerI } from 'src/types';
+import { apiClient } from './apiService';
 
-const get = async (url: string, params = {}) => {
+const register = async (userData: registerI) => {
   try {
-    const response = await apiClient.get(url, { params });
+    const response = await apiClient.post('/register', userData);
     return response.data;
   } catch (error) {
     throw error;
@@ -46,7 +40,7 @@ const del = async (url: string) => {
 };
 
 export default {
-  get,
+  register,
   post,
   put,
   del,
