@@ -36,8 +36,18 @@ const put = async (url: string, data = {}) => {
   }
 };
 
+const del = async (url: string) => {
+  try {
+    const response = await apiClient.delete(url);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export default {
   get,
   post,
   put,
+  del,
 };
