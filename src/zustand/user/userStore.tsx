@@ -20,7 +20,7 @@ const useUserStore = create<UserState>((set) => ({
   signUp: async (userData: UserData) => {
     try {
       const response = await axios.post(
-        `${Helper.baseUrl}/user/signup`,
+        `https://hollywayglobadb.onrender.com/api/v1/user/signup`,
         userData,
         {
           headers: {
