@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-useless-catch */
 import { ChangeEvent, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 import { registerUserStore } from '../store/user/userStore';
@@ -15,6 +15,7 @@ const Register = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const { signUp, isLoading, message, status } = registerUserStore();
+  const navigate = useNavigate();
 
   const [data, setData] = useState({
     firstName: '',
@@ -25,12 +26,10 @@ const Register = () => {
   });
 
   useEffect(() => {
-    if (message) {
-      enqueueSnackbar(message, {
-        variant: 'success',
-      });
+    if (status === 'success') {
+      navigate('/login');
     }
-  }, [message, enqueueSnackbar]);
+  }, [status, navigate]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -50,11 +49,18 @@ const Register = () => {
 
     try {
       await signUp(data);
-      if (data) {
+      if (data || status === 'success') {
         return enqueueSnackbar(message, {
           variant: 'success',
         });
       }
+      setData({
+        password: '',
+        email: '',
+        mobile: '',
+        firstName: '',
+        lastName: '',
+      });
     } catch (error: any) {
       return enqueueSnackbar(error.response.data.message, {
         variant: 'error',
