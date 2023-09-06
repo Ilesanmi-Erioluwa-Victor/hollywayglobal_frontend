@@ -1,22 +1,13 @@
 import { create } from 'zustand';
 import axios from 'axios';
 import { UserData } from './types';
-// import { Helper } from 'src/helper';
+
 interface UserState {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  user: null | any;
-  signUpError: null | string;
-  signUpLoading: boolean;
-  message: string;
-  signUp: (userData: UserData) => Promise<void>;
-  clearSignUpError: () => void;
+
 }
 
 const useUserStore = create<UserState>((set) => ({
-  user: null,
-  signUpError: null,
-  signUpLoading: false,
-  message: '',
+ 
   signUp: async (userData: UserData) => {
     try {
       const response = await axios.post(
