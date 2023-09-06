@@ -27,7 +27,17 @@ const post = async (url: string, data = {}) => {
   }
 };
 
+const put = async (url: string, data = {}) => {
+  try {
+    const response = await apiClient.put(url, data);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export default {
-    get,
-    post
+  get,
+  post,
+  put,
 };
