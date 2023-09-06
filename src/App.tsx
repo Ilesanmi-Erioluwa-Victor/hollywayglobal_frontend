@@ -14,11 +14,11 @@ import {
   AccountLayout,
   NewAddressBook,
   EditProfile,
+  Product
 } from './components';
-import { Home, Register, Login, Products } from './pages';
+import { Home, Register, Login, Products, Error404 } from './pages';
 
 const App = () => {
-  // const navigate = useNavigate()
   const customRoutes = useRoutes([
     {
       path: '/',
@@ -73,49 +73,18 @@ const App = () => {
         { path: 'password', element: <ChangePassword /> },
         { path: 'updateImage', element: <ChangeImage /> },
         { path: 'profile', element: <EditProfile /> },
+        { path: 'deactivate', element: <h2>Soon to be Implemented </h2> },
       ],
     },
     {
       path: '/*',
-      element: <h2>Page Not Found</h2>,
+      element: <Error404 statusCode={404} />,
     },
+    {path:"/product", element: <Product />}
   ]);
 
-  //       <Route
-  //         element={<AccountLayout />}
-  //         path={'/user/account'}
-  //       >
-  //
-
-  //         <Route
-  //           element={<AddressBook />}
-  //           path='address'
-  //         />
-
-  //         <Route
-  //           element={<ChangePassword />}
-  //           path='password'
-  //         />
-
-  //         <Route
-  //           element={<ChangeImage />}
-  //           path='updateImage'
-  //         />
-
-  //         <Route
-  //           element={<NewAddressBook />}
-  //           path='address/create'
-  //         />
-  //       </Route>
-
-  //       <Route
-  //         element={<h1> Error page</h1>}
-  //         path={'*'}
-  //       />
-  // </Routes>;
-
   return (
-    <div className='container-custom bg-slate-100'>
+    <div className='container-custom bg-slate-100 font-poppins_Display'>
       <div className='overall-layout'>
         <Header />
         {customRoutes}

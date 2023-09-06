@@ -1,10 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import { useSnackbar } from 'notistack';
 
 import { CustomSelect } from '../../../atoms';
-
-import 'react-responsive-combo-box/dist/index.css';
 
 import { TbArrowBack } from 'react-icons/tb';
 
@@ -40,9 +37,7 @@ const NewAddress = () => {
   const [selectedState, setSelectedState] = useState<string | undefined>(
     undefined
   );
-  const [selectedCity, setSelectedCity] = useState<string | undefined>(
-    undefined
-  );
+  const [, setSelectedCity] = useState<string | undefined>(undefined);
 
   const countries: Option[] = Country.getAllCountries().map((country) => ({
     value: country.isoCode,
@@ -109,7 +104,7 @@ const NewAddress = () => {
   };
 
   return (
-    <div className='p-6 flex flex-col'>
+    <div className='p-6 flex flex-col px-0 md:px-6'>
       <div className='flex items-center gap-4 mb-3'>
         <button
           onClick={() => history(-1)}
@@ -126,13 +121,13 @@ const NewAddress = () => {
         onSubmit={handleInputSubmit}
         className='mt-4 flex flex-col gap-5'
       >
-        <fieldset className='flex items-center gap-4'>
+        <fieldset className='flex items-center gap-4 flex-col md:flex-row'>
           <input
             type='text'
             name='firstName'
             value={'Erioluwa'}
             disabled
-            className='w-full py-4 text-center text-[0.9rem] border rounded-sm cursor-pointer'
+            className='w-full py-4 text-left md:text-center pl-2 md:pl-0 text-[0.9rem] border rounded-sm cursor-pointer'
           />
 
           <input
@@ -140,11 +135,11 @@ const NewAddress = () => {
             name='lastName'
             value={'Ilesanmi'}
             disabled
-            className='w-full py-4 text-center text-[0.9rem] border rounded-sm cursor-pointer'
+            className='w-full py-4 text-left md:text-center text-[0.9rem] pl-2 md:pl-0 border rounded-sm cursor-pointer'
           />
         </fieldset>
 
-        <fieldset className='flex items-center gap-4'>
+        <fieldset className='flex items-center gap-4 flex-col md:flex-row'>
           <FieldSet
             label='phone'
             variant='outlined'
@@ -191,7 +186,9 @@ const NewAddress = () => {
           tag='Country'
         />
 
-        <fieldset className={`flex justify-between items-center gap-4 `}>
+        <fieldset
+          className={`flex justify-between items-center gap-4 flex-col md:flex-row `}
+        >
           <CustomSelect
             options={states}
             onChange={handleStateChange}
@@ -209,9 +206,9 @@ const NewAddress = () => {
 
         <button
           type='submit'
-          className='text-white text-[1rem] py-4 rounded-sm bg-[#DB4444] w-[50%] ml-auto mt-[1rem]'
+          className='flex items-center justify-end bg-[#DB4444] ml-auto mt-4 p-3 rounded-md text-white'
         >
-          Save
+          Save Changes
         </button>
       </form>
     </div>

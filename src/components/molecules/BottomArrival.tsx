@@ -1,5 +1,6 @@
 import Image1 from '../../assets/signup.png';
 import Image from '../../assets/boom.png';
+
 const BottomArrival = () => {
   return (
     <div className='bg-white  p-4 shadow-md rounded-md'>

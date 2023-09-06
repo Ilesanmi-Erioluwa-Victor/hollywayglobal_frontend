@@ -21,11 +21,11 @@ const CustomSelect: React.FC<{
   };
 
   return (
-    <div className='relative w-full p-[10px]'>
+    <div className='relative w-full p-0 md:p-[10px]'>
       <select
         value={selectedValue}
         onChange={handleSelectChange}
-        className='rounded-md border px-2 outline-none cursor-pointer text-[16px] w-full h-12'
+        className='rounded-md border px-2 outline-none cursor-pointer text-[16px] w-full h-[3.5rem]'
         disabled={disabled}
       >
         <option value=''>Select {tag}</option>

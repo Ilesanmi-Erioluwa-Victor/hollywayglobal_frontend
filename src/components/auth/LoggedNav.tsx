@@ -11,7 +11,9 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import RoundedInput from './atoms/Input';
+import RoundedInput from '../atoms/Input';
+
+import { AccountNav } from '../../components/auth/userData';
 
 type Nav = {
   name: string;
@@ -51,32 +53,6 @@ const NavLinks: Nav[] = [
 ];
 
 const LoggedNav = (): JSX.Element => {
-  class Data {
-    static User = [
-      {
-        id: uuidv4(),
-        name: 'Manage my Account',
-        url: '/user/account',
-      },
-      {
-        id: uuidv4(),
-        name: 'Orders',
-        url: '/user/account/orders',
-      },
-
-      {
-        id: uuidv4(),
-        name: 'My reviews',
-        url: '/user/account/reviews',
-      },
-      {
-        id: uuidv4(),
-        name: 'Logout',
-        url: 'profile/setting',
-      },
-    ];
-  }
-
   // const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
@@ -164,12 +140,18 @@ const LoggedNav = (): JSX.Element => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {Data.User.map((profile) => (
+              {AccountNav.map((profile) => (
                 <MenuItem
                   key={profile.id}
                   onClick={handleCloseUserMenu}
                 >
-                  <Link to={profile.url}>{profile.name}</Link>
+                  <Link
+                    to={profile.link}
+                    className='flex gap-2'
+                  >
+                    <span>{profile.icon}</span>
+                    <span>{profile.name}</span>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>

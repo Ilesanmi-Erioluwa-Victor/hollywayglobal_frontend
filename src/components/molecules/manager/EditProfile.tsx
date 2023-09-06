@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 import { FieldSet } from '../../../components/atoms';
-import { MdPassword } from 'react-icons/md';
+import { BiUserCheck } from 'react-icons/bi';
 
 import { useSnackbar } from 'notistack';
 
@@ -8,9 +8,9 @@ const EditProfile = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const [data, setData] = useState({
-    newPassword: '',
-    currentPassword: '',
-    confirmNewPassword: '',
+    firstName: '',
+    lastName: '',
+    email: '',
   });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -21,26 +21,17 @@ const EditProfile = () => {
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const { confirmNewPassword, newPassword, currentPassword } = data;
+    const { firstName, lastName, email } = data;
 
-    if (!currentPassword) {
-      return enqueueSnackbar('Please provide your current password', {
-        variant: 'error',
-      });
-    }
-
-    if (newPassword.trim() !== confirmNewPassword.trim()) {
+    if (!firstName || !lastName || !email) {
       return enqueueSnackbar(
-        'Your new password does not match confirm new password',
+        'Please fill up the form, before you change your details',
         {
           variant: 'error',
         }
       );
-    } else if (!newPassword || !confirmNewPassword) {
-      return enqueueSnackbar('Please, provide password', {
-        variant: 'error',
-      });
     }
+
     try {
       console.log(data);
     } catch (error) {
@@ -54,37 +45,37 @@ const EditProfile = () => {
       onSubmit={handleInputSubmit}
     >
       <div className='flex items-center gap-4'>
-        <MdPassword className='text-[2rem]' />
+        <BiUserCheck className='text-[2rem]' />
 
-        <h2 className='text-[1.4rem] font-[400]'>Password Settings</h2>
+        <h2 className='text-[1.4rem] font-[400]'>Profile Details</h2>
       </div>
       <hr className='mb-4' />
 
       <FieldSet
-        label={'Current Password'}
-        id={'currentPassword'}
-        name='currentPassword'
+        label={'First Name'}
+        id={'firstName'}
+        name='firstName'
         onChange={handleInputChange}
-        value={data.currentPassword}
-        type='password'
+        value={data.firstName}
+        type='text'
       />
 
       <FieldSet
-        label={'New Password'}
-        id={'newPassword'}
-        name='newPassword'
+        label={'last Name'}
+        id={'lastName'}
+        name='lastName'
         onChange={handleInputChange}
-        value={data.newPassword}
-        type='password'
+        value={data.lastName}
+        type='text'
       />
 
       <FieldSet
-        label={'confirm New Password'}
-        id={'confirmNewPassword'}
-        name='confirmNewPassword'
+        label={'Email'}
+        id={'email'}
+        name='email'
         onChange={handleInputChange}
-        value={data.confirmNewPassword}
-        type='password'
+        value={data.email}
+        type='email'
       />
       <button
         type='submit'
