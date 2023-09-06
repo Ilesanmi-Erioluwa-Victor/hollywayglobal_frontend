@@ -19,6 +19,7 @@ export const registerUserStore = create<UserState>((set) => ({
 
     try {
       const response = await authService.register(userData);
+      console.log(response)
       set({
         message: response.message,
         isLoading: false,
