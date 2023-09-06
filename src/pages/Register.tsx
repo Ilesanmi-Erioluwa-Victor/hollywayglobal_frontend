@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-useless-catch */
-import { ChangeEvent, useState, useEffect } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
@@ -25,12 +25,6 @@ const Register = () => {
     mobile: '',
   });
 
-  useEffect(() => {
-    if (status === 'success') {
-      navigate('/login');
-    }
-  }, [status, navigate]);
-
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -50,6 +44,7 @@ const Register = () => {
     try {
       await signUp(data);
       if (data || status === 'success') {
+        navigate('/login');
         return enqueueSnackbar(message, {
           variant: 'success',
         });

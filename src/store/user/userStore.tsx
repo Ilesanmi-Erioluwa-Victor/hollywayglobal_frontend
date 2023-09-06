@@ -15,7 +15,7 @@ export const registerUserStore = create<UserState>((set) => ({
   status: '',
 
   signUp: async (userData: registerI) => {
-    set({ isLoading: true });
+    set({ isLoading: true, message: '', status: '' });
 
     try {
       const response = await authService.register(userData);
@@ -24,8 +24,8 @@ export const registerUserStore = create<UserState>((set) => ({
         isLoading: false,
         status: response.status,
       });
-
     } catch (error: any) {
+      set({ isLoading: false });
       throw error;
     }
   },
