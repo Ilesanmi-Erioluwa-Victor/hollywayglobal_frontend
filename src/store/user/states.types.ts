@@ -1,9 +1,8 @@
 import { registerI } from 'src/types';
 
 export interface UserState {
-  response: null;
+  message: string;
   isLoading: boolean;
-  clearError: () => void;
-  customError: Error | null;
+  status: string;
   signUp: (userData: registerI) => Promise<void>;
 }

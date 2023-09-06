@@ -2,13 +2,13 @@ import { ChangeEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
-import { registerUserStore } from 'src/store/user/userStore';
+import { registerUserStore } from '../store/user/userStore';
 
 import { FieldSet } from '../components/atoms';
 import { ImagePage } from '../components';
 
 const Register = () => {
-  const { signUp, isLoading, customError, response } = registerUserStore();
+  const { signUp, isLoading, message, status } = registerUserStore();
 
   const [data, setData] = useState({
     firstName: '',
@@ -26,9 +26,12 @@ const Register = () => {
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     try {
+      if (status === '409') {
+        console.log(message, status);
+      }
       await signUp(data);
-      console.log(user);
     } catch (error) {
       console.log(error);
     }

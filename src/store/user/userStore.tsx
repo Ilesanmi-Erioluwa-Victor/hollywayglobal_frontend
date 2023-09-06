@@ -3,26 +3,32 @@
 import { create } from 'zustand';
 
 import authService from 'src/services/authService';
+
 import { UserState } from './states.types';
+
 import { registerI } from 'src/types';
 
 export const registerUserStore = create<UserState>((set) => ({
-  customError: null,
+  message: '',
   isLoading: false,
-  response: null,
+  status: '',
 
   signUp: async (userData: registerI) => {
-    set({ isLoading: true, customError: null });
+    set({ isLoading: true });
 
     try {
       const response = await authService.register(userData);
-      set({ response, isLoading: false });
+      set({
+        message: response.message,
+        isLoading: false,
+        status: response.status,
+      });
     } catch (error: any) {
       set({
-        customError: error.message || 'Sign up failed',
+        message: error.response.data.message || 'Sign up failed',
         isLoading: false,
+        status: error.response.data.status ,
       });
     }
   },
-  clearError: () => set({ customError: null }),
 }));
