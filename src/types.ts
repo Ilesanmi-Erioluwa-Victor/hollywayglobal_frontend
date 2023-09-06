@@ -5,3 +5,8 @@ export interface registerI {
   email: string;
   mobile: string;
 }
+
+export interface loginI {
+  password: string;
+  email: string;
+}

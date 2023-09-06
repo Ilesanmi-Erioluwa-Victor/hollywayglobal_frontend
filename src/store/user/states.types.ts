@@ -6,3 +6,10 @@ export interface UserState {
   status: string;
   signUp: (userData: registerI) => Promise<void>;
 }
+
+export interface UserState {
+  message: string;
+  isLoading: boolean;
+  status: string;
+  signUp: (userData: registerI) => Promise<void>;
+}
