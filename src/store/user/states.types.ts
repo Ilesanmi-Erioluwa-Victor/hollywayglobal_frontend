@@ -1,15 +1,15 @@
-import { registerI } from 'src/types';
+import { registerI, loginI } from 'src/types';
 
-export interface UserState {
+export type Info = {
   message: string;
   isLoading: boolean;
   status: string;
+};
+export interface UserState {
   signUp: (userData: registerI) => Promise<void>;
 }
 
 export interface LoginState {
-  message: string;
-  isLoading: boolean;
-  status: string;
-  Login: (userData: registerI) => Promise<void>;
+  Login: (userData: loginI) => Promise<void>;
+  user: null;
 }
