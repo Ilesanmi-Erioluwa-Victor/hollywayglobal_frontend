@@ -5,7 +5,7 @@ import { apiClient } from './apiService';
 
 const register = async (userData: registerI) => {
   try {
-    const response = await apiClient.post('/register', userData);
+    const response = await apiClient.post('user/signup', userData);
     return response.data;
   } catch (error) {
     throw error;

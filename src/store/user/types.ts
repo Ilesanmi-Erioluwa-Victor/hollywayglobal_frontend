@@ -1,6 +1,6 @@
 
 
-export interface User {
+export interface loginI {
     id: string;
     token: string;
     

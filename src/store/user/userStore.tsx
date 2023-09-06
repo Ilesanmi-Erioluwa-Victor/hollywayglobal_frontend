@@ -1,33 +1,28 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { create } from 'zustand';
-import axios from 'axios';
-import { UserData } from './types';
 
-interface UserState {
+import authService from 'src/services/authService';
+import { UserState } from './states.types';
+import { registerI } from 'src/types';
 
-}
+export const registerUserStore = create<UserState>((set) => ({
+  customError: null,
+  isLoading: false,
+  response: null,
 
-const useUserStore = create<UserState>((set) => ({
- 
-  signUp: async (userData: UserData) => {
+  signUp: async (userData: registerI) => {
+    set({ isLoading: true, customError: null });
+
     try {
-      const response = await axios.post(
-        `https://hollywayglobadb.onrender.com/api/v1/user/signup`,
-        userData,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-      return response.data;
-    } catch (error) {
-      //   set({
-      //     signUpError: error.message || 'Signup failed',
-      //     signUpLoading: false,
-      //   });
+      const response = await authService.register(userData);
+      set({ response, isLoading: false });
+    } catch (error: any) {
+      set({
+        customError: error.message || 'Sign up failed',
+        isLoading: false,
+      });
     }
   },
-  clearSignUpError: () => set({ signUpError: null }),
+  clearError: () => set({ customError: null }),
 }));
-
-export default useUserStore;

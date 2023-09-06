@@ -2,13 +2,13 @@ import { ChangeEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
-import useUserStore from '../store/user/userStore';
+import { registerUserStore } from 'src/store/user/userStore';
 
 import { FieldSet } from '../components/atoms';
 import { ImagePage } from '../components';
 
 const Register = () => {
-  const { signUp, user } = useUserStore();
+  const { signUp, isLoading, customError, response } = registerUserStore();
 
   const [data, setData] = useState({
     firstName: '',
@@ -101,7 +101,7 @@ const Register = () => {
               backgroundColor: '#DB4444',
             }}
           >
-            Create Account
+            {isLoading ? 'Please wait...' : 'Register'}
           </Button>
         </form>
         <p className='text-[1rem] flex justify-end items-center pt-2 gap-4'>
