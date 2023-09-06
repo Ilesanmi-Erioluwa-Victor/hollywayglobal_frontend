@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
-import useUserStore from '../zustand/user/userStore';
+import useUserStore from '../store/user/userStore';
 
 import { FieldSet } from '../components/atoms';
 import { ImagePage } from '../components';
