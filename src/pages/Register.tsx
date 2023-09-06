@@ -1,13 +1,19 @@
-import { ChangeEvent, useState } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-useless-catch */
+import { ChangeEvent, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 import { registerUserStore } from '../store/user/userStore';
 
+import { useSnackbar } from 'notistack';
+
 import { FieldSet } from '../components/atoms';
 import { ImagePage } from '../components';
 
 const Register = () => {
+  const { enqueueSnackbar } = useSnackbar();
+
   const { signUp, isLoading, message, status } = registerUserStore();
 
   const [data, setData] = useState({
@@ -18,6 +24,14 @@ const Register = () => {
     mobile: '',
   });
 
+  useEffect(() => {
+    if (message) {
+      enqueueSnackbar(message, {
+        variant: 'success',
+      });
+    }
+  }, [message, enqueueSnackbar]);
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -26,14 +40,25 @@ const Register = () => {
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const { password, email, firstName, lastName, mobile } = data;
+
+    if (!password || !email || !firstName || !lastName || !mobile) {
+      return enqueueSnackbar('Please, fill up all inputs ', {
+        variant: 'error',
+      });
+    }
 
     try {
-      if (status === '409') {
-        console.log(message, status);
-      }
       await signUp(data);
-    } catch (error) {
-      console.log(error);
+      if (data) {
+        return enqueueSnackbar(message, {
+          variant: 'success',
+        });
+      }
+    } catch (error: any) {
+      return enqueueSnackbar(error.response.data.message, {
+        variant: 'error',
+      });
     }
   };
 

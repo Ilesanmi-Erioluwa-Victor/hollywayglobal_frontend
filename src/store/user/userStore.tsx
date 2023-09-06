@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-catch */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { create } from 'zustand';
@@ -23,12 +24,9 @@ export const registerUserStore = create<UserState>((set) => ({
         isLoading: false,
         status: response.status,
       });
+
     } catch (error: any) {
-      set({
-        message: error.response.data.message || 'Sign up failed',
-        isLoading: false,
-        status: error.response.data.status ,
-      });
+      throw error;
     }
   },
 }));
