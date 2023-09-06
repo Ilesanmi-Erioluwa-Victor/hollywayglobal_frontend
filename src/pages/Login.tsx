@@ -1,19 +1,33 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState, useEffect } from 'react';
+
 import Button from '@mui/material/Button';
-// import { useTheme } from '@mui/material/styles';
 
 import { Link } from 'react-router-dom';
 
 import { ImagePage } from '../components';
+
 import { FieldSet } from '../components/atoms';
 
+import { useSnackbar } from 'notistack';
+
 const Login = () => {
-  // const theme = useTheme();
+  const { enqueueSnackbar } = useSnackbar();
 
   const [data, setData] = useState({
     password: '',
     email: '',
   });
+
+    const { signUp, isLoading, message, status } = registerUserStore();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      if (message || status === 'success') {
+        enqueueSnackbar(message, {
+          variant: 'success',
+        });
+      }
+    }, [message, enqueueSnackbar, status]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
