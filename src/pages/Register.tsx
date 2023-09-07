@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-useless-catch */
 import { ChangeEvent, useState, useEffect } from 'react';
+
 import { Link, useNavigate } from 'react-router-dom';
+
 import Button from '@mui/material/Button';
 
 import { registerUserStore } from '../store/user/userStore';
@@ -9,6 +11,7 @@ import { registerUserStore } from '../store/user/userStore';
 import { useSnackbar } from 'notistack';
 
 import { FieldSet } from '../components/atoms';
+
 import { ImagePage } from '../components';
 
 const Register = () => {

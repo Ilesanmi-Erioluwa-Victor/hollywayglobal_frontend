@@ -2,13 +2,15 @@ import { ChangeEvent, useState, useEffect } from 'react';
 
 import Button from '@mui/material/Button';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { ImagePage } from '../components';
 
 import { FieldSet } from '../components/atoms';
 
 import { useSnackbar } from 'notistack';
+
+import { loginUserStore } from '../store/user/userStore';
 
 const Login = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -18,16 +20,16 @@ const Login = () => {
     email: '',
   });
 
-    const { signUp, isLoading, message, status } = registerUserStore();
-    const navigate = useNavigate();
+  const { Login, user, isLoading, message, status } = loginUserStore();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-      if (message || status === 'success') {
-        enqueueSnackbar(message, {
-          variant: 'success',
-        });
-      }
-    }, [message, enqueueSnackbar, status]);
+  useEffect(() => {
+    if (message || status === 'success') {
+      enqueueSnackbar(message, {
+        variant: 'success',
+      });
+    }
+  }, [message, enqueueSnackbar, status]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
