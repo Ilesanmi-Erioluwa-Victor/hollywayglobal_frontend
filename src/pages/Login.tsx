@@ -21,6 +21,7 @@ const Login = () => {
   });
 
   const { Login, user, isLoading, message, status } = loginUserStore();
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,6 +40,7 @@ const Login = () => {
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const {} = data;
     try {
       console.log(data);
     } catch (error) {
