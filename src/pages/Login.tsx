@@ -47,9 +47,9 @@ const Login = () => {
         variant: 'error',
       });
     }
-    
+
     try {
-      console.log(data);
+      await Login(data);
     } catch (error) {
       console.log(error);
     }
@@ -97,12 +97,11 @@ const Login = () => {
                 sx={{
                   backgroundColor: '#DB4444',
                   width: '100%',
-                  // [theme.breakpoints.down('md')]: {
-                  //   width: '100%',
-                  // },
+                  height: '3rem',
                 }}
+                disabled={isLoading}
               >
-                Login
+                {isLoading ? 'loading....' : 'Login'}
               </Button>
 
               <p>

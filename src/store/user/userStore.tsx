@@ -42,6 +42,7 @@ export const loginUserStore = create<LoginState & Info>((set) => ({
 
     try {
       const response = await authService.login(userData);
+      console.log(response)
       set({
         message: response.message,
         isLoading: false,
