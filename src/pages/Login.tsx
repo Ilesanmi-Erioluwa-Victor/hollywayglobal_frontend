@@ -40,7 +40,13 @@ const Login = () => {
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const {} = data;
+    const { email, password } = data;
+
+    if (!email || !password) {
+      return enqueueSnackbar('Please, fill up all inputs ', {
+        variant: 'error',
+      });
+    }
     try {
       console.log(data);
     } catch (error) {
