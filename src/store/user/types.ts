@@ -1,7 +1,8 @@
-
-
-export interface loginI {
-    id: string;
-    token: string;
-    
+export interface User {
+  id: string;
+  token: string;
+  firstName: string;
+  lastName: string;
+  profilePhoto: string;
+  email: string;
 }

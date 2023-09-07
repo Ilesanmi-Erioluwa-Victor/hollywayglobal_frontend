@@ -1,4 +1,5 @@
 import { registerI, loginI } from 'src/types';
+import { User } from './types';
 
 export type Info = {
   message: string;
@@ -11,5 +12,5 @@ export interface UserState {
 
 export interface LoginState {
   Login: (userData: loginI) => Promise<void>;
-  user: null;
+  user: User | null;
 }

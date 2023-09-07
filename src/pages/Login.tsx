@@ -12,6 +12,7 @@ import { FieldSet } from '../components/atoms';
 import { useSnackbar } from 'notistack';
 
 import { loginUserStore } from '../store/user/userStore';
+import { userToken } from 'src/hooks/useLocalStorage';
 
 const Login = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -26,20 +27,12 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (message || status === 'success') {
+    if (message === 'login successfully' || status === 'success' || user) {
       enqueueSnackbar(message, {
         variant: 'success',
       });
-    } else if (message || status === 'fail') {
-      enqueueSnackbar(message, {
-        variant: 'error',
-      });
-    } else {
-      enqueueSnackbar(message, {
-        variant: 'error',
-      });
     }
-  }, [message, enqueueSnackbar, status]);
+  }, [message, enqueueSnackbar, status, user]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -59,7 +52,21 @@ const Login = () => {
 
     try {
       await Login(data);
-      console.log(message);
+      if (user) {
+        const token = user?.token;
+        userToken(token)
+        
+      }
+      console.log(user, message, status, isLoading);
+
+      // const { token } = response;
+
+      // // Store the token in a secure manner (e.g., LocalStorage, HttpOnly cookie)
+      // // For security, consider encrypting or hashing the token.
+      // localStorage.setItem('accessToken', token);
+
+      // // Set the token in the Axios instance for authenticated requests
+      // apiService.setBearerToken(token);
     } catch (error: any) {
       return enqueueSnackbar(error.response.data.message, {
         variant: 'error',

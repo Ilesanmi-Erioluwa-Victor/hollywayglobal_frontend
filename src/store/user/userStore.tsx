@@ -42,12 +42,12 @@ export const loginUserStore = create<LoginState & Info>((set) => ({
 
     try {
       const response = await authService.login(userData);
-      console.log(response);
+      console.log(response, response.data);
       set({
-        message: response.data.message,
+        message: response.message,
         isLoading: false,
-        status: response.data.status,
-        user: response.data.data,
+        status: response.status,
+        user: await response.data,
       });
     } catch (error: any) {
       set({ isLoading: false });

@@ -1,3 +1,3 @@
-export const setStudentToken = (token: string) => {
+export const userToken = (token: string) => {
   window.localStorage.setItem('Hollywayglobal_user', token);
 };
