@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ChangeEvent, useState, useEffect } from 'react';
 
 import Button from '@mui/material/Button';
@@ -33,7 +34,7 @@ const Login = () => {
       enqueueSnackbar(message, {
         variant: 'error',
       });
-    } else if (message === 'Login Failed, invalid credentials') {
+    } else {
       enqueueSnackbar(message, {
         variant: 'error',
       });
@@ -58,8 +59,11 @@ const Login = () => {
 
     try {
       await Login(data);
-    } catch (error) {
-      console.log(error);
+      console.log(message);
+    } catch (error: any) {
+      return enqueueSnackbar(error.response.data.message, {
+        variant: 'error',
+      });
     }
   };
 
