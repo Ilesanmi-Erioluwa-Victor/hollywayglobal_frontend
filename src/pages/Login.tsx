@@ -47,6 +47,7 @@ const Login = () => {
         variant: 'error',
       });
     }
+    
     try {
       console.log(data);
     } catch (error) {
