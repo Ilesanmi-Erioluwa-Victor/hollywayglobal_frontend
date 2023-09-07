@@ -29,6 +29,14 @@ const Login = () => {
       enqueueSnackbar(message, {
         variant: 'success',
       });
+    } else if (message || status === 'fail') {
+      enqueueSnackbar(message, {
+        variant: 'error',
+      });
+    } else if (message === 'Login Failed, invalid credentials') {
+      enqueueSnackbar(message, {
+        variant: 'error',
+      });
     }
   }, [message, enqueueSnackbar, status]);
 
