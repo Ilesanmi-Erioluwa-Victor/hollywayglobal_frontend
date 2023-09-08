@@ -1,11 +1,10 @@
-// import Nav from '../Nav';
-import LoggedNav from './Navigation/LoggedNav';
+import Navigation from './Navigation';
 
 const Header = (): JSX.Element => {
   return (
     <>
       <header className='py-[1rem] w-[100%] bg-white'>
-        <LoggedNav />
+        <Navigation />
       </header>
       <hr />
     </>
