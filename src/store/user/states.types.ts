@@ -11,7 +11,7 @@ export interface UserState {
 }
 
 export interface LoginState {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  Login: (userData: loginI) => Promise<any>;
+  isAuthenticated: boolean;
+  Login: (userData: loginI) => Promise<void>;
   user: User | null;
 }

@@ -5,7 +5,8 @@ import PublicNav from './PublicNav';
 import { loginUserStore } from 'src/store/user/userStore';
 
 const Navigation = () => {
-  const { user } = loginUserStore();
+  const { user, isAuthenticated } = loginUserStore();
+  console.log(isAuthenticated);
 
   return <>{user ? <LoggedNav /> : <PublicNav />}</>;
 };

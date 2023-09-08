@@ -35,10 +35,11 @@ export const loginUserStore = create<LoginState & Info>((set) => ({
   message: '',
   isLoading: false,
   status: '',
+  isAuthenticated: false,
   user: null,
 
   Login: async (userData: loginI) => {
-    set({ isLoading: true });
+    set({ isLoading: true, isAuthenticated: false });
 
     try {
       const response = await authService.login(userData);
@@ -48,9 +49,16 @@ export const loginUserStore = create<LoginState & Info>((set) => ({
         isLoading: false,
         status: status,
         user: data,
+        isAuthenticated: true,
       });
     } catch (error: any) {
-      set({ isLoading: false, message: '', user: null, status: 'failed' });
+      set({
+        isLoading: false,
+        message: '',
+        user: null,
+        status: 'failed',
+        isAuthenticated: false,
+      });
       throw error;
     }
   },
