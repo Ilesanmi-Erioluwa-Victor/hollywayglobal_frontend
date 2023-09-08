@@ -42,7 +42,7 @@ const NavLinks: Nav[] = [
   },
 ];
 
-const Nav = (): JSX.Element => {
+const PublicNav = (): JSX.Element => {
   return (
     <nav className='padd2 gap-[1rem] md:gap-0 flex justify-between items-center text-[0.8rem]'>
       <div>logo</div>
@@ -75,4 +75,4 @@ const Nav = (): JSX.Element => {
   );
 };
 
-export default Nav;
+export default PublicNav;
