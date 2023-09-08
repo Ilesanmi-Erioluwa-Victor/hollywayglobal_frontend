@@ -1,5 +1,5 @@
 // import Nav from '../Nav';
-import LoggedNav from '../auth/LoggedNav';
+import LoggedNav from './Navigation/LoggedNav';
 
 const Header = (): JSX.Element => {
   return (

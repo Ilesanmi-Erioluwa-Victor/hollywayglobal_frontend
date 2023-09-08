@@ -3,7 +3,7 @@ import { BiSearch } from 'react-icons/bi';
 
 import { NavLink } from 'react-router-dom';
 
-import RoundedInput from './atoms/Input';
+import RoundedInput from '../../atoms/Input';
 
 type Nav = {
   name: string;

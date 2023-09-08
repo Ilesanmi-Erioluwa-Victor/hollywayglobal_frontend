@@ -11,9 +11,9 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import RoundedInput from '../atoms/Input';
+import RoundedInput from '../../atoms/Input';
 
-import { AccountNav } from '../../components/auth/userData';
+import { AccountNav } from '../../auth/userData';
 
 type Nav = {
   name: string;
