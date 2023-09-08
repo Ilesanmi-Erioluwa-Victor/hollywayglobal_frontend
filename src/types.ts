@@ -1,4 +1,4 @@
-export interface UserData {
+export interface registerI {
   firstName: string;
   lastName: string;
   password: string;
@@ -6,8 +6,7 @@ export interface UserData {
   mobile: string;
 }
 
-export interface User {
-    id: string;
-    token: string;
-    
+export interface loginI {
+  password: string;
+  email: string;
 }

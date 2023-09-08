@@ -1,19 +1,38 @@
-import { ChangeEvent, useState } from 'react';
-import Button from '@mui/material/Button';
-// import { useTheme } from '@mui/material/styles';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ChangeEvent, useState, useEffect } from 'react';
 
-import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
+
+import { Link, useNavigate } from 'react-router-dom';
 
 import { ImagePage } from '../components';
+
 import { FieldSet } from '../components/atoms';
 
+import { useSnackbar } from 'notistack';
+
+import { loginUserStore } from '../store/user/userStore';
+import { userToken } from 'src/hooks/useLocalStorage';
+
 const Login = () => {
-  // const theme = useTheme();
+  const { enqueueSnackbar } = useSnackbar();
 
   const [data, setData] = useState({
     password: '',
     email: '',
   });
+
+  const { Login, user, isLoading, message, status } = loginUserStore();
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (message === 'login successfully' || status === 'success' || user) {
+      enqueueSnackbar(message, {
+        variant: 'success',
+      });
+    }
+  }, [message, enqueueSnackbar, status, user]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -23,10 +42,35 @@ const Login = () => {
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const { email, password } = data;
+
+    if (!email || !password) {
+      return enqueueSnackbar('Please, fill up all inputs ', {
+        variant: 'error',
+      });
+    }
+
     try {
-      console.log(data);
-    } catch (error) {
-      console.log(error);
+      await Login(data);
+      if (user) {
+        const token = user?.token;
+        userToken(token)
+        
+      }
+      console.log(user, message, status, isLoading);
+
+      // const { token } = response;
+
+      // // Store the token in a secure manner (e.g., LocalStorage, HttpOnly cookie)
+      // // For security, consider encrypting or hashing the token.
+      // localStorage.setItem('accessToken', token);
+
+      // // Set the token in the Axios instance for authenticated requests
+      // apiService.setBearerToken(token);
+    } catch (error: any) {
+      return enqueueSnackbar(error.response.data.message, {
+        variant: 'error',
+      });
     }
   };
 
@@ -72,12 +116,11 @@ const Login = () => {
                 sx={{
                   backgroundColor: '#DB4444',
                   width: '100%',
-                  // [theme.breakpoints.down('md')]: {
-                  //   width: '100%',
-                  // },
+                  height: '3rem',
                 }}
+                disabled={isLoading}
               >
-                Login
+                {isLoading ? 'loading....' : 'Login'}
               </Button>
 
               <p>

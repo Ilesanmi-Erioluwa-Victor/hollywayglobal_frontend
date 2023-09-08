@@ -1,14 +1,32 @@
-import { ChangeEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-useless-catch */
+import { ChangeEvent, useState, useEffect } from 'react';
+
+import { Link, useNavigate } from 'react-router-dom';
+
 import Button from '@mui/material/Button';
 
-import useUserStore from '../zustand/user/userStore';
+import { registerUserStore } from '../store/user/userStore';
+
+import { useSnackbar } from 'notistack';
 
 import { FieldSet } from '../components/atoms';
+
 import { ImagePage } from '../components';
 
 const Register = () => {
-  const { signUp, user } = useUserStore();
+  const { enqueueSnackbar } = useSnackbar();
+
+  const { signUp, isLoading, message, status } = registerUserStore();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (message || status === 'success') {
+      enqueueSnackbar(message, {
+        variant: 'success',
+      });
+    }
+  }, [message, enqueueSnackbar, status]);
 
   const [data, setData] = useState({
     firstName: '',
@@ -26,11 +44,30 @@ const Register = () => {
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const { password, email, firstName, lastName, mobile } = data;
+
+    if (!password || !email || !firstName || !lastName || !mobile) {
+      return enqueueSnackbar('Please, fill up all inputs ', {
+        variant: 'error',
+      });
+    }
+
     try {
       await signUp(data);
-      console.log(user);
-    } catch (error) {
-      console.log(error);
+      if (data) {
+        navigate('/login');
+      }
+      setData({
+        password: '',
+        email: '',
+        mobile: '',
+        firstName: '',
+        lastName: '',
+      });
+    } catch (error: any) {
+      return enqueueSnackbar(error.response.data.message, {
+        variant: 'error',
+      });
     }
   };
 
@@ -101,7 +138,7 @@ const Register = () => {
               backgroundColor: '#DB4444',
             }}
           >
-            Create Account
+            {isLoading ? 'Please wait...' : 'Register'}
           </Button>
         </form>
         <p className='text-[1rem] flex justify-end items-center pt-2 gap-4'>
