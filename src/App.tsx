@@ -14,7 +14,8 @@ import {
   AccountLayout,
   NewAddressBook,
   EditProfile,
-  Product
+  Product,
+  Profile,
 } from './components';
 import { Home, Register, Login, Products, Error404 } from './pages';
 
@@ -36,8 +37,8 @@ const App = () => {
     },
 
     {
-      element: <Products />,
-      path: '/products',
+      element: <Profile />,
+      path: '/profile/:id',
     },
 
     {
@@ -80,7 +81,7 @@ const App = () => {
       path: '/*',
       element: <Error404 statusCode={404} />,
     },
-    {path:"/product", element: <Product />}
+    { path: '/product', element: <Product /> },
   ]);
 
   return (

@@ -46,7 +46,7 @@ const Login = () => {
       setCountdown((prevCountdown) => {
         if (prevCountdown === 1) {
           clearInterval(timer);
-          navigate('/profile');
+          navigate(`/profile/${user?.id}`);
           return null;
         }
         return (prevCountdown as number) - 1;
