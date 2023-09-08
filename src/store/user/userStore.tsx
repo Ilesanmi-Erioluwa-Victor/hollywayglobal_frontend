@@ -38,19 +38,19 @@ export const loginUserStore = create<LoginState & Info>((set) => ({
   user: null,
 
   Login: async (userData: loginI) => {
-    set({ isLoading: true, message: '', status: '' });
+    set({ isLoading: true });
 
     try {
       const response = await authService.login(userData);
-      console.log(response, response.data);
+      const { message, status, data } = await response;
       set({
-        message: response.message,
+        message: message,
         isLoading: false,
-        status: response.status,
-        user: await response.data,
+        status: status,
+        user: data,
       });
     } catch (error: any) {
-      set({ isLoading: false });
+      set({ isLoading: false, message: '', user: null, status: 'failed' });
       throw error;
     }
   },
