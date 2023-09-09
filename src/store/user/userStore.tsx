@@ -8,7 +8,7 @@ import authService from 'src/services/user/authService';
 
 import { UserState, LoginState, UserIdState, addAddress } from './states.types';
 
-import { registerI, loginI } from 'src/types';
+import { registerI, loginI, newAddressI } from 'src/types';
 
 import { getUserDataFromLocalStorage } from 'src/utils';
 
@@ -58,10 +58,10 @@ export const UserIdStore = create<UserIdState>(() => ({
 }));
 
 export const UserNewAddressStore = create<addAddress>(() => ({
-  NewAddress: async () => {
+  NewAddress: async (address: newAddressI) => {
     const { token, id } = getUserDataFromLocalStorage();
     try {
-      const response = await authService.userId(id, token);
+      const response = await authService.createAddress(address, id, token);
       const { status, data } = await response;
       return {
         data,

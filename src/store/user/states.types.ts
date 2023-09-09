@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { registerI, loginI, userDetail, newAddress } from 'src/types';
+import { registerI, loginI, newAddressI, userDetailI } from 'src/types';
 import { User } from './types';
 
 export interface UserState {
@@ -19,13 +19,13 @@ export interface LoginState {
 
 export interface UserIdState {
   User: () => Promise<{
-    data: userDetail;
+    data: userDetailI;
   }>;
 }
 
 export interface addAddress {
-  NewAddress: () => Promise<{
+  NewAddress: (address: newAddressI) => Promise<{
     status: string;
-    data: newAddress;
+    data: newAddressI;
   }>;
 }

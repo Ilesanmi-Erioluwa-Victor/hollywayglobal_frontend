@@ -1,6 +1,6 @@
 /* eslint-disable no-useless-catch */
 
-import { registerI, loginI, newAddress } from 'src/types';
+import { registerI, loginI, newAddressI } from 'src/types';
 import { apiClient } from '../apiService';
 import { createAuthHeaders } from 'src/utils';
 
@@ -34,7 +34,7 @@ const userId = async (id: string, token: string) => {
 };
 
 const createAddress = async (
-  address: newAddress,
+  address: newAddressI,
   id: string,
   token: string
 ) => {

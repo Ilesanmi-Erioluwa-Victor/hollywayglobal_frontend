@@ -11,7 +11,7 @@ export interface loginI {
   email: string;
 }
 
-export interface userDetail {
+export interface userDetailI {
   active: boolean;
   email: string;
   firstName: string;
@@ -22,7 +22,7 @@ export interface userDetail {
   profilePhoto: string;
 }
 
-export interface newAddress {
+export interface newAddressI {
   deliveryAddress: string;
   additionalInfo?: string;
   region: string;
