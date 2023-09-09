@@ -5,18 +5,17 @@ import Button from '@mui/material/Button';
 
 import { Link, useNavigate } from 'react-router-dom';
 
-import { ImagePage } from '../components';
+import { ImagePage } from 'src/components';
 
-import { FieldSet } from '../components/atoms';
+import { FieldSet } from 'src/components/atoms';
 
 import { RedirectModal } from 'src/components/atoms';
 
 import { useSnackbar } from 'notistack';
 
-import { loginUserStore } from '../store/user/userStore';
-import { userToken } from 'src/hooks/useLocalStorage';
+import { loginUserStore } from 'src/store/user/userStore';
 
-// import { setBearerToken } from 'src/services/apiService';
+import { userToken } from 'src/hooks/useLocalStorage';
 
 const Login = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -39,7 +38,7 @@ const Login = () => {
         setCountdown((prevCountdown) => {
           if (prevCountdown === 1) {
             clearInterval(timer);
-            setRedirecting(true); // Set a flag to indicate redirection
+            setRedirecting(true);
           }
           return (prevCountdown as number) - 1;
         });
@@ -75,7 +74,6 @@ const Login = () => {
         const token = user?.data.token;
         const id = user?.data.id;
         userToken(token, id);
-        // setBearerToken(token);
         if (
           user.status === 'success' &&
           user.message === 'login successfully'
