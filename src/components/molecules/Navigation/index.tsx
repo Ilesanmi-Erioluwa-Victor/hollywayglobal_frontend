@@ -5,10 +5,10 @@ import PublicNav from './PublicNav';
 import { loginUserStore } from 'src/store/user/userStore';
 
 const Navigation = () => {
-  const { user, isAuthenticated } = loginUserStore();
-  console.log(isAuthenticated);
+  const { user } = loginUserStore();
+  console.log(user);
 
-  return <>{user ? <LoggedNav /> : <PublicNav />}</>;
+  return <>{<PublicNav />}</>;
 };
 
 export default Navigation;

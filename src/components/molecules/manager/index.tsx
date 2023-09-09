@@ -1,7 +1,9 @@
 import { Link, Outlet } from 'react-router-dom';
 import { AccountNav } from '../../../components/auth/userData';
+import { loginUserStore } from 'src/store/user/userStore';
 
 const AccountLayout = () => {
+  
   return (
     <div className='grid grid-cols-[_repeat(12,1fr)] px-[_calc(1rem_+_1vw)] gap-4 py-[2rem] lg:px-[_calc(1rem_+_8vw)]'>
       <div className='hidden col-[_1/_4] shadow-md rounded-md bg-white md:flex flex-col '>

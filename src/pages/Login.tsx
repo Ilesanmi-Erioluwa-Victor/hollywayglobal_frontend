@@ -21,9 +21,10 @@ import { setBearerToken } from 'src/services/apiService';
 const Login = () => {
   const { enqueueSnackbar } = useSnackbar();
 
-  const { Login, user, isLoading, message, status } = loginUserStore();
+  const { Login } = loginUserStore();
 
   const [countdown, setCountdown] = useState<null | number>(null);
+  const [redirecting, setRedirecting] = useState(false);
 
   const [data, setData] = useState({
     password: '',
@@ -33,26 +34,24 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (message === 'login successfully' || status === 'success' || user) {
-      enqueueSnackbar(message, {
-        variant: 'success',
-      });
+    if (countdown !== null && countdown > 0) {
+      const timer = setInterval(() => {
+        setCountdown((prevCountdown) => {
+          if (prevCountdown === 1) {
+            clearInterval(timer);
+            setRedirecting(true); // Set a flag to indicate redirection
+          }
+          return (prevCountdown as number) - 1;
+        });
+      }, 1000);
     }
-  }, [message, enqueueSnackbar, status, user]);
+  }, [countdown]);
 
-  const startCountdown = () => {
-    setCountdown(5);
-    const timer = setInterval(() => {
-      setCountdown((prevCountdown) => {
-        if (prevCountdown === 1) {
-          clearInterval(timer);
-          navigate(`/profile/${user?.id}`);
-          return null;
-        }
-        return (prevCountdown as number) - 1;
-      });
-    }, 1000);
-  };
+  useEffect(() => {
+    if (redirecting) {
+      navigate('/');
+    }
+  }, [redirecting, navigate]);
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -71,12 +70,18 @@ const Login = () => {
     }
 
     try {
-      await Login(data);
+      const user = await Login(data);
       if (user) {
-        const token = user?.token;
-        userToken(token);
+        const token = user?.data.token;
+        const id = user?.data.id;
+        userToken(token, id);
         setBearerToken(token);
-        startCountdown();
+        if (user.status === 'success') {
+          setCountdown(5);
+          return enqueueSnackbar('You have successfully logged in', {
+            variant: 'success',
+          });
+        }
       }
     } catch (error: any) {
       if (error.message === 'Network Error') {
@@ -139,9 +144,8 @@ const Login = () => {
                       width: '100%',
                       height: '3rem',
                     }}
-                    disabled={isLoading}
                   >
-                    {isLoading ? 'loading....' : 'Login'}
+                    Login
                   </Button>
 
                   <p>

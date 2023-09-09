@@ -68,24 +68,7 @@ const LoggedNav = (): JSX.Element => {
     <nav className='padd2 gap-[1rem] md:gap-0 flex justify-between items-center text-[0.8rem]'>
       <div>logo</div>
 
-      <ul className='hidden lg:flex items-center justify-between md:gap-[3rem]'>
-        {NavLinks.map((nav) => {
-          return (
-            <li
-              title={nav.title}
-              className='nav-item'
-              key={nav.id}
-            >
-              <NavLink
-                to={nav.link}
-                className={({ isActive }) => (isActive ? 'custom' : '')}
-              >
-                {nav.name}
-              </NavLink>
-            </li>
-          );
-        })}
-      </ul>
+  
 
       <RoundedInput
         placeholder='What are you looking for?'

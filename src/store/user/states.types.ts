@@ -12,6 +12,12 @@ export interface UserState {
 
 export interface LoginState {
   isAuthenticated: boolean;
-  Login: (userData: loginI) => Promise<void>;
+  Login: (
+    userData: loginI
+  ) => Promise<{
+    data: User;
+    message: string;
+    status: string;
+  }>;
   user: User | null;
 }
