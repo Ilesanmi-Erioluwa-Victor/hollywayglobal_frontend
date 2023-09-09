@@ -10,7 +10,7 @@ import { UserState, Info, LoginState, UserIdState } from './states.types';
 
 import { registerI, loginI } from 'src/types';
 
-import { getUserDataFromLocalStorage } from '../UserDataFromLocalStorage';
+import { getUserDataFromLocalStorage } from 'src/utils';
 
 export const registerUserStore = create<UserState & Info>((set) => ({
   message: '',
