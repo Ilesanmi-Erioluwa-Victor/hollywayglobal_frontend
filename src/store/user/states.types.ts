@@ -3,7 +3,10 @@ import { registerI, loginI, userDetail } from 'src/types';
 import { User } from './types';
 
 export interface UserState {
-  signUp: (userData: registerI) => Promise<void>;
+  signUp: (userData: registerI) => Promise<{
+    message: string;
+    status: string;
+  }>;
 }
 
 export interface LoginState {
@@ -20,8 +23,4 @@ export interface UserIdState {
   }>;
 }
 
-export interface UserState {
-  User: () => Promise<{
-    data: any;
-  }>;
-}
+

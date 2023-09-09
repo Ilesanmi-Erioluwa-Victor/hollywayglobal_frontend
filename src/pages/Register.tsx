@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-useless-catch */
-import { ChangeEvent, useState, useEffect } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -17,16 +17,8 @@ import { ImagePage } from '../components';
 const Register = () => {
   const { enqueueSnackbar } = useSnackbar();
 
-  const { signUp, isLoading, message, status } = registerUserStore();
+  const { signUp } = registerUserStore();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (message || status === 'success') {
-      enqueueSnackbar(message, {
-        variant: 'success',
-      });
-    }
-  }, [message, enqueueSnackbar, status]);
 
   const [data, setData] = useState({
     firstName: '',
@@ -53,9 +45,12 @@ const Register = () => {
     }
 
     try {
-      await signUp(data);
-      if (data) {
+      const user = await signUp(data);
+      if (user?.status === 'success') {
         navigate('/login');
+        return enqueueSnackbar('login into your account', {
+          variant: 'success',
+        });
       }
       setData({
         password: '',
@@ -138,7 +133,7 @@ const Register = () => {
               backgroundColor: '#DB4444',
             }}
           >
-            {isLoading ? 'Please wait...' : 'Register'}
+            Register
           </Button>
         </form>
         <p className='text-[1rem] flex justify-end items-center pt-2 gap-4'>

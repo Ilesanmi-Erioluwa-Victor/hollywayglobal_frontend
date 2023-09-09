@@ -16,7 +16,11 @@ export const registerUserStore = create<UserState>(() => ({
   signUp: async (userData: registerI) => {
     try {
       const response = await authService.register(userData);
-      return response;
+      const { message, status } = await response;
+      return {
+        message,
+        status
+      };
     } catch (error: any) {
       throw error;
     }
