@@ -1,10 +1,12 @@
+/* eslint-disable no-useless-catch */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserIdStore } from 'src/store/user/userStore';
-import { userDetail } from 'src/types';
+import { userDetailI } from 'src/types';
 
 const User = () => {
-  const [storedUser, setStoredUser] = useState<userDetail | null>(null);
+  const [storedUser, setStoredUser] = useState<userDetailI | null>(null);
   const [fetchedName, setFetchedName] = useState({
     firstName: '',
     lastName: '',
@@ -26,7 +28,7 @@ const User = () => {
           });
         }
       } catch (err: any) {
-        throw new Error(err);
+        throw (err);
       }
     };
 

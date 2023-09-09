@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 
 import User from 'src/components/auth/User';
@@ -12,6 +13,8 @@ import { Country, State, City } from 'country-state-city';
 
 import { FieldSet, CustomSelect } from 'src/components/atoms';
 
+import { UserNewAddressStore } from 'src/store/user/userStore';
+
 interface Option {
   value: string;
   label: string;
@@ -21,6 +24,8 @@ const NewAddress = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const { fetchedName } = User();
+
+  const { NewAddress } = UserNewAddressStore();
 
   const history = useNavigate();
 
@@ -100,9 +105,22 @@ const NewAddress = () => {
       );
     }
     try {
-      console.log(data);
-    } catch (error) {
-      console.log(error);
+      const address = await NewAddress(data);
+      if (address.status === 'success') {
+        return enqueueSnackbar('New Address Created', {
+          variant: 'success',
+        });
+      }
+    } catch (error: any) {
+      if (error.message === 'Network Error') {
+        return enqueueSnackbar(error.message, {
+          variant: 'error',
+        });
+      } else {
+        return enqueueSnackbar(error.response.data.message, {
+          variant: 'error',
+        });
+      }
     }
   };
 
