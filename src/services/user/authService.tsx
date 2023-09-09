@@ -39,16 +39,12 @@ const createAddress = async (
   token: string
 ) => {
   try {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
+    const authHeader = createAuthHeaders(token);
 
     const response = await apiClient.post(
       `user/${id}/address/create`,
       address,
-      config
+      authHeader
     );
     return response.data;
   } catch (error) {
