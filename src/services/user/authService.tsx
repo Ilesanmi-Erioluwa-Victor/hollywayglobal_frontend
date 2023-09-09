@@ -2,6 +2,7 @@
 
 import { registerI, loginI, newAddress } from 'src/types';
 import { apiClient } from '../apiService';
+import { createAuthHeaders } from 'src/utils';
 
 const register = async (userData: registerI) => {
   try {
@@ -23,13 +24,9 @@ const login = async (userData: loginI) => {
 
 const userId = async (id: string, token: string) => {
   try {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
+    const authHeader = createAuthHeaders(token);
 
-    const response = await apiClient.get(`user/${id}`, config);
+    const response = await apiClient.get(`user/${id}`, authHeader);
     return response.data;
   } catch (error) {
     throw error;
