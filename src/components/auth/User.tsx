@@ -5,6 +5,10 @@ import { userDetail } from 'src/types';
 
 const User = () => {
   const [storedUser, setStoredUser] = useState<userDetail | null>(null);
+  const [fetchedName, setFetchedName] = useState({
+    firstName: '',
+    lastName: '',
+  });
   const navigate = useNavigate();
   const { User } = UserIdStore();
 
@@ -16,16 +20,20 @@ const User = () => {
           navigate('/login');
         } else {
           setStoredUser(user?.data);
+          setFetchedName({
+            firstName: user?.data?.firstName || '',
+            lastName: user?.data?.lastName || '',
+          });
         }
-      } catch (err) {
-        console.error(err);
+      } catch (err: any) {
+        throw new Error(err);
       }
     };
 
     fetchData();
   }, [User, navigate]);
 
-  return storedUser;
+  return { storedUser, fetchedName };
 };
 
 export default User;

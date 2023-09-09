@@ -20,9 +20,7 @@ interface Option {
 const NewAddress = () => {
   const { enqueueSnackbar } = useSnackbar();
 
-  const storedUser = User();
-  const firstName = storedUser?.firstName;
-  const lastName = storedUser?.lastName;
+  const { fetchedName } = User();
 
   const history = useNavigate();
 
@@ -130,8 +128,7 @@ const NewAddress = () => {
           <input
             type='text'
             name='firstName'
-            value={firstName}
-            onChange={handleInputChange}
+            value={fetchedName?.firstName}
             disabled
             className='w-full py-4 text-left md:text-center pl-2 md:pl-0 text-[0.9rem] border rounded-sm cursor-pointer'
           />
@@ -139,8 +136,7 @@ const NewAddress = () => {
           <input
             type='text'
             name='lastName'
-            value={lastName}
-            onChange={handleInputChange}
+            value={fetchedName?.lastName}
             disabled
             className='w-full py-4 text-left md:text-center text-[0.9rem] pl-2 md:pl-0 border rounded-sm cursor-pointer'
           />
