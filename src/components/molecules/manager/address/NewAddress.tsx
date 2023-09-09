@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useSnackbar } from 'notistack';
 
-import { CustomSelect } from '../../../atoms';
+import User from 'src/components/auth/User';
+
+import { useSnackbar } from 'notistack';
 
 import { TbArrowBack } from 'react-icons/tb';
 
@@ -9,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { Country, State, City } from 'country-state-city';
 
-import { FieldSet } from '../../../../components/atoms';
+import { FieldSet, CustomSelect } from 'src/components/atoms';
 
 interface Option {
   value: string;
@@ -18,6 +19,10 @@ interface Option {
 
 const NewAddress = () => {
   const { enqueueSnackbar } = useSnackbar();
+
+  const storedUser = User();
+  const firstName = storedUser?.firstName;
+  const lastName = storedUser?.lastName;
 
   const history = useNavigate();
 
@@ -125,7 +130,8 @@ const NewAddress = () => {
           <input
             type='text'
             name='firstName'
-            value={'Erioluwa'}
+            value={firstName}
+            onChange={handleInputChange}
             disabled
             className='w-full py-4 text-left md:text-center pl-2 md:pl-0 text-[0.9rem] border rounded-sm cursor-pointer'
           />
@@ -133,7 +139,8 @@ const NewAddress = () => {
           <input
             type='text'
             name='lastName'
-            value={'Ilesanmi'}
+            value={lastName}
+            onChange={handleInputChange}
             disabled
             className='w-full py-4 text-left md:text-center text-[0.9rem] pl-2 md:pl-0 border rounded-sm cursor-pointer'
           />

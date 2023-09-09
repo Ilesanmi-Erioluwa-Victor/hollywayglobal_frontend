@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserIdStore } from 'src/store/user/userStore';
+import { userDetail } from 'src/types';
 
 const User = () => {
-  const [storedUser, setStoredUser] = useState(null);
+  const [storedUser, setStoredUser] = useState<userDetail | null>(null);
   const navigate = useNavigate();
   const { User } = UserIdStore();
 
