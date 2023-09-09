@@ -14,8 +14,7 @@ import {
   AccountLayout,
   NewAddressBook,
   EditProfile,
-  Product,
-  Profile,
+  Product
 } from './components';
 import { Home, Register, Login, Error404 } from './pages';
 
@@ -34,11 +33,6 @@ const App = () => {
     {
       element: <Login />,
       path: '/login',
-    },
-
-    {
-      element: <Profile />,
-      path: '/profile/:id',
     },
 
     {

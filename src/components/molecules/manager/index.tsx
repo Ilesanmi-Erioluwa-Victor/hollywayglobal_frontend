@@ -1,6 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
 import { AccountNav } from '../../../components/auth/userData';
-import { loginUserStore } from 'src/store/user/userStore';
 
 const AccountLayout = () => {
   

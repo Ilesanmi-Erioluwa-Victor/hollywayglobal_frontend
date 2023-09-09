@@ -15,8 +15,6 @@ import RoundedInput from '../../atoms/Input';
 import { AccountNav } from '../../auth/userData';
 
 const LoggedNav = ({ user }): JSX.Element => {
-  console.log(user);
-  // const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
