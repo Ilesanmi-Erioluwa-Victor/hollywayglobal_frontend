@@ -16,7 +16,7 @@ import { useSnackbar } from 'notistack';
 import { loginUserStore } from '../store/user/userStore';
 import { userToken } from 'src/hooks/useLocalStorage';
 
-import { setBearerToken } from 'src/services/apiService';
+// import { setBearerToken } from 'src/services/apiService';
 
 const Login = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -75,8 +75,11 @@ const Login = () => {
         const token = user?.data.token;
         const id = user?.data.id;
         userToken(token, id);
-        setBearerToken(token);
-        if (user.status === 'success') {
+        // setBearerToken(token);
+        if (
+          user.status === 'success' &&
+          user.message === 'login successfully'
+        ) {
           setCountdown(5);
           return enqueueSnackbar('You have successfully logged in', {
             variant: 'success',

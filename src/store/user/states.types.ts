@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { registerI, loginI } from 'src/types';
 import { User } from './types';
 
@@ -12,12 +13,16 @@ export interface UserState {
 
 export interface LoginState {
   isAuthenticated: boolean;
-  Login: (
-    userData: loginI
-  ) => Promise<{
+  Login: (userData: loginI) => Promise<{
     data: User;
     message: string;
     status: string;
   }>;
   user: User | null;
+}
+
+export interface UserIdState {
+  User: () => Promise<{
+    data: any;
+  }>;
 }

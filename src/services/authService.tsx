@@ -21,8 +21,23 @@ const login = async (userData: loginI) => {
   }
 };
 
+const userId = async (id: string, token: string) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const response = await apiClient.get(`user/${id}`, config);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export default {
   register,
   login,
+  userId,
 };

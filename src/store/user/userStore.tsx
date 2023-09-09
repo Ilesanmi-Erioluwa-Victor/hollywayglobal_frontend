@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable no-useless-catch */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -5,7 +6,7 @@ import { create } from 'zustand';
 
 import authService from 'src/services/authService';
 
-import { UserState, Info, LoginState } from './states.types';
+import { UserState, Info, LoginState, UserIdState } from './states.types';
 
 import { registerI, loginI } from 'src/types';
 
@@ -61,6 +62,29 @@ export const loginUserStore = create<LoginState & Info>((set) => ({
         status: 'failed',
         isAuthenticated: false,
       });
+      throw error;
+    }
+  },
+}));
+
+export const UserIdStore = create<UserIdState>(() => ({
+  User: async () => {
+    const userData = JSON.parse(
+      localStorage.getItem('Hollywayglobal_user') as string
+    );
+
+    const token = await userData.token;
+    const id = await userData.id;
+    if (!token || !id) {
+      throw new Error('No user found');
+    }
+
+    try {
+      const response = await authService.userId(id, token);
+      return {
+        data: response,
+      };
+    } catch (error: any) {
       throw error;
     }
   },

@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+import { Link} from 'react-router-dom';
 
 import { BiSearch, BiHeartCircle } from 'react-icons/bi';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
@@ -15,44 +14,8 @@ import RoundedInput from '../../atoms/Input';
 
 import { AccountNav } from '../../auth/userData';
 
-type Nav = {
-  name: string;
-  title: string;
-  id: string;
-  link: string;
-};
-
-const NavLinks: Nav[] = [
-  {
-    name: 'Home',
-    title: 'home',
-    id: uuidv4(),
-    link: '/',
-  },
-
-  {
-    name: 'Contact',
-    title: 'contact',
-    id: uuidv4(),
-    link: '/contact',
-  },
-
-  {
-    name: 'About',
-    title: 'about',
-    id: uuidv4(),
-    link: '/about',
-  },
-
-  {
-    name: 'Sign Up',
-    title: 'Sign Up',
-    id: uuidv4(),
-    link: '/register',
-  },
-];
-
-const LoggedNav = (): JSX.Element => {
+const LoggedNav = ({ user }): JSX.Element => {
+  console.log(user);
   // const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
@@ -67,8 +30,6 @@ const LoggedNav = (): JSX.Element => {
   return (
     <nav className='padd2 gap-[1rem] md:gap-0 flex justify-between items-center text-[0.8rem]'>
       <div>logo</div>
-
-  
 
       <RoundedInput
         placeholder='What are you looking for?'
@@ -104,7 +65,17 @@ const LoggedNav = (): JSX.Element => {
                 onClick={handleOpenUserMenu}
                 sx={{ p: 0 }}
               >
-                <CgProfile />
+                {!user ? (
+                  <CgProfile />
+                ) : (
+                  <div className="">
+                    <img
+                      src={user?.profilePhoto}
+                        alt={`${user?.firstName} ${user?.lastName}`}
+                        className="w-[3rem] rounded-[50%] w-max-full"
+                    />
+                  </div>
+                )}
               </IconButton>
             </Tooltip>
             <Menu
