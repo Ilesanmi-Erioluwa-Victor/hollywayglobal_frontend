@@ -6,7 +6,7 @@ import { create } from 'zustand';
 
 import authService from 'src/services/user/authService';
 
-import { UserState, LoginState, UserIdState } from './states.types';
+import { UserState, LoginState, UserIdState, addAddress } from './states.types';
 
 import { registerI, loginI } from 'src/types';
 
@@ -19,7 +19,7 @@ export const registerUserStore = create<UserState>(() => ({
       const { message, status } = await response;
       return {
         message,
-        status
+        status,
       };
     } catch (error: any) {
       throw error;
@@ -57,13 +57,15 @@ export const UserIdStore = create<UserIdState>(() => ({
   },
 }));
 
-export const UserNewAddressStore = create<UserIdState>(() => ({
-  User: async () => {
+export const UserNewAddressStore = create<addAddress>(() => ({
+  NewAddress: async () => {
     const { token, id } = getUserDataFromLocalStorage();
     try {
       const response = await authService.userId(id, token);
+      const { status, data } = await response;
       return {
-        data: response,
+        data,
+        status,
       };
     } catch (error: any) {
       throw error;
