@@ -6,64 +6,34 @@ import { create } from 'zustand';
 
 import authService from 'src/services/user/authService';
 
-import { UserState, Info, LoginState, UserIdState } from './states.types';
+import { UserState, LoginState, UserIdState } from './states.types';
 
 import { registerI, loginI } from 'src/types';
 
 import { getUserDataFromLocalStorage } from 'src/utils';
 
-export const registerUserStore = create<UserState & Info>((set) => ({
-  message: '',
-  isLoading: false,
-  status: '',
-
+export const registerUserStore = create<UserState>(() => ({
   signUp: async (userData: registerI) => {
-    set({ isLoading: true, message: '', status: '' });
-
     try {
       const response = await authService.register(userData);
-      set({
-        message: response.message,
-        isLoading: false,
-        status: response.status,
-      });
+      return response;
     } catch (error: any) {
-      set({ isLoading: false });
       throw error;
     }
   },
 }));
 
-export const loginUserStore = create<LoginState & Info>((set) => ({
-  message: '',
-  isLoading: false,
-  status: '',
-  isAuthenticated: false,
-  user: null,
-
+export const loginUserStore = create<LoginState>(() => ({
   Login: async (userData: loginI) => {
-    set({ isLoading: true, isAuthenticated: false });
-
     try {
       const response = await authService.login(userData);
       const { message, status, data } = await response;
-      set({
-        isLoading: false,
-        isAuthenticated: true,
-      });
       return {
         message,
         data,
         status,
       };
     } catch (error: any) {
-      set({
-        isLoading: false,
-        message: '',
-        user: null,
-        status: 'failed',
-        isAuthenticated: false,
-      });
       throw error;
     }
   },
@@ -72,7 +42,20 @@ export const loginUserStore = create<LoginState & Info>((set) => ({
 export const UserIdStore = create<UserIdState>(() => ({
   User: async () => {
     const { token, id } = getUserDataFromLocalStorage();
+    try {
+      const response = await authService.userId(id, token);
+      return {
+        data: response,
+      };
+    } catch (error: any) {
+      throw error;
+    }
+  },
+}));
 
+export const UserNewAddressStore = create<UserIdState>(() => ({
+  User: async () => {
+    const { token, id } = getUserDataFromLocalStorage();
     try {
       const response = await authService.userId(id, token);
       return {
