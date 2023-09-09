@@ -10,6 +10,8 @@ import { UserState, Info, LoginState, UserIdState } from './states.types';
 
 import { registerI, loginI } from 'src/types';
 
+import { getUserDataFromLocalStorage } from '../UserDataFromLocalStorage';
+
 export const registerUserStore = create<UserState & Info>((set) => ({
   message: '',
   isLoading: false,
@@ -69,15 +71,7 @@ export const loginUserStore = create<LoginState & Info>((set) => ({
 
 export const UserIdStore = create<UserIdState>(() => ({
   User: async () => {
-    const userData = JSON.parse(
-      localStorage.getItem('Hollywayglobal_user') as string
-    );
-
-    const token = await userData.token;
-    const id = await userData.id;
-    if (!token || !id) {
-      throw new Error('No user found');
-    }
+    const { token, id } = getUserDataFromLocalStorage();
 
     try {
       const response = await authService.userId(id, token);
