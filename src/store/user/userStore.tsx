@@ -4,7 +4,7 @@
 
 import { create } from 'zustand';
 
-import authService from 'src/services/authService';
+import authService from 'src/services/user/authService';
 
 import { UserState, Info, LoginState, UserIdState } from './states.types';
 

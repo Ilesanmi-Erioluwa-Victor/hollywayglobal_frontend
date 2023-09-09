@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-catch */
 
-import { registerI, loginI } from 'src/types';
-import { apiClient } from './apiService';
+import { registerI, loginI, newAddress } from 'src/types';
+import { apiClient } from '../apiService';
 
 const register = async (userData: registerI) => {
   try {
@@ -36,8 +36,32 @@ const userId = async (id: string, token: string) => {
   }
 };
 
+const createAddress = async (
+  address: newAddress,
+  id: string,
+  token: string
+) => {
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const response = await apiClient.post(
+      `user/${id}/address/create`,
+      address,
+      config
+    );
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export default {
   register,
   login,
   userId,
+  createAddress,
 };

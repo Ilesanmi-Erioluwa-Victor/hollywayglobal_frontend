@@ -21,3 +21,12 @@ export interface userDetail {
   mobile: string;
   profilePhoto: string;
 }
+
+export interface newAddress {
+  deliveryAddress: string;
+  additionalInfo?: string;
+  region: string;
+  city: string;
+  phone?: string;
+  additionalPhone: string;
+}
