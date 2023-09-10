@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
-import { useSnackbar } from 'notistack';
 
-import { CustomSelect } from '../../../atoms';
+import User from 'src/components/auth/User';
+
+import { useSnackbar } from 'notistack';
 
 import { TbArrowBack } from 'react-icons/tb';
 
@@ -9,7 +11,9 @@ import { useNavigate } from 'react-router-dom';
 
 import { Country, State, City } from 'country-state-city';
 
-import { FieldSet } from '../../../../components/atoms';
+import { FieldSet, CustomSelect } from 'src/components/atoms';
+
+import { UserNewAddressStore } from 'src/store/user/userStore';
 
 interface Option {
   value: string;
@@ -18,6 +22,10 @@ interface Option {
 
 const NewAddress = () => {
   const { enqueueSnackbar } = useSnackbar();
+
+  const { fetchedName } = User();
+
+  const { NewAddress } = UserNewAddressStore();
 
   const history = useNavigate();
 
@@ -97,9 +105,22 @@ const NewAddress = () => {
       );
     }
     try {
-      console.log(data);
-    } catch (error) {
-      console.log(error);
+      const address = await NewAddress(data);
+      if (address.status === 'success') {
+        return enqueueSnackbar('New Address Created', {
+          variant: 'success',
+        });
+      }
+    } catch (error: any) {
+      if (error.message === 'Network Error') {
+        return enqueueSnackbar(error.message, {
+          variant: 'error',
+        });
+      } else {
+        return enqueueSnackbar(error.response.data.message, {
+          variant: 'error',
+        });
+      }
     }
   };
 
@@ -125,7 +146,7 @@ const NewAddress = () => {
           <input
             type='text'
             name='firstName'
-            value={'Erioluwa'}
+            value={fetchedName?.firstName}
             disabled
             className='w-full py-4 text-left md:text-center pl-2 md:pl-0 text-[0.9rem] border rounded-sm cursor-pointer'
           />
@@ -133,7 +154,7 @@ const NewAddress = () => {
           <input
             type='text'
             name='lastName'
-            value={'Ilesanmi'}
+            value={fetchedName?.lastName}
             disabled
             className='w-full py-4 text-left md:text-center text-[0.9rem] pl-2 md:pl-0 border rounded-sm cursor-pointer'
           />

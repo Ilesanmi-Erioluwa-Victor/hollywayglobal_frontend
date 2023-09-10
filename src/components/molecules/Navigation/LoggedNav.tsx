@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+import { Link} from 'react-router-dom';
 
 import { BiSearch, BiHeartCircle } from 'react-icons/bi';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
@@ -11,49 +10,11 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import RoundedInput from '../atoms/Input';
+import RoundedInput from '../../atoms/Input';
 
-import { AccountNav } from '../../components/auth/userData';
+import { AccountNav } from '../../auth/userData';
 
-type Nav = {
-  name: string;
-  title: string;
-  id: string;
-  link: string;
-};
-
-const NavLinks: Nav[] = [
-  {
-    name: 'Home',
-    title: 'home',
-    id: uuidv4(),
-    link: '/',
-  },
-
-  {
-    name: 'Contact',
-    title: 'contact',
-    id: uuidv4(),
-    link: '/contact',
-  },
-
-  {
-    name: 'About',
-    title: 'about',
-    id: uuidv4(),
-    link: '/about',
-  },
-
-  {
-    name: 'Sign Up',
-    title: 'Sign Up',
-    id: uuidv4(),
-    link: '/register',
-  },
-];
-
-const LoggedNav = (): JSX.Element => {
-  // const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+const LoggedNav = ({ user }): JSX.Element => {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -67,25 +28,6 @@ const LoggedNav = (): JSX.Element => {
   return (
     <nav className='padd2 gap-[1rem] md:gap-0 flex justify-between items-center text-[0.8rem]'>
       <div>logo</div>
-
-      <ul className='hidden lg:flex items-center justify-between md:gap-[3rem]'>
-        {NavLinks.map((nav) => {
-          return (
-            <li
-              title={nav.title}
-              className='nav-item'
-              key={nav.id}
-            >
-              <NavLink
-                to={nav.link}
-                className={({ isActive }) => (isActive ? 'custom' : '')}
-              >
-                {nav.name}
-              </NavLink>
-            </li>
-          );
-        })}
-      </ul>
 
       <RoundedInput
         placeholder='What are you looking for?'
@@ -121,7 +63,17 @@ const LoggedNav = (): JSX.Element => {
                 onClick={handleOpenUserMenu}
                 sx={{ p: 0 }}
               >
-                <CgProfile />
+                {!user ? (
+                  <CgProfile />
+                ) : (
+                  <div className="">
+                    <img
+                      src={user?.profilePhoto}
+                        alt={`${user?.firstName} ${user?.lastName}`}
+                        className="w-[3rem] rounded-[50%] w-max-full"
+                    />
+                  </div>
+                )}
               </IconButton>
             </Tooltip>
             <Menu

@@ -16,7 +16,7 @@ import {
   EditProfile,
   Product
 } from './components';
-import { Home, Register, Login, Products, Error404 } from './pages';
+import { Home, Register, Login, Error404 } from './pages';
 
 const App = () => {
   const customRoutes = useRoutes([
@@ -36,23 +36,8 @@ const App = () => {
     },
 
     {
-      element: <Products />,
-      path: '/products',
-    },
-
-    {
-      element: <Cart />,
-      path: '/cart',
-    },
-
-    {
-      element: <Checkout />,
-      path: '/checkout',
-    },
-
-    {
       element: <AccountLayout />,
-      path: '/user/account',
+      path: '/user/account/',
       children: [
         {
           element: <ManageAccount />,
@@ -72,6 +57,15 @@ const App = () => {
         },
         { path: 'password', element: <ChangePassword /> },
         { path: 'updateImage', element: <ChangeImage /> },
+        {
+          element: <Cart />,
+          path: 'cart',
+        },
+
+        {
+          element: <Checkout />,
+          path: 'checkout',
+        },
         { path: 'profile', element: <EditProfile /> },
         { path: 'deactivate', element: <h2>Soon to be Implemented </h2> },
       ],
@@ -80,7 +74,7 @@ const App = () => {
       path: '/*',
       element: <Error404 statusCode={404} />,
     },
-    {path:"/product", element: <Product />}
+    { path: '/product', element: <Product /> },
   ]);
 
   return (
