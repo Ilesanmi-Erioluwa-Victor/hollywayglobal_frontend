@@ -13,11 +13,14 @@ const ManageAccount = () => {
             ACCOUNT DETAILS
           </h3>
           <hr className='mb-3' />
-          <p className='text-[0.9rem] font-[500]'>
-            {storedUser?.firstName} {storedUser?.lastName}
-          </p>
+          <div className='flex flex-col gap-2'>
+            <p className='text-[0.9rem] font-[500]'>
+              {storedUser?.firstName} {storedUser?.lastName}
+            </p>
 
-          <p className='font-[500] text-[0.9rem]'>{storedUser?.email}</p>
+            <p className='font-[500] text-[0.9rem]'>{storedUser?.email}</p>
+            <p className='font-[500] text-[0.9rem]'>{storedUser?.mobile}</p>
+          </div>
         </div>
 
         <div className='border p-4 rounded-md'>
