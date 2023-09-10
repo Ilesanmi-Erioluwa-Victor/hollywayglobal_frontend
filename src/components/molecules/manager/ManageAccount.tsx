@@ -27,7 +27,7 @@ const ManageAccount = () => {
 
         <div className='border p-4 rounded-md'>
           <div className='flex justify-between items-center'>
-            <h3 className='text-[1rem] py-2 font-[400] font-[Arial] mb-2'>
+            <h3 className='text-[1rem] py-2 font-[500] font-[Arial] mb-2'>
               ADDRESS BOOK
             </h3>
             <span className='text-[1.4rem] text-orange-500 cursor-pointer hover:bg-orange-200 p-2 rounded-[50%] transition-all'>
@@ -35,7 +35,7 @@ const ManageAccount = () => {
             </span>
           </div>
           <hr className='mb-3' />
-          <p>Your default shipping address:</p>
+          <p className='text-[0.9rem]'>Your default shipping address:</p>
         </div>
       </div>
     </div>
