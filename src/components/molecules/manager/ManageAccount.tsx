@@ -18,7 +18,9 @@ const ManageAccount = () => {
               {storedUser?.firstName} {storedUser?.lastName}
             </p>
 
-            <p className='font-[500] text-[0.9rem]'>{storedUser?.email}</p>
+            <p className='font-[500] text-[0.9rem] opacity-50'>
+              {storedUser?.email}
+            </p>
             <p className='font-[500] text-[0.9rem]'>{storedUser?.mobile}</p>
           </div>
         </div>
@@ -32,13 +34,8 @@ const ManageAccount = () => {
               <BiPencil />
             </span>
           </div>
-          <hr />
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae
-          nulla soluta impedit asperiores quod enim omnis illo voluptas
-          exercitationem, corporis doloremque quia neque veniam, eaque quaerat
-          quibusdam? Optio nam dolores voluptatibus quod, magni assumenda neque,
-          mollitia fugit inventore architecto perferendis cumque officia at
-          maxime voluptates fugiat blanditiis, laborum qui quidem!
+          <hr className='mb-3' />
+          <p>Your default shipping address:</p>
         </div>
       </div>
     </div>
