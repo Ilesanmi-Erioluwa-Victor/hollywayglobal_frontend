@@ -2,12 +2,7 @@ import { Link, Form, redirect } from 'react-router-dom';
 
 import { FormRow, SubmitBtn } from '../components/atoms';
 
-
-
 import Wrapper from 'src/assets/wrappers/RegisterAndLoginWrapper';
-
-
-
 
 const Register = () => {
   return (

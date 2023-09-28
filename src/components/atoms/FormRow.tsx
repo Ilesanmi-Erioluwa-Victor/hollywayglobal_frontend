@@ -25,7 +25,6 @@ const FormRow = ({ type, name, labelText, onChange }: FormRowType) => {
         name={name}
         className='form-input'
         onChange={onChange}
-        required
       />
     </div>
   );
