@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
 import { SnackbarProvider } from 'notistack';
 import App from './App.tsx';
 import './index.css';
 
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <SnackbarProvider autoHideDuration={2000}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <App />
     </SnackbarProvider>
   </React.StrictMode>
 );
