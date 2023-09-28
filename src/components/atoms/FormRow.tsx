@@ -4,9 +4,9 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
 interface FormRowType {
-  labelText: string;
+  labelText?: string;
   name: string;
-  onChange: any;
+  onChange?: any;
   type: string;
 }
 

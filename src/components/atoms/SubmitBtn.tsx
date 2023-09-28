@@ -6,7 +6,8 @@ interface formBtnType {
 }
 
 const SubmitBtn = ({ formBtn, text }: formBtnType) => {
-  const navigation = useNavigation();
+    const navigation = useNavigation();
+    
   const isSubmitting = navigation.state === 'submitting';
 
   return (

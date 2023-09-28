@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import { FieldSet } from '../../../components/atoms';
+// import { FieldSet } from '../../../components/atoms';
 import { MdPassword } from 'react-icons/md';
 
 import { useSnackbar } from 'notistack';
@@ -60,16 +60,16 @@ const ChangePassword = () => {
       </div>
       <hr className='mb-4' />
 
-      <FieldSet
+      {/* <FieldSet
         label={'Current Password'}
         id={'currentPassword'}
         name='currentPassword'
         onChange={handleInputChange}
         value={data.currentPassword}
         type='password'
-      />
+      /> */}
 
-      <FieldSet
+      {/* <FieldSet
         label={'New Password'}
         id={'newPassword'}
         name='newPassword'
@@ -85,7 +85,7 @@ const ChangePassword = () => {
         onChange={handleInputChange}
         value={data.confirmNewPassword}
         type='password'
-      />
+      /> */}
       <button
         type='submit'
         className='flex items-center justify-end bg-[#DB4444] ml-auto mt-4 p-3 rounded-md text-white'

@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { ImagePage } from 'src/components';
 
-import { FieldSet } from 'src/components/atoms';
+// import { FieldSet } from 'src/components/atoms';
 
 import { RedirectModal } from 'src/components/atoms';
 
@@ -117,7 +117,7 @@ const Login = () => {
                 Enter your details below
               </p>
               <div className='flex flex-col gap-[1rem]'>
-                <FieldSet
+                {/* <FieldSet
                   name='email'
                   label='email'
                   value={data.email}
@@ -133,7 +133,7 @@ const Login = () => {
                   onChange={handleInputChange}
                   id='password'
                   type='password'
-                />
+                /> */}
 
                 <div className='flex justify-between items-center flex-col gap-4'>
                   <Button

@@ -1,152 +1,56 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-useless-catch */
-import { ChangeEvent, useState } from 'react';
+import { Link, Form } from 'react-router-dom';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { FormRow, SubmitBtn } from '../components/atoms';
 
-import Button from '@mui/material/Button';
-
-import { registerUserStore } from '../store/user/userStore';
-
-import { useSnackbar } from 'notistack';
-
-import { FieldSet } from '../components/atoms';
-
-import { ImagePage } from '../components';
+import Wrapper from 'src/assets/wrappers/RegisterAndLoginWrapper';
 
 const Register = () => {
-  const { enqueueSnackbar } = useSnackbar();
-
-  const { signUp } = registerUserStore();
-  const navigate = useNavigate();
-
-  const [data, setData] = useState({
-    firstName: '',
-    lastName: '',
-    password: '',
-    email: '',
-    mobile: '',
-  });
-
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setData({ ...data, [name]: value.trim() });
-  };
-
-  const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const { password, email, firstName, lastName, mobile } = data;
-
-    if (!password || !email || !firstName || !lastName || !mobile) {
-      return enqueueSnackbar('Please, fill up all inputs ', {
-        variant: 'error',
-      });
-    }
-
-    try {
-      const user = await signUp(data);
-      if (user?.status === 'success') {
-        navigate('/login');
-        return enqueueSnackbar('login into your account', {
-          variant: 'success',
-        });
-      }
-      setData({
-        password: '',
-        email: '',
-        mobile: '',
-        firstName: '',
-        lastName: '',
-      });
-    } catch (error: any) {
-      return enqueueSnackbar(error.response.data.message, {
-        variant: 'error',
-      });
-    }
-  };
-
   return (
-    <div className='paddTop flex'>
-      <ImagePage />
+    <Wrapper>
+      <Form
+        method='post'
+        className='form'
+      >
+        {/* <Logo /> */}
+        <h4>Register</h4>
+        <FormRow
+          type={'text'}
+          name={'name'}
+        />
 
-      <div className='padd w-[100%] md:w-[45%] py-[1rem] paddTop self-center place-self-center content-center'>
-        <form
-          className='flex flex-col gap-[1rem]'
-          onSubmit={handleInputSubmit}
-        >
-          <h3 className='text-[1.8rem] font-[500]  tracking-[1.44px] md:text-[1.6rem] md:tracking-[0px] lg:text-[2rem]'>
-            Create an account
-          </h3>
-          <p className='font-[400] text-[1.3rem]'>Enter your details below</p>
-          <div className='flex flex-col gap-[1rem]'>
-            <FieldSet
-              name='firstName'
-              label='firstName'
-              value={data.firstName}
-              onChange={handleInputChange}
-              id='firstName'
-              type='text'
-            />
+        <FormRow
+          type={'text'}
+          name={'lastName'}
+          labelText={'last name'}
+        />
 
-            <FieldSet
-              name='lastName'
-              label='lastName'
-              value={data.lastName}
-              onChange={handleInputChange}
-              id='lastName'
-              type='text'
-            />
+        <FormRow
+          type={'text'}
+          name={'location'}
+        />
 
-            <FieldSet
-              name='password'
-              label='password'
-              value={data.password}
-              onChange={handleInputChange}
-              id='password'
-              type='password'
-            />
+        <FormRow
+          type={'email'}
+          name={'email'}
+        />
 
-            <FieldSet
-              name='email'
-              label='email'
-              value={data.email}
-              onChange={handleInputChange}
-              id='email'
-              type='email'
-            />
+        <FormRow
+          type={'password'}
+          name={'password'}
+        />
 
-            <FieldSet
-              name='mobile'
-              label='mobile'
-              value={data.mobile}
-              onChange={handleInputChange}
-              id='mobile'
-              type='text'
-            />
-          </div>
-          <Button
-            variant='contained'
-            size='large'
-            type='submit'
-            sx={{
-              backgroundColor: '#DB4444',
-            }}
-          >
-            Register
-          </Button>
-        </form>
-        <p className='text-[1rem] flex justify-end items-center pt-2 gap-4'>
-          Already have account?{' '}
+        <SubmitBtn text='register'/>
+        <p>
+          Already a member ?
           <Link
             to={'/login'}
-            className='text-[#DB4444]'
+            className='member-btn'
           >
             Login
           </Link>
         </p>
-      </div>
-    </div>
+      </Form>
+    </Wrapper>
   );
 };
 
