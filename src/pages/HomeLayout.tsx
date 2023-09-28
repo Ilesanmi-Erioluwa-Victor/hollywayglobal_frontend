@@ -4,6 +4,8 @@ import { AiOutlineCustomerService } from 'react-icons/ai';
 
 import { BsTruck, BsShieldCheck } from 'react-icons/bs';
 
+import Wrapper from 'src/assets/wrappers/HomeWrapper';
+
 import {
   Hero,
   SubHero,
@@ -36,13 +38,13 @@ const HomeLayout = () => {
     },
   ];
   return (
-    <div className='container-custom bg-slate-100 font-poppins_Display'>
+    <Wrapper className=' bg-slate-100 font-poppins_Display'>
       <div className='overall-layout'>
         <Header />
         <Outlet />
         <Footer />
       </div>
-    </div>
+    </Wrapper>
     // <div className='padd flex flex-col gap-y-4 py-4'>
     //   <Hero />
     //   <SubHero />
