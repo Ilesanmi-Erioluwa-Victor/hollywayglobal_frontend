@@ -19,7 +19,7 @@ import {
 import { Home, Register, Login, Error404 } from './pages';
 
 const App = () => {
-  const customRoutes = useRoutes([
+  const router = createBrowserRouter([
     {
       path: '/',
       element: <Home />,
