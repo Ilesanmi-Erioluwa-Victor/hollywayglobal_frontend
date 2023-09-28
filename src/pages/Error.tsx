@@ -19,7 +19,7 @@ const ErrorPage = (): JSX.Element => {
           <p>We cant seem to find the page you are looking for</p>
           <Link
             to={'/'}
-            className='rounded-sm bg-orange-500 p-3 text-white'
+            className='rounded-sm bg-sky-500 p-3  text-white transition-all hover:text-sky-500 hover:bg-white'
           >
             Back Home
           </Link>
