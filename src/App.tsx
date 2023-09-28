@@ -1,4 +1,4 @@
-import { useRoutes } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import {
   Footer,
@@ -14,7 +14,7 @@ import {
   AccountLayout,
   NewAddressBook,
   EditProfile,
-  Product
+  Product,
 } from './components';
 import { Home, Register, Login, Error404 } from './pages';
 
