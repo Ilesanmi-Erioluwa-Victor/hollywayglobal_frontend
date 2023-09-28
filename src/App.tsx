@@ -15,8 +15,6 @@ import {
 } from './components';
 
 import { HomeLayout, Register, Login, Error, Home } from './pages';
-
-
 import { RegisterAction } from './actions';
 
 const router = createBrowserRouter([
@@ -32,13 +30,13 @@ const router = createBrowserRouter([
 
       {
         element: <Register />,
-        path: '/register',
-        action: RegisterAction,
+        path: 'register',
+        action: RegisterAction ,
       },
 
       {
         element: <Login />,
-        path: '/login',
+        path: 'login',
       },
 
       {

@@ -7,6 +7,7 @@ import Wrapper from 'src/assets/wrappers/ErrorPage';
 const ErrorPage = (): JSX.Element => {
   const error: any = useRouteError();
 
+  console.log(error);
   if (error.status === 404) {
     return (
       <Wrapper>

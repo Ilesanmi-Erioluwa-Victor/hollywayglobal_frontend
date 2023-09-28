@@ -1,8 +1,13 @@
-import { Link, Form } from 'react-router-dom';
+import { Link, Form, redirect } from 'react-router-dom';
 
 import { FormRow, SubmitBtn } from '../components/atoms';
 
+
+
 import Wrapper from 'src/assets/wrappers/RegisterAndLoginWrapper';
+
+
+
 
 const Register = () => {
   return (
@@ -15,7 +20,8 @@ const Register = () => {
         <h4>Register</h4>
         <FormRow
           type={'text'}
-          name={'name'}
+          name={'firstName'}
+          labelText={'first name'}
         />
 
         <FormRow
@@ -26,11 +32,6 @@ const Register = () => {
 
         <FormRow
           type={'text'}
-          name={'location'}
-        />
-
-        <FormRow
-          type={'email'}
           name={'email'}
         />
 
@@ -39,7 +40,12 @@ const Register = () => {
           name={'password'}
         />
 
-        <SubmitBtn text='register'/>
+        <FormRow
+          type={'text'}
+          name={'mobile'}
+        />
+
+        <SubmitBtn text='register' />
         <p>
           Already a member ?
           <Link
