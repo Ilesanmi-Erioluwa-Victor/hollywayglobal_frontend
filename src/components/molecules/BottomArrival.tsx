@@ -1,5 +1,5 @@
-import Image1 from '../../assets/signup.png';
-import Image from '../../assets/boom.png';
+import Image1 from '../../assets/images/signup.png';
+import Image from '../../assets/images/boom.png';
 
 const BottomArrival = () => {
   return (

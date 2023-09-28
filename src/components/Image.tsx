@@ -1,4 +1,4 @@
-import Image from '../assets/signup.png';
+import Image from '../assets/images/signup.png';
 
 const ImagePage = () => {
   return (

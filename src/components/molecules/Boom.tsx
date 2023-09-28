@@ -1,4 +1,4 @@
-import ImageBoom from '../../assets/boom.png';
+import ImageBoom from '../../assets/images/boom.png';
 
 const Boom = () => {
   return (

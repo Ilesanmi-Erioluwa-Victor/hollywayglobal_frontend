@@ -27,8 +27,8 @@ import { IoGameControllerOutline } from 'react-icons/io5';
 import { CiDumbbell, CiCircleMore } from 'react-icons/ci';
 // import { Link } from 'react-router-dom';
 
-import Image from '../../assets/dark_800.png';
-import Image1 from '../../assets/signup.png';
+import Image from '../../assets/images/dark_800.png';
+import Image1 from '../../assets/images/signup.png';
 import Image2 from '../../assets/react.svg';
 
 interface category {

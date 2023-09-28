@@ -5,8 +5,7 @@ import PublicNav from './PublicNav';
 const Navigation = () => {
   // const { storedUser } = User();
 
-  // return <>{!storedUser ? <PublicNav /> : <LoggedNav user={storedUser} />}</>;
-  return <h2>Hello from Navigation</h2>;
+  return <>{!storedUser ? <PublicNav /> : <LoggedNav user={storedUser} />}</>;
 };
 
 export default Navigation;

@@ -1,9 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
 
-import Image from '../../assets/dark_800.png';
-import Image1 from '../../assets/signup.png';
+import Image from '../../assets/images/not-found.svg';
+import Image1 from '../../assets/images/signup.png';
 import Image2 from '../../assets/react.svg';
-import Image3 from '../../assets/boom.png';
+import Image3 from '../../assets/images/boom.png';
 
 const NewArrival = () => {
   const products = [
@@ -114,7 +114,10 @@ const NewArrival = () => {
 
       <div className='grid grid-cols-product-grid p-[10px] gap-[10px]'>
         {products.map((product) => (
-          <div className='flex flex-col gap-[0.4rem]' key={product.id}>
+          <div
+            className='flex flex-col gap-[0.4rem]'
+            key={product.id}
+          >
             <div
               key={product.id}
               className='grid-item2 bg-slate-100  rounded-sm mb-3'
