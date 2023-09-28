@@ -22,10 +22,6 @@ const Wrapper = styled.main`
     margin-bottom: 1rem;
     color: var(--text-secondary-color);
   }
-  a {
-    color: var(--primary-500);
-    text-transform: capitalize;
-  }
 `;
 
 export default Wrapper;
