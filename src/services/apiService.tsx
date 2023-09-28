@@ -8,6 +8,4 @@ export const apiClient = axios.create({
   },
 });
 
-export const setBearerToken = (token: string) => {
-  apiClient.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-};
+
