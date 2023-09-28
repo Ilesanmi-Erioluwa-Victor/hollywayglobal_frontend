@@ -1,8 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import {
-  Footer,
-  Header,
   Cart,
   Checkout,
   ManageAccount,
@@ -15,13 +13,19 @@ import {
   NewAddressBook,
   EditProfile,
 } from './components';
-import { HomeLayout, Register, Login, Error } from './pages';
+import { HomeLayout, Register, Login, Error, Home } from './pages';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <HomeLayout />,
     children: [
+      {
+        element: <Home />,
+        path: '',
+        index: true,
+      },
+
       {
         element: <Register />,
         path: '/register',
@@ -74,10 +78,7 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return (
- 
-    <RouterProvider router={router} />
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
