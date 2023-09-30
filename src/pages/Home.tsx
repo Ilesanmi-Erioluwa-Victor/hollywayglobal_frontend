@@ -10,6 +10,9 @@ import {
   Boom,
   BottomArrival,
 } from '../components';
+import { apiClient } from 'src/services/apiService';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const remarks = [
   {
@@ -32,8 +35,23 @@ const remarks = [
 ];
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const logout = async () => {
+    navigate('/login');
+    await apiClient.get('/auth/logout');
+    toast.success('Logged out successfully');
+  };
+
   return (
     <div className='padd flex flex-col gap-y-4 py-4'>
+      <button
+        type='button'
+        onClick={logout}
+        className='text-red-600'
+      >
+        logout
+      </button>
       <Hero />
       <SubHero />
       <CategorySection />

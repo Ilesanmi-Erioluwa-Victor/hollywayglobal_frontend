@@ -11,9 +11,9 @@ import { useNavigate } from 'react-router-dom';
 
 import { Country, State, City } from 'country-state-city';
 
-import { FieldSet, CustomSelect } from 'src/components/atoms';
+// import { FieldSet, CustomSelect } from 'src/components/atoms';
 
-import { UserNewAddressStore } from 'src/store/user/userStore';
+// import { UserNewAddressStore } from 'src/store/user/userStore';
 
 interface Option {
   value: string;
@@ -23,9 +23,9 @@ interface Option {
 const NewAddress = () => {
   const { enqueueSnackbar } = useSnackbar();
 
-  const { fetchedName } = User();
+  // const { fetchedName } = User();
 
-  const { NewAddress } = UserNewAddressStore();
+  // const { NewAddress } = UserNewAddressStore();
 
   const history = useNavigate();
 
@@ -105,12 +105,12 @@ const NewAddress = () => {
       );
     }
     try {
-      const address = await NewAddress(data);
-      if (address.status === 'success') {
-        return enqueueSnackbar('New Address Created', {
-          variant: 'success',
-        });
-      }
+      // const address = await NewAddress(data);
+      // if (address.status === 'success') {
+      //   return enqueueSnackbar('New Address Created', {
+      //     variant: 'success',
+      //   });
+      // }
     } catch (error: any) {
       if (error.message === 'Network Error') {
         return enqueueSnackbar(error.message, {
