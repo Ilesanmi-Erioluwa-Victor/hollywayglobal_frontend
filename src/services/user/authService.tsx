@@ -1,12 +1,10 @@
-/* eslint-disable no-useless-catch */
-
 import { registerI, loginI, newAddressI } from 'src/types';
 import { apiClient } from '../apiService';
 import { createAuthHeaders } from 'src/utils';
 
 const register = async (userData: registerI) => {
   try {
-    const response = await apiClient.post('user/signup', userData);
+    const response = await apiClient.post('auth/register', userData);
     return response.data;
   } catch (error) {
     throw error;
