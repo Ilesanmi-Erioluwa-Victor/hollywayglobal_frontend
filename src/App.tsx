@@ -15,7 +15,7 @@ import {
 } from './components';
 
 import { HomeLayout, Register, Login, Error, Home } from './pages';
-import { RegisterAction, LoginAction } from './actions';
+import { RegisterAction } from './actions';
 
 const router = createBrowserRouter([
   {
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       {
         element: <Login />,
         path: 'login',
-        action: LoginAction,
+        // action: LoginAction,
       },
 
       {

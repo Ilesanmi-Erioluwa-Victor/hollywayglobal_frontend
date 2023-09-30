@@ -1,5 +1,8 @@
 import { create } from 'zustand';
 
-import authService from 'src/services/user/authService';
+import { UserStore } from './types';
 
-import { UserState, LoginState, UserIdState, addAddress } from './states.types';
+export const useUserStore = create<UserStore>((set) => ({
+  user: null,
+  setUser: (user) => set({ user }),
+}));
