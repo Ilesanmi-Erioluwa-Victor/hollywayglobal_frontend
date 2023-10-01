@@ -1,9 +1,11 @@
-import { useState, createContext, useContext } from 'react';
-
+import { useState, useEffect } from 'react';
+import { useLoaderData, useNavigate, redirect } from 'react-router';
 import { Link, Outlet } from 'react-router-dom';
 import { AccountNav } from '../../../components/auth/userData';
+import User from 'src/components/auth/User';
 
 const AccountLayout = () => {
+  // const { user } = User();
   return (
     <div className='grid grid-cols-[_repeat(12,1fr)] px-[_calc(1rem_+_1vw)] gap-4 py-[2rem] lg:px-[_calc(1rem_+_8vw)]'>
       <div className='hidden col-[_1/_4] shadow-md rounded-md bg-white md:flex flex-col '>

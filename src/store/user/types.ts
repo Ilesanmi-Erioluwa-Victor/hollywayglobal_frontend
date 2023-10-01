@@ -6,7 +6,28 @@ export interface User {
   mobile: string;
 }
 
-export interface UserStore {
+export interface userUserStore {
   user: User | null;
-  setUser: (user: User | null) => void;
+  register: (data: any) => Promise<{
+    message: string;
+    status: string;
+  }>;
+
+  login: (data: { email: string; password: string }) => Promise<{
+    message: string;
+    status: string;
+    id: string;
+    token: string;
+  }>;
+
+  fetchedUser: (
+    userId: string,
+    token: string
+  ) => Promise<{
+    message: string;
+    status: string;
+    data: User | null;
+  }>;
+
+  isLoading: boolean;
 }

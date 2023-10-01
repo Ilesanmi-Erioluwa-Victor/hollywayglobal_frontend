@@ -38,8 +38,8 @@ const Home = () => {
   const navigate = useNavigate();
 
   const logout = async () => {
+    localStorage.removeItem('userInfo');
     navigate('/login');
-    await apiClient.get('/auth/logout');
     toast.success('Logged out successfully');
   };
 

@@ -92,7 +92,7 @@ body {
 p {
   margin: 0;
 }
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -106,7 +106,7 @@ h5 {
 
 h1 {
   font-size: clamp(2rem, 5vw, 5rem); /* Large heading */
-}
+/* } */
 
 h2 {
   font-size: clamp(1.5rem, 3vw, 3rem); /* Medium heading */
@@ -122,7 +122,7 @@ h4 {
 
 h5 {
   font-size: clamp(0.875rem, 1.5vw, 1.5rem); /* Tiny heading */
-}
+} */
 
 img {
   height: auto;

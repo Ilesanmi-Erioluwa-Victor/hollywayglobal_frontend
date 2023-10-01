@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from 'react-toastify';
-// import { SnackbarProvider } from 'notistack';
+import { BrowserRouter } from 'react-router-dom';
+import { SnackbarProvider } from 'notistack';
 import App from './App.tsx';
 import './index.css';
 
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {/* <SnackbarProvider autoHideDuration={2000}>
-    </SnackbarProvider> */}
-      <App />
-      <ToastContainer position='top-center' />
+    <SnackbarProvider autoHideDuration={2000}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </SnackbarProvider>
   </React.StrictMode>
 );

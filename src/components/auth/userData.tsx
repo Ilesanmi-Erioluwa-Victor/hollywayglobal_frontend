@@ -62,6 +62,7 @@ export const AccountNav: Nav[] = [
     icon: <PiCookingPotLight />,
   },
 
+  
   {
     id: uuidv4(),
     name: 'Delete Account',
@@ -73,13 +74,6 @@ export const AccountNav: Nav[] = [
     id: uuidv4(),
     name: 'Edit Profile',
     link: '/user/account/profile',
-    icon: <PiCookingPotLight />,
-  },
-
-  {
-    id: uuidv4(),
-    name: 'Logout',
-    link: '/user/account/updateImage',
     icon: <PiCookingPotLight />,
   },
 ];

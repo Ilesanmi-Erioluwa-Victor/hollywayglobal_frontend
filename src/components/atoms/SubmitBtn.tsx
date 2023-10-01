@@ -1,4 +1,4 @@
-import { useNavigation } from 'react-router-dom';
+import { useUserStore } from 'src/store/user/userStore';
 
 interface formBtnType {
   formBtn?: Boolean;
@@ -6,17 +6,14 @@ interface formBtnType {
 }
 
 const SubmitBtn = ({ formBtn, text }: formBtnType) => {
-    const navigation = useNavigation();
-    
-  const isSubmitting = navigation.state === 'submitting';
-
+  const { isLoading } = useUserStore();
   return (
     <button
       type='submit'
       className={`btn btn-block ${formBtn && 'form-btn'}`}
-      disabled={isSubmitting}
+      disabled={isLoading}
     >
-      {isSubmitting ? 'submitting' : text}
+      {isLoading ? 'loading ...' : text}
     </button>
   );
 };

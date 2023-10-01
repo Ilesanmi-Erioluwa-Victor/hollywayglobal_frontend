@@ -1,42 +1,32 @@
-// /* eslint-disable no-useless-catch */
-// /* eslint-disable @typescript-eslint/no-explicit-any */
-// import { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import { UserIdStore } from 'src/store/user/userStore';
-// import { userDetailI } from 'src/types';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useUserStore } from 'src/store/user/userStore';
 
 const User = () => {
-  //   const [storedUser, setStoredUser] = useState<userDetailI | null>(null);
-  //   const [fetchedName, setFetchedName] = useState({
-  //     firstName: '',
-  //     lastName: '',
-  //   });
-  //   const navigate = useNavigate();
-  //   const { User } = UserIdStore();
+  const navigate = useNavigate();
+  const { fetchedUser, isLoading } = useUserStore();
+  const [userInfo, setUserInfo] = useState(null);
 
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //       try {
-  //         const user = await User();
-  //         if (!user?.data?.id || !user?.data?.active) {
-  //           navigate('/login');
-  //         } else {
-  //           setStoredUser(user?.data);
-  //           setFetchedName({
-  //             firstName: user?.data?.firstName || '',
-  //             lastName: user?.data?.lastName || '',
-  //           });
-  //         }
-  //       } catch (err: any) {
-  //         throw (err);
-  //       }
-  //     };
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem('userInfo') as string);
 
-  //     fetchData();
-  //   }, [User, navigate]);
+    if (!storedData) {
+      navigate('/login');
+      return;
+    }
 
-  //   return { storedUser, fetchedName };
-  return <h1>Hello from User</h1>;
+    if (!storedData.id || !storedData.token) {
+      navigate('/login');
+      return;
+    }
+
+    const user = fetchedUser(storedData.id, storedData.token);
+    user.then((data) => {
+      setUserInfo(data.data as any);
+    });
+  }, [fetchedUser, navigate]);
+
+  return { userInfo };
 };
 
 export default User;

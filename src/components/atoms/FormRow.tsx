@@ -1,16 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+
 
 interface FormRowType {
   labelText?: string;
   name: string;
   onChange?: any;
   type: string;
+  value?: string;
 }
 
-const FormRow = ({ type, name, labelText, onChange }: FormRowType) => {
+const FormRow = ({ type, name, labelText, onChange, value }: FormRowType) => {
   return (
     <div className='form-row'>
       <label
@@ -25,6 +23,7 @@ const FormRow = ({ type, name, labelText, onChange }: FormRowType) => {
         name={name}
         className='form-input'
         onChange={onChange}
+        value={value}
       />
     </div>
   );
