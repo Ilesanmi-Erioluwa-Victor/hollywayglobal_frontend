@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { v4 as uuidv4 } from 'uuid';
 
 import {
@@ -62,7 +61,6 @@ export const AccountNav: Nav[] = [
     icon: <PiCookingPotLight />,
   },
 
-  
   {
     id: uuidv4(),
     name: 'Delete Account',

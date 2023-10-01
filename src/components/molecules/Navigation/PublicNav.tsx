@@ -5,12 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 import RoundedInput from '../../atoms/Input';
 
-type Nav = {
-  name: string;
-  title: string;
-  id: string;
-  link: string;
-};
+import { Nav } from 'src/types';
 
 const NavLinks: Nav[] = [
   {
