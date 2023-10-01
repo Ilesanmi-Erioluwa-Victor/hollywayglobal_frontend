@@ -11,12 +11,12 @@ const User = () => {
     const storedData = JSON.parse(localStorage.getItem('userInfo') as string);
 
     if (!storedData) {
-      navigate('/login');
+      navigate('/');
       return;
     }
 
     if (!storedData.id || !storedData.token) {
-      navigate('/login');
+      navigate('/');
       return;
     }
 

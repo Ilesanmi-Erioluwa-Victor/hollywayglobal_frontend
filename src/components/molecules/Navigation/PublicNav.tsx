@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -14,6 +15,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import Button from '@mui/material/Button';
 import MoreIcon from '@mui/icons-material/MoreVert';
 
 const Search = styled('div')(({ theme }) => ({
@@ -23,6 +25,9 @@ const Search = styled('div')(({ theme }) => ({
   border: '1px solid gray',
   marginLeft: '1rem',
   width: '60%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
   // [theme.breakpoints.up('sm')]: {
   //   marginLeft: theme.spacing(3),
   //   width: 'auto',
@@ -40,7 +45,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
+  color: 'white',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
@@ -94,8 +99,24 @@ const PublicNav = () => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <Link
+        onClick={handleMenuClose}
+        to={'/login'}
+      >
+        Sign in
+      </Link>
+      <Link
+        onClick={handleMenuClose}
+        to={'/login'}
+      >
+        My Account
+      </Link>
+      <Link
+        onClick={handleMenuClose}
+        to={'/login'}
+      >
+        Orders
+      </Link>
     </Menu>
   );
 
@@ -162,10 +183,16 @@ const PublicNav = () => {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, backgroundColor: '#232f3e' }}>
       <AppBar
         position='static'
-        sx={{ backgroundColor: '#232f3e', paddingX: '4rem' }}
+        sx={{
+          paddingX: '4rem',
+          width: '95%',
+          marginX: 'auto',
+          backgroundColor: 'inherit',
+          boxShadow: 'none',
+        }}
       >
         <Toolbar>
           {/* <IconButton
@@ -177,14 +204,12 @@ const PublicNav = () => {
           >
             <MenuIcon />
           </IconButton> */}
-          <Typography
-            variant='h6'
-            // noWrap
-            component='div'
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+          <Link
+            to={'/'}
+            className='text-[1.5rem]'
           >
             Hollyway
-          </Typography>
+          </Link>
           <form className='w-[100%] ml-[2rem]'>
             <Search>
               <SearchIconWrapper>
@@ -195,22 +220,18 @@ const PublicNav = () => {
                 inputProps={{ 'aria-label': 'search' }}
                 sx={{ width: '100%' }}
               />
+              <Button
+                variant='contained'
+                type='submit'
+                sx={{ backgroundColor: 'transparent', boxShadow: 'none' }}
+              >
+                Search
+              </Button>
             </Search>
           </form>
+
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton
-              size='large'
-              aria-label='show 4 new mails'
-              color='inherit'
-            >
-              <Badge
-                badgeContent={4}
-                color='error'
-              >
-                <MailIcon />
-              </Badge>
-            </IconButton>
             <IconButton
               size='large'
               aria-label='show 17 new notifications'
