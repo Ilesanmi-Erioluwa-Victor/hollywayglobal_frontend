@@ -4,8 +4,6 @@ import { userUserStore } from './types';
 
 import { apiClient } from 'src/services/apiService';
 
-import { toast } from 'react-toastify';
-
 export const useUserStore = create<userUserStore>((set) => ({
   user: null,
   isLoading: false,
