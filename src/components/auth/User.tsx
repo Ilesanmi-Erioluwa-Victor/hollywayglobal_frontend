@@ -1,32 +1,26 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, redirect } from 'react-router-dom';
+import { User } from 'src/store/user/types';
 import { useUserStore } from 'src/store/user/userStore';
 
-const User = () => {
+export const UserAuth = () => {
   const navigate = useNavigate();
-  const { fetchedUser, isLoading } = useUserStore();
-  const [userInfo, setUserInfo] = useState(null);
+  const { fetchedUser, user } = useUserStore();
+  const [userInfo, setUserInfo] = useState<User | null>(null);
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem('userInfo') as string);
-
-    if (!storedData) {
-      navigate('/');
-      return;
+    if (storedData) {
+      (async () => {
+        try {
+          const user = await fetchedUser(storedData.id, storedData.token);
+          setUserInfo(user.data as any);
+        } catch (error: any) {
+          throw error;
+        }
+      })();
     }
-
-    if (!storedData.id || !storedData.token) {
-      navigate('/');
-      return;
-    }
-
-    const user = fetchedUser(storedData.id, storedData.token);
-    user.then((data) => {
-      setUserInfo(data.data as any);
-    });
-  }, [fetchedUser, navigate]);
+  }, []);
 
   return { userInfo };
 };
-
-export default User;

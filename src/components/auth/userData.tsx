@@ -6,6 +6,8 @@ import {
   PiBabyLight,
 } from 'react-icons/pi';
 
+import { CgProfile } from 'react-icons/cg';
+
 import { FaAppleAlt } from 'react-icons/fa';
 
 import { GiLipstick } from 'react-icons/gi';
@@ -73,5 +75,24 @@ export const AccountNav: Nav[] = [
     name: 'Edit Profile',
     link: '/user/account/profile',
     icon: <PiCookingPotLight />,
+  },
+];
+
+export const publicNav: Nav[] = [
+  {
+    id: uuidv4(),
+    name: 'Register',
+    link: '/register',
+  },
+  {
+    id: uuidv4(),
+    name: 'My Account',
+    link: '/user/account',
+  },
+
+  {
+    id: uuidv4(),
+    name: 'Orders',
+    link: '/user/account/orders',
   },
 ];
