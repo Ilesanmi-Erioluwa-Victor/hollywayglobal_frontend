@@ -50,8 +50,8 @@ const CategorySection = () => {
   return (
     <div className='bg-white  p-4 shadow-md rounded-md'>
       <div className='flex gap-6 items-center'>
-        <span className='block w-6 rounded-sm h-12 bg-[#DB4444]'></span>
-        <span className='block text-[#DB4444]'>categories</span>
+        <span className='block w-6 rounded-sm h-12 bg-green-500'></span>
+        <span className='block text-green-500'>categories</span>
       </div>
 
       <h2 className='mt-8 font-[400] text-lg mb-10'>Browse By Category</h2>
@@ -60,7 +60,7 @@ const CategorySection = () => {
         {subCategory.map((cat) => (
           <div
             key={cat?.id}
-            className='cursor-pointer b hover:text-white gap-6 hover:bg-[#DB4444] transition-all hover:border-transparent border-[1px]  p-7 items-center justify-between flex flex-col rounded-sm'
+            className='cursor-pointer b hover:text-white gap-6 hover:bg-green-500 transition-all hover:border-transparent border-[1px]  p-7 items-center justify-between flex flex-col rounded-sm'
           >
             <div className=' text-[2rem]'>{cat.icon}</div>
             <h2 className=' text-[0.9rem]'>{cat.name}</h2>

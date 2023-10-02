@@ -36,24 +36,9 @@ const remarks = [
 ];
 
 const Home = () => {
-  const navigate = useNavigate();
-
-  const logout = async () => {
-    localStorage.removeItem('userInfo');
-    navigate('/');
-    toast.success('Logged out successfully');
-  };
-
   return (
     <GeneralLayouts>
       <div className='padd flex flex-col gap-y-4 py-4'>
-        <button
-          type='button'
-          onClick={logout}
-          className='text-red-600'
-        >
-          logout
-        </button>
         <Hero />
         <SubHero />
         <CategorySection />
