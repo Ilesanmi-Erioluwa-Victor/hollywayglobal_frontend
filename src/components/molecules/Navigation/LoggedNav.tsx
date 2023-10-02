@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { BiSearch, BiHeartCircle } from 'react-icons/bi';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
@@ -10,11 +10,11 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import RoundedInput from '../../atoms/Input';
 
 import { AccountNav } from '../../auth/userData';
 
-const LoggedNav = ({ user }): JSX.Element => {
+const LoggedNav = ({ user }: any): JSX.Element => {
+  console.log(user.data);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -29,11 +29,6 @@ const LoggedNav = ({ user }): JSX.Element => {
     <nav className='padd2 gap-[1rem] md:gap-0 flex justify-between items-center text-[0.8rem]'>
       <div>logo</div>
 
-      <RoundedInput
-        placeholder='What are you looking for?'
-        icon={<BiSearch className='w-4 h-4' />}
-        fieldsetClass='w-[100%] mx-4 lg:w-[auto]'
-      />
       <ul className='flex items-center justify-between gap-4'>
         <li>
           <Link
@@ -57,7 +52,7 @@ const LoggedNav = ({ user }): JSX.Element => {
         </li>
 
         <li>
-          <Box sx={{ flexGrow: 0 }}>
+          <div>
             <Tooltip title={` Settings`}>
               <IconButton
                 onClick={handleOpenUserMenu}
@@ -66,11 +61,11 @@ const LoggedNav = ({ user }): JSX.Element => {
                 {!user ? (
                   <CgProfile />
                 ) : (
-                  <div className="">
+                  <div className='w-[2.5rem]'>
                     <img
-                      src={user?.profilePhoto}
-                        alt={`${user?.firstName} ${user?.lastName}`}
-                        className="w-[3rem] rounded-[50%] w-max-full"
+                      src={user?.data?.profilePhoto}
+                      alt={`${user?.data?.firstName} ${user?.data?.lastName}`}
+                      className=' rounded-[50%] img'
                     />
                   </div>
                 )}
@@ -107,7 +102,7 @@ const LoggedNav = ({ user }): JSX.Element => {
                 </MenuItem>
               ))}
             </Menu>
-          </Box>
+          </div>
         </li>
       </ul>
     </nav>

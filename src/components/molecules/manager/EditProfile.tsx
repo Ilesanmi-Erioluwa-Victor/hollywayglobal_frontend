@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import { FieldSet } from '../../../components/atoms';
+// import { FieldSet } from '../../../components/atoms';
 import { BiUserCheck } from 'react-icons/bi';
 
 import { useSnackbar } from 'notistack';
@@ -51,7 +51,7 @@ const EditProfile = () => {
       </div>
       <hr className='mb-4' />
 
-      <FieldSet
+      {/* <FieldSet
         label={'First Name'}
         id={'firstName'}
         name='firstName'
@@ -76,7 +76,7 @@ const EditProfile = () => {
         onChange={handleInputChange}
         value={data.email}
         type='email'
-      />
+      /> */}
       <button
         type='submit'
         className='flex items-center justify-end bg-[#DB4444] ml-auto mt-4 p-3 rounded-md text-white'

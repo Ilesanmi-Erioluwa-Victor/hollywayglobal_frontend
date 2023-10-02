@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 
-import { FieldSet } from '../../components/atoms';
+// import { FieldSet } from '../../components/atoms';
 import Image from '../../assets/react.svg';
 
 const Checkout = () => {
@@ -30,7 +30,7 @@ const Checkout = () => {
   return (
     <div className='py-[2rem] px-6 md:p-8vw'>
       <div className='flex justify-between items-center flex-col md:flex-row'>
-        <form
+        {/* <form
           className='flex flex-col gap-[1rem] w-[100%]'
           onSubmit={handleInputSubmit}
         >
@@ -81,7 +81,7 @@ const Checkout = () => {
               type='text'
             />
           </div>
-        </form>
+        </form> */}
 
         <div className='w-[100%] md:p-8vw'>
           <div className='mt-10 flex text-[0.8rem] gap-4 ml-[auto] p-5 rounded-sm flex-col'>

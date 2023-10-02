@@ -1,74 +1,59 @@
-/* eslint-disable react-refresh/only-export-components */
-/* eslint-disable no-useless-catch */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { create } from 'zustand';
 
-import authService from 'src/services/user/authService';
+import { userUserStore } from './types';
 
-import { UserState, LoginState, UserIdState, addAddress } from './states.types';
+import { apiClient } from 'src/services/apiService';
 
-import { registerI, loginI, newAddressI } from 'src/types';
-
-import { getUserDataFromLocalStorage } from 'src/utils';
-
-export const registerUserStore = create<UserState>(() => ({
-  signUp: async (userData: registerI) => {
+export const useUserStore = create<userUserStore>((set) => ({
+  user: null,
+  isLoading: false,
+  register: async (data) => {
     try {
-      const response = await authService.register(userData);
-      const { message, status } = await response;
-      return {
-        message,
-        status,
-      };
+      set({ isLoading: true });
+      const response = await apiClient.post('auth/register', data);
+      const returnedData = await response.data;
+      console.log(response, returnedData);
+      return returnedData;
     } catch (error: any) {
       throw error;
+    } finally {
+      set({ isLoading: false });
     }
   },
-}));
 
-export const loginUserStore = create<LoginState>(() => ({
-  Login: async (userData: loginI) => {
+  login: async (data) => {
+    set({ isLoading: true });
     try {
-      const response = await authService.login(userData);
-      const { message, status, data } = await response;
-      return {
-        message,
-        data,
-        status,
-      };
+      const response = await apiClient.post('auth/login', data);
+      const returnedData = await response.data;
+      return returnedData;
     } catch (error: any) {
       throw error;
+    } finally {
+      set({ isLoading: false });
     }
   },
-}));
 
-export const UserIdStore = create<UserIdState>(() => ({
-  User: async () => {
-    const { token, id } = getUserDataFromLocalStorage();
+  fetchedUser: async (userId, token) => {
+    set({ isLoading: true });
     try {
-      const response = await authService.userId(id, token);
-      return {
-        data: response,
-      };
-    } catch (error: any) {
-      throw error;
-    }
-  },
-}));
+      const response = await apiClient.get(`user/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-export const UserNewAddressStore = create<addAddress>(() => ({
-  NewAddress: async (address: newAddressI) => {
-    const { token, id } = getUserDataFromLocalStorage();
-    try {
-      const response = await authService.createAddress(address, id, token);
-      const { status, data } = await response;
-      return {
-        data,
-        status,
-      };
+      const data = await response.data;
+      set({ user: data?.data });
+      return { data, message: data?.message, status: data?.status };
     } catch (error: any) {
-      throw error;
+      return {
+        data: null,
+        message: 'error fetching user',
+        status: 'failed',
+      };
+    } finally {
+      set({ isLoading: false });
     }
   },
 }));

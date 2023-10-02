@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { v4 as uuidv4 } from 'uuid';
 
 import {
@@ -6,6 +5,8 @@ import {
   PiTelevisionSimpleLight,
   PiBabyLight,
 } from 'react-icons/pi';
+
+import { CgProfile } from 'react-icons/cg';
 
 import { FaAppleAlt } from 'react-icons/fa';
 
@@ -75,11 +76,23 @@ export const AccountNav: Nav[] = [
     link: '/user/account/profile',
     icon: <PiCookingPotLight />,
   },
+];
+
+export const publicNav: Nav[] = [
+  {
+    id: uuidv4(),
+    name: 'Register',
+    link: '/register',
+  },
+  {
+    id: uuidv4(),
+    name: 'My Account',
+    link: '/user/account',
+  },
 
   {
     id: uuidv4(),
-    name: 'Logout',
-    link: '/user/account/updateImage',
-    icon: <PiCookingPotLight />,
+    name: 'Orders',
+    link: '/user/account/orders',
   },
 ];

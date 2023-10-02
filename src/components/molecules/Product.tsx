@@ -1,10 +1,10 @@
 import  { useState } from 'react';
 import { BsTruck } from 'react-icons/bs';
 import { GrPowerCycle } from 'react-icons/gr';
-import Image from '../../assets/boom.png';
-import Image2 from '../../assets/dark_800.png';
-import Image3 from '../../assets/error-page.svg';
-import Image4 from '../../assets/boom.png';
+import Image from '../../assets/images/not-found.svg';
+import Image2 from '../../assets/images/dark_800.png';
+import Image3 from '../../assets/images/error-page.svg';
+import Image4 from '../../assets/images/not-found.svg';
 import Image5 from '../../assets/react.svg';
 
 const Product = () => {

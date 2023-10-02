@@ -1,41 +1,26 @@
-/* eslint-disable no-useless-catch */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { UserIdStore } from 'src/store/user/userStore';
-import { userDetailI } from 'src/types';
+import { useNavigate, redirect } from 'react-router-dom';
+import { User } from 'src/store/user/types';
+import { useUserStore } from 'src/store/user/userStore';
 
-const User = () => {
-  const [storedUser, setStoredUser] = useState<userDetailI | null>(null);
-  const [fetchedName, setFetchedName] = useState({
-    firstName: '',
-    lastName: '',
-  });
+export const UserAuth = () => {
   const navigate = useNavigate();
-  const { User } = UserIdStore();
+  const { fetchedUser, user } = useUserStore();
+  const [userInfo, setUserInfo] = useState<User | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const user = await User();
-        if (!user?.data?.id || !user?.data?.active) {
-          navigate('/login');
-        } else {
-          setStoredUser(user?.data);
-          setFetchedName({
-            firstName: user?.data?.firstName || '',
-            lastName: user?.data?.lastName || '',
-          });
+    const storedData = JSON.parse(localStorage.getItem('userInfo') as string);
+    if (storedData) {
+      (async () => {
+        try {
+          const user = await fetchedUser(storedData.id, storedData.token);
+          setUserInfo(user.data as any);
+        } catch (error: any) {
+          throw error;
         }
-      } catch (err: any) {
-        throw (err);
-      }
-    };
+      })();
+    }
+  }, []);
 
-    fetchData();
-  }, [User, navigate]);
-
-  return { storedUser, fetchedName };
+  return { userInfo };
 };
-
-export default User;

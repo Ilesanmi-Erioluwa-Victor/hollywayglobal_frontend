@@ -20,4 +20,4 @@ export { default as ChangeImage } from './molecules/manager/ChangeImage';
 export { default as AccountLayout } from './molecules/manager';
 export { default as EditProfile } from './molecules/manager/EditProfile';
 export { default as Product } from './molecules/Product';
-export { default as Profile } from './auth/User';
+

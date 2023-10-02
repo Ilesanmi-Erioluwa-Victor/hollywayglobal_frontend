@@ -1,23 +1,20 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-useless-catch */
-import { ChangeEvent, useState } from 'react';
-
 import { Link, useNavigate } from 'react-router-dom';
 
-import Button from '@mui/material/Button';
+import { FormRow, SubmitBtn } from '../components/atoms';
 
-import { registerUserStore } from '../store/user/userStore';
+import Wrapper from 'src/assets/wrappers/RegisterAndLoginWrapper';
+
+import { ChangeEvent, useState } from 'react';
 
 import { useSnackbar } from 'notistack';
 
-import { FieldSet } from '../components/atoms';
-
-import { ImagePage } from '../components';
+import { useUserStore } from 'src/store/user/userStore';
 
 const Register = () => {
+  const { register } = useUserStore();
+
   const { enqueueSnackbar } = useSnackbar();
 
-  const { signUp } = registerUserStore();
   const navigate = useNavigate();
 
   const [data, setData] = useState({
@@ -45,7 +42,8 @@ const Register = () => {
     }
 
     try {
-      const user = await signUp(data);
+      const user = await register(data);
+      console.log(user);
       if (user?.status === 'success') {
         navigate('/login');
         return enqueueSnackbar('login into your account', {
@@ -60,93 +58,74 @@ const Register = () => {
         lastName: '',
       });
     } catch (error: any) {
-      return enqueueSnackbar(error.response.data.message, {
+      if (error?.code === 'ERR_NETWORK') {
+        return enqueueSnackbar(error?.message, {
+          variant: 'error',
+        });
+      }
+      return enqueueSnackbar(error?.response?.data?.message, {
         variant: 'error',
       });
     }
   };
 
   return (
-    <div className='paddTop flex'>
-      <ImagePage />
+    <Wrapper>
+      <form
+        className='form'
+        onSubmit={handleInputSubmit}
+      >
+        {/* <Logo /> */}
+        <h4>Register</h4>
+        <FormRow
+          type={'text'}
+          name={'firstName'}
+          labelText={'first name'}
+          onChange={handleInputChange}
+          value={data.firstName}
+        />
 
-      <div className='padd w-[100%] md:w-[45%] py-[1rem] paddTop self-center place-self-center content-center'>
-        <form
-          className='flex flex-col gap-[1rem]'
-          onSubmit={handleInputSubmit}
-        >
-          <h3 className='text-[1.8rem] font-[500]  tracking-[1.44px] md:text-[1.6rem] md:tracking-[0px] lg:text-[2rem]'>
-            Create an account
-          </h3>
-          <p className='font-[400] text-[1.3rem]'>Enter your details below</p>
-          <div className='flex flex-col gap-[1rem]'>
-            <FieldSet
-              name='firstName'
-              label='firstName'
-              value={data.firstName}
-              onChange={handleInputChange}
-              id='firstName'
-              type='text'
-            />
+        <FormRow
+          type={'text'}
+          name={'lastName'}
+          labelText={'last name'}
+          onChange={handleInputChange}
+          value={data.lastName}
+        />
 
-            <FieldSet
-              name='lastName'
-              label='lastName'
-              value={data.lastName}
-              onChange={handleInputChange}
-              id='lastName'
-              type='text'
-            />
+        <FormRow
+          type={'text'}
+          name={'email'}
+          onChange={handleInputChange}
+          value={data.email}
+        />
 
-            <FieldSet
-              name='password'
-              label='password'
-              value={data.password}
-              onChange={handleInputChange}
-              id='password'
-              type='password'
-            />
+        <FormRow
+          type={'password'}
+          name={'password'}
+          onChange={handleInputChange}
+          value={data.password}
+        />
 
-            <FieldSet
-              name='email'
-              label='email'
-              value={data.email}
-              onChange={handleInputChange}
-              id='email'
-              type='email'
-            />
+        <FormRow
+          type={'text'}
+          name={'mobile'}
+          onChange={handleInputChange}
+          value={data.mobile}
+        />
 
-            <FieldSet
-              name='mobile'
-              label='mobile'
-              value={data.mobile}
-              onChange={handleInputChange}
-              id='mobile'
-              type='text'
-            />
-          </div>
-          <Button
-            variant='contained'
-            size='large'
-            type='submit'
-            sx={{
-              backgroundColor: '#DB4444',
-            }}
-          >
-            Register
-          </Button>
-        </form>
-        <p className='text-[1rem] flex justify-end items-center pt-2 gap-4'>
-          Already have account?{' '}
+        <SubmitBtn text='register' />
+        <p>
+          Already a member ?
           <Link
             to={'/login'}
-            className='text-[#DB4444]'
+            className='member-btn'
           >
             Login
           </Link>
         </p>
-      </div>
-    </div>
+      </form>
+    </Wrapper>
   );
 };
 
