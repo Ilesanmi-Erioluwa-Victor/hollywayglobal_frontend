@@ -2,21 +2,22 @@ import { useEffect, useState } from 'react';
 
 import { User } from 'src/store/user/types';
 
-import { useAppDispatch } from 'src/redux/hooks';
+import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
 
 import { userAction } from 'src/redux/slices/user';
 
 export const UserAuth = () => {
   const dispatch = useAppDispatch();
 
+  const { data } = useAppSelector((state) => state.user);
+
   const [userInfo, setUserInfo] = useState<User | null>(null);
 
   useEffect(() => {
-    const storedData = JSON.parse(localStorage.getItem('userInfo') as string);
-    if (storedData) {
+    if (data) {
       (async () => {
         try {
-          const resultUserAction = await dispatch(userAction(storedData));
+          const resultUserAction = await dispatch(userAction(data));
           if (userAction.fulfilled.match(resultUserAction)) {
             if (resultUserAction?.payload.status === 'success') {
               setUserInfo(resultUserAction?.payload?.data as User);
@@ -27,7 +28,6 @@ export const UserAuth = () => {
         }
       })();
     }
-  }, []);
-
+  }, [data]);
   return { userInfo };
 };

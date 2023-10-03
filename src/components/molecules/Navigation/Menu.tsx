@@ -16,11 +16,7 @@ import Logo from '../../../assets/favicon.ico';
 import { AccountNav, publicNav } from '../../auth/userData';
 import { FormRow, SubmitBtn } from 'src/components/atoms';
 
-interface User {
-  user?: any;
-}
-
-const MenuNav = ({ user }: User): JSX.Element => {
+const MenuNav = ({ user }: any): JSX.Element => {
   const navigate = useNavigate();
 
   const { enqueueSnackbar } = useSnackbar();
@@ -34,8 +30,6 @@ const MenuNav = ({ user }: User): JSX.Element => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
-  console.log(user)
 
   const logout = async () => {
     localStorage.removeItem('userInfo');
@@ -90,9 +84,7 @@ const MenuNav = ({ user }: User): JSX.Element => {
           <div>
             <Tooltip
               title={
-                user
-                  ? `${user?.firstName} ${user?.lastName}`
-                  : 'Default user'
+                user ? `${user?.firstName} ${user?.lastName}` : 'Default user'
               }
             >
               <IconButton

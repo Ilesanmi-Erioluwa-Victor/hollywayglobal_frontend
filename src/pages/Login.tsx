@@ -55,7 +55,6 @@ const Login = () => {
       const resultAction = await dispatch(loginAction(data));
 
       if (loginAction.fulfilled.match(resultAction)) {
-
         if (resultAction?.payload.status === 'success') {
           const token = resultAction?.payload?.token;
           const id = resultAction?.payload?.id;

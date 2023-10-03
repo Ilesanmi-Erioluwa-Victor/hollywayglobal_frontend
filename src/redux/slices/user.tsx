@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { apiClient } from 'src/services/apiService';
 import { User } from 'src/types';
-import { UserAuth } from 'src/components/auth/User';
 
 export const registerAction = createAsyncThunk(
   'users/register',
@@ -27,6 +26,11 @@ export const loginAction = createAsyncThunk(
   }
 );
 
+interface Data {
+  id: any;
+  token: any;
+}
+
 export const userAction = createAsyncThunk(
   'users/profile',
   async (data: { id: string; token: string }, { rejectWithValue }) => {
@@ -51,6 +55,7 @@ interface InitialState {
   isLoading: boolean;
   user: User | null;
   error: any;
+  data: Data | null;
 }
 
 const usersSlices = createSlice({
@@ -59,6 +64,7 @@ const usersSlices = createSlice({
     user: null,
     isLoading: false,
     error: null,
+    data: storedData,
   } as InitialState,
   reducers: {},
 
@@ -88,18 +94,22 @@ const usersSlices = createSlice({
     // login
     builder.addCase(loginAction.pending, (state) => {
       state.isLoading = true;
+      state.user = null;
+      state.error = null;
     });
     builder.addCase(
       loginAction.fulfilled,
-      (state, action: PayloadAction<User>) => {
+      (state, action: PayloadAction<User | any>) => {
         state.isLoading = false;
         state.user = null;
         state.error = null;
+        state.data = action?.payload;
       }
     );
     builder.addCase(loginAction.rejected, (state, action: any) => {
       state.isLoading = false;
       state.user = null;
+      state.data = null;
       if (action?.payload) {
         state.error = action?.payload?.message;
       } else {

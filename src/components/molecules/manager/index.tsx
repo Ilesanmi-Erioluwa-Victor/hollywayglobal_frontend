@@ -3,18 +3,23 @@ import { useNavigate } from 'react-router-dom';
 import { Link, Outlet } from 'react-router-dom';
 import { AccountNav } from '../../../components/auth/userData';
 import { GeneralLayouts } from 'src/layouts/GeneralLayouts';
+import { useAppSelector } from 'src/redux/hooks';
 import { UserAuth } from 'src/components/auth/User';
 
 const AccountLayout = () => {
   const navigate = useNavigate();
-  const  userInfo  = [{id : "yytyty"}];
 
-  // useEffect(() => {
-  //   if (!userInfo?.data) {
-  //     navigate('/');
-  //   }
-  // }, [userInfo, navigate]);
+  UserAuth().userInfo;
 
+  const { user, data } = useAppSelector((state) => state.user);
+
+  const returnedData = user?.data;
+
+  useEffect(() => {
+    if (!data) {
+      navigate('/');
+    }
+  }, [data]);
 
   return (
     <GeneralLayouts>
@@ -35,7 +40,7 @@ const AccountLayout = () => {
         </div>
 
         <div className='col-[_1/_-1] md:col-[_4/_-1] shadow-md rounded-md  bg-white'>
-          <Outlet context={{ userInfo }} />
+          <Outlet context={{ returnedData }} />
         </div>
       </div>
     </GeneralLayouts>
