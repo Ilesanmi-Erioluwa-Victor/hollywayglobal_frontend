@@ -5,7 +5,7 @@ import { useUserStore } from 'src/store/user/userStore';
 
 export const UserAuth = () => {
   const navigate = useNavigate();
-  const { fetchedUser, user } = useUserStore();
+  const { fetchedUser} = useUserStore();
   const [userInfo, setUserInfo] = useState<User | null>(null);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export const UserAuth = () => {
       (async () => {
         try {
           const user = await fetchedUser(storedData.id, storedData.token);
-          setUserInfo(user.data as any);
+          setUserInfo(user.data as User);
         } catch (error: any) {
           throw error;
         }

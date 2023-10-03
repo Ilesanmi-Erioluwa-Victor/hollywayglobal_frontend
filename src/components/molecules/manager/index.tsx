@@ -10,10 +10,11 @@ const AccountLayout = () => {
   const { userInfo } = UserAuth();
 
   useEffect(() => {
-    if (!userInfo) {
+    if (!userInfo?.data) {
       navigate('/');
     }
   }, [userInfo, navigate]);
+
 
   return (
     <GeneralLayouts>

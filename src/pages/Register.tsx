@@ -8,10 +8,14 @@ import { ChangeEvent, useState } from 'react';
 
 import { useSnackbar } from 'notistack';
 
-import { useUserStore } from 'src/store/user/userStore';
+import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
+
+import { registerAction } from 'src/redux/slices/user';
 
 const Register = () => {
-  const { register } = useUserStore();
+  const { isLoading } = useAppSelector((state) => state.user);
+
+  const dispatch = useAppDispatch();
 
   const { enqueueSnackbar } = useSnackbar();
 
@@ -42,14 +46,21 @@ const Register = () => {
     }
 
     try {
-      const user = await register(data);
-      console.log(user);
-      if (user?.status === 'success') {
-        navigate('/login');
-        return enqueueSnackbar('login into your account', {
-          variant: 'success',
+      const resultAction = await dispatch(registerAction(data));
+
+      if (registerAction.fulfilled.match(resultAction)) {
+        const user = resultAction.payload === 'success';
+
+        if (resultAction?.payload.status === 'success') {
+          navigate('/login');
+        }
+      } else if (registerAction.rejected.match(resultAction)) {
+        const error: any = resultAction.payload;
+        return enqueueSnackbar(error.message, {
+          variant: 'error',
         });
       }
+
       setData({
         password: '',
         email: '',
@@ -57,15 +68,8 @@ const Register = () => {
         firstName: '',
         lastName: '',
       });
-    } catch (error: any) {
-      if (error?.code === 'ERR_NETWORK') {
-        return enqueueSnackbar(error?.message, {
-          variant: 'error',
-        });
-      }
-      return enqueueSnackbar(error?.response?.data?.message, {
-        variant: 'error',
-      });
+    } catch (err: any) {
+      throw err;
     }
   };
 
@@ -114,7 +118,8 @@ const Register = () => {
           value={data.mobile}
         />
 
-        <SubmitBtn text='register' />
+        {isLoading ? 'loading' : <SubmitBtn text='register' />}
+
         <p>
           Already a member ?
           <Link

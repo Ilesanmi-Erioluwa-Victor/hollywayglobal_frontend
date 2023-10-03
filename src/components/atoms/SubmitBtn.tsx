@@ -1,4 +1,4 @@
-import { useUserStore } from 'src/store/user/userStore';
+import { useAppSelector } from 'src/redux/hooks';
 
 interface formBtnType {
   formBtn?: Boolean;
@@ -6,7 +6,7 @@ interface formBtnType {
 }
 
 const SubmitBtn = ({ formBtn, text }: formBtnType) => {
-  const { isLoading } = useUserStore();
+  const { isLoading } = useAppSelector((state) => state.user);
   return (
     <button
       type='submit'

@@ -8,12 +8,14 @@ import { FormRow, SubmitBtn } from 'src/components/atoms';
 
 import { useSnackbar } from 'notistack';
 
-import { useUserStore } from 'src/store/user/userStore';
+import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
+
+import { loginAction } from 'src/redux/slices/user';
 
 import { userToken } from 'src/hooks/useLocalStorage';
 
 const Login = () => {
-  const { login, isLoading } = useUserStore();
+  const dispatch = useAppDispatch();
 
   const { enqueueSnackbar } = useSnackbar();
 
@@ -40,14 +42,35 @@ const Login = () => {
       });
 
     try {
-      const user = await login(data);
-      if (user && user.status === 'success') {
-        const token = user?.token;
-        const id = user?.id;
-        userToken(token, id);
-        navigate('/user/account');
-        return enqueueSnackbar('You have successfully logged in', {
-          variant: 'success',
+      // const user = await login(data);
+      // if (user && user.status === 'success') {
+      //   const token = user?.token;
+      //   const id = user?.id;
+      //   userToken(token, id);
+      //   navigate('/user/account');
+      //   return enqueueSnackbar('You have successfully logged in', {
+      //     variant: 'success',
+      //   });
+      // }
+      const resultAction = await dispatch(loginAction(data));
+
+      if (loginAction.fulfilled.match(resultAction)) {
+        const user = resultAction.payload === 'success';
+
+        if (resultAction?.payload.status === 'success') {
+          console.log(resultAction, resultAction.payload.data);
+          const token = resultAction?.payload?.token;
+          const id = resultAction?.payload?.id;
+          userToken(token, id);
+          navigate('/');
+          return enqueueSnackbar('you have successfully logged in', {
+            variant: 'success',
+          });
+        }
+      } else if (loginAction.rejected.match(resultAction)) {
+        const error: any = resultAction.payload;
+        return enqueueSnackbar(error.message, {
+          variant: 'error',
         });
       }
     } catch (error: any) {
@@ -55,7 +78,6 @@ const Login = () => {
         return enqueueSnackbar(error?.message, {
           variant: 'error',
         });
-        
       }
       return enqueueSnackbar(error?.response?.data?.message, {
         variant: 'error',
