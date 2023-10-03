@@ -11,16 +11,13 @@ const AccountLayout = () => {
 
   UserAuth().userInfo;
 
-  const { user, data } = useAppSelector((state) => state.user);
-
-  const returnedData = user?.data;
+  const { data } = useAppSelector((state) => state.user);
 
   useEffect(() => {
     if (!data) {
       navigate('/');
     }
   }, [data]);
-
   return (
     <GeneralLayouts>
       <div className='grid grid-cols-[_repeat(12,1fr)] px-[_calc(1rem_+_1vw)] gap-4 py-[2rem] lg:px-[_calc(1rem_+_8vw)]'>
@@ -40,7 +37,8 @@ const AccountLayout = () => {
         </div>
 
         <div className='col-[_1/_-1] md:col-[_4/_-1] shadow-md rounded-md  bg-white'>
-          <Outlet context={{ returnedData }} />
+          <Outlet />
+      
         </div>
       </div>
     </GeneralLayouts>
