@@ -109,12 +109,6 @@ const NewAddress = () => {
       );
     }
     try {
-      // const address = await NewAddress(data);
-      // if (address.status === 'success') {
-      //   return enqueueSnackbar('New Address Created', {
-      //     variant: 'success',
-      //   });
-      // }
       const resultAction = await dispatch(createAddressAction(data));
 
       if (createAddressAction.fulfilled.match(resultAction)) {
