@@ -1,6 +1,20 @@
+import { useEffect, useState } from 'react';
 import { Link, Outlet, useMatch } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
+import { getAddressesAction } from 'src/redux/slices/address';
 
 const AddressBook = () => {
+  const dispatch = useAppDispatch();
+  const [address, setAddress] = useState(null);
+  const { data } = useAppSelector((state) => state.user);
+  useEffect(() => {
+    const response = async () => {
+      const address = await dispatch(getAddressesAction(data));
+      setAddress(address?.payload?.data);
+    };
+    response();
+  }, [data, dispatch]);
+
   const isCreateRoute = useMatch('/user/account/address/create');
   return (
     <div className='p-6'>
@@ -20,10 +34,9 @@ const AddressBook = () => {
       )}
 
       <div>
-          <Outlet />
+        <Outlet />
       </div>
     </div>
-
   );
 };
 

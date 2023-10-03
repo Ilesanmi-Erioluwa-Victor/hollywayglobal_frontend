@@ -141,7 +141,7 @@ const NewAddress = () => {
       <div className='flex items-center gap-4 mb-3'>
         <button
           onClick={() => history(-1)}
-          className=' text-white p-2 rounded-sm bg-green-500 text-[1rem]'
+          className=' text-white p-2 rounded-sm bg-green-500 text-[1rem] hover:bg-[#048a35] transition-all'
           title='Go Back'
         >
           <TbArrowBack />
@@ -235,7 +235,7 @@ const NewAddress = () => {
 
         <button
           type='submit'
-          className='flex items-center justify-end bg-green-500 ml-auto mt-4 p-3 rounded-md text-white'
+          className='flex items-center justify-end bg-green-500 ml-auto mt-4 p-3 rounded-md text-white hover:bg-[#048a35] transition-all'
         >
           {addressLoader ? 'loading...' : 'Save changes'}
         </button>

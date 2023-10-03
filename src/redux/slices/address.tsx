@@ -21,6 +21,23 @@ export const createAddressAction = createAsyncThunk<
   }
 });
 
+export const getAddressesAction = createAsyncThunk<
+  any,
+  any,
+  { rejectValue: any; state: RootState }
+>('users/get_addresses', async (data: any, { rejectWithValue, getState }) => {
+  //   const userData = getState()?.user?.data;
+  try {
+    const response = await apiClient.get(
+      `user/${data?.id}/address`,
+      createAuthHeaders(data?.token)
+    );
+    return response.data;
+  } catch (error: any) {
+    return rejectWithValue(error.response.data);
+  }
+});
+
 interface InitialState {
   isLoading: boolean;
   address: any;
@@ -50,6 +67,28 @@ const addressSlices = createSlice({
       }
     );
     builder.addCase(createAddressAction.rejected, (state, action: any) => {
+      state.isLoading = false;
+      state.address = null;
+      if (action?.payload) {
+        state.error = action?.payload?.message;
+      } else {
+        state.error = action?.error;
+      }
+    });
+
+    //   get addresses
+    builder.addCase(getAddressesAction.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(
+      getAddressesAction.fulfilled,
+      (state, action: PayloadAction<any>) => {
+        state.isLoading = false;
+        state.address = action?.payload;
+        state.error = null;
+      }
+    );
+    builder.addCase(getAddressesAction.rejected, (state, action: any) => {
       state.isLoading = false;
       state.address = null;
       if (action?.payload) {
