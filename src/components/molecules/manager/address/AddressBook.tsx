@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link, Outlet, useMatch } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
 import { getAddressesAction } from 'src/redux/slices/address';
-import { MdOutlineDelete } from 'react-icons/md';
-import { CiEdit } from 'react-icons/ci';
+import { MdOutlineDelete, MdEdit } from 'react-icons/md';
+import UserModal from 'src/components/atoms/Modal';
 
 const AddressBook = () => {
   const dispatch = useAppDispatch();
@@ -17,7 +17,7 @@ const AddressBook = () => {
     response();
   }, [data, dispatch]);
 
-  console.log(address);
+  UserModal;
   const isCreateRoute = useMatch('/user/account/address/create');
   return (
     <div className='p-6'>
@@ -61,17 +61,17 @@ const AddressBook = () => {
                   <hr />
                   <div className='flex justify-between items-center'>
                     <button
-                      onClick={data.id}
+                      // onClick={data.id}
                       className='p-2 text-[1.5rem] cursor-pointer transition-all rounded-[50%] hover:bg-green-500 hover:text-white'
                     >
                       {' '}
                       <MdOutlineDelete />
                     </button>
                     <button
-                      onClick={data.id}
+                      onClick={() => prompt("are you sure to delete this")}
                       className='p-1 text-[1.5rem] transition-all cursor-pointer rounded-[50%] hover:bg-green-500 hover:text-white'
                     >
-                      <CiEdit />
+                      <MdEdit />
                     </button>
                   </div>
                 </>

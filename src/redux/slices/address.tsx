@@ -21,22 +21,41 @@ export const createAddressAction = createAsyncThunk<
   }
 });
 
-export const getAddressesAction = createAsyncThunk<
+export const getAddressesAction = createAsyncThunk(
+  'users/get_addresses',
+  async (data: any, { rejectWithValue, getState }) => {
+    //   const userData = getState()?.user?.data;
+    try {
+      const response = await apiClient.get(
+        `user/${data?.id}/address`,
+        createAuthHeaders(data?.token)
+      );
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const deleteAddressesAction = createAsyncThunk<
   any,
   any,
   { rejectValue: any; state: RootState }
->('users/get_addresses', async (data: any, { rejectWithValue, getState }) => {
-  //   const userData = getState()?.user?.data;
-  try {
-    const response = await apiClient.get(
-      `user/${data?.id}/address`,
-      createAuthHeaders(data?.token)
-    );
-    return response.data;
-  } catch (error: any) {
-    return rejectWithValue(error.response.data);
+>(
+  'users/delete_addresses',
+  async (addressId: string, { rejectWithValue, getState }) => {
+    const userData = getState()?.user?.data;
+    try {
+      const response = await apiClient.get(
+        `user/${userData?.id}/address/${addressId}`,
+        createAuthHeaders(userData?.token)
+      );
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response.data);
+    }
   }
-});
+);
 
 interface InitialState {
   isLoading: boolean;
@@ -89,6 +108,28 @@ const addressSlices = createSlice({
       }
     );
     builder.addCase(getAddressesAction.rejected, (state, action: any) => {
+      state.isLoading = false;
+      state.address = null;
+      if (action?.payload) {
+        state.error = action?.payload?.message;
+      } else {
+        state.error = action?.error;
+      }
+    });
+
+    //   delete addresses
+    builder.addCase(deleteAddressesAction.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(
+      deleteAddressesAction.fulfilled,
+      (state, action: PayloadAction<any>) => {
+        state.isLoading = false;
+        state.address = action?.payload;
+        state.error = null;
+      }
+    );
+    builder.addCase(deleteAddressesAction.rejected, (state, action: any) => {
       state.isLoading = false;
       state.address = null;
       if (action?.payload) {
