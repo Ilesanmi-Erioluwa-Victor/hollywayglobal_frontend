@@ -4,11 +4,11 @@ import { useSnackbar } from 'notistack';
 
 import { TbArrowBack } from 'react-icons/tb';
 
-import { useNavigate, useOutletContext } from 'react-router-dom';
+import { useNavigate, useNavigation } from 'react-router-dom';
 
 import { Country, State, City } from 'country-state-city';
 
-import { FormRow, CustomSelect } from 'src/components/atoms';
+import { FormRow, CustomSelect, SubmitBtn } from 'src/components/atoms';
 
 import { UserAuth } from 'src/components/auth/User';
 
@@ -25,7 +25,9 @@ const NewAddress = () => {
 
   UserAuth().userInfo;
 
-  const { user }: any = useAppSelector((state) => state.user);
+  const user = useAppSelector((state) => state.user.user);
+
+  const addressLoader = useAppSelector((state) => state.address.isLoading);
 
   const { enqueueSnackbar } = useSnackbar();
 
@@ -241,7 +243,7 @@ const NewAddress = () => {
           type='submit'
           className='flex items-center justify-end bg-green-500 ml-auto mt-4 p-3 rounded-md text-white'
         >
-          Save Changes
+          {addressLoader ? 'loading...' : 'Save changes'}
         </button>
       </form>
     </div>

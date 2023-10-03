@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { apiClient } from 'src/services/apiService';
 import { RootState } from 'src/redux/store';
+import { createAuthHeaders } from 'src/utils';
 
 export const createAddressAction = createAsyncThunk<
   any,
@@ -12,11 +13,7 @@ export const createAddressAction = createAsyncThunk<
     const response = await apiClient.post(
       `user/${userData?.id}/address`,
       data,
-      {
-        headers: {
-          Authorization: `Bearer ${userData?.token}`,
-        },
-      }
+      createAuthHeaders(userData?.token)
     );
     return response.data;
   } catch (error: any) {
