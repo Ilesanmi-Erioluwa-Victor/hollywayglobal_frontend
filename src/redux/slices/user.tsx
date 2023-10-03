@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { apiClient } from 'src/services/apiService';
 import { User } from 'src/types';
+import { UserAuth } from 'src/components/auth/User';
 
 export const registerAction = createAsyncThunk(
   'users/register',
@@ -26,6 +27,22 @@ export const loginAction = createAsyncThunk(
   }
 );
 
+export const userAction = createAsyncThunk(
+  'users/profile',
+  async (data: { id: string; token: string }, { rejectWithValue }) => {
+    try {
+      const response = await apiClient.get(`user/${data.id}`, {
+        headers: {
+          Authorization: `Bearer ${data?.token}`,
+        },
+      });
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
 const storedData = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo') as string)
   : null;
@@ -39,7 +56,7 @@ interface InitialState {
 const usersSlices = createSlice({
   name: 'users',
   initialState: {
-    user: storedData,
+    user: null,
     isLoading: false,
     error: null,
   } as InitialState,
@@ -76,11 +93,33 @@ const usersSlices = createSlice({
       loginAction.fulfilled,
       (state, action: PayloadAction<User>) => {
         state.isLoading = false;
-        state.user = action?.payload;
+        state.user = null;
         state.error = null;
       }
     );
     builder.addCase(loginAction.rejected, (state, action: any) => {
+      state.isLoading = false;
+      state.user = null;
+      if (action?.payload) {
+        state.error = action?.payload?.message;
+      } else {
+        state.error = action?.error;
+      }
+    });
+
+    // user profile
+    builder.addCase(userAction.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(
+      userAction.fulfilled,
+      (state, action: PayloadAction<User>) => {
+        state.isLoading = false;
+        state.user = action?.payload;
+        state.error = null;
+      }
+    );
+    builder.addCase(userAction.rejected, (state, action: any) => {
       state.isLoading = false;
       state.user = null;
       if (action?.payload) {

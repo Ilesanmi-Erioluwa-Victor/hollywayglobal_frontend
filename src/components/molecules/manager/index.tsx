@@ -7,13 +7,13 @@ import { UserAuth } from 'src/components/auth/User';
 
 const AccountLayout = () => {
   const navigate = useNavigate();
-  const { userInfo } = UserAuth();
+  const  userInfo  = [{id : "yytyty"}];
 
-  useEffect(() => {
-    if (!userInfo?.data) {
-      navigate('/');
-    }
-  }, [userInfo, navigate]);
+  // useEffect(() => {
+  //   if (!userInfo?.data) {
+  //     navigate('/');
+  //   }
+  // }, [userInfo, navigate]);
 
 
   return (

@@ -8,7 +8,7 @@ import { FormRow, SubmitBtn } from 'src/components/atoms';
 
 import { useSnackbar } from 'notistack';
 
-import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
+import { useAppDispatch } from 'src/redux/hooks';
 
 import { loginAction } from 'src/redux/slices/user';
 
@@ -55,10 +55,8 @@ const Login = () => {
       const resultAction = await dispatch(loginAction(data));
 
       if (loginAction.fulfilled.match(resultAction)) {
-        const user = resultAction.payload === 'success';
 
         if (resultAction?.payload.status === 'success') {
-          console.log(resultAction, resultAction.payload.data);
           const token = resultAction?.payload?.token;
           const id = resultAction?.payload?.id;
           userToken(token, id);

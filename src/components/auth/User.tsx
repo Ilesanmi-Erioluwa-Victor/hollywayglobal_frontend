@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, redirect } from 'react-router-dom';
+
 import { User } from 'src/store/user/types';
-import { useUserStore } from 'src/store/user/userStore';
+
+import { useAppDispatch } from 'src/redux/hooks';
+
+import { userAction } from 'src/redux/slices/user';
 
 export const UserAuth = () => {
-  const navigate = useNavigate();
-  const { fetchedUser} = useUserStore();
+  const dispatch = useAppDispatch();
+
   const [userInfo, setUserInfo] = useState<User | null>(null);
 
   useEffect(() => {
@@ -13,8 +16,12 @@ export const UserAuth = () => {
     if (storedData) {
       (async () => {
         try {
-          const user = await fetchedUser(storedData.id, storedData.token);
-          setUserInfo(user.data as User);
+          const resultUserAction = await dispatch(userAction(storedData));
+          if (userAction.fulfilled.match(resultUserAction)) {
+            if (resultUserAction?.payload.status === 'success') {
+              setUserInfo(resultUserAction?.payload?.data as User);
+            }
+          }
         } catch (error: any) {
           throw error;
         }

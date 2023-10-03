@@ -35,6 +35,8 @@ const MenuNav = ({ user }: User): JSX.Element => {
     setAnchorElUser(null);
   };
 
+  console.log(user)
+
   const logout = async () => {
     localStorage.removeItem('userInfo');
     navigate('/');
@@ -89,7 +91,7 @@ const MenuNav = ({ user }: User): JSX.Element => {
             <Tooltip
               title={
                 user
-                  ? `${user?.data?.firstName} ${user?.data?.lastName}`
+                  ? `${user?.firstName} ${user?.lastName}`
                   : 'Default user'
               }
             >
@@ -102,8 +104,8 @@ const MenuNav = ({ user }: User): JSX.Element => {
                 ) : (
                   <div className='w-[2.5rem]'>
                     <img
-                      src={user?.data?.profilePhoto}
-                      alt={`${user?.data?.firstName} ${user?.data?.lastName}`}
+                      src={user?.profilePhoto}
+                      alt={`${user?.firstName} ${user?.lastName}`}
                       className=' rounded-[50%] img'
                     />
                   </div>
