@@ -1,8 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import user from './slices/user';
+import address from './slices/address';
 export const store = configureStore({
   reducer: {
     user,
+    address,
     // // category: categoryReducers,
     // // post,
   },

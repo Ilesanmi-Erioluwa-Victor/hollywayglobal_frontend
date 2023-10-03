@@ -9,8 +9,11 @@ import { useNavigate, useOutletContext } from 'react-router-dom';
 import { Country, State, City } from 'country-state-city';
 
 import { FormRow, CustomSelect } from 'src/components/atoms';
+
 import { UserAuth } from 'src/components/auth/User';
-import { useAppSelector } from 'src/redux/hooks';
+
+import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
+import { createAddressAction } from 'src/redux/slices/address';
 
 interface Option {
   value: string;
@@ -18,9 +21,11 @@ interface Option {
 }
 
 const NewAddress = () => {
+  const dispatch = useAppDispatch();
+
   UserAuth().userInfo;
 
-  const { user } = useAppSelector((state) => state.user);
+  const { user }: any = useAppSelector((state) => state.user);
 
   const { enqueueSnackbar } = useSnackbar();
 
@@ -108,7 +113,20 @@ const NewAddress = () => {
       //     variant: 'success',
       //   });
       // }
-      console.log(data)
+      const resultAction = await dispatch(createAddressAction(data));
+
+      if (createAddressAction.fulfilled.match(resultAction)) {
+        if (resultAction?.payload.status === 'success') {
+          return enqueueSnackbar(resultAction?.payload?.message, {
+            variant: 'success',
+          });
+        }
+      } else if (createAddressAction.rejected.match(resultAction)) {
+        const error: any = resultAction.payload;
+        return enqueueSnackbar(error.message, {
+          variant: 'error',
+        });
+      }
     } catch (error: any) {
       if (error.message === 'Network Error') {
         return enqueueSnackbar(error.message, {
