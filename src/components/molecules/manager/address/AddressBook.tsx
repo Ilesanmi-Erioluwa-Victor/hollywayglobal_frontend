@@ -60,14 +60,12 @@ const AddressBook = () => {
             </Link>
           </div>
           <hr className='my-4' />
-        </div>
-      )}
 
-      {!address?.length ? (
+             {!address?.length ? (
         <h3 className='font-semibold text-lg text-center my-auto'>
           No Address yet, add new address
         </h3>
-      ) : (
+      ) :  (
         <div className='grid grid-cols-[_repeat(auto-fit,_minmax(300px,_1fr))] gap-4 p-4'>
           {address.map((data: any) => {
             return (
@@ -107,7 +105,8 @@ const AddressBook = () => {
           })}
         </div>
       )}
-
+        </div>
+      )}
       <div>
         <Outlet />
       </div>

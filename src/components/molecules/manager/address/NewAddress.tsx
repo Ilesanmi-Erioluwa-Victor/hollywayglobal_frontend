@@ -4,7 +4,7 @@ import { useSnackbar } from 'notistack';
 
 import { TbArrowBack } from 'react-icons/tb';
 
-import { useNavigate, useNavigation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { Country, State, City } from 'country-state-city';
 
@@ -22,6 +22,8 @@ interface Option {
 
 const NewAddress = () => {
   const dispatch = useAppDispatch();
+
+  const navigate = useNavigate();
 
   UserAuth().userInfo;
 
@@ -113,6 +115,7 @@ const NewAddress = () => {
 
       if (createAddressAction.fulfilled.match(resultAction)) {
         if (resultAction?.payload.status === 'success') {
+          navigate('/user/account/address');
           return enqueueSnackbar(resultAction?.payload?.message, {
             variant: 'success',
           });
