@@ -1,23 +1,50 @@
 import { useEffect, useState } from 'react';
 import { Link, Outlet, useMatch } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
-import { getAddressesAction } from 'src/redux/slices/address';
+import {
+  getAddressesAction,
+  deleteAddressesAction,
+} from 'src/redux/slices/address';
 import { MdOutlineDelete, MdEdit } from 'react-icons/md';
+import { useSnackbar } from 'notistack';
 import UserModal from 'src/components/atoms/Modal';
 
 const AddressBook = () => {
+  const { enqueueSnackbar } = useSnackbar();
+
   const dispatch = useAppDispatch();
+
   const [address, setAddress] = useState<any>(null);
+
   const { data } = useAppSelector((state) => state.user);
+
   useEffect(() => {
     const response = async () => {
-      const address = await dispatch(getAddressesAction(data));
+      const address: any = await dispatch(getAddressesAction(data));
       setAddress(address?.payload?.data);
     };
     response();
   }, [data, dispatch]);
 
-  UserModal;
+  const handleDeleteAddress = async (id: string) => {
+    const deleteAction = await dispatch(deleteAddressesAction(id));
+    setAddress((prevAddress: any) =>
+      prevAddress.filter((address: { id: string }) => address.id !== id)
+    );
+    if (deleteAddressesAction.fulfilled.match(deleteAction)) {
+      if (deleteAction?.payload.status === 'success') {
+        return enqueueSnackbar(deleteAction?.payload?.message, {
+          variant: 'success',
+        });
+      }
+    } else if (deleteAddressesAction.rejected.match(deleteAction)) {
+      const error: any = deleteAction.payload;
+      return enqueueSnackbar(error.message, {
+        variant: 'error',
+      });
+    }
+  };
+
   const isCreateRoute = useMatch('/user/account/address/create');
   return (
     <div className='p-6'>
@@ -61,14 +88,14 @@ const AddressBook = () => {
                   <hr />
                   <div className='flex justify-between items-center'>
                     <button
-                      // onClick={data.id}
+                      onClick={() => handleDeleteAddress(data?.id)}
                       className='p-2 text-[1.5rem] cursor-pointer transition-all rounded-[50%] hover:bg-green-500 hover:text-white'
                     >
                       {' '}
                       <MdOutlineDelete />
                     </button>
                     <button
-                      onClick={() => prompt("are you sure to delete this")}
+                      onClick={() => prompt('are you sure to delete this')}
                       className='p-1 text-[1.5rem] transition-all cursor-pointer rounded-[50%] hover:bg-green-500 hover:text-white'
                     >
                       <MdEdit />

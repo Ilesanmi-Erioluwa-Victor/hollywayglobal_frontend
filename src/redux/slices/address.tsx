@@ -46,7 +46,7 @@ export const deleteAddressesAction = createAsyncThunk<
   async (addressId: string, { rejectWithValue, getState }) => {
     const userData = getState()?.user?.data;
     try {
-      const response = await apiClient.get(
+      const response = await apiClient.delete(
         `user/${userData?.id}/address/${addressId}`,
         createAuthHeaders(userData?.token)
       );
