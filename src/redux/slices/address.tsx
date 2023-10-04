@@ -57,6 +57,54 @@ export const deleteAddressesAction = createAsyncThunk<
   }
 );
 
+export const getAddressAction = createAsyncThunk<
+  any,
+  any,
+  { rejectValue: any; state: RootState }
+>(
+  'users/get_addresse',
+  async (addressId: string, { rejectWithValue, getState }) => {
+    const userData = getState()?.user?.data;
+    try {
+      const response = await apiClient.get(
+        `user/${userData?.id}/address/${addressId}`,
+        createAuthHeaders(userData?.token)
+      );
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const editAddressAction = createAsyncThunk<
+  any,
+  { addressId: string; data: any },
+  { rejectValue: any; state: RootState }
+>(
+  'users/edit_addresse',
+  async ({ addressId, data }, { rejectWithValue, getState }) => {
+    const userData = getState()?.user?.data;
+    try {
+      const response = await apiClient.put(
+        `user/${userData?.id}/address/${addressId}`,
+        {
+          deliveryAddress: data?.deliveryAddress,
+          additionalInfo: data?.additionalInfo,
+          region: data?.region,
+          city: data?.city,
+          phone: data?.phone,
+          additionalPhone: data?.additionalPhone,
+        },
+        createAuthHeaders(userData?.token)
+      );
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
 interface InitialState {
   isLoading: boolean;
   address: any;
@@ -130,6 +178,50 @@ const addressSlices = createSlice({
       }
     );
     builder.addCase(deleteAddressesAction.rejected, (state, action: any) => {
+      state.isLoading = false;
+      state.address = null;
+      if (action?.payload) {
+        state.error = action?.payload?.message;
+      } else {
+        state.error = action?.error;
+      }
+    });
+
+    //   get addresse
+    builder.addCase(getAddressAction.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(
+      getAddressAction.fulfilled,
+      (state, action: PayloadAction<any>) => {
+        state.isLoading = false;
+        state.address = action?.payload;
+        state.error = null;
+      }
+    );
+    builder.addCase(getAddressAction.rejected, (state, action: any) => {
+      state.isLoading = false;
+      state.address = null;
+      if (action?.payload) {
+        state.error = action?.payload?.message;
+      } else {
+        state.error = action?.error;
+      }
+    });
+
+    //   edit addresses
+    builder.addCase(editAddressAction.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(
+      editAddressAction.fulfilled,
+      (state, action: PayloadAction<any>) => {
+        state.isLoading = false;
+        state.address = action?.payload;
+        state.error = null;
+      }
+    );
+    builder.addCase(editAddressAction.rejected, (state, action: any) => {
       state.isLoading = false;
       state.address = null;
       if (action?.payload) {
