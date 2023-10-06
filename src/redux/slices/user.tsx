@@ -76,9 +76,13 @@ export const updateProfileAction = createAsyncThunk<
   ) => {
     const userData = getState()?.user?.data;
     try {
-      const response = await apiClient.post(
+      const response = await apiClient.put(
         `user/${userData?.id}/updateProfile`,
-        { data },
+        {
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+        },
         createAuthHeaders(userData?.token)
       );
       return response.data;
