@@ -50,12 +50,12 @@ export const changeProfileImageAction = createAsyncThunk<
   any,
   any,
   { rejectValue: any; state: RootState }
->("users/change_password", async (password: string, { rejectWithValue, getState }) => {
+>("users/change_profileImage", async (image: any, { rejectWithValue, getState }) => {
   const userData = getState()?.user?.data;
   try {
     const response = await apiClient.post(
       `user/${userData?.id}/uploadImage`,
-      { password },
+      { image },
       createAuthHeaders(userData?.token)
     );
     return response.data;

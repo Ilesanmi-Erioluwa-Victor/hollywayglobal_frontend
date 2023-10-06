@@ -21,7 +21,7 @@ const DottedBorder = styled.div`
 `;
 
 const ChangeImage = () => {
-  const [selectedImage, setSelectedImage] = useState<null | string>(null);
+  const [selectedImage, setSelectedImage] = useState<File | any>(null);
   const { enqueueSnackbar } = useSnackbar();
 
   const { isLoading } = useAppSelector((state) => state.user);
@@ -50,16 +50,40 @@ const ChangeImage = () => {
   });
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    console.log(selectedImage);
     event.preventDefault();
+    if (!selectedImage) {
+      return enqueueSnackbar("Please, select an image to upload", {
+        variant: "error",
+      });
+    }
     try {
-      if (!selectedImage) {
-        return enqueueSnackbar("Please, select image to upload", {
+      const formData = new FormData();
+      formData.append("image", selectedImage);
+
+      const resultAction = await dispatch(changeProfileImageAction(selectedImage));
+      if (changeProfileImageAction.fulfilled.match(resultAction)) {
+        if (resultAction?.payload.status === "success") {
+          return enqueueSnackbar(resultAction?.payload?.message, {
+            variant: "success",
+          });
+        }
+      } else if (changeProfileImageAction.rejected.match(resultAction)) {
+        const error: any = resultAction.payload;
+        return enqueueSnackbar(error.message, {
           variant: "error",
         });
       }
-      console.log(selectedImage);
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      if (error.message === "Network Error") {
+        return enqueueSnackbar(error.message, {
+          variant: "error",
+        });
+      } else {
+        return enqueueSnackbar(error.response.data.message, {
+          variant: "error",
+        });
+      }
     }
   };
 
@@ -83,23 +107,23 @@ const ChangeImage = () => {
             <img src={selectedImage} alt="Selected" className="img h-[25rem]" />
           </div>
         )}
-        {selectedImage ? (
+        {selectedImage && (
           <button
             onClick={handleRemoveImage}
             className="bg-green-500 absolute top-[-20px] right-[-15px]  p-3 text-white rounded-[50%] hover:bg-green-600 transition-all"
           >
             <MdClose />
           </button>
-        ) : (
-          ""
         )}
       </div>
-      <button
-        type="submit"
-        className="flex items-center justify-end bg-green-500 hover:bg-green-600 transition-all ml-auto mt-4 p-3 rounded-md text-white"
-      >
-        Save Changes
-      </button>
+      {selectedImage && (
+        <button
+          type="submit"
+          className="flex items-center justify-end bg-green-500 hover:bg-green-600 transition-all ml-auto mt-4 p-3 rounded-md text-white"
+        >
+          Save Changes
+        </button>
+      )}
     </form>
   );
 };
