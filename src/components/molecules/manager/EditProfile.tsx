@@ -27,13 +27,6 @@ const EditProfile = () => {
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const { firstName, lastName, email } = data;
-
-    if (!firstName || !lastName || !email) {
-      return enqueueSnackbar("Please fill up the form, before you change your details", {
-        variant: "error",
-      });
-    }
 
     try {
       const resultAction = await dispatch(updateProfileAction(data));
@@ -99,7 +92,9 @@ const EditProfile = () => {
       />
       <button
         type="submit"
-        className="flex items-center justify-end bg-green-500 ml-auto mt-4 p-3 rounded-md text-white hover:bg-[#048a35] transition-all"
+        className={`flex items-center justify-end
+         bg-green-500 ml-auto mt-4 p-3 rounded-md 
+         text-white hover:bg-[#048a35] transition-all`}
       >
         {isLoading ? "loading..." : "Save changes"}
       </button>
