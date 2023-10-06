@@ -42,7 +42,7 @@ export const changePasswordAction = createAsyncThunk<
     );
     return response.data;
   } catch (error: any) {
-    console.log(error);
+
     return rejectWithValue(error.response.data);
   }
 });

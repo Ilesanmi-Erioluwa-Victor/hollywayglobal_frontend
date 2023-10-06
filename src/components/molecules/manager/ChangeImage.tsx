@@ -1,13 +1,14 @@
-import React, { useState, useCallback } from 'react';
-import { FaTimes } from 'react-icons/fa';
-import { FiUpload } from 'react-icons/fi';
-import { useDropzone } from 'react-dropzone';
-import { useSnackbar } from 'notistack';
+import React, { useState, useCallback } from "react";
+import { MdClose } from "react-icons/md";
+import { FiUpload } from "react-icons/fi";
+import { useDropzone } from "react-dropzone";
+import { useSnackbar } from "notistack";
+import { useAppDispatch, useAppSelector } from "src/redux/hooks";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const DottedBorder = styled.div`
-  border: 2px dotted #db4444;
+  border: 2px dotted green;
   padding: 20px;
   height: 300px;
   display: flex;
@@ -21,6 +22,10 @@ const DottedBorder = styled.div`
 const ChangeImage = () => {
   const [selectedImage, setSelectedImage] = useState<null | string>(null);
   const { enqueueSnackbar } = useSnackbar();
+
+  const { isLoading } = useAppSelector((state) => state.user);
+
+  const dispatch = useAppDispatch();
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     const file = acceptedFiles[0];
@@ -39,7 +44,7 @@ const ChangeImage = () => {
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     accept: {
-      'image/*': ['.png', '.jpg', '.jpeg'],
+      "image/*": [".png", ".jpg", ".jpeg"],
     },
   });
 
@@ -47,8 +52,8 @@ const ChangeImage = () => {
     event.preventDefault();
     try {
       if (!selectedImage) {
-        return enqueueSnackbar('Please, select image to upload', {
-          variant: 'error',
+        return enqueueSnackbar("Please, select image to upload", {
+          variant: "error",
         });
       }
       console.log(selectedImage);
@@ -62,40 +67,35 @@ const ChangeImage = () => {
   };
 
   return (
-    <form
-      className='p-6'
-      onSubmit={handleInputSubmit}
-    >
-      <div className='relative ob'>
+    <form className="p-6" onSubmit={handleInputSubmit}>
+      <div className="relative">
         {!selectedImage ? (
           <DottedBorder {...getRootProps()}>
             <input {...getInputProps()} />
-            <p className='text-[1rem] mb-3'>
+            <p className="text-[1rem] mb-3">
               Drag &amp; drop an image here, or click to select one
             </p>
-            <FiUpload className='text-[2rem]' />
+            <FiUpload className="text-[2rem]" />
           </DottedBorder>
         ) : (
-          <img
-            src={selectedImage}
-            alt='Selected'
-            className='w-max-[100%] h-[500px] w-full object-cover object-center'
-          />
+          <div className="w-full">
+            <img src={selectedImage} alt="Selected" className="img h-[25rem]" />
+          </div>
         )}
         {selectedImage ? (
           <button
-            className='absolute w-[20px] h-[20px] bg-[#DB4444] transition-all rounded-[50%] top-[5px] right-[5px] border-none cursor-pointer p-0 flex items-center justify-center text-[#fff]'
             onClick={handleRemoveImage}
+            className="bg-green-500 absolute top-[-20px] right-[-15px]  p-3 text-white rounded-[50%] hover:bg-green-600 transition-all"
           >
-            <FaTimes />
+            <MdClose />
           </button>
         ) : (
-          ''
+          ""
         )}
       </div>
       <button
-        type='submit'
-        className='flex items-center justify-end bg-[#DB4444] ml-auto mt-4 p-3 rounded-md text-white'
+        type="submit"
+        className="flex items-center justify-end bg-green-500 hover:bg-green-600 transition-all ml-auto mt-4 p-3 rounded-md text-white"
       >
         Save Changes
       </button>
