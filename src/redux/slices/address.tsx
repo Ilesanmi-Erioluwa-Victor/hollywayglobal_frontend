@@ -1,13 +1,13 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import { apiClient } from 'src/services/apiService';
-import { RootState } from 'src/redux/store';
-import { createAuthHeaders } from 'src/utils';
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
+import { apiClient } from "src/services/apiService";
+import { RootState } from "src/redux/store";
+import { createAuthHeaders } from "src/utils";
 
 export const createAddressAction = createAsyncThunk<
   any,
   any,
   { rejectValue: any; state: RootState }
->('users/address', async (data: any, { rejectWithValue, getState }) => {
+>("users/address", async (data: any, { rejectWithValue, getState }) => {
   const userData = getState()?.user?.data;
   try {
     const response = await apiClient.post(
@@ -22,7 +22,7 @@ export const createAddressAction = createAsyncThunk<
 });
 
 export const getAddressesAction = createAsyncThunk(
-  'users/get_addresses',
+  "users/get_addresses",
   async (data: any, { rejectWithValue, getState }) => {
     //   const userData = getState()?.user?.data;
     try {
@@ -41,28 +41,21 @@ export const deleteAddressesAction = createAsyncThunk<
   any,
   any,
   { rejectValue: any; state: RootState }
->(
-  'users/delete_addresses',
-  async (addressId: string, { rejectWithValue, getState }) => {
-    const userData = getState()?.user?.data;
-    try {
-      const response = await apiClient.delete(
-        `user/${userData?.id}/address/${addressId}`,
-        createAuthHeaders(userData?.token)
-      );
-      return response.data;
-    } catch (error: any) {
-      return rejectWithValue(error.response.data);
-    }
+>("users/delete_addresses", async (addressId: string, { rejectWithValue, getState }) => {
+  const userData = getState()?.user?.data;
+  try {
+    const response = await apiClient.delete(
+      `user/${userData?.id}/address/${addressId}`,
+      createAuthHeaders(userData?.token)
+    );
+    return response.data;
+  } catch (error: any) {
+    return rejectWithValue(error.response.data);
   }
-);
+});
 
-export const getAddressAction = createAsyncThunk<
-  any,
-  any,
-  { rejectValue: any; state: RootState }
->(
-  'users/get_addresse',
+export const getAddressAction = createAsyncThunk<any, any, { rejectValue: any; state: RootState }>(
+  "users/get_address",
   async (addressId: string, { rejectWithValue, getState }) => {
     const userData = getState()?.user?.data;
     try {
@@ -81,29 +74,26 @@ export const editAddressAction = createAsyncThunk<
   any,
   { addressId: string; data: any },
   { rejectValue: any; state: RootState }
->(
-  'users/edit_addresse',
-  async ({ addressId, data }, { rejectWithValue, getState }) => {
-    const userData = getState()?.user?.data;
-    try {
-      const response = await apiClient.put(
-        `user/${userData?.id}/address/${addressId}`,
-        {
-          deliveryAddress: data?.deliveryAddress,
-          additionalInfo: data?.additionalInfo,
-          region: data?.region,
-          city: data?.city,
-          phone: data?.phone,
-          additionalPhone: data?.additionalPhone,
-        },
-        createAuthHeaders(userData?.token)
-      );
-      return response.data;
-    } catch (error: any) {
-      return rejectWithValue(error.response.data);
-    }
+>("users/edit_addresse", async ({ addressId, data }, { rejectWithValue, getState }) => {
+  const userData = getState()?.user?.data;
+  try {
+    const response = await apiClient.put(
+      `user/${userData?.id}/address/${addressId}`,
+      {
+        deliveryAddress: data?.deliveryAddress,
+        additionalInfo: data?.additionalInfo,
+        region: data?.region,
+        city: data?.city,
+        phone: data?.phone,
+        additionalPhone: data?.additionalPhone,
+      },
+      createAuthHeaders(userData?.token)
+    );
+    return response.data;
+  } catch (error: any) {
+    return rejectWithValue(error.response.data);
   }
-);
+});
 
 interface InitialState {
   isLoading: boolean;
@@ -112,7 +102,7 @@ interface InitialState {
 }
 
 const addressSlices = createSlice({
-  name: 'address',
+  name: "address",
   initialState: {
     isLoading: false,
     error: null,
@@ -125,14 +115,11 @@ const addressSlices = createSlice({
     builder.addCase(createAddressAction.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(
-      createAddressAction.fulfilled,
-      (state, action: PayloadAction<any>) => {
-        state.isLoading = false;
-        state.address = action?.payload;
-        state.error = null;
-      }
-    );
+    builder.addCase(createAddressAction.fulfilled, (state, action: PayloadAction<any>) => {
+      state.isLoading = false;
+      state.address = action?.payload;
+      state.error = null;
+    });
     builder.addCase(createAddressAction.rejected, (state, action: any) => {
       state.isLoading = false;
       state.address = null;
@@ -147,14 +134,11 @@ const addressSlices = createSlice({
     builder.addCase(getAddressesAction.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(
-      getAddressesAction.fulfilled,
-      (state, action: PayloadAction<any>) => {
-        state.isLoading = false;
-        state.address = action?.payload;
-        state.error = null;
-      }
-    );
+    builder.addCase(getAddressesAction.fulfilled, (state, action: PayloadAction<any>) => {
+      state.isLoading = false;
+      state.address = action?.payload;
+      state.error = null;
+    });
     builder.addCase(getAddressesAction.rejected, (state, action: any) => {
       state.isLoading = false;
       state.address = null;
@@ -169,14 +153,11 @@ const addressSlices = createSlice({
     builder.addCase(deleteAddressesAction.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(
-      deleteAddressesAction.fulfilled,
-      (state, action: PayloadAction<any>) => {
-        state.isLoading = false;
-        state.address = action?.payload;
-        state.error = null;
-      }
-    );
+    builder.addCase(deleteAddressesAction.fulfilled, (state, action: PayloadAction<any>) => {
+      state.isLoading = false;
+      state.address = action?.payload;
+      state.error = null;
+    });
     builder.addCase(deleteAddressesAction.rejected, (state, action: any) => {
       state.isLoading = false;
       state.address = null;
@@ -191,14 +172,11 @@ const addressSlices = createSlice({
     builder.addCase(getAddressAction.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(
-      getAddressAction.fulfilled,
-      (state, action: PayloadAction<any>) => {
-        state.isLoading = false;
-        state.address = action?.payload;
-        state.error = null;
-      }
-    );
+    builder.addCase(getAddressAction.fulfilled, (state, action: PayloadAction<any>) => {
+      state.isLoading = false;
+      state.address = action?.payload;
+      state.error = null;
+    });
     builder.addCase(getAddressAction.rejected, (state, action: any) => {
       state.isLoading = false;
       state.address = null;
@@ -213,14 +191,11 @@ const addressSlices = createSlice({
     builder.addCase(editAddressAction.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(
-      editAddressAction.fulfilled,
-      (state, action: PayloadAction<any>) => {
-        state.isLoading = false;
-        state.address = action?.payload;
-        state.error = null;
-      }
-    );
+    builder.addCase(editAddressAction.fulfilled, (state, action: PayloadAction<any>) => {
+      state.isLoading = false;
+      state.address = action?.payload;
+      state.error = null;
+    });
     builder.addCase(editAddressAction.rejected, (state, action: any) => {
       state.isLoading = false;
       state.address = null;
