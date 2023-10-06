@@ -64,6 +64,30 @@ export const changeProfileImageAction = createAsyncThunk<
   }
 });
 
+export const updateProfileAction = createAsyncThunk<
+  any,
+  any,
+  { rejectValue: any; state: RootState }
+>(
+  "users/update_profile",
+  async (
+    data: { firstName: string; lastName: string; email: string },
+    { rejectWithValue, getState }
+  ) => {
+    const userData = getState()?.user?.data;
+    try {
+      const response = await apiClient.post(
+        `user/${userData?.id}/updateProfile`,
+        { data },
+        createAuthHeaders(userData?.token)
+      );
+      return response.data;
+    } catch (error: any) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
 interface Data {
   id: any;
   token: any;
@@ -96,6 +120,7 @@ interface InitialState {
   data: Data | null;
   password?: string | null;
   image?: string | null;
+  updated_profile?: any;
 }
 
 const usersSlices = createSlice({
@@ -107,6 +132,7 @@ const usersSlices = createSlice({
     data: storedData,
     password: null,
     image: null,
+    updated_profile: null,
   } as InitialState,
   reducers: {},
 
@@ -203,6 +229,25 @@ const usersSlices = createSlice({
     builder.addCase(changeProfileImageAction.rejected, (state, action: any) => {
       state.isLoading = false;
       state.image = null;
+      if (action?.payload) {
+        state.error = action?.payload?.message;
+      } else {
+        state.error = action?.error;
+      }
+    });
+
+    // update profile
+    builder.addCase(updateProfileAction.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(updateProfileAction.fulfilled, (state, action: PayloadAction<string>) => {
+      state.isLoading = false;
+      state.updated_profile = action?.payload;
+      state.error = null;
+    });
+    builder.addCase(updateProfileAction.rejected, (state, action: any) => {
+      state.isLoading = false;
+      state.updated_profile = null;
       if (action?.payload) {
         state.error = action?.payload?.message;
       } else {

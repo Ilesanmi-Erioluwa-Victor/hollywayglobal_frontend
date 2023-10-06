@@ -1,16 +1,16 @@
-import { ChangeEvent, useState } from 'react';
-// import { FieldSet } from '../../../components/atoms';
-import { BiUserCheck } from 'react-icons/bi';
+import { ChangeEvent, useState } from "react";
+import { FormRow } from "../../../components/atoms";
+import { BiUserCheck } from "react-icons/bi";
 
-import { useSnackbar } from 'notistack';
+import { useSnackbar } from "notistack";
 
 const EditProfile = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   const [data, setData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
+    firstName: "",
+    lastName: "",
+    email: "",
   });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -24,12 +24,9 @@ const EditProfile = () => {
     const { firstName, lastName, email } = data;
 
     if (!firstName || !lastName || !email) {
-      return enqueueSnackbar(
-        'Please fill up the form, before you change your details',
-        {
-          variant: 'error',
-        }
-      );
+      return enqueueSnackbar("Please fill up the form, before you change your details", {
+        variant: "error",
+      });
     }
 
     try {
@@ -40,46 +37,43 @@ const EditProfile = () => {
   };
 
   return (
-    <form
-      className='p-6 flex flex-col gap-4'
-      onSubmit={handleInputSubmit}
-    >
-      <div className='flex items-center gap-4'>
-        <BiUserCheck className='text-[2rem]' />
+    <form className="p-6 flex flex-col gap-4" onSubmit={handleInputSubmit}>
+      <div className="flex items-center gap-4">
+        <BiUserCheck className="text-[2rem]" />
 
-        <h2 className='text-[1.4rem] font-[400]'>Profile Details</h2>
+        <h2 className="text-[1.4rem] font-[400]">Profile Details</h2>
       </div>
-      <hr className='mb-4' />
+      <hr className="mb-4" />
 
-      {/* <FieldSet
-        label={'First Name'}
-        id={'firstName'}
-        name='firstName'
+      <FormRow
+        labelText={"First Name"}
+        name="firstName"
         onChange={handleInputChange}
         value={data.firstName}
-        type='text'
+        type="text"
+        inputClass="py-6"
       />
 
-      <FieldSet
-        label={'last Name'}
-        id={'lastName'}
-        name='lastName'
+      <FormRow
+        labelText={"last Name"}
+        name="lastName"
         onChange={handleInputChange}
         value={data.lastName}
-        type='text'
+        type="text"
+        inputClass="py-6"
       />
 
-      <FieldSet
-        label={'Email'}
-        id={'email'}
-        name='email'
+      <FormRow
+        labelText={"Email"}
+        name="email"
         onChange={handleInputChange}
         value={data.email}
-        type='email'
-      /> */}
+        type="email"
+        inputClass="py-6"
+      />
       <button
-        type='submit'
-        className='flex items-center justify-end bg-[#DB4444] ml-auto mt-4 p-3 rounded-md text-white'
+        type="submit"
+        className="flex items-center justify-end bg-[#DB4444] ml-auto mt-4 p-3 rounded-md text-white"
       >
         Save Changes
       </button>

@@ -4,7 +4,7 @@ import { useSnackbar } from "notistack";
 
 import { Country, State, City } from "country-state-city";
 
-import { FormRow, CustomSelect} from "src/components/atoms";
+import { FormRow, CustomSelect } from "src/components/atoms";
 
 import { UserAuth } from "src/components/auth/User";
 
