@@ -42,7 +42,24 @@ export const changePasswordAction = createAsyncThunk<
     );
     return response.data;
   } catch (error: any) {
+    return rejectWithValue(error.response.data);
+  }
+});
 
+export const changeProfileImageAction = createAsyncThunk<
+  any,
+  any,
+  { rejectValue: any; state: RootState }
+>("users/change_password", async (password: string, { rejectWithValue, getState }) => {
+  const userData = getState()?.user?.data;
+  try {
+    const response = await apiClient.post(
+      `user/${userData?.id}/uploadImage`,
+      { password },
+      createAuthHeaders(userData?.token)
+    );
+    return response.data;
+  } catch (error: any) {
     return rejectWithValue(error.response.data);
   }
 });
@@ -78,6 +95,7 @@ interface InitialState {
   error: any;
   data: Data | null;
   password?: string | null;
+  image?: string | null;
 }
 
 const usersSlices = createSlice({
@@ -88,6 +106,7 @@ const usersSlices = createSlice({
     error: null,
     data: storedData,
     password: null,
+    image: null,
   } as InitialState,
   reducers: {},
 
@@ -165,6 +184,25 @@ const usersSlices = createSlice({
     builder.addCase(changePasswordAction.rejected, (state, action: any) => {
       state.isLoading = false;
       state.password = null;
+      if (action?.payload) {
+        state.error = action?.payload?.message;
+      } else {
+        state.error = action?.error;
+      }
+    });
+
+    // change profile image
+    builder.addCase(changeProfileImageAction.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(changeProfileImageAction.fulfilled, (state, action: PayloadAction<string>) => {
+      state.isLoading = false;
+      state.image = action?.payload;
+      state.error = null;
+    });
+    builder.addCase(changeProfileImageAction.rejected, (state, action: any) => {
+      state.isLoading = false;
+      state.image = null;
       if (action?.payload) {
         state.error = action?.payload?.message;
       } else {

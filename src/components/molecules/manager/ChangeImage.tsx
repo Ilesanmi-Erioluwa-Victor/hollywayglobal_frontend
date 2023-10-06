@@ -4,6 +4,7 @@ import { FiUpload } from "react-icons/fi";
 import { useDropzone } from "react-dropzone";
 import { useSnackbar } from "notistack";
 import { useAppDispatch, useAppSelector } from "src/redux/hooks";
+import { changeProfileImageAction } from "src/redux/slices/user";
 
 import styled from "styled-components";
 
