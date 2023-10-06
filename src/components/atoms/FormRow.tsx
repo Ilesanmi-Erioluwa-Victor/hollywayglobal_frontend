@@ -6,6 +6,7 @@ interface FormRowType {
   value?: string;
   className?: string;
   disabled?: boolean;
+  inputClass?: string;
 }
 
 const FormRow = ({
@@ -16,20 +17,18 @@ const FormRow = ({
   value,
   className,
   disabled,
+  inputClass,
 }: FormRowType) => {
   return (
     <div className={`${className} form-row`}>
-      <label
-        htmlFor={name}
-        className='form-label'
-      >
+      <label htmlFor={name} className="form-label">
         {labelText || name}
       </label>
       <input
         type={type}
         id={name}
         name={name}
-        className={`form-input`}
+        className={`${inputClass} form-input`}
         onChange={onChange}
         value={value}
         disabled={disabled}
