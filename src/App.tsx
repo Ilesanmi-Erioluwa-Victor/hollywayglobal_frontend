@@ -15,6 +15,7 @@ import {
   NewAddressBook,
   EditProfile,
   Product,
+  EditAddress,
 } from './components';
 import { Home, Register, Login, Error } from './pages';
 import Wrapper from './assets/wrappers/HomeWrapper';
@@ -55,6 +56,11 @@ export const router = createBrowserRouter([
           {
             path: '/user/account/address/create',
             element: <NewAddressBook />,
+          },
+
+          {
+            path: '/user/account/address/:addressId',
+            element: <EditAddress />,
           },
         ],
       },

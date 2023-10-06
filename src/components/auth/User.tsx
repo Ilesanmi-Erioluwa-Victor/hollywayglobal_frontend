@@ -1,26 +1,33 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, redirect } from 'react-router-dom';
+
 import { User } from 'src/store/user/types';
-import { useUserStore } from 'src/store/user/userStore';
+
+import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
+
+import { userAction } from 'src/redux/slices/user';
 
 export const UserAuth = () => {
-  const navigate = useNavigate();
-  const { fetchedUser, user } = useUserStore();
+  const dispatch = useAppDispatch();
+
+  const { data } = useAppSelector((state) => state.user);
+
   const [userInfo, setUserInfo] = useState<User | null>(null);
 
   useEffect(() => {
-    const storedData = JSON.parse(localStorage.getItem('userInfo') as string);
-    if (storedData) {
+    if (data) {
       (async () => {
         try {
-          const user = await fetchedUser(storedData.id, storedData.token);
-          setUserInfo(user.data as any);
+          const resultUserAction = await dispatch(userAction(data));
+          if (userAction.fulfilled.match(resultUserAction)) {
+            if (resultUserAction?.payload.status === 'success') {
+              setUserInfo(resultUserAction?.payload?.data as User);
+            }
+          }
         } catch (error: any) {
           throw error;
         }
       })();
     }
-  }, []);
-
+  }, [data]);
   return { userInfo };
 };

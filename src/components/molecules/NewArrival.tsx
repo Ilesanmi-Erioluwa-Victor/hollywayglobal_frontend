@@ -106,8 +106,8 @@ const NewArrival = () => {
   return (
     <div className='bg-white  p-4 shadow-md rounded-md'>
       <div className='flex gap-6 items-center'>
-        <span className='block w-6 rounded-sm h-12 bg-[#DB4444]'></span>
-        <span className='block text-[#DB4444]'>This Month</span>
+        <span className='block w-6 rounded-sm h-12 bg-green-500'></span>
+        <span className='block text-green-500'>This Month</span>
       </div>
 
       <h2 className='mt-8 font-[400] text-lg mb-10'>Best Selling Products</h2>

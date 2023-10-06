@@ -1,16 +1,24 @@
-
-
 interface FormRowType {
   labelText?: string;
-  name: string;
+  name?: string;
   onChange?: any;
   type: string;
   value?: string;
+  className?: string;
+  disabled?: boolean;
 }
 
-const FormRow = ({ type, name, labelText, onChange, value }: FormRowType) => {
+const FormRow = ({
+  type,
+  name,
+  labelText,
+  onChange,
+  value,
+  className,
+  disabled,
+}: FormRowType) => {
   return (
-    <div className='form-row'>
+    <div className={`${className} form-row`}>
       <label
         htmlFor={name}
         className='form-label'
@@ -21,9 +29,10 @@ const FormRow = ({ type, name, labelText, onChange, value }: FormRowType) => {
         type={type}
         id={name}
         name={name}
-        className='form-input'
+        className={`form-input`}
         onChange={onChange}
         value={value}
+        disabled={disabled}
       />
     </div>
   );

@@ -46,18 +46,18 @@ const Home = () => {
         <Boom />
         <BottomArrival />
         <div className='p-8vw'>
-          <div className='flex items-center justify-between md:px-[5rem] flex-col md:flex-row gap-4 flex-wrap'>
+          <div className='grid grid-cols-[_repeat(_auto-fit,_minmax(200px,1fr))] md:px-[5rem] flex-col md:flex-row gap-4 flex-wrap'>
             {remarks.map((writeUps) => (
               <div
                 key={writeUps.name}
-                className='flex flex-col items-center gap-3 mb-2 cursor-pointer p-5'
+                className='flex flex-col items-center gap-3 mb-2 cursor-pointer p-5 hover:bg-green-500 hover:text-white shadow-sm rounded-md transition-all'
               >
                 <h2 className='bg-[#2F2E30] p-2 rounded-[50%] '>
                   <span className='bg-black text-white block p-3 rounded-[50%] text-lg'>
                     {writeUps.icon}
                   </span>
                 </h2>
-                <h4 className='text-base font-[600]'>{writeUps.name}</h4>
+                <h4 className='text-base font-[600] '>{writeUps.name}</h4>
                 <p className=''>{writeUps.sum}</p>
               </div>
             ))}

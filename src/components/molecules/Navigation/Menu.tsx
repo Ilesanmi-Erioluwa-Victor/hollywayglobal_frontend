@@ -16,11 +16,7 @@ import Logo from '../../../assets/favicon.ico';
 import { AccountNav, publicNav } from '../../auth/userData';
 import { FormRow, SubmitBtn } from 'src/components/atoms';
 
-interface User {
-  user?: any;
-}
-
-const MenuNav = ({ user }: User): JSX.Element => {
+const MenuNav = ({ user }: any): JSX.Element => {
   const navigate = useNavigate();
 
   const { enqueueSnackbar } = useSnackbar();
@@ -88,9 +84,7 @@ const MenuNav = ({ user }: User): JSX.Element => {
           <div>
             <Tooltip
               title={
-                user
-                  ? `${user?.data?.firstName} ${user?.data?.lastName}`
-                  : 'Default user'
+                user ? `${user?.firstName} ${user?.lastName}` : 'Default user'
               }
             >
               <IconButton
@@ -102,8 +96,8 @@ const MenuNav = ({ user }: User): JSX.Element => {
                 ) : (
                   <div className='w-[2.5rem]'>
                     <img
-                      src={user?.data?.profilePhoto}
-                      alt={`${user?.data?.firstName} ${user?.data?.lastName}`}
+                      src={user?.profilePhoto}
+                      alt={`${user?.firstName} ${user?.lastName}`}
                       className=' rounded-[50%] img'
                     />
                   </div>
