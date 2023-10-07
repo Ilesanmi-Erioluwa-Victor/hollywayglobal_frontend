@@ -164,6 +164,7 @@ const NewAddress = () => {
             disabled
             onChange={handleInputChange}
             className='w-[100%_!important] mb-[0px_!important]'
+            inputClass='py-6'
           />
 
           <FormRow
@@ -172,6 +173,7 @@ const NewAddress = () => {
             disabled
             onChange={handleInputChange}
             className='w-[100%_!important] mb-[0px_!important]'
+            inputClass='py-6'
           />
         </fieldset>
 
@@ -183,6 +185,7 @@ const NewAddress = () => {
             onChange={handleInputChange}
             name='phone'
             className='w-[100%_!important] mb-[0px_!important]'
+            inputClass='py-6'
           />
 
           <FormRow
@@ -192,6 +195,7 @@ const NewAddress = () => {
             onChange={handleInputChange}
             name='additionalPhone'
             className='w-[100%_!important] mb-[0px_!important]'
+            inputClass='py-6'
           />
         </fieldset>
         <FormRow
@@ -201,6 +205,7 @@ const NewAddress = () => {
           onChange={handleInputChange}
           name='deliveryAddress'
           className='w-[100%_!important] mb-[0px_!important]'
+          inputClass='py-6'
         />
 
         <FormRow
@@ -210,6 +215,7 @@ const NewAddress = () => {
           onChange={handleInputChange}
           name='additionalInfo'
           className='w-[100%_!important] mb-[0px_!important]'
+          inputClass='py-6'
         />
 
         <CustomSelect
