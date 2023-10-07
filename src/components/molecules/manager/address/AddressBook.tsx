@@ -47,7 +47,7 @@ const AddressBook = () => {
       setAddress(address?.payload?.data);
     };
     response();
-  }, [data, dispatch]);
+  }, [data, dispatch, navigate]);
 
   const handleDeleteAddress = async (id: string) => {
     const deleteAction = await dispatch(deleteAddressesAction(id));
@@ -78,7 +78,7 @@ const AddressBook = () => {
           <div className='flex items-center justify-between'>
             <h2 className='text-[1rem] font-[400]'>ADDRESS BOOK</h2>
             <Link
-              className='text-white p-2 rounded-sm bg-green-500'
+              className='text-white p-2 rounded-sm bg-green-500 hover:bg-green-600 transition-all'
               to='create'
             >
               ADD NEW ADDRESS
