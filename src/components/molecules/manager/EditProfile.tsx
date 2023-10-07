@@ -27,6 +27,12 @@ const EditProfile = () => {
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const { firstName, lastName, email } = data;
+    if (!firstName || !lastName || !email) {
+      return enqueueSnackbar("please, fill up inputs", {
+        variant: "error",
+      });
+    }
 
     try {
       const resultAction = await dispatch(updateProfileAction(data));
