@@ -5,6 +5,7 @@ export const store = configureStore({
   reducer: {
     user,
     address,
+    product,
     // // category: categoryReducers,
     // // post,
   },

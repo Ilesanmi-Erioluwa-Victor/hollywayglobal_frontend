@@ -25,3 +25,18 @@ export interface User {
   message: string;
   status: string;
 }
+
+export interface InitialState {
+  isLoading: boolean;
+  user: User | null;
+  error: any;
+  data: Data | null;
+  password?: string | null;
+  image?: string | null;
+  updated_profile?: any;
+}
+
+export interface Data {
+  id: any;
+  token: any;
+}
