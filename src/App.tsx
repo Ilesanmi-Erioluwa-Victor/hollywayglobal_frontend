@@ -1,8 +1,6 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import {
-  Footer,
-  Header,
   Cart,
   Checkout,
   ManageAccount,
@@ -16,70 +14,69 @@ import {
   EditProfile,
   Product,
   EditAddress,
-} from './components';
-import { Home, Register, Login, Error } from './pages';
-import Wrapper from './assets/wrappers/HomeWrapper';
+} from "./components";
+import { Home, Register, Login, Error } from "./pages";
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Home />,
     errorElement: <Error />,
   },
 
   {
     element: <Register />,
-    path: '/register',
+    path: "/register",
     errorElement: <Error />,
   },
 
   {
     element: <Login />,
-    path: '/login',
+    path: "/login",
     errorElement: <Error />,
   },
 
   {
     element: <AccountLayout />,
-    path: '/user/account/',
+    path: "/user/account/",
     children: [
       {
         element: <ManageAccount />,
         index: true,
       },
-      { path: 'orders', element: <Order /> },
-      { path: 'reviews', element: <Reviews /> },
+      { path: "orders", element: <Order /> },
+      { path: "reviews", element: <Reviews /> },
       {
-        path: 'address',
+        path: "address",
         element: <AddressBook />,
         children: [
           {
-            path: '/user/account/address/create',
+            path: "/user/account/address/create",
             element: <NewAddressBook />,
           },
 
           {
-            path: '/user/account/address/:addressId',
+            path: "/user/account/address/:addressId",
             element: <EditAddress />,
           },
         ],
       },
-      { path: 'password', element: <ChangePassword /> },
-      { path: 'updateImage', element: <ChangeImage /> },
+      { path: "password", element: <ChangePassword /> },
+      { path: "updateImage", element: <ChangeImage /> },
       {
         element: <Cart />,
-        path: 'cart',
+        path: "cart",
       },
 
       {
         element: <Checkout />,
-        path: 'checkout',
+        path: "checkout",
       },
-      { path: 'profile', element: <EditProfile /> },
-      { path: 'deactivate', element: <h2>Soon to be Implemented </h2> },
+      { path: "profile", element: <EditProfile /> },
+      { path: "deactivate", element: <h2>Soon to be Implemented </h2> },
     ],
     errorElement: <Error />,
   },
 
-  { path: '/product', element: <Product /> },
+  { path: "/product", element: <Product /> },
 ]);

@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { apiClient } from "src/services/apiService";
 import { RootState } from "src/redux/store";
 import { createAuthHeaders } from "src/utils";
-import { User } from "src/types";
+import { User, InitialStateUser } from "src/types";
+import { useStoredData } from "src/hooks/useLocalStorage";
 
 export const registerAction = createAsyncThunk(
   "users/register",
@@ -92,11 +93,6 @@ export const updateProfileAction = createAsyncThunk<
   }
 );
 
-interface Data {
-  id: any;
-  token: any;
-}
-
 export const userAction = createAsyncThunk(
   "users/profile",
   async (data: { id: string; token: string }, { rejectWithValue }) => {
@@ -113,31 +109,17 @@ export const userAction = createAsyncThunk(
   }
 );
 
-const storedData = localStorage.getItem("userInfo")
-  ? JSON.parse(localStorage.getItem("userInfo") as string)
-  : null;
-
-interface InitialState {
-  isLoading: boolean;
-  user: User | null;
-  error: any;
-  data: Data | null;
-  password?: string | null;
-  image?: string | null;
-  updated_profile?: any;
-}
-
 const usersSlices = createSlice({
   name: "users",
   initialState: {
     user: null,
     isLoading: false,
     error: null,
-    data: storedData,
+    data: useStoredData,
     password: null,
     image: null,
     updated_profile: null,
-  } as InitialState,
+  } as InitialStateUser,
   reducers: {},
 
   extraReducers: (builder) => {

@@ -1,12 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit';
-import user from './slices/user';
-import address from './slices/address';
+import { configureStore } from "@reduxjs/toolkit";
+import user from "./slices/user";
+import address from "./slices/address";
+import product from "./slices/product";
+
 export const store = configureStore({
   reducer: {
     user,
     address,
-    // // category: categoryReducers,
-    // // post,
+    product,
   },
 });
 
