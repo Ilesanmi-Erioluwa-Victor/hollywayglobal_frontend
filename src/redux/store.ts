@@ -8,8 +8,6 @@ export const store = configureStore({
     user,
     address,
     product,
-    // // category: categoryReducers,
-    // // post,
   },
 });
 

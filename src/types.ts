@@ -25,6 +25,21 @@ export interface User {
   status: string;
 }
 
+export interface Product {
+  data: {
+    brand: string;
+    colors: string;
+    id: string;
+    images: string[];
+    price: number;
+    reviews: string[];
+    stock: number;
+    title: string;
+  };
+  message: string;
+  status: string;
+}
+
 export interface InitialStateUser {
   isLoading: boolean;
   user: User | null;
@@ -48,6 +63,6 @@ export interface InitialStateAddress {
 
 export interface InitialStateProduct {
   isLoading: boolean;
-  product: any;
+  product: Product | null;
   error: any;
 }
