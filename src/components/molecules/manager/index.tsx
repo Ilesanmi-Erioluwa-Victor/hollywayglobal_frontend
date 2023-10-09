@@ -25,7 +25,7 @@ const AccountLayout = () => {
           {AccountNav.map((accNav) => (
             <div key={accNav.id}>
               <Link
-                className='flex items-center gap-4 py-4 justify-start pl-4 hover:bg-slate-400 hover:transition-all'
+                className='flex items-center gap-4 py-4 justify-start pl-4 hover:bg-green-600 hover:text-white hover:transition-all'
                 to={accNav.link}
               >
                 <span className='text-[1.6rem] '>{accNav.icon}</span>
@@ -38,7 +38,6 @@ const AccountLayout = () => {
 
         <div className='col-[_1/_-1] md:col-[_4/_-1] shadow-md rounded-md  bg-white'>
           <Outlet />
-      
         </div>
       </div>
     </GeneralLayouts>

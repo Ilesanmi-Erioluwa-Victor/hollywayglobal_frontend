@@ -1,12 +1,12 @@
-import React, { useState, useCallback } from "react";
-import { MdClose } from "react-icons/md";
-import { FiUpload } from "react-icons/fi";
-import { useDropzone } from "react-dropzone";
-import { useSnackbar } from "notistack";
-import { useAppDispatch, useAppSelector } from "src/redux/hooks";
-import { changeProfileImageAction } from "src/redux/slices/user";
+import React, { useState, useCallback } from 'react';
+import { MdClose } from 'react-icons/md';
+import { FiUpload } from 'react-icons/fi';
+import { useDropzone } from 'react-dropzone';
+import { useSnackbar } from 'notistack';
+import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
+import { changeProfileImageAction } from 'src/redux/slices/user';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const DottedBorder = styled.div`
   border: 2px dotted green;
@@ -26,62 +26,66 @@ const ChangeImage = () => {
 
   const { isLoading } = useAppSelector((state) => state.user);
 
+  const imageUrl = useAppSelector((state) => state.user.image);
+
   const dispatch = useAppDispatch();
 
-  const onDrop = useCallback((acceptedFiles: File[]) => {
-    const file = acceptedFiles[0];
-    console.log(acceptedFiles);
-    const reader = new FileReader();
+  // const onDrop = useCallback((acceptedFiles: File[]) => {
+  //   const file = acceptedFiles[0];
+  //   console.log(acceptedFiles);
+  //   const reader = new FileReader();
 
-    reader.onload = () => {
-      setSelectedImage(reader.result as string);
-    };
+  //   reader.onload = () => {
+  //     setSelectedImage(reader.result as string);
+  //   };
 
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  }, []);
+  //   if (file) {
+  //     reader.readAsDataURL(file);
+  //   }
+  // }, []);
 
-  const { getRootProps, getInputProps } = useDropzone({
-    onDrop,
-    accept: {
-      "image/*": [".png", ".jpg", ".jpeg"],
-    },
-  });
+  // const { getRootProps, getInputProps } = useDropzone({
+  //   onDrop,
+  //   accept: {
+  //     "image/*": [".png", ".jpg", ".jpeg"],
+  //   },
+  // });
 
   const handleInputSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     console.log(selectedImage);
     event.preventDefault();
     if (!selectedImage) {
-      return enqueueSnackbar("Please, select an image to upload", {
-        variant: "error",
+      return enqueueSnackbar('Please, select an image to upload', {
+        variant: 'error',
       });
     }
     try {
       const formData = new FormData();
-      formData.append("image", selectedImage);
+      formData.append('image', selectedImage);
 
-      const resultAction = await dispatch(changeProfileImageAction(selectedImage));
+      const resultAction = await dispatch(
+        changeProfileImageAction(selectedImage)
+      );
       if (changeProfileImageAction.fulfilled.match(resultAction)) {
-        if (resultAction?.payload.status === "success") {
+        if (resultAction?.payload.status === 'success') {
           return enqueueSnackbar(resultAction?.payload?.message, {
-            variant: "success",
+            variant: 'success',
           });
         }
       } else if (changeProfileImageAction.rejected.match(resultAction)) {
         const error: any = resultAction.payload;
         return enqueueSnackbar(error.message, {
-          variant: "error",
+          variant: 'error',
         });
       }
     } catch (error: any) {
-      if (error.message === "Network Error") {
+      if (error.message === 'Network Error') {
         return enqueueSnackbar(error.message, {
-          variant: "error",
+          variant: 'error',
         });
       } else {
         return enqueueSnackbar(error.response.data.message, {
-          variant: "error",
+          variant: 'error',
         });
       }
     }
@@ -92,8 +96,11 @@ const ChangeImage = () => {
   };
 
   return (
-    <form className="p-6" onSubmit={handleInputSubmit}>
-      <div className="relative">
+    <form
+      className='p-6'
+      onSubmit={handleInputSubmit}
+    >
+      {/* <div className="relative">
         {!selectedImage ? (
           <DottedBorder {...getRootProps()}>
             <input {...getInputProps()} />
@@ -123,6 +130,20 @@ const ChangeImage = () => {
         >
           Save Changes
         </button>
+      )} */}
+
+      <input
+        type='file'
+        accept='image/*'
+        onChange={(e: any) => setSelectedImage(e?.target?.files[0])}
+      />
+      <button type='submit'>Upload Image</button>
+      {imageUrl && (
+        <img
+          src={imageUrl}
+          alt='Uploaded'
+          className='img'
+        />
       )}
     </form>
   );
