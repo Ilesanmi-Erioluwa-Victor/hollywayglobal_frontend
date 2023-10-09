@@ -35,6 +35,7 @@ export interface Product {
     reviews: string[];
     stock: number;
     title: string;
+    description: string;
   };
   message: string;
   status: string;
