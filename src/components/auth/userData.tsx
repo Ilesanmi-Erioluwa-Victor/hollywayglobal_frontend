@@ -6,13 +6,17 @@ import {
   PiBabyLight,
 } from 'react-icons/pi';
 
-import { CgProfile } from 'react-icons/cg';
+import { RxAvatar } from 'react-icons/rx';
 
-import { FaAppleAlt } from 'react-icons/fa';
+import { FaAddressCard, FaUserEdit } from 'react-icons/fa';
 
-import { GiLipstick } from 'react-icons/gi';
+import { RiLockPasswordFill } from 'react-icons/ri';
 
-import { BiHomeAlt2 } from 'react-icons/bi';
+import { BiSolidUserAccount, BiSolidCartAdd } from 'react-icons/bi';
+
+import { MdRateReview } from "react-icons/md"
+
+import { TiUserDelete } from "react-icons/ti"
 
 type Nav = {
   name: string;
@@ -26,55 +30,55 @@ export const AccountNav: Nav[] = [
     id: uuidv4(),
     name: 'My Account',
     link: '/user/account',
-    icon: <FaAppleAlt />,
+    icon: <BiSolidUserAccount />,
   },
   {
     id: uuidv4(),
     name: 'My Orders',
     link: '/user/account/orders',
-    icon: <GiLipstick />,
+    icon: <BiSolidCartAdd />,
   },
 
   {
     id: uuidv4(),
     name: 'My Reviews',
     link: '/user/account/reviews',
-    icon: <BiHomeAlt2 />,
+    icon: <MdRateReview />,
   },
 
   {
     id: uuidv4(),
     name: 'My Address Book',
     link: '/user/account/address',
-    icon: <PiTelevisionSimpleLight />,
+    icon: <FaAddressCard />,
   },
 
   {
     id: uuidv4(),
     name: 'My Password',
     link: '/user/account/password',
-    icon: <PiBabyLight />,
+    icon: <RiLockPasswordFill />,
   },
 
   {
     id: uuidv4(),
     name: 'Edit image',
     link: '/user/account/updateImage',
-    icon: <PiCookingPotLight />,
+    icon: <RxAvatar />,
   },
 
   {
     id: uuidv4(),
     name: 'Delete Account',
     link: '/user/account/deactivate',
-    icon: <PiCookingPotLight />,
+    icon: <TiUserDelete />,
   },
 
   {
     id: uuidv4(),
     name: 'Edit Profile',
     link: '/user/account/profile',
-    icon: <PiCookingPotLight />,
+    icon: <FaUserEdit />,
   },
 ];
 
