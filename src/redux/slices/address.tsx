@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { apiClient } from "src/services/apiService";
 import { RootState } from "src/redux/store";
 import { createAuthHeaders } from "src/utils";
+import { InitialStateAddress } from "src/types";
 
 export const createAddressAction = createAsyncThunk<
   any,
@@ -95,19 +96,13 @@ export const editAddressAction = createAsyncThunk<
   }
 });
 
-interface InitialState {
-  isLoading: boolean;
-  address: any;
-  error: any;
-}
-
 const addressSlices = createSlice({
   name: "address",
   initialState: {
     isLoading: false,
     error: null,
     address: null,
-  } as InitialState,
+  } as InitialStateAddress,
   reducers: {},
 
   extraReducers: (builder) => {
