@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { apiClient } from "src/services/apiService";
 import { RootState } from "src/redux/store";
 import { createAuthHeaders } from "src/utils";
-import { User, Data, InitialState } from "src/types";
+import { User, InitialStateUser } from "src/types";
 import { useStoredData } from "src/hooks/useLocalStorage";
 
 export const registerAction = createAsyncThunk(
@@ -119,7 +119,7 @@ const usersSlices = createSlice({
     password: null,
     image: null,
     updated_profile: null,
-  } as InitialState,
+  } as InitialStateUser,
   reducers: {},
 
   extraReducers: (builder) => {

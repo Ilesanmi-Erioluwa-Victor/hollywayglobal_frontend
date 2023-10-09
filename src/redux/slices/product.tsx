@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { apiClient } from "src/services/apiService";
 import { RootState } from "src/redux/store";
-
+import { InitialStateProduct } from "src/types";
 export const changePasswordAction = createAsyncThunk<
   any,
   any,
@@ -14,3 +14,16 @@ export const changePasswordAction = createAsyncThunk<
     return rejectWithValue(error.response.data);
   }
 });
+
+const productSlice = createSlice({
+  name: "products",
+  initialState: {
+    error: null,
+    product: null,
+    isLoading: false,
+  } as InitialStateProduct,
+  reducers: {},
+  extraReducers: (builder) => {},
+});
+
+export default productSlice.reducer;

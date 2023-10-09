@@ -5,7 +5,6 @@ export type Nav = {
   link: string;
 };
 
-
 export interface User {
   data: {
     firstName: string;
@@ -26,7 +25,7 @@ export interface User {
   status: string;
 }
 
-export interface InitialState {
+export interface InitialStateUser {
   isLoading: boolean;
   user: User | null;
   error: any;
@@ -39,4 +38,16 @@ export interface InitialState {
 export interface Data {
   id: any;
   token: any;
+}
+
+export interface InitialStateAddress {
+  isLoading: boolean;
+  address: any;
+  error: any;
+}
+
+export interface InitialStateProduct {
+  isLoading: boolean;
+  product: any;
+  error: any;
 }
