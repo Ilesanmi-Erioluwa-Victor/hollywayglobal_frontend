@@ -11,6 +11,8 @@ const Product = () => {
     dispatch(productsAction());
   }, [dispatch]);
 
+  if (isLoading) return;
+
   return (
     <section className="px-[_calc(_1rem+_8vw)] flex justify-between items-center py-[_calc(_1rem+_8vh)]">
       {/* {products.map((prod) => (
