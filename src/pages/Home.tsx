@@ -57,14 +57,13 @@ const Home = () => {
 
   const { isLoading } = useAppSelector((state) => state.product);
 
-  if(isLoading) return
-
+  if (isLoading) return;
 
   return (
     <GeneralLayouts>
       <div className='padd flex flex-col gap-y-4 py-4'>
         <Hero />
-        <SubHero />
+        <SubHero product={product} />
         <CategorySection />
         <NewArrival />
         <Boom />
