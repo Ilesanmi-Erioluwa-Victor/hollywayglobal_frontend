@@ -128,21 +128,7 @@ const Hero = () => {
   const slides = [Image, Image1, Image2];
 
   return (
-    <div className='flex justify-between gap-[20px]'>
-      <div className='hidden md:block md:w-[24%] shadow-md rounded-md py-[0.5rem] bg-white'>
-        <ul className=' pl-[0.4rem] flex flex-col hover:cursor-pointer '>
-          {Category.map((cat) => (
-            <li
-              className='flex items-center gap-3 py-2 hover:text-[#DB4444] transition-all'
-              key={cat.id}
-            >
-              <span className='block text-[1.1rem]'>{cat.icon}</span>
-              <span className='block text-[0.8rem]'>{cat.name}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
+    <div className='flex justify-between'>
       <div className='shadow-md rounded-md w-[100%] bg-white'>
         <Carousel
           autoPlay={true}
@@ -153,11 +139,11 @@ const Hero = () => {
         >
           {slides.map((img) => (
             <div
-              className='carousel-image-container'
+              className='carousel-image-container w-full'
               key={img}
             >
               <img
-                className='carousel-image'
+                className='carousel-image img'
                 src={img}
                 alt='slider images'
               />

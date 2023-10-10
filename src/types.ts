@@ -33,7 +33,7 @@ export interface Product {
     images: string[];
     price: number;
     reviews: string[];
-    stock: number;
+    slug: string[];
     title: string;
     description: string;
   };
