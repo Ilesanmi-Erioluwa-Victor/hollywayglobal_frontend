@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { GeneralLayouts } from 'src/layouts/GeneralLayouts';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import { Product } from "src/types";
 
 //  {
@@ -93,8 +94,12 @@ const Product = () => {
   return (
     <GeneralLayouts>
       <section className='padd2 '>
-        <article className="py-[1rem]">Hello from category</article>
-        Hell from {id}
+        <article className='py-[1rem]'>
+          <Link to={'/'}>Home</Link>Hello from category
+        </article>
+        <div className='bg-white shadow-md rounded-sm'>
+          <article> Hell from {id}</article>
+        </div>
       </section>
     </GeneralLayouts>
   );

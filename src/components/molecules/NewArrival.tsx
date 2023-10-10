@@ -1,108 +1,38 @@
-import { v4 as uuidv4 } from 'uuid';
 
-import Image from '../../assets/images/not-found.svg';
-import Image1 from '../../assets/images/signup.png';
-import Image2 from '../../assets/react.svg';
-import Image3 from '../../assets/images/boom.png';
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
+import { Link } from 'react-router-dom';
 
-const NewArrival = () => {
-  const products = [
-    {
-      name: 'The north coat',
-      id: uuidv4(),
-      image: Image3,
-      price: '$260',
-      slashedPrice: '$360',
-    },
-
-    {
-      name: 'Gucci duffle bag',
-      id: uuidv4(),
-      image: Image,
-      price: '$260',
-      slashedPrice: '$360',
-    },
-
-    {
-      name: 'RGB liquid CPU Cooler',
-      id: uuidv4(),
-      image: Image1,
-      price: '$260',
-      slashedPrice: '$360',
-    },
-
-    {
-      name: 'RGB liquid CPU Cooler',
-      id: uuidv4(),
-      image: Image,
-      price: '$260',
-      slashedPrice: '$360',
-    },
-
-    {
-      name: 'RGB liquid CPU Cooler',
-      id: uuidv4(),
-      image: Image1,
-      price: '$260',
-      slashedPrice: '$360',
-    },
-
-    {
-      name: 'RGB liquid CPU Cooler',
-      id: uuidv4(),
-      image: Image2,
-      price: '$260',
-      slashedPrice: '$360',
-    },
-
-    {
-      name: 'RGB liquid CPU Cooler',
-      id: uuidv4(),
-      image: Image3,
-      price: '$260',
-      slashedPrice: '$360',
-    },
-
-    {
-      name: 'RGB liquid CPU Cooler',
-      id: uuidv4(),
-      image: Image1,
-      price: '$260',
-      slashedPrice: '$360',
-    },
-
-    {
-      name: 'RGB liquid CPU Cooler',
-      id: uuidv4(),
-      image: Image2,
-      price: '$260',
-      slashedPrice: '$360',
-    },
-
-    {
-      name: 'RGB liquid CPU Cooler',
-      id: uuidv4(),
-      image: Image2,
-      price: '$260',
-      slashedPrice: '$360',
-    },
-
-    {
-      name: 'RGB liquid CPU Cooler',
-      id: uuidv4(),
-      image: Image3,
-      price: '$260',
-      slashedPrice: '$360',
-    },
-
-    {
-      name: 'RGB liquid CPU Cooler',
-      id: uuidv4(),
-      image: Image2,
-      price: '$260',
-      slashedPrice: '$360',
-    },
-  ];
+const NewArrival = ({product} : any) => {
+  const responsive = {
+    0: { items: 3 },
+    568: { items: 4 },
+    1024: { items: 6 },
+  };
+  const items = product
+    .filter((prod: any) => prod.slug.includes('fresh product'))
+    .map((prod: any) => (
+      <Link
+        to={`/product/${prod.id}`}
+        key={prod.id}
+        className='flex flex-col relative gap-[0.4rem] mb-3 hover:cursor-pointer hover:shadow-lg rounded-sm px-4 pb-4 pt-0 transition-all'
+      >
+        <img
+          src={prod.images[0]}
+          alt={prod.title}
+          className='w-[100%] img'
+        />
+        <p className='text-center text-[20px] bg-white self-start'>
+          {prod.title}
+        </p>
+        <p className='text-center text-[14px] bg-white self-start'>
+          &#8358;{` ${prod.price}`}
+          <span className='text-slate-500 opacity-40 pl-4'>
+            {prod.slashedPrice}
+          </span>
+        </p>
+      </Link>
+    ));
   return (
     <div className='bg-white  p-4 shadow-md rounded-md'>
       <div className='flex gap-6 items-center'>
@@ -112,34 +42,13 @@ const NewArrival = () => {
 
       <h2 className='mt-8 font-[400] text-lg mb-10'>Best Selling Products</h2>
 
-      <div className='grid grid-cols-product-grid p-[10px] gap-[10px]'>
-        {products.map((product) => (
-          <div
-            className='flex flex-col gap-[0.4rem]'
-            key={product.id}
-          >
-            <div
-              key={product.id}
-              className='grid-item2 bg-slate-100  rounded-sm mb-3'
-            >
-              <img
-                src={product.image}
-                alt={product.name}
-                className=' w-[100%] p-4'
-              />
-            </div>
-            <p className='text-center text-[14px] bg-white self-start'>
-              {product.name}
-            </p>
-
-            <p className='text-center text-[14px] bg-white self-start text-[#DB4444]'>
-              {product.price}{' '}
-              <span className='text-slate-500 opacity-40 pl-4'>
-                {product.slashedPrice}
-              </span>
-            </p>
-          </div>
-        ))}
+      <div className='grid grid-cols-product-grid gap-[10px]'>
+        <AliceCarousel
+          mouseTracking
+          items={items}
+          responsive={responsive}
+          controlsStrategy='alternate'
+        />
       </div>
     </div>
   );

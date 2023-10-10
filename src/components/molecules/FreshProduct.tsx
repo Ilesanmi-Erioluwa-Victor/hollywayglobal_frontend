@@ -2,7 +2,7 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { Link } from 'react-router-dom';
 
-const SubHero = ({ product }: any) => {
+const FreshProduct = ({ product }: any) => {
   const responsive = {
     0: { items: 3 },
     568: { items: 4 },
@@ -52,4 +52,4 @@ const SubHero = ({ product }: any) => {
   );
 };
 
-export default SubHero;
+export default FreshProduct;
