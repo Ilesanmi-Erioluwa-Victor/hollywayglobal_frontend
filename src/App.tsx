@@ -12,10 +12,9 @@ import {
   AccountLayout,
   NewAddressBook,
   EditProfile,
-  Product,
   EditAddress,
 } from "./components";
-import { Home, Register, Login, Error } from "./pages";
+import { Home, Register, Login, Error, Product } from "./pages";
 
 export const router = createBrowserRouter([
   {
@@ -78,5 +77,5 @@ export const router = createBrowserRouter([
     errorElement: <Error />,
   },
 
-  { path: "/product", element: <Product /> },
+  { path: "/product/:id", element: <Product /> },
 ]);

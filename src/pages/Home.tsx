@@ -4,7 +4,7 @@ import { FaCheck, FaMoneyCheck, FaTruck, FaShoppingCart } from 'react-icons/fa';
 
 import {
   Hero,
-  SubHero,
+  FreshProduct,
   CategorySection,
   NewArrival,
   Boom,
@@ -63,7 +63,7 @@ const Home = () => {
     <GeneralLayouts>
       <div className='padd flex flex-col gap-y-4 py-4'>
         <Hero />
-        <SubHero product={product} />
+        <FreshProduct product={product} />
         <CategorySection />
         <NewArrival />
         <Boom />
