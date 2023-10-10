@@ -1,6 +1,18 @@
-
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import { Slide } from "react-slideshow-image";
 
 const SubHero = ({ product }: any) => {
+const itemsLength = Array.from({ length: 5 });
+
+const items = itemsLength.map((item, index) => {
+  const style = { width: 150 + index * 100 };
+  return (
+    <div className="item" style={style}>
+      {index + 1}
+    </div>
+  );
+});
   return (
     <div className="bg-white  gap-3 items-center justify-center p-4 shadow-md rounded-md md:px-[1rem]">
       <div className="flex gap-6 items-center mb-4">
@@ -8,7 +20,7 @@ const SubHero = ({ product }: any) => {
         <span className="block text-green-500">Fresh products</span>
       </div>
 
-      <div className="grid grid-cols-product-grid gap-[10px]">
+      {/* <div className="grid grid-cols-product-grid gap-[10px]">
         {product.map((prod: any) => {
           if (prod.slug.includes("fresh product")) {
             return (
@@ -18,6 +30,7 @@ const SubHero = ({ product }: any) => {
               >
                 <div className="mb-3 ">
                   <img src={prod.images[0]} alt={prod.title} className=" w-[100%] img" />
+                  
                 </div>
                 <p className="text-center text-[20px] bg-white self-start">{prod.title}</p>
 
@@ -29,9 +42,9 @@ const SubHero = ({ product }: any) => {
             );
           }
         })}
-      </div>
+      </div> */}
 
-   
+      <AliceCarousel autoWidth mouseTracking items={items} />
     </div>
   );
 };
