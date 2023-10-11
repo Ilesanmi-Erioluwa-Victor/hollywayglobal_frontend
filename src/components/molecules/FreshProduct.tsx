@@ -46,6 +46,7 @@ const FreshProduct = ({ product }: any) => {
           items={items}
           responsive={responsive}
           controlsStrategy='alternate'
+          disableDotsControls={true}
         />
       </div>
     </div>

@@ -68,7 +68,7 @@ const Home = () => {
         <FreshProduct product={product} />
         <CategorySection />
         <NewArrival product={product} />
-        <Boom />
+        <Boom product={product} />
         <BottomArrival />
         <div className='p-8vw'>
           <h2 className='text-center text-[2rem] font-semibold mb-8'>

@@ -34,10 +34,6 @@
   text-align: center !important;
 }
 
-.alice-carousel__dots {
-  display: none;
-}
-
 :root {
   /* colors */
   --primary-50: #e0fcff;

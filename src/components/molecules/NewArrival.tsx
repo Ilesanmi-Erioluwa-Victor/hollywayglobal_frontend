@@ -47,6 +47,7 @@ const NewArrival = ({product} : any) => {
           mouseTracking
           items={items}
           responsive={responsive}
+          disableDotsControls = {true}
           controlsStrategy='alternate'
         />
       </div>
