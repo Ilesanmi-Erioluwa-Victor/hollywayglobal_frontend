@@ -7,11 +7,9 @@ import {
   FreshProduct,
   CategorySection,
   NewArrival,
-  Boom,
-  BottomArrival,
+  OrganicProduct,
+  NewestFarmProduct,
 } from '../components';
-import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
 import { GeneralLayouts } from 'src/layouts/GeneralLayouts';
 import { useAppSelector, useAppDispatch } from 'src/redux/hooks';
 import { productsAction } from 'src/redux/slices/product';
@@ -68,8 +66,8 @@ const Home = () => {
         <FreshProduct product={product} />
         <CategorySection />
         <NewArrival product={product} />
-        <Boom product={product} />
-        <BottomArrival />
+        <OrganicProduct product={product} />
+        <NewestFarmProduct product={product} />
         <div className='p-8vw'>
           <h2 className='text-center text-[2rem] font-semibold mb-8'>
             HOW HOLLYWAYGLOBAL WORKS

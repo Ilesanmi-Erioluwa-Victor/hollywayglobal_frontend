@@ -2,7 +2,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { Link } from 'react-router-dom';
 
-const Boom = ({ product }: any) => {
+const OrganicProduct = ({ product }: any) => {
   return (
     <div className='shadow-md rounded-md text-white relative'>
       <Carousel
@@ -19,7 +19,7 @@ const Boom = ({ product }: any) => {
             <Link
               to={`/product/${prod.id}`}
               key={prod.id}
-              className='h-[500px] items-center justify-center flex '
+              className='h-[500px] items-center justify-center flex'
             >
               <div className='w-full'>
                 <img
@@ -35,4 +35,4 @@ const Boom = ({ product }: any) => {
   );
 };
 
-export default Boom;
+export default OrganicProduct;
