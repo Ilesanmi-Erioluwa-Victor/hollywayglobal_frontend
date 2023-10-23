@@ -1,6 +1,5 @@
+import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-// import { Carousel } from 'react-responsive-carousel';
-// import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import { BsPhone } from 'react-icons/bs';
 import { HiOutlineComputerDesktop } from 'react-icons/hi2';
@@ -8,8 +7,13 @@ import { IoGameControllerOutline } from 'react-icons/io5';
 import { FaAppleAlt } from 'react-icons/fa';
 import { GiLipstick } from 'react-icons/gi';
 import { BiHomeAlt2 } from 'react-icons/bi';
+import { useAppDispatch, useAppSelector } from 'src/redux/hooks';
+import { categoriesAction } from 'src/redux/slices/category';
 
 const CategorySection = () => {
+  const [categories, setCategories] = useState<any | null>([]);
+  const dispatch = useAppDispatch();
+
   const subCategory = [
     {
       id: uuidv4(),
@@ -47,6 +51,20 @@ const CategorySection = () => {
       icon: <BiHomeAlt2 />,
     },
   ];
+
+  useEffect(() => {
+    const data = async () => {
+      const result: any = await dispatch(categoriesAction());
+      setCategories(result?.payload?.data);
+    };
+
+    data();
+  }, [dispatch]);
+
+  console.log(categories);
+  const { isLoading } = useAppSelector((state) => state.product);
+
+  if (isLoading) return;
   return (
     <div className='bg-white  p-4 shadow-md rounded-md'>
       <div className='flex gap-6 items-center'>
@@ -54,16 +72,16 @@ const CategorySection = () => {
         <span className='block text-green-500'>categories</span>
       </div>
 
-      <h2 className='mt-8 font-[400] text-lg mb-10'>Browse By Category</h2>
+      <h2 className='mt-8 font-[400] text-lg mb-10'>Browse By Categories</h2>
 
       <div className='container-custom2 p-[10px] gap-[10px]'>
-        {subCategory.map((cat) => (
+        {categories.map((category: { id: string; name: string }) => (
           <div
-            key={cat?.id}
+            key={category?.id}
             className='cursor-pointer b hover:text-white gap-6 hover:bg-green-500 transition-all hover:border-transparent border-[1px]  p-7 items-center justify-between flex flex-col rounded-sm'
           >
-            <div className=' text-[2rem]'>{cat.icon}</div>
-            <h2 className=' text-[0.9rem]'>{cat.name}</h2>
+          
+            <h2 className=' text-[0.9rem]'>{category.name}</h2>
           </div>
         ))}
       </div>
