@@ -57,6 +57,8 @@ const Home = () => {
 
   if (isLoading) return;
 
+  console.log(product);
+
   return (
     <GeneralLayouts>
       <div className='padd flex flex-col gap-y-4 py-4'>

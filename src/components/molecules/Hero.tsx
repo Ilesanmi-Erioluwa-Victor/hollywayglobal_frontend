@@ -133,7 +133,7 @@ const Hero = () => {
         <Carousel
           autoPlay={true}
           infiniteLoop={true}
-          showArrows={false}
+          showArrows={true}
           showThumbs={false}
           showStatus={true}
         >
