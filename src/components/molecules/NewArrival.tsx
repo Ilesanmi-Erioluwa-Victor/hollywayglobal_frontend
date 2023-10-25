@@ -1,15 +1,17 @@
-
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { Link } from 'react-router-dom';
+import useProducts from 'src/hooks/state/useProducts';
 
-const NewArrival = ({product} : any) => {
+const NewArrival = () => {
+  const products = useProducts();
   const responsive = {
     0: { items: 3 },
     568: { items: 4 },
-    1024: { items: 6 },
+    1024: { items: 5 },
   };
-  const items = product
+
+  const items = products
     .filter((prod: any) => prod.slug.includes('fresh product'))
     .map((prod: any) => (
       <Link
@@ -34,7 +36,7 @@ const NewArrival = ({product} : any) => {
       </Link>
     ));
   return (
-    <div className='bg-white  p-4 shadow-md rounded-md'>
+    <div className='bg-white  p-4 shadow-md rounded-md w-[90%] mx-auto'>
       <div className='flex gap-6 items-center'>
         <span className='block w-6 rounded-sm h-12 bg-green-500'></span>
         <span className='block text-green-500'>This Month</span>
@@ -47,7 +49,7 @@ const NewArrival = ({product} : any) => {
           mouseTracking
           items={items}
           responsive={responsive}
-          disableDotsControls = {true}
+          disableDotsControls={true}
           controlsStrategy='alternate'
         />
       </div>

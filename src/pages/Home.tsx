@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { FaCheck, FaMoneyCheck, FaTruck, FaShoppingCart } from 'react-icons/fa';
+import useProducts from 'src/hooks/state/useProducts';
 
 import {
   Hero,
@@ -41,32 +42,16 @@ const remarks = [
 ];
 
 const Home = () => {
-  const [product, setProduct] = useState([]);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    const data = async () => {
-      const result: any = await dispatch(productsAction());
-      setProduct(result?.payload?.data);
-    };
-
-    data();
-  }, [dispatch]);
-
-  const { isLoading } = useAppSelector((state) => state.product);
-
-  if (isLoading) return;
-
-  console.log(product);
+  const product = useProducts();
 
   return (
     <GeneralLayouts>
       <div className='padd flex flex-col gap-y-4 py-4'>
         <Hero />
-        <FreshProduct product={product} />
+        <FreshProduct />
         <CategorySection />
-        <NewArrival product={product} />
-        <OrganicProduct product={product} />
+        <NewArrival />
+        <OrganicProduct  />
         <NewestFarmProduct product={product} />
         <div className='p-8vw'>
           <h2 className='text-center text-[2rem] font-semibold mb-8'>

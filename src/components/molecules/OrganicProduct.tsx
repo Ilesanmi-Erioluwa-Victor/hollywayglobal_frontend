@@ -1,36 +1,62 @@
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 import { Link } from 'react-router-dom';
+import useProducts from 'src/hooks/state/useProducts';
 
-const OrganicProduct = ({ product }: any) => {
-  return (
-    <div className='shadow-md rounded-md text-white relative'>
-      <Carousel
-        autoPlay={true}
-        infiniteLoop={true}
-        showArrows={false}
-        showThumbs={false}
-        showStatus={true}
-        ariaLabel='fresh product'
+const OrganicProduct = () => {
+  const products = useProducts();
+
+  const responsive = {
+    0: { items: 3 },
+    568: { items: 4 },
+    1024: { items: 5 },
+  };
+
+  const items = products
+    .filter((prod: any) => prod.slug.includes('fresh product'))
+    .map((prod: any) => (
+      
+      <Link
+        to={`/product/${prod.id}`}
+        key={prod.id}
+        className='flex flex-col relative gap-[0.4rem] mb-3 hover:cursor-pointer hover:shadow-lg rounded-sm px-4 pb-4 pt-0 transition-all'
       >
-        {product
-          .filter((prod: any) => prod.slug.includes('fresh product'))
-          .map((prod: any) => (
-            <Link
-              to={`/product/${prod.id}`}
-              key={prod.id}
-              className='h-[500px] items-center justify-center flex'
-            >
-              <div className='w-full'>
-                <img
-                  src={prod.images[0]}
-                  alt={prod.title}
-                  className='img max-w-full max-h-full w-full h-full object-cover object-center'
-                />
-              </div>
-            </Link>
-          ))}
-      </Carousel>
+        <img
+          src={prod.images[0]}
+          alt={prod.title}
+          className='w-[100%] img'
+        />
+        <p className='text-center text-[20px] bg-white self-start'>
+          {prod.title}
+        </p>
+        <p className='text-center text-[14px] bg-white self-start'>
+          &#8358;{` ${prod.price}`}
+          <span className='text-slate-500 opacity-40 pl-4'>
+            {prod.slashedPrice}
+          </span>
+        </p>
+      </Link>
+    ));
+  return (
+    <div className='shadow-md rounded-md text-white relative w-[90%] mx-auto p-4 bg-white'>
+      <div className='flex gap-6 items-center'>
+        <span className='block w-6 rounded-sm h-12 bg-green-500'></span>
+        <span className='block text-green-500'>Organic Products</span>
+      </div>
+
+      <h2 className='mt-8 font-[400] text-lg mb-10 text-black'>
+        Best Selling Organic Products
+      </h2>
+
+      <div className='grid grid-cols-product-grid gap-[10px]'>
+        <AliceCarousel
+          mouseTracking
+          items={items}
+          responsive={responsive}
+          disableDotsControls={true}
+          controlsStrategy='alternate'
+        />
+      </div>
     </div>
   );
 };

@@ -13,7 +13,7 @@ const useProducts = () => {
     };
 
     data();
-  }, [dispatch, products]);
+  }, [dispatch, setProducts]);
 
   return products;
 };
