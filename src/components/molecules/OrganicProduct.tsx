@@ -1,10 +1,12 @@
 import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
 import { Link } from 'react-router-dom';
 import useProducts from 'src/hooks/state/useProducts';
+import { ProductCardSkeleton } from '../../components';
+import { useAppSelector } from 'src/redux/hooks';
 
 const OrganicProduct = () => {
   const products = useProducts();
+  const { isLoading } = useAppSelector((state) => state.product);
 
   const responsive = {
     0: { items: 3 },
@@ -15,7 +17,6 @@ const OrganicProduct = () => {
   const items = products
     .filter((prod: any) => prod.slug.includes('fresh product'))
     .map((prod: any) => (
-      
       <Link
         to={`/product/${prod.id}`}
         key={prod.id}
@@ -26,15 +27,17 @@ const OrganicProduct = () => {
           alt={prod.title}
           className='w-[100%] img'
         />
-        <p className='text-center text-[20px] bg-white self-start'>
+        <p className='text-center text-[20px] bg-white self-start text-black'>
           {prod.title}
         </p>
-        <p className='text-center text-[14px] bg-white self-start'>
+        <p className='text-center text-[14px] bg-white self-start text-black'>
           &#8358;{` ${prod.price}`}
           <span className='text-slate-500 opacity-40 pl-4'>
             {prod.slashedPrice}
+            
           </span>
         </p>
+    
       </Link>
     ));
   return (
@@ -49,13 +52,17 @@ const OrganicProduct = () => {
       </h2>
 
       <div className='grid grid-cols-product-grid gap-[10px]'>
-        <AliceCarousel
-          mouseTracking
-          items={items}
-          responsive={responsive}
-          disableDotsControls={true}
-          controlsStrategy='alternate'
-        />
+        {isLoading ? (
+          <ProductCardSkeleton />
+        ) : (
+          <AliceCarousel
+            mouseTracking
+            items={items}
+            responsive={responsive}
+            disableDotsControls={true}
+            controlsStrategy='alternate'
+          />
+        )}
       </div>
     </div>
   );

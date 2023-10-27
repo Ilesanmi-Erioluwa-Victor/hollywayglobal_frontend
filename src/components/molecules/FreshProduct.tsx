@@ -1,7 +1,8 @@
 import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
 import { Link } from 'react-router-dom';
 import useProducts from 'src/hooks/state/useProducts';
+import { useAppSelector } from 'src/redux/hooks';
+import { ProductCardSkeleton } from '../../components';
 
 const FreshProduct = () => {
   const responsive = {
@@ -36,6 +37,7 @@ const FreshProduct = () => {
       </Link>
     ));
 
+  const { isLoading } = useAppSelector((state) => state.product);
   return (
     <div className='bg-white  gap-3 items-center justify-center p-4 shadow-md rounded-md md:px-[1rem] w-[90%] mx-auto mt-4'>
       <div className='flex gap-6 items-center mb-4'>
@@ -43,15 +45,19 @@ const FreshProduct = () => {
         <span className='block text-green-500'>Fresh products</span>
       </div>
 
-      <div className='grid grid-cols-product-grid gap-[10px]'>
-        <AliceCarousel
-          mouseTracking
-          items={items}
-          responsive={responsive}
-          disableDotsControls={true}
-          controlsStrategy='alternate'
-        />
-      </div>
+      {isLoading ? (
+        <ProductCardSkeleton />
+      ) : (
+        <div className='grid grid-cols-product-grid gap-[10px]'>
+          <AliceCarousel
+            mouseTracking
+            items={items}
+            responsive={responsive}
+            disableDotsControls={true}
+            controlsStrategy='alternate'
+          />
+        </div>
+      )}
     </div>
   );
 };

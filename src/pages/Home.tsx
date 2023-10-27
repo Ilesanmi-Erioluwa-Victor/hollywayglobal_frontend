@@ -10,6 +10,9 @@ import {
   NewArrival,
   OrganicProduct,
   NewestFarmProduct,
+  Ebooks,
+  Seeds,
+  Chemicals,
 } from '../components';
 import { GeneralLayouts } from 'src/layouts/GeneralLayouts';
 import { useAppSelector, useAppDispatch } from 'src/redux/hooks';
@@ -51,8 +54,11 @@ const Home = () => {
         <FreshProduct />
         <CategorySection />
         <NewArrival />
-        <OrganicProduct  />
-        <NewestFarmProduct product={product} />
+        <OrganicProduct />
+        <NewestFarmProduct />
+        <Ebooks />
+        <Seeds />
+        <Chemicals />
         <div className='p-8vw'>
           <h2 className='text-center text-[2rem] font-semibold mb-8'>
             HOW HOLLYWAYGLOBAL WORKS
@@ -72,7 +78,8 @@ const Home = () => {
               </div>
             ))}
           </div>
-        </div>
+          E S
+        C</div>
       </div>
     </GeneralLayouts>
   );

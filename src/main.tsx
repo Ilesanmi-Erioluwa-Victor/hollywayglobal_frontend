@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import { SnackbarProvider } from "notistack";
-
+import 'react-alice-carousel/lib/alice-carousel.css';
 import "./index.css";
 import { router } from "./App";
 import { store } from "./redux/store";
