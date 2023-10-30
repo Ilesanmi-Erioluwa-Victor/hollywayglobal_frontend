@@ -1,11 +1,8 @@
 import { Link } from 'react-router-dom';
 import useProducts from 'src/hooks/state/useProducts';
 
-
 const NewestFarmProduct = () => {
   const product = useProducts();
-
-  
   return (
     <div className='bg-white  p-4 shadow-md rounded-md w-[90%] mx-auto'>
       <div className='flex gap-6 items-center'>
