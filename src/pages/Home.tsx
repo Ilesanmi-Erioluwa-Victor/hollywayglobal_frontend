@@ -13,10 +13,10 @@ import {
   Ebooks,
   Seeds,
   Chemicals,
+  LiveStocks,
+  Minerals,
 } from '../components';
 import { GeneralLayouts } from 'src/layouts/GeneralLayouts';
-import { useAppSelector, useAppDispatch } from 'src/redux/hooks';
-import { productsAction } from 'src/redux/slices/product';
 
 const remarks = [
   {
@@ -59,6 +59,8 @@ const Home = () => {
         <Ebooks />
         <Seeds />
         <Chemicals />
+        <LiveStocks />
+        <Minerals />
         <div className='p-8vw'>
           <h2 className='text-center text-[2rem] font-semibold mb-8'>
             HOW HOLLYWAYGLOBAL WORKS
@@ -78,8 +80,8 @@ const Home = () => {
               </div>
             ))}
           </div>
-          E S
-        C</div>
+          E S CL M
+        </div>
       </div>
     </GeneralLayouts>
   );

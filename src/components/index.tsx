@@ -23,3 +23,5 @@ export { default as Ebooks } from './molecules/Ebooks';
 export { default as ProductCardSkeleton } from './molecules/ProductCardSkeleton';
 export { default as Seeds } from './molecules/Seeds';
 export { default as Chemicals } from './molecules/Chemicals';
+export { default as LiveStocks } from './molecules/LiveStocks';
+export { default as Minerals } from './molecules/Minerals';
