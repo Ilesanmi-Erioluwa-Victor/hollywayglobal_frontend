@@ -64,6 +64,7 @@ export interface InitialStateAddress {
 
 export interface InitialStateProduct {
   isLoading: boolean;
-  product: Product | null;
+  products: Product | null;
+  product: any;
   error: any;
 }

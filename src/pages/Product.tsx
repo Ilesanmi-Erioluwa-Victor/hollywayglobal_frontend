@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
 import { GeneralLayouts } from 'src/layouts/GeneralLayouts';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-// import { Product } from "src/types";
+import useProduct from '../hooks/state/useProduct';
+import { useAppSelector } from 'src/redux/hooks';
 
 //  {
 //    products?.map((prod) => (
@@ -91,14 +91,25 @@ import { Link } from 'react-router-dom';
 
 const Product = () => {
   const { id } = useParams();
+  const product = useProduct(id as string);
+  const { isLoading } = useAppSelector((state) => state.product);
+ 
   return (
     <GeneralLayouts>
       <section className='padd2 '>
         <article className='py-[1rem]'>
           <Link to={'/'}>Home</Link>Hello from category
         </article>
-        <div className='bg-white shadow-md rounded-sm'>
-          <article> Hell from {id}</article>
+
+        <div className='flex gap-4 w-full '>
+          <article className='bg-white shadow-md rounded-sm p-[2rem]'>
+            {' '}
+            Hell from {id}
+          </article>
+
+          <address className='bg-white shadow-md rounded-sm p-[2rem]'>
+            hello from address
+          </address>
         </div>
       </section>
     </GeneralLayouts>

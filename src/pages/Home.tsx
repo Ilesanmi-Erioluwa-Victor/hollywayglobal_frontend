@@ -1,7 +1,4 @@
-import { useEffect, useState } from 'react';
-
 import { FaCheck, FaMoneyCheck, FaTruck, FaShoppingCart } from 'react-icons/fa';
-import useProducts from 'src/hooks/state/useProducts';
 
 import {
   Hero,
@@ -45,7 +42,6 @@ const remarks = [
 ];
 
 const Home = () => {
-  const product = useProducts();
 
   return (
     <GeneralLayouts>
@@ -65,7 +61,7 @@ const Home = () => {
           <h2 className='text-center text-[2rem] font-semibold mb-8'>
             HOW HOLLYWAYGLOBAL WORKS
           </h2>
-          <div className='grid grid-cols-[_repeat(_auto-fit,_minmax(200px,1fr))] gap-5'>
+          <div className='grid grid-cols-[_repeat(_auto-fit,_minmax(300px,1fr))] gap-5'>
             {remarks.map((writeUps) => (
               <div
                 key={writeUps.name}

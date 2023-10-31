@@ -49,7 +49,7 @@ const MenuNav = ({ user }: any): JSX.Element => {
         </Link>
       </div>
 
-      <form className='w-[80%] flex gap-2 items-center relative'>
+      <form className='w-[60%] flex gap-2 items-center relative'>
         <BiSearch className='absolute left-3 h-[5rem] w-[1.4rem]' />
         <input
           type='search'
